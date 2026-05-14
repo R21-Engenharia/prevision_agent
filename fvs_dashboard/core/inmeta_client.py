@@ -1,0 +1,85 @@
+"""
+core/inmeta_client.py
+=====================
+Client InMeta REST API — autenticacao JWT + coleta de inspecoes FVS.
+Baseado no codigo validado na Fase 5 (modulo=SERVICO confirmado).
+"""
+
+from __future__ import annotations
+import time
+import httpx
+
+
+class InMetaClient:
+    """
+    Client para a API InMeta.
+
+    Uso:
+        client = InMetaClient(base_url, email, senha)
+        insps  = client.fetch_inspections(alvo_id)
+    """
+
+    TOKEN_TTL = 3600  # segundos antes de renovar o JWT
+
+    def __init__(self, base_url: str, email: str, senha: str) -> None:
+        self.base_url  = base_url.rstrip("/")
+        self.email     = email
+        self.senha     = senha
+        self._token: str | None = None
+        self._token_ts: float = 0.0
+
+    # ── Autenticacao ─────────────────────────────────────────────────────────
+
+    def _ensure_token(self) -> None:
+        """Renova o JWT se expirado ou ausente."""
+        if self._token and (time.time() - self._token_ts) < self.TOKEN_TTL:
+            return
+        r = httpx.post(
+            f"{self.base_url}/api/v1/token",
+            json={"email": self.email, "senha": self.senha},
+            timeout=15,
+        )
+        r.raise_for_status()
+        self._token    = r.json()["content"]["token"]
+        self._token_ts = time.time()
+
+    @property
+    def _headers(self) -> dict[str, str]:
+        self._ensure_token()
+        return {"Authorization": f"Bearer {self._token}"}
+
+    # ── Endpoints ────────────────────────────────────────────────────────────
+
+    def fetch_inspections(self, alvo_id: str) -> list[dict]:
+        """
+        Retorna todas as inspecoes FVS atuais do alvo.
+        Usa modulo=SERVICO (descoberta Fase 5).
+        """
+        r = httpx.get(
+            f"{self.base_url}/api/v1/alvos/{alvo_id}/inspecoes/atuais",
+            headers=self._headers,
+            params={"modulo": "SERVICO"},
+            timeout=30,
+        )
+        r.raise_for_status()
+        data = r.json()
+        return data.get("content", []) if isinstance(data, dict) else data
+
+    def ping(self) -> bool:
+        """Verifica conectividade (sem autenticacao)."""
+        try:
+            r = httpx.get(f"{self.base_url}/api/ping", timeout=5)
+            return r.status_code == 200
+        except Exception:
+            return False
+
+    def whoami(self) -> dict:
+        """Retorna contexto do usuario autenticado."""
+        r = httpx.get(
+            f"{self.base_url}/api/context",
+            headers=self._headers,
+            params={"modulo": "SERVICO"},
+            timeout=10,
+        )
+        r.raise_for_status()
+        return r.json()

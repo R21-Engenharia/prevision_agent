@@ -1,0 +1,287 @@
+"""
+core/data_manager.py
+====================
+DataManager: orquestra carregamento de cache JSON, refresh de APIs e
+computa DataFrames prontos para exibicao no dashboard.
+"""
+
+from __future__ import annotations
+
+import json
+import os
+import datetime
+from pathlib import Path
+from typing import Any
+
+import pandas as pd
+
+from .business import (
+    build_inspection_index,
+    build_qa_index,
+    compute_kpis,
+    prepare_project,
+    short_floor,
+    STATUS_NAO_INICIADA,
+    STATUS_EM_ANDAMENTO,
+    STATUS_FINALIZADA,
+)
+from .inmeta_client import InMetaClient
+from .snapshot_manager import SnapshotManager
+
+# ── Raiz do projeto ───────────────────────────────────────────────────────────
+# fvs_dashboard/ esta dentro de prevision_agent/
+_DASHBOARD_DIR = Path(__file__).resolve().parent.parent   # fvs_dashboard/
+PROJECT_ROOT   = _DASHBOARD_DIR.parent                    # prevision_agent/
+DATA_RAW       = PROJECT_ROOT / "data" / "raw"
+
+# ── Configuracao das obras ────────────────────────────────────────────────────
+OBRAS: dict[str, dict[str, Any]] = {
+    "Cape Town Residence": {
+        "prevision_id": 10223,
+        "inmeta_id":    "670d181e19927c97d4f22713",
+        "jobs_cache":   DATA_RAW / "10223_jobs_raw.json",
+        "qa_cache":     DATA_RAW / "10223_qa_raw.json",
+        "insp_key":     "cape_town",
+    },
+    "Holmes Residence": {
+        "prevision_id": 18992,
+        "inmeta_id":    "670d2af985fc5d73377dd7b0",
+        "jobs_cache":   DATA_RAW / "18992_jobs_raw.json",
+        "qa_cache":     DATA_RAW / "18992_qa_raw.json",
+        "insp_key":     "holmes",
+    },
+}
+
+INSP_CACHE = DATA_RAW / "inmeta_inspections_raw.json"
+
+# ── Status labels ─────────────────────────────────────────────────────────────
+STATUS_LABEL = {
+    STATUS_FINALIZADA:   "Finalizada",
+    STATUS_EM_ANDAMENTO: "Em Andamento",
+    STATUS_NAO_INICIADA: "Nao Iniciada",
+}
+
+STATUS_ORDER = {STATUS_FINALIZADA: 0, STATUS_EM_ANDAMENTO: 1, STATUS_NAO_INICIADA: 2}
+
+
+class DataManager:
+    """
+    Gerencia todos os dados do dashboard.
+
+    Os metodos get_* usam cache interno (_cache) para evitar
+    releituras de disco dentro da mesma sessao Streamlit.
+    Use invalidate() para forccar releitura.
+    """
+
+    def __init__(self) -> None:
+        self._cache: dict[str, Any] = {}
+
+    # ── Internos: leitura de cache JSON ──────────────────────────────────────
+
+    def _load_json(self, path: Path) -> Any:
+        key = str(path)
+        if key not in self._cache:
+            with open(path, encoding="utf-8") as f:
+                self._cache[key] = json.load(f)
+        return self._cache[key]
+
+    def invalidate(self, path: Path | None = None) -> None:
+        """Invalida cache interno (forcca releitura do disco)."""
+        if path is None:
+            self._cache.clear()
+        else:
+            self._cache.pop(str(path), None)
+
+    # ── Idade do cache ────────────────────────────────────────────────────────
+
+    def cache_age(self, obra: str) -> dict[str, str]:
+        """Retorna idade dos arquivos de cache como string legivel."""
+        cfg = OBRAS[obra]
+
+        def _age(p: Path) -> str:
+            if not p.exists():
+                return "sem dados"
+            delta = datetime.datetime.now() - datetime.datetime.fromtimestamp(p.stat().st_mtime)
+            h = int(delta.total_seconds() // 3600)
+            m = int((delta.total_seconds() % 3600) // 60)
+            if h >= 24:
+                return f"ha {h // 24}d {h % 24}h"
+            if h >= 1:
+                return f"ha {h}h {m}min"
+            return f"ha {m}min"
+
+        return {
+            "prevision": _age(cfg["jobs_cache"]),
+            "inmeta":    _age(INSP_CACHE),
+        }
+
+    def cache_mtime(self, obra: str) -> dict[str, datetime.datetime | None]:
+        """Retorna datetime de modificacao dos caches."""
+        cfg = OBRAS[obra]
+        def _mt(p: Path):
+            return datetime.datetime.fromtimestamp(p.stat().st_mtime) if p.exists() else None
+        return {"prevision": _mt(cfg["jobs_cache"]), "inmeta": _mt(INSP_CACHE)}
+
+    # ── Carregamento de dados ─────────────────────────────────────────────────
+
+    def _get_activities(self, obra: str) -> list[dict]:
+        cfg  = OBRAS[obra]
+        data = self._load_json(cfg["jobs_cache"])
+        return data.get("activities_list", [])
+
+    def _get_qas(self, obra: str) -> list[dict]:
+        cfg  = OBRAS[obra]
+        data = self._load_json(cfg["qa_cache"])
+        return data.get("quality_associations", [])
+
+    def _get_inspections(self, obra: str) -> list[dict]:
+        if not INSP_CACHE.exists():
+            return []
+        data = self._load_json(INSP_CACHE)
+        key  = OBRAS[obra]["insp_key"]
+        return data.get(key, {}).get("inspections", [])
+
+    # ── DataFrame principal ───────────────────────────────────────────────────
+
+    def get_rows(self, obra: str) -> list[dict]:
+        """Retorna lista de linhas processadas (liberados x FVS status)."""
+        cache_key = f"rows_{obra}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+
+        acts  = self._get_activities(obra)
+        qas   = self._get_qas(obra)
+        insps = self._get_inspections(obra)
+
+        qa_idx   = build_qa_index(qas)
+        insp_idx = build_inspection_index(insps)
+        rows     = prepare_project(acts, qa_idx, insp_idx)
+
+        self._cache[cache_key] = rows
+        return rows
+
+    def get_df(self, obra: str) -> pd.DataFrame:
+        """Retorna DataFrame formatado para exibicao."""
+        cache_key = f"df_{obra}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+
+        rows = self.get_rows(obra)
+        if not rows:
+            return pd.DataFrame()
+
+        df = pd.DataFrame(rows)
+
+        # Formata colunas para exibicao
+        df["Pavimento"]    = df["floor"].apply(short_floor)
+        df["WBS"]          = df["wbs"]
+        df["CF%"]          = df["cf_pct"].apply(lambda x: f"{x:.0f}%")
+        df["Modelo FVS"]   = df["modelo"]
+        df["Local"]        = df["local"]
+        df["Status"]       = df["status"].map(STATUS_LABEL).fillna(df["status"])
+        df["% Exec"]       = df["pct_exec"].apply(lambda x: f"{x}%" if x is not None else "—")
+        df["NC"]           = df["nc"].apply(lambda x: str(x) if x else "")
+        df["Data Insp."]   = df["data_ins"]
+        df["Link InMeta"]  = df["link"]
+        df["_status_ord"]  = df["status"].map(STATUS_ORDER).fillna(9)
+
+        self._cache[cache_key] = df
+        return df
+
+    def get_kpis(self, obra: str) -> dict[str, Any]:
+        """Retorna KPIs da obra."""
+        cache_key = f"kpis_{obra}"
+        if cache_key in self._cache:
+            return self._cache[cache_key]
+        rows  = self.get_rows(obra)
+        acts  = self._get_activities(obra)
+        kpis  = compute_kpis(rows, acts)
+        self._cache[cache_key] = kpis
+        return kpis
+
+    def get_top_modelos(self, obra: str, n: int = 10) -> pd.DataFrame:
+        """Retorna top N modelos FVS com mais pendencias."""
+        df = self.get_df(obra)
+        if df.empty:
+            return pd.DataFrame()
+
+        grp = df.groupby("Modelo FVS").agg(
+            Total    = ("Status", "count"),
+            Finalizada   = ("status", lambda s: (s == STATUS_FINALIZADA).sum()),
+            Em_Andamento = ("status", lambda s: (s == STATUS_EM_ANDAMENTO).sum()),
+            Nao_Iniciada = ("status", lambda s: (s == STATUS_NAO_INICIADA).sum()),
+            NC       = ("nc", "sum"),
+        ).reset_index()
+        grp["Pendentes"] = grp["Em_Andamento"] + grp["Nao_Iniciada"]
+        return grp.sort_values("Pendentes", ascending=False).head(n)
+
+    # ── Refresh de dados ──────────────────────────────────────────────────────
+
+    # ── Snapshots historicos ──────────────────────────────────────────────────
+
+    def save_snapshot(self, obra: str) -> bool:
+        """
+        Salva snapshot do dia para a obra em Parquet.
+        Retorna True se salvou, False se ja existia snapshot hoje.
+        """
+        rows = self.get_rows(obra)
+        sm   = SnapshotManager()
+        if sm.has_today_snapshot(obra):
+            return False
+        result = sm.save_snapshot(obra, rows)
+        return result is not None
+
+    def save_all_snapshots(self) -> dict[str, bool]:
+        """Salva snapshot de todas as obras. Retorna {obra: salvou}."""
+        return {obra: self.save_snapshot(obra) for obra in OBRAS}
+
+    def load_history(self, obra: str) -> "pd.DataFrame":
+        """Carrega historico completo de snapshots para a obra."""
+        return SnapshotManager().load_history(obra)
+
+    def load_latest_snapshot(self, obra: str) -> "pd.DataFrame":
+        """Carrega apenas o snapshot mais recente."""
+        return SnapshotManager().load_latest_snapshot(obra)
+
+    def snapshot_info(self, obra: str) -> dict:
+        """Informacoes sobre os snapshots disponiveis."""
+        sm = SnapshotManager()
+        dates = sm.list_snapshot_dates(obra)
+        return {
+            "n_snapshots": len(dates),
+            "oldest":      dates[0].isoformat() if dates else None,
+            "latest":      dates[-1].isoformat() if dates else None,
+            "has_today":   sm.has_today_snapshot(obra),
+        }
+
+    # ── Refresh de dados ──────────────────────────────────────────────────────
+
+    def refresh_inmeta(self, obra: str, client: InMetaClient) -> None:
+        """
+        Atualiza inspecoes InMeta para TODAS as obras e salva o cache.
+        (O endpoint retorna tudo por alvo; atualizamos todos de uma vez.)
+        """
+        all_data: dict[str, Any] = {}
+        if INSP_CACHE.exists():
+            with open(INSP_CACHE, encoding="utf-8") as f:
+                all_data = json.load(f)
+
+        all_data["collected_at"] = datetime.datetime.now().isoformat()
+
+        for obra_name, cfg in OBRAS.items():
+            insps = client.fetch_inspections(cfg["inmeta_id"])
+            key   = cfg["insp_key"]
+            all_data[key] = {
+                "alvo_id":     cfg["inmeta_id"],
+                "inspections": insps,
+            }
+
+        with open(INSP_CACHE, "w", encoding="utf-8") as f:
+            json.dump(all_data, f, ensure_ascii=False)
+
+        # Invalida cache em memoria
+        self.invalidate(INSP_CACHE)
+        for obra_name in OBRAS:
+            self._cache.pop(f"rows_{obra_name}", None)
+            self._cache.pop(f"df_{obra_name}", None)
+            self._cache.pop(f"kpis_{obra_name}", None)

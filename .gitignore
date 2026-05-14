@@ -1,0 +1,51 @@
+# ── Credenciais e segredos ────────────────────────────────────────────────────
+.env
+.env.*
+secrets.toml
+.streamlit/secrets.toml
+
+# ── Cache de dados (grande / sensível) ────────────────────────────────────────
+data/raw/
+data/snapshots/
+data/exports/
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+env/
+ENV/
+.tox/
+
+# ── IDEs ──────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Executáveis e ferramentas locais ──────────────────────────────────────────
+ngrok.exe
+ngrok
+*.exe
+
+# ── Logs e temporários ────────────────────────────────────────────────────────
+*.log
+*.tmp
+.streamlit/stats/

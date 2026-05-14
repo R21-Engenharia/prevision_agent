@@ -1,0 +1,179 @@
+"""
+FVS Dashboard — Aplicacao Operacional de Qualidade
+====================================================
+Ponto de entrada principal.
+
+Executar:
+    streamlit run fvs_dashboard/app.py
+
+    (a partir da raiz de prevision_agent/)
+"""
+
+import sys
+from pathlib import Path
+
+# Garante que prevision_agent/ esta no path para imports relativos
+_ROOT = Path(__file__).resolve().parent.parent
+if str(_ROOT) not in sys.path:
+    sys.path.insert(0, str(_ROOT))
+
+import streamlit as st
+from dotenv import load_dotenv
+import os
+
+load_dotenv(_ROOT / ".env")
+
+# ── Suporte a st.secrets (Streamlit Cloud) + .env (local) ────────────────────
+def _secret(key: str, default: str = "") -> str:
+    """Lê de st.secrets (cloud) ou os.getenv (local) com fallback."""
+    try:
+        return st.secrets[key]
+    except Exception:
+        return os.getenv(key, default)
+
+from fvs_dashboard.core.data_manager import DataManager, OBRAS
+from fvs_dashboard.core.inmeta_client import InMetaClient
+
+# ── Configuracao da pagina ────────────────────────────────────────────────────
+st.set_page_config(
+    page_title="FVS Dashboard — R21",
+    page_icon="🏗️",
+    layout="wide",
+    initial_sidebar_state="expanded",
+)
+
+# ── CSS global ────────────────────────────────────────────────────────────────
+st.markdown("""
+<style>
+    /* Sidebar */
+    [data-testid="stSidebar"] { min-width: 260px; max-width: 260px; }
+    [data-testid="stSidebar"] > div:first-child { background: #1a2744; }
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] .stMarkdown,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span { color: #e8eaf0 !important; }
+    [data-testid="stSidebar"] .stSelectbox label { color: #a0b0d0 !important; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Topo */
+    .block-container { padding-top: 1rem; padding-bottom: 1rem; }
+
+    /* Metrics — cards com borda */
+    [data-testid="stMetric"] {
+        background: #ffffff;
+        border: 1px solid #e0e6f0;
+        border-radius: 10px;
+        padding: 14px 18px;
+        box-shadow: 0 1px 4px rgba(47,85,151,0.07);
+    }
+    [data-testid="stMetricLabel"] { font-size: 12px; font-weight: 600; color: #6b7fa3; text-transform: uppercase; letter-spacing: 0.4px; }
+    [data-testid="stMetricValue"] { font-size: 28px; font-weight: 700; color: #1a2744; }
+
+    /* Secoes */
+    h3 { color: #2F5597 !important; font-size: 15px !important; font-weight: 700 !important; margin-top: 1.2rem !important; }
+    h1 { color: #1a2744 !important; }
+
+    /* Badges de status */
+    .badge-fin  { background:#E2EFDA; color:#375623; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }
+    .badge-and  { background:#FFEB9C; color:#7F6000; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }
+    .badge-nao  { background:#FFC7CE; color:#C00000; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }
+
+    /* Dividers */
+    hr { border: none; border-top: 1px solid #e8edf5; margin: 0.6rem 0; }
+
+    /* Tabelas */
+    .stDataFrame { border-radius: 8px; overflow: hidden; }
+</style>
+""", unsafe_allow_html=True)
+
+# ── Session state ─────────────────────────────────────────────────────────────
+# Recria DataManager se nao existir OU se for versao antiga (sem snapshot_info)
+if "dm" not in st.session_state or not hasattr(st.session_state.dm, "snapshot_info"):
+    st.session_state.dm = DataManager()
+    st.session_state.snapshots_initialized = False  # forcca re-inicializacao
+if "obra" not in st.session_state:
+    st.session_state.obra = list(OBRAS.keys())[0]
+if "snapshots_initialized" not in st.session_state:
+    st.session_state.snapshots_initialized = False
+
+dm: DataManager = st.session_state.dm
+
+# ── Snapshot inicial automatico (retroativo com data de hoje) ─────────────────
+if not st.session_state.snapshots_initialized:
+    try:
+        for _obra_name in OBRAS:
+            dm.save_snapshot(_obra_name)  # no-op se ja existe hoje
+        st.session_state.snapshots_initialized = True
+    except Exception:
+        st.session_state.snapshots_initialized = True  # nao travar o app
+
+# ── Sidebar ───────────────────────────────────────────────────────────────────
+with st.sidebar:
+    st.markdown("## 🏗️ FVS Dashboard")
+    st.markdown("**R21 Empreendimentos**")
+    st.divider()
+
+    # Selecao de obra
+    obra = st.selectbox(
+        "**OBRA**",
+        options=list(OBRAS.keys()),
+        index=list(OBRAS.keys()).index(st.session_state.obra),
+        key="obra_select",
+    )
+    if obra != st.session_state.obra:
+        st.session_state.obra = obra
+
+    st.divider()
+
+    # Idade dos caches
+    ages = dm.cache_age(obra)
+    st.caption(f"Prevision: **{ages['prevision']}**")
+    st.caption(f"InMeta:    **{ages['inmeta']}**")
+    st.markdown("")
+
+    # Info de snapshots
+    snap_info = dm.snapshot_info(obra)
+    if snap_info["n_snapshots"] > 0:
+        st.caption(f"Snapshots: **{snap_info['n_snapshots']}** dias  |  Desde {snap_info['oldest']}")
+    else:
+        st.caption("Snapshots: aguardando primeiro registro")
+    st.markdown("")
+
+    # Botao: Atualizar InMeta (rapido)
+    if st.button("🔄 Atualizar InMeta", use_container_width=True, type="primary"):
+        with st.spinner("Conectando ao InMeta..."):
+            try:
+                client = InMetaClient(
+                    base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
+                    email=_secret("INMETA_EMAIL"),
+                    senha=_secret("INMETA_SENHA"),
+                )
+                dm.refresh_inmeta(obra, client)
+                # Salva snapshot apos atualizar (max 1 por dia)
+                for _obra_name in OBRAS:
+                    dm.save_snapshot(_obra_name)
+                st.success("Dados atualizados e snapshot salvo!")
+                st.rerun()
+            except Exception as e:
+                st.error(f"Erro: {e}")
+
+    # Botao: Atualizar Prevision (lento)
+    with st.expander("Atualizar Prevision (lento)"):
+        st.warning("Coleta completa leva ~20 minutos.", icon="⏱️")
+        confirma = st.checkbox("Confirmo que quero atualizar o Prevision")
+        if st.button("🔄 Iniciar coleta Prevision", disabled=not confirma, use_container_width=True):
+            st.info("Funcionalidade disponivel via linha de comando:\n`python collectors/operational_collector.py`")
+
+    st.divider()
+    st.caption("Fase 6 — MVP Operacional")
+    st.caption("Prevision + InMeta")
+
+# ── Navegacao por paginas ─────────────────────────────────────────────────────
+pg = st.navigation([
+    st.Page("pages/1_Visao_Geral.py",              title="Visao Geral",           icon="📊"),
+    st.Page("pages/2_Backlog_FVS.py",              title="Backlog FVS",           icon="📋"),
+    st.Page("pages/3_Pendentes.py",                title="Pendentes",             icon="🔴"),
+    st.Page("pages/4_Exportar.py",                 title="Exportar",              icon="⬇️"),
+    st.Page("pages/5_Auditoria_Gerencial.py",       title="Auditoria Gerencial",    icon="📈"),
+], position="sidebar")
+
+pg.run()
