@@ -291,15 +291,15 @@ st.markdown('<div class="section-title">Evolucao Temporal</div>', unsafe_allow_h
 col_evol, col_pizza = st.columns([3, 2])
 
 with col_evol:
-    if mi_filtrado.empty:
+    if mi_periodo.empty:
         st.info("Sem dados de inspecoes para o periodo.")
     else:
-        months = sorted(mi_filtrado["date_month"].unique())
+        months = sorted(mi_periodo["date_month"].unique())
         fin_vals  = []
         em_vals   = []
         nc_vals   = []
         for m in months:
-            row = mi_filtrado[mi_filtrado["date_month"] == m]
+            row = mi_periodo[mi_periodo["date_month"] == m]
             fin_vals.append(int(row["finalizada"].sum()))
             em_vals.append(int(row["em_andamento"].sum()))
             nc_vals.append(int(row["nc_total"].sum()))
@@ -369,11 +369,11 @@ with col_pizza:
 # ── Barras empilhadas por mes ─────────────────────────────────────────────────
 st.markdown('<div class="section-title">Composicao Mensal por Status</div>', unsafe_allow_html=True)
 
-if not mi_filtrado.empty:
-    months = sorted(mi_filtrado["date_month"].unique())
+if not mi_periodo.empty:
+    months = sorted(mi_periodo["date_month"].unique())
     month_labels = [m.strftime("%b/%y") for m in months]
-    fin_v  = [int(mi_filtrado[mi_filtrado["date_month"] == m]["finalizada"].sum()) for m in months]
-    em_v   = [int(mi_filtrado[mi_filtrado["date_month"] == m]["em_andamento"].sum()) for m in months]
+    fin_v  = [int(mi_periodo[mi_periodo["date_month"] == m]["finalizada"].sum()) for m in months]
+    em_v   = [int(mi_periodo[mi_periodo["date_month"] == m]["em_andamento"].sum()) for m in months]
 
     fig_bar = go.Figure()
     fig_bar.add_trace(go.Bar(name="Finalizada",   x=month_labels, y=fin_v,
@@ -395,12 +395,12 @@ col_nc, col_comp = st.columns(2)
 
 with col_nc:
     st.markdown('<div class="section-title">Nao-Conformidades</div>', unsafe_allow_html=True)
-    if not mi_filtrado.empty:
-        months = sorted(mi_filtrado["date_month"].unique())
+    if not mi_periodo.empty:
+        months = sorted(mi_periodo["date_month"].unique())
         month_labels = [m.strftime("%b/%y") for m in months]
-        nc_tot_v  = [int(mi_filtrado[mi_filtrado["date_month"] == m]["nc_total"].sum()) for m in months]
-        nc_pend_v = [int(mi_filtrado[mi_filtrado["date_month"] == m]["nc_pendentes"].sum()) for m in months]
-        nc_trat_v = [int(mi_filtrado[mi_filtrado["date_month"] == m]["nc_tratadas"].sum()) for m in months]
+        nc_tot_v  = [int(mi_periodo[mi_periodo["date_month"] == m]["nc_total"].sum()) for m in months]
+        nc_pend_v = [int(mi_periodo[mi_periodo["date_month"] == m]["nc_pendentes"].sum()) for m in months]
+        nc_trat_v = [int(mi_periodo[mi_periodo["date_month"] == m]["nc_tratadas"].sum()) for m in months]
 
         fig_nc = go.Figure()
         fig_nc.add_trace(go.Scatter(
@@ -588,8 +588,8 @@ else:
 
 # ── Tabela Mensal (Excel view) ────────────────────────────────────────────────
 with st.expander("📊 Tabela Mensal Detalhada", expanded=False):
-    if not mi_filtrado.empty:
-        pivot = mi_filtrado.pivot_table(
+    if not mi_periodo.empty:
+        pivot = mi_periodo.pivot_table(
             index="obra",
             columns="date_month",
             values=["finalizada", "em_andamento", "nc_total", "nc_pendentes"],
@@ -612,7 +612,7 @@ with col_pdf:
         from fvs_dashboard.core.audit_exporter import export_audit_pdf
         with st.spinner("Gerando PDF executivo com graficos..."):
             pdf_bytes = export_audit_pdf(
-                monthly_insp=mi_filtrado,
+                monthly_insp=mi_periodo,
                 kpis=kpis,
                 obra=obra_sel,
                 periodo_label=periodo_label,
@@ -639,7 +639,7 @@ with col_xl:
         from fvs_dashboard.core.audit_exporter import export_audit_excel
         with st.spinner("Gerando Excel..."):
             xl_bytes = export_audit_excel(
-                monthly_insp=mi_filtrado,
+                monthly_insp=mi_periodo,
                 kpis=kpis,
                 obra=obra_sel,
                 periodo_label=periodo_label,
