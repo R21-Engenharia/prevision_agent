@@ -208,13 +208,7 @@ with st.sidebar:
                 font-weight: 700;
                 color: #8aa4cc;
                 letter-spacing: 1px;
-            ">Elrik Oliveira</div>
-            <div style="
-                font-size: 9px;
-                color: #3d5270;
-                letter-spacing: 1.5px;
-                margin-top: 2px;
-            ">Planejamento · R21</div>
+            ">Elrik</div>
         </div>
         """,
         unsafe_allow_html=True,
