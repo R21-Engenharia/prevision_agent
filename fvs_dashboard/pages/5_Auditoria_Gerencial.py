@@ -199,12 +199,17 @@ else:
     hist_snap = pd.concat([hist_ct, hist_hm], ignore_index=True) if not hist_ct.empty else hist_hm
 
 mi_filtrado = mi_all.copy()
-if obra_filter:
+if obra_filter and not mi_filtrado.empty:
     mi_filtrado = mi_filtrado[mi_filtrado["obra"] == obra_filter]
-mi_periodo = mi_filtrado[
-    (mi_filtrado["date_month"] >= date_start) &
-    (mi_filtrado["date_month"] <= date_end)
-]
+
+# Guarda contra DataFrame vazio (sem colunas)
+if mi_filtrado.empty or "date_month" not in mi_filtrado.columns:
+    mi_periodo = pd.DataFrame()
+else:
+    mi_periodo = mi_filtrado[
+        (mi_filtrado["date_month"] >= date_start) &
+        (mi_filtrado["date_month"] <= date_end)
+    ]
 
 # Latest snapshot para KPIs de estado atual
 if hist_snap.empty:
