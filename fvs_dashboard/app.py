@@ -188,6 +188,39 @@ with st.sidebar:
     st.caption("Fase 6 — MVP Operacional")
     st.caption("Prevision + InMeta")
 
+    # ── Logo do designer (rodape da sidebar) ─────────────────────────────────
+    _LOGO_PATH = Path(__file__).parent / "assets" / "logo_designer.png"
+    st.markdown("<div style='flex:1'></div>", unsafe_allow_html=True)
+    st.markdown("")
+    if _LOGO_PATH.exists():
+        import base64
+        _logo_b64 = base64.b64encode(_LOGO_PATH.read_bytes()).decode()
+        st.markdown(
+            f"""
+            <div style="
+                text-align: center;
+                padding: 12px 0 6px 0;
+                opacity: 0.75;
+            ">
+                <div style="
+                    font-size: 9px;
+                    color: #8899bb;
+                    text-transform: uppercase;
+                    letter-spacing: 1.5px;
+                    margin-bottom: 7px;
+                    font-weight: 600;
+                ">Desenvolvido por</div>
+                <img src="data:image/png;base64,{_logo_b64}"
+                     style="width: 64px; height: 64px;
+                            object-fit: contain;
+                            border-radius: 8px;
+                            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.4));"
+                />
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
 # ── Navegacao por paginas ─────────────────────────────────────────────────────
 pg = st.navigation([
     st.Page("pages/1_Visao_Geral.py",              title="Visao Geral",           icon="📊"),
