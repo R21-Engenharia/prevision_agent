@@ -54,6 +54,9 @@ OBRAS: dict[str, dict[str, Any]] = {
 
 INSP_CACHE = DATA_RAW / "inmeta_inspections_raw.json"
 
+# Garante que o diretorio de cache existe (necessario no Streamlit Cloud)
+DATA_RAW.mkdir(parents=True, exist_ok=True)
+
 # ── Status labels ─────────────────────────────────────────────────────────────
 STATUS_LABEL = {
     STATUS_FINALIZADA:   "Finalizada",
@@ -125,12 +128,16 @@ class DataManager:
     # ── Carregamento de dados ─────────────────────────────────────────────────
 
     def _get_activities(self, obra: str) -> list[dict]:
-        cfg  = OBRAS[obra]
+        cfg = OBRAS[obra]
+        if not cfg["jobs_cache"].exists():
+            return []
         data = self._load_json(cfg["jobs_cache"])
         return data.get("activities_list", [])
 
     def _get_qas(self, obra: str) -> list[dict]:
-        cfg  = OBRAS[obra]
+        cfg = OBRAS[obra]
+        if not cfg["qa_cache"].exists():
+            return []
         data = self._load_json(cfg["qa_cache"])
         return data.get("quality_associations", [])
 
