@@ -4,10 +4,11 @@
 secrets.toml
 .streamlit/secrets.toml
 
-# ── Cache de dados (grande / sensível) ────────────────────────────────────────
-data/raw/
+# ── Cache de dados ────────────────────────────────────────────────────────────
+# Snapshots diários e exports excluídos (grandes / regeneráveis)
 data/snapshots/
 data/exports/
+# data/raw/ incluído no git para Streamlit Cloud funcionar sem coleta
 
 # ── Python ────────────────────────────────────────────────────────────────────
 __pycache__/

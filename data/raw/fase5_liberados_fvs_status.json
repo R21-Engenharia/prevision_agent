@@ -1,0 +1,3473 @@
+{
+  "cape_town": [
+    {
+      "act_id": "26074288",
+      "wbs": "42.135",
+      "floor": "02º PV - EST. PÚBLICO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 14.04.04 - Pintura dos Pisos das Garagens - 1ª Etapa | Torre única - Estacio",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "26074289",
+      "wbs": "40.135",
+      "floor": "04º PV - G3",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 14.04.04 - Pintura dos Pisos das Garagens - 1ª Etapa | Torre única - G3 - Ár",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11729719",
+      "wbs": "39.79",
+      "floor": "05º PV - G4 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 3,
+      "n_com_insp": 3,
+      "fvs": [
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - G4 + Lazer - Ambiente",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 81,
+          "nc": 0,
+          "data": "2026-03-11"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - G4 + Lazer - Ambiente",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 0,
+          "data": "2026-03-11"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - G4 + Lazer - Ambiente",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 48,
+          "nc": 0,
+          "data": "2026-03-11"
+        }
+      ]
+    },
+    {
+      "act_id": "12779158",
+      "wbs": "39.37",
+      "floor": "05º PV - G4 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 8,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - G4 + La",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "26891094",
+      "wbs": "39.83",
+      "floor": "05º PV - G4 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Torre única - G4 + Lazer - Ambientes Comuns",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11729718",
+      "wbs": "38.79",
+      "floor": "06º PV - TIPO DIF. 01 | LAZER",
+      "cf_pct": 70.0,
+      "n_fvs": 6,
+      "n_com_insp": 6,
+      "fvs": [
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 06º Diferenciado 1 + ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-08-26"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 06º Diferenciado 1 + ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-08-26"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 06º Diferenciado 1 + ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2025-08-26"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 06º Diferenciado 1 + ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-08-26"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 06º Diferenciado 1 + ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-08-26"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 06º Diferenciado 1 + ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 0,
+          "data": "2026-03-11"
+        }
+      ]
+    },
+    {
+      "act_id": "11730582",
+      "wbs": "38.27",
+      "floor": "06º PV - TIPO DIF. 01 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.01 - Execução dos Shafts Apartamentos | Torre única - 06º Diferenciado",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-05"
+        }
+      ]
+    },
+    {
+      "act_id": "12751650",
+      "wbs": "38.87",
+      "floor": "06º PV - TIPO DIF. 01 | LAZER",
+      "cf_pct": 90.0,
+      "n_fvs": 11,
+      "n_com_insp": 11,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 65,
+          "nc": 2,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-02-23"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Torre única - 06º Diferenciado 1 ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-24"
+        }
+      ]
+    },
+    {
+      "act_id": "26623730",
+      "wbs": "38.141",
+      "floor": "06º PV - TIPO DIF. 01 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 15.01.03 - Instalação de Contramarco das Portas de Alumínio | Torre única - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "26891095",
+      "wbs": "38.83",
+      "floor": "06º PV - TIPO DIF. 01 | LAZER",
+      "cf_pct": 50.0,
+      "n_fvs": 4,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Torre única - 06º Diferenciado 1 + Lazer - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Torre única - 06º Diferenciado 1 + Lazer - ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-06"
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Torre única - 06º Diferenciado 1 + Lazer - ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-06"
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Torre única - 06º Diferenciado 1 + Lazer - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29574768",
+      "wbs": "38.26",
+      "floor": "06º PV - TIPO DIF. 01 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 06º Dife",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "act_id": "11729717",
+      "wbs": "37.79",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 07º Pavimento diferen",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-08-27"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Torre única - 07º Pavimento diferen",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 1,
+          "data": "2026-03-13"
+        }
+      ]
+    },
+    {
+      "act_id": "11730581",
+      "wbs": "37.27",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 50.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.01 - Execução dos Shafts Apartamentos | Torre única - 07º Pavimento di",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-05"
+        }
+      ]
+    },
+    {
+      "act_id": "11730603",
+      "wbs": "37.89",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 07º Pavimento diferenciado 2 - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 07º Pavimento diferenciado 2 - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11730679",
+      "wbs": "37.98",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 0.0,
+      "n_fvs": 3,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.03.02 - Contrapiso Hall e Antecâmara | Torre única - 07º Pavimento difere",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 07º Pavimento diferenciado 2 - Apartam",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 0,
+          "data": "2026-05-05"
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 07º Pavimento diferenciado 2 - Apartam",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 59,
+          "nc": 0,
+          "data": "2026-05-05"
+        }
+      ]
+    },
+    {
+      "act_id": "29574769",
+      "wbs": "37.26",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 07º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 99,
+          "nc": 0,
+          "data": "2026-05-11"
+        }
+      ]
+    },
+    {
+      "act_id": "31662400",
+      "wbs": "37.69",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 06.06.02 - Instalações Preventivo - Ventilação Permanente | Torre única - 07",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 06.06.02 - Instalações Preventivo - Ventilação Permanente | Torre única - 07",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "33119479",
+      "wbs": "37.36",
+      "floor": "07º PV - TIPO DIF. 02",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.02 - Execução de Instalação Elétrica - Hall e Antecâmara | Torre única",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11714013",
+      "wbs": "36.89",
+      "floor": "08º PV - TIPO DIF. 03",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 08º Pavimento diferenciado 3 - Apa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 5,
+          "data": "2026-04-06"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 08º Pavimento diferenciado 3 - Apa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 75,
+          "nc": 3,
+          "data": "2026-04-06"
+        }
+      ]
+    },
+    {
+      "act_id": "11714049",
+      "wbs": "36.98",
+      "floor": "08º PV - TIPO DIF. 03",
+      "cf_pct": 70.0,
+      "n_fvs": 3,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.03.02 - Contrapiso Hall e Antecâmara | Torre única - 08º Pavimento difere",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 08º Pavimento diferenciado 3 - Apartam",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-23"
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 08º Pavimento diferenciado 3 - Apartam",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-23"
+        }
+      ]
+    },
+    {
+      "act_id": "31662401",
+      "wbs": "36.69",
+      "floor": "08º PV - TIPO DIF. 03",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 06.06.02 - Instalações Preventivo - Ventilação Permanente | Torre única - 08",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 06.06.02 - Instalações Preventivo - Ventilação Permanente | Torre única - 08",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "33177671",
+      "wbs": "36.91",
+      "floor": "08º PV - TIPO DIF. 03",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.06 - Execução Reboco Interno - Hall e Antecâmara | Torre única - 08º P",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "12751004",
+      "wbs": "35.131",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 4,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 14.01.01 - Execução de Pintura Interna - Preparo Superfície e 1ª Etapa | Tor",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 14.01.01 - Execução de Pintura Interna - Preparo Superfície e 1ª Etapa | Tor",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 14.01.01 - Execução de Pintura Interna - Preparo Superfície e 1ª Etapa | Tor",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 14.04.02 - Execução da Pintura das Antecâmaras ( VAZIO ) | Torre única - 09º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30111528",
+      "wbs": "34.89",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 10º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 3,
+          "data": "2025-11-20"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 10º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2025-11-19"
+        }
+      ]
+    },
+    {
+      "act_id": "30111529",
+      "wbs": "33.89",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 11º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-02-19"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 11º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 2,
+          "data": "2026-02-19"
+        }
+      ]
+    },
+    {
+      "act_id": "11714053",
+      "wbs": "32.98",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 70.0,
+      "n_fvs": 3,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.03.02 - Contrapiso Hall e Antecâmara | Torre única - 12º Pavimento tipo",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 12º Pavimento tipo - Apartamento 1201",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-02-23"
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 12º Pavimento tipo - Apartamento 1202",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-02-23"
+        }
+      ]
+    },
+    {
+      "act_id": "30111530",
+      "wbs": "32.89",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 12º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 2,
+          "data": "2026-02-19"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 12º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-02-19"
+        }
+      ]
+    },
+    {
+      "act_id": "11714054",
+      "wbs": "31.98",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 3,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 09.03.02 - Contrapiso Hall e Antecâmara | Torre única - 13º Pavimento tipo",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 13º Pavimento tipo - Apartamento 1301",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.03.01 - Contrapiso | Torre única - 13º Pavimento tipo - Apartamento 1302",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30111531",
+      "wbs": "31.89",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 13º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 4,
+          "data": "2026-01-15"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 13º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-02-19"
+        }
+      ]
+    },
+    {
+      "act_id": "30773469",
+      "wbs": "31.97",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 0,
+      "n_com_insp": 0,
+      "fvs": []
+    },
+    {
+      "act_id": "36662380",
+      "wbs": "31.125",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 12.01.02 - Forro de Gesso do Hall | Torre única - 13º Pavimento tipo - Hall ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30111532",
+      "wbs": "30.89",
+      "floor": "14º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 14º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 4,
+          "data": "2026-01-29"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 14º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 3,
+          "data": "2026-01-29"
+        }
+      ]
+    },
+    {
+      "act_id": "37004306",
+      "wbs": "30.88",
+      "floor": "14º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.04 - Execução de Nichos | Torre única - 14º Pavimento tipo - Apartamen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 55,
+          "nc": 2,
+          "data": "2026-04-01"
+        },
+        {
+          "ref": "FVS 09.01.04 - Execução de Nichos | Torre única - 14º Pavimento tipo - Apartamen",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 1,
+          "data": "2026-04-01"
+        }
+      ]
+    },
+    {
+      "act_id": "30111533",
+      "wbs": "29.89",
+      "floor": "15º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 15º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 75,
+          "nc": 4,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 15º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 75,
+          "nc": 4,
+          "data": "2026-02-18"
+        }
+      ]
+    },
+    {
+      "act_id": "37004307",
+      "wbs": "29.88",
+      "floor": "15º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.04 - Execução de Nichos | Torre única - 15º Pavimento tipo - Apartamen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-04-01"
+        },
+        {
+          "ref": "FVS 09.01.04 - Execução de Nichos | Torre única - 15º Pavimento tipo - Apartamen",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11714126",
+      "wbs": "28.40",
+      "floor": "16º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Torre única - 16º Pa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Torre única - 16º Pa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30111534",
+      "wbs": "28.89",
+      "floor": "16º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 16º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 2,
+          "data": "2026-05-05"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 16º Pavimento tipo - Apartamento 1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 60,
+          "nc": 2,
+          "data": "2026-04-16"
+        }
+      ]
+    },
+    {
+      "act_id": "33177679",
+      "wbs": "28.91",
+      "floor": "16º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.06 - Execução Reboco Interno - Hall e Antecâmara | Torre única - 16º P",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30111535",
+      "wbs": "27.89",
+      "floor": "17º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 17º Pavimento tipo - Apartamento 1",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Torre única - 17º Pavimento tipo - Apartamento 1",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "33177680",
+      "wbs": "27.91",
+      "floor": "17º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.06 - Execução Reboco Interno - Hall e Antecâmara | Torre única - 17º P",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11713787",
+      "wbs": "24.53",
+      "floor": "20º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.01 - Execução de Instalação Hidrossanitária - Tubulação | Torre única ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 30,
+          "nc": 0,
+          "data": "2025-10-31"
+        },
+        {
+          "ref": "FVS 05.01.01 - Execução de Instalação Hidrossanitária - Tubulação | Torre única ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 2,
+          "data": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "act_id": "11713854",
+      "wbs": "24.37",
+      "floor": "20º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 20º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 2,
+          "data": "2026-01-19"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 20º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-31"
+        }
+      ]
+    },
+    {
+      "act_id": "11714097",
+      "wbs": "24.75",
+      "floor": "20º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 20º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 0,
+          "data": "2026-04-20"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 20º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-04-20"
+        }
+      ]
+    },
+    {
+      "act_id": "29754380",
+      "wbs": "24.51",
+      "floor": "20º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 20º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30517780",
+      "wbs": "24.84",
+      "floor": "20º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Torre única - 20º Pavimento tip",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-28"
+        },
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Torre única - 20º Pavimento tip",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-28"
+        }
+      ]
+    },
+    {
+      "act_id": "11713788",
+      "wbs": "23.53",
+      "floor": "21º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.01 - Execução de Instalação Hidrossanitária - Tubulação | Torre única ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 65,
+          "nc": 2,
+          "data": "2026-04-27"
+        },
+        {
+          "ref": "FVS 05.01.01 - Execução de Instalação Hidrossanitária - Tubulação | Torre única ",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 65,
+          "nc": 2,
+          "data": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "act_id": "11713855",
+      "wbs": "23.37",
+      "floor": "21º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 21º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2025-10-30"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 21º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2025-10-30"
+        }
+      ]
+    },
+    {
+      "act_id": "11714098",
+      "wbs": "23.75",
+      "floor": "21º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 21º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 21º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "act_id": "29408077",
+      "wbs": "23.26",
+      "floor": "21º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 21º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-04-30"
+        }
+      ]
+    },
+    {
+      "act_id": "29754381",
+      "wbs": "23.51",
+      "floor": "21º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 21º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "31662414",
+      "wbs": "23.69",
+      "floor": "21º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 06.06.02 - Instalações Preventivo - Ventilação Permanente | Torre única - 21",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 06.06.02 - Instalações Preventivo - Ventilação Permanente | Torre única - 21",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11713856",
+      "wbs": "22.37",
+      "floor": "22º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 22º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2025-10-30"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 22º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2025-10-30"
+        }
+      ]
+    },
+    {
+      "act_id": "11714099",
+      "wbs": "22.75",
+      "floor": "22º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 22º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 22º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "act_id": "29407865",
+      "wbs": "22.27",
+      "floor": "22º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.01 - Execução dos Shafts Apartamentos | Torre única - 22º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 79,
+          "nc": 0,
+          "data": "2026-04-24"
+        }
+      ]
+    },
+    {
+      "act_id": "29408078",
+      "wbs": "22.26",
+      "floor": "22º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 22º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-04-30"
+        }
+      ]
+    },
+    {
+      "act_id": "29754382",
+      "wbs": "22.51",
+      "floor": "22º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 22º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11713857",
+      "wbs": "21.37",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 23º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-03-31"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 23º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 3,
+          "data": "2026-01-19"
+        }
+      ]
+    },
+    {
+      "act_id": "11714100",
+      "wbs": "21.75",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 23º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 23º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "act_id": "29407774",
+      "wbs": "21.30",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Torre única - 23º Pavimento",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-16"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Torre única - 23º Pavimento",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29407837",
+      "wbs": "21.28",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.03 - Encunhamento | Torre única - 23º Pavimento tipo",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29408079",
+      "wbs": "21.26",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 23º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 0,
+          "data": "2026-04-30"
+        }
+      ]
+    },
+    {
+      "act_id": "29754383",
+      "wbs": "21.51",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 23º",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-04-30"
+        }
+      ]
+    },
+    {
+      "act_id": "30555858",
+      "wbs": "21.39",
+      "floor": "23º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 3,
+      "n_com_insp": 3,
+      "fvs": [
+        {
+          "ref": "FVS 06.06.01 - Instalações Preventivo - Cabeamento do Detector de Fumaça | Torre",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-07"
+        },
+        {
+          "ref": "FVS 06.06.01 - Instalações Preventivo - Cabeamento do Detector de Fumaça | Torre",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-07"
+        },
+        {
+          "ref": "FVS 06.06.01 - Instalações Preventivo - Cabeamento do Detector de Fumaça | Torre",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-15"
+        }
+      ]
+    },
+    {
+      "act_id": "11713858",
+      "wbs": "20.37",
+      "floor": "24º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 24º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 3,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 24º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-03-31"
+        }
+      ]
+    },
+    {
+      "act_id": "11714101",
+      "wbs": "20.75",
+      "floor": "24º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 24º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 24º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "act_id": "29408080",
+      "wbs": "20.26",
+      "floor": "24º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 24º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 0,
+          "data": "2026-04-30"
+        }
+      ]
+    },
+    {
+      "act_id": "29754384",
+      "wbs": "20.51",
+      "floor": "24º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 24º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11713859",
+      "wbs": "19.37",
+      "floor": "25º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 25º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 2,
+          "data": "2026-03-27"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 25º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 2,
+          "data": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "act_id": "11714102",
+      "wbs": "19.75",
+      "floor": "25º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 25º Pavimen",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Torre única - 25º Pavimen",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29408081",
+      "wbs": "19.26",
+      "floor": "25º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 25º Pavi",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29754385",
+      "wbs": "19.51",
+      "floor": "25º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 25º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11713860",
+      "wbs": "18.37",
+      "floor": "26º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 26º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 75,
+          "nc": 4,
+          "data": "2026-03-27"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 26º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 2,
+          "data": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "act_id": "28835899",
+      "wbs": "18.21",
+      "floor": "26º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 26º Pavimento ti",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 2,
+          "data": "2026-01-13"
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 26º Pavimento ti",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-01-13"
+        }
+      ]
+    },
+    {
+      "act_id": "29408082",
+      "wbs": "18.26",
+      "floor": "26º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.03.02 - Execução Alvenaria Parede Técnica - Hall | Torre única - 26º Pavi",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29754386",
+      "wbs": "18.51",
+      "floor": "26º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 26º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "11713861",
+      "wbs": "17.37",
+      "floor": "27º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 27º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 5,
+          "data": "2026-04-24"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 27º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 1,
+          "data": "2026-04-24"
+        }
+      ]
+    },
+    {
+      "act_id": "11713862",
+      "wbs": "16.37",
+      "floor": "28º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 28º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 60,
+          "nc": 6,
+          "data": "2026-04-24"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Torre única - 28º Pav",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 10,
+          "nc": 0,
+          "data": "2026-04-24"
+        }
+      ]
+    },
+    {
+      "act_id": "29754388",
+      "wbs": "16.51",
+      "floor": "28º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 28º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29754389",
+      "wbs": "15.51",
+      "floor": "29º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 29º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "28835903",
+      "wbs": "14.21",
+      "floor": "30º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 30º Pavimento ti",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 30º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 65,
+          "nc": 2,
+          "data": "2026-02-12"
+        }
+      ]
+    },
+    {
+      "act_id": "29754390",
+      "wbs": "14.51",
+      "floor": "30º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 30º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "12748795",
+      "wbs": "13.61",
+      "floor": "31º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 06.02.01 - Instalações Preventivo - SHP | Torre única - 31º Pavimento tipo",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "28835746",
+      "wbs": "13.22",
+      "floor": "31º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.02 - Execução Alvenaria Ext. Cerâmica | Torre única - 31º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 2,
+          "data": "2026-05-06"
+        },
+        {
+          "ref": "FVS 03.01.02 - Execução Alvenaria Ext. Cerâmica | Torre única - 31º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 75,
+          "nc": 2,
+          "data": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "act_id": "28835904",
+      "wbs": "13.21",
+      "floor": "31º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 31º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 3,
+          "data": "2026-05-06"
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 31º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 1,
+          "data": "2026-05-06"
+        }
+      ]
+    },
+    {
+      "act_id": "29754391",
+      "wbs": "13.51",
+      "floor": "31º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.02 - Execução de Instalação Hidrossanitária - Hall | Torre única - 31º",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "30426805",
+      "wbs": "12.21",
+      "floor": "32º PV - TIPO DIF. 04 | LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 32º Pavimento di",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - 32º Pavimento di",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-04-27"
+        }
+      ]
+    },
+    {
+      "act_id": "12767088",
+      "wbs": "11.61",
+      "floor": "CMQ1 | PLATIBANDA",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 06.02.01 - Instalações Preventivo - SHP | Torre única - Casa de máquinas 01",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "28953171",
+      "wbs": "11.22",
+      "floor": "CMQ1 | PLATIBANDA",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.02 - Execução Alvenaria Ext. Cerâmica | Torre única - Casa de máquinas",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 0,
+          "data": "2026-04-22"
+        }
+      ]
+    },
+    {
+      "act_id": "29049241",
+      "wbs": "11.21",
+      "floor": "CMQ1 | PLATIBANDA",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - Casa de máquinas",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 45,
+          "nc": 0,
+          "data": "2026-04-22"
+        }
+      ]
+    },
+    {
+      "act_id": "29049245",
+      "wbs": "10.21",
+      "floor": "CMQ2 | BARRILETE",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Torre única - Casa de máquinas",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 65,
+          "nc": 0,
+          "data": "2026-04-22"
+        }
+      ]
+    },
+    {
+      "act_id": "9734462",
+      "wbs": "09.53",
+      "floor": "RESERVATÓRIO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 05.01.01 - Execução de Instalação Hidrossanitária - Tubulação | Torre única ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-22"
+        },
+        {
+          "ref": "FVS 05.01.01 - Execução de Instalação Hidrossanitária - Tubulação | Torre única ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "9933861",
+      "wbs": "05.116",
+      "floor": "EMBASAMENTO LATERAL ESQUERDA",
+      "cf_pct": 0.0,
+      "n_fvs": 0,
+      "n_com_insp": 0,
+      "fvs": []
+    },
+    {
+      "act_id": "9933864",
+      "wbs": "08.116",
+      "floor": "EMBASAMENTO FRONTAL",
+      "cf_pct": 0.0,
+      "n_fvs": 0,
+      "n_com_insp": 0,
+      "fvs": []
+    },
+    {
+      "act_id": "9933863",
+      "wbs": "07.116",
+      "floor": "EMBASAMENTO LATERAL DIREITA",
+      "cf_pct": 0.0,
+      "n_fvs": 0,
+      "n_com_insp": 0,
+      "fvs": []
+    }
+  ],
+  "holmes": [
+    {
+      "act_id": "16182199",
+      "wbs": "32.53",
+      "floor": "02º PV - G1",
+      "cf_pct": 0.0,
+      "n_fvs": 4,
+      "n_com_insp": 4,
+      "fvs": [
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 50,
+          "nc": 2,
+          "data": "2026-04-01"
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 50,
+          "nc": 2,
+          "data": "2026-04-01"
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-04-01"
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 50,
+          "nc": 2,
+          "data": "2026-04-01"
+        }
+      ]
+    },
+    {
+      "act_id": "16183257",
+      "wbs": "32.105",
+      "floor": "02º PV - G1",
+      "cf_pct": 0.0,
+      "n_fvs": 3,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 09.04.01 - Tratamento de Concreto Para Pintura | Holmes Residence - G1",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.04.01 - Tratamento de Concreto Para Pintura | Holmes Residence - G1 - Ant",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.04.01 - Preparo de Concreto para Pintura | Holmes Residence - G1",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-02-25"
+        }
+      ]
+    },
+    {
+      "act_id": "16183008",
+      "wbs": "32.99",
+      "floor": "03º PV - G2",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Holmes Residence - G2 - WC PNE ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Holmes Residence - G2 - Área de c",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-12-08"
+        }
+      ]
+    },
+    {
+      "act_id": "16182201",
+      "wbs": "31.53",
+      "floor": "04º PV - G3",
+      "cf_pct": 0.0,
+      "n_fvs": 4,
+      "n_com_insp": 3,
+      "fvs": [
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2025-12-05"
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-04-01"
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.02.01 - Execução de Instalação Elétrica - Enfiação | Holmes Residence - G",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 50,
+          "nc": 2,
+          "data": "2026-04-01"
+        }
+      ]
+    },
+    {
+      "act_id": "16182757",
+      "wbs": "30.71",
+      "floor": "05º PV - G4",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 06.02.01 - Instalações Preventivo - SHP | Holmes Residence - G4",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16183193",
+      "wbs": "30.50",
+      "floor": "05º PV - G4",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Holmes Residence - G4",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Holmes Residence - G4",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29056566",
+      "wbs": "29.37",
+      "floor": "06º PV - LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.02 - Execução Alvenaria Ext. Cerâmica | Holmes Residence - Lazer",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 0,
+          "data": "2025-09-08"
+        }
+      ]
+    },
+    {
+      "act_id": "29056567",
+      "wbs": "29.36",
+      "floor": "06º PV - LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 13,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Lazer - Amb",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29056588",
+      "wbs": "29.35",
+      "floor": "06º PV - LAZER",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.04 - Execução Alvenaria Sical | Holmes Residence - Lazer",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16183206",
+      "wbs": "28.40",
+      "floor": "07º PV - TIPO DIF.",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 07º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 2,
+          "data": "2026-02-19"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 07º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 2,
+          "data": "2026-02-19"
+        }
+      ]
+    },
+    {
+      "act_id": "30631679",
+      "wbs": "28.97",
+      "floor": "07º PV - TIPO DIF.",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 07º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-12-08"
+        },
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 07º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 1,
+          "nc": 7,
+          "data": "2025-12-08"
+        }
+      ]
+    },
+    {
+      "act_id": "16182068",
+      "wbs": "27.85",
+      "floor": "08º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 07.01.01 - Rede primária de gás - Prumadas | Holmes Residence - 08º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "act_id": "16182123",
+      "wbs": "27.104",
+      "floor": "08º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Holmes Residence - 08º Pavimento tipo - Apartame",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 1,
+          "data": "2026-05-13"
+        },
+        {
+          "ref": "FVS 09.01.01 - Reboco Interno | Holmes Residence - 08º Pavimento tipo - Apartame",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "act_id": "16182285",
+      "wbs": "27.92",
+      "floor": "08º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 08º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 08º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182976",
+      "wbs": "27.155",
+      "floor": "08º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 15.01.02 - Instalação de Contramarco das Janelas de Alumínio | Holmes Reside",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29772469",
+      "wbs": "27.40",
+      "floor": "08º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 08º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 4,
+          "data": "2026-02-24"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 08º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "act_id": "30631680",
+      "wbs": "27.97",
+      "floor": "08º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 08º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 1,
+          "data": "2026-02-26"
+        },
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 08º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-02-25"
+        }
+      ]
+    },
+    {
+      "act_id": "16182069",
+      "wbs": "26.85",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 07.01.01 - Rede primária de gás - Prumadas | Holmes Residence - 09º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "act_id": "16182176",
+      "wbs": "26.87",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 09º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-02-20"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 09º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 1,
+          "data": "2026-02-27"
+        }
+      ]
+    },
+    {
+      "act_id": "16182286",
+      "wbs": "26.92",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 09º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 09º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182977",
+      "wbs": "26.155",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 15.01.02 - Instalação de Contramarco das Janelas de Alumínio | Holmes Reside",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29772470",
+      "wbs": "26.40",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 09º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-02-19"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 09º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 60,
+          "nc": 3,
+          "data": "2026-02-19"
+        }
+      ]
+    },
+    {
+      "act_id": "30631681",
+      "wbs": "26.97",
+      "floor": "09º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 09º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 1,
+          "data": "2026-02-27"
+        },
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 09º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 85,
+          "nc": 1,
+          "data": "2026-02-27"
+        }
+      ]
+    },
+    {
+      "act_id": "16182070",
+      "wbs": "25.85",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 07.01.01 - Rede primária de gás - Prumadas | Holmes Residence - 10º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "act_id": "16182177",
+      "wbs": "25.87",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 10º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-02-20"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 10º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 1,
+          "data": "2026-02-20"
+        }
+      ]
+    },
+    {
+      "act_id": "16182287",
+      "wbs": "25.92",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 10º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 10º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182978",
+      "wbs": "25.155",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 15.01.02 - Instalação de Contramarco das Janelas de Alumínio | Holmes Reside",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29772471",
+      "wbs": "25.40",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 10º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 4,
+          "data": "2026-02-19"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 10º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 4,
+          "data": "2026-02-19"
+        }
+      ]
+    },
+    {
+      "act_id": "30631682",
+      "wbs": "25.97",
+      "floor": "10º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 10º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 1,
+          "nc": 7,
+          "data": "2025-12-09"
+        },
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 10º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 1,
+          "nc": 7,
+          "data": "2025-12-09"
+        }
+      ]
+    },
+    {
+      "act_id": "16182013",
+      "wbs": "24.50",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Holmes Residence - 11",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2026-03-05"
+        },
+        {
+          "ref": "FVS 04.01.01 - Execução de Instalação Elétrica - Locação | Holmes Residence - 11",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "act_id": "16182071",
+      "wbs": "24.85",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 07.01.01 - Rede primária de gás - Prumadas | Holmes Residence - 11º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "act_id": "16182178",
+      "wbs": "24.87",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 11º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-02-25"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 11º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 90,
+          "nc": 1,
+          "data": "2026-02-25"
+        }
+      ]
+    },
+    {
+      "act_id": "16182288",
+      "wbs": "24.92",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 11º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 11º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182979",
+      "wbs": "24.155",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 15.01.02 - Instalação de Contramarco das Janelas de Alumínio | Holmes Reside",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29772472",
+      "wbs": "24.40",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 11º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-03-05"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 11º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-03-03"
+        }
+      ]
+    },
+    {
+      "act_id": "30631683",
+      "wbs": "24.97",
+      "floor": "11º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 11º Paviment",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-12-08"
+        },
+        {
+          "ref": "FVS 08.02.02 - Exaustão Churrasqueiras (Coifa) | Holmes Residence - 11º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2025-12-08"
+        }
+      ]
+    },
+    {
+      "act_id": "16182072",
+      "wbs": "23.85",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 07.01.01 - Rede primária de gás - Prumadas | Holmes Residence - 12º Paviment",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 0,
+          "data": "2026-03-05"
+        }
+      ]
+    },
+    {
+      "act_id": "16182179",
+      "wbs": "23.87",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 12º Pa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 95,
+          "nc": 1,
+          "data": "2026-03-05"
+        },
+        {
+          "ref": "FVS 07.02.01 - Rede secundária de gás - Distribuição | Holmes Residence - 12º Pa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182289",
+      "wbs": "23.92",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 12º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 12º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182956",
+      "wbs": "23.99",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Holmes Residence - 12º Pavimento ",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-05"
+        },
+        {
+          "ref": "FVS 09.01.02 - Chapisco e Preparação Interno | Holmes Residence - 12º Pavimento ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182980",
+      "wbs": "23.155",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 15.01.02 - Instalação de Contramarco das Janelas de Alumínio | Holmes Reside",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29772473",
+      "wbs": "23.40",
+      "floor": "12º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 1,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 12º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-03-05"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 12º Pavi",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "16182041",
+      "wbs": "22.90",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Holmes Residence - 13º Pavimento ti",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-27"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Holmes Residence - 13º Pavimento ti",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 1,
+          "data": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "act_id": "16182290",
+      "wbs": "22.92",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 13º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 13º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29772474",
+      "wbs": "22.40",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 13º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 3,
+          "data": "2026-03-05"
+        },
+        {
+          "ref": "FVS 03.02.01 - Execução Alvenaria da Churrasqueira | Holmes Residence - 13º Pavi",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 70,
+          "nc": 4,
+          "data": "2026-02-24"
+        }
+      ]
+    },
+    {
+      "act_id": "31913343",
+      "wbs": "22.36",
+      "floor": "13º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - 13º Pavimen",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-13"
+        },
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - 13º Pavimen",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 93,
+          "nc": 2,
+          "data": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "act_id": "16182042",
+      "wbs": "21.90",
+      "floor": "14º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Holmes Residence - 14º Pavimento ti",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 80,
+          "nc": 0,
+          "data": "2026-03-27"
+        },
+        {
+          "ref": "FVS 08.01.01 - Infraestrutura climatização | Holmes Residence - 14º Pavimento ti",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-03-27"
+        }
+      ]
+    },
+    {
+      "act_id": "16182291",
+      "wbs": "21.92",
+      "floor": "14º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 14º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.03.01 - Exaustão Coifa Cozinha | Holmes Residence - 14º Pavimento tipo - ",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29798364",
+      "wbs": "19.96",
+      "floor": "16º PV - TIPO",
+      "cf_pct": 50.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 16º Pavimento tipo - Apa",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-17"
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 16º Pavimento tipo - Apa",
+          "status": "EM_ANDAMENTO",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-04-17"
+        }
+      ]
+    },
+    {
+      "act_id": "31913331",
+      "wbs": "18.37",
+      "floor": "17º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 2,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.02 - Execução Alvenaria Ext. Cerâmica | Holmes Residence - 17º Pavimen",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-13"
+        },
+        {
+          "ref": "FVS 03.01.02 - Execução Alvenaria Ext. Cerâmica | Holmes Residence - 17º Pavimen",
+          "status": "FINALIZADA",
+          "pct_exec": 100,
+          "nc": 0,
+          "data": "2026-05-13"
+        }
+      ]
+    },
+    {
+      "act_id": "29798366",
+      "wbs": "17.96",
+      "floor": "18º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 18º Pavimento tipo - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 18º Pavimento tipo - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29798367",
+      "wbs": "16.96",
+      "floor": "19º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 19º Pavimento tipo - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 19º Pavimento tipo - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "29798368",
+      "wbs": "15.96",
+      "floor": "20º PV - TIPO",
+      "cf_pct": 0.0,
+      "n_fvs": 2,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 20º Pavimento tipo - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        },
+        {
+          "ref": "FVS 08.02.01 - Prumada de Exaustão | Holmes Residence - 20º Pavimento tipo - Apa",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "36147557",
+      "wbs": "34.36",
+      "floor": "01º PV - SALA 1",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Salas comer",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    },
+    {
+      "act_id": "36147556",
+      "wbs": "35.36",
+      "floor": "01º PV - SALA 2",
+      "cf_pct": 0.0,
+      "n_fvs": 1,
+      "n_com_insp": 0,
+      "fvs": [
+        {
+          "ref": "FVS 03.01.03 - Execução Alvenaria Int. Cerâmica | Holmes Residence - Salas comer",
+          "status": "NAO_INICIADA",
+          "pct_exec": null,
+          "nc": 0,
+          "data": ""
+        }
+      ]
+    }
+  ]
+}
