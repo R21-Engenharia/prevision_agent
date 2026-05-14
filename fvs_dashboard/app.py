@@ -138,30 +138,51 @@ with st.sidebar:
         st.caption("Snapshots: aguardando primeiro registro")
     st.markdown("")
 
-    # Botao: Atualizar InMeta (rapido)
-    if st.button("🔄 Atualizar InMeta", use_container_width=True, type="primary"):
-        with st.spinner("Conectando ao InMeta..."):
-            try:
-                client = InMetaClient(
-                    base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
-                    email=_secret("INMETA_EMAIL"),
-                    senha=_secret("INMETA_SENHA"),
-                )
-                dm.refresh_inmeta(obra, client)
-                # Salva snapshot apos atualizar (max 1 por dia)
-                for _obra_name in OBRAS:
-                    dm.save_snapshot(_obra_name)
-                st.success("Dados atualizados e snapshot salvo!")
-                st.rerun()
-            except Exception as e:
-                st.error(f"Erro: {e}")
+    # ── Autenticacao para atualizacoes ────────────────────────────────────────
+    _REFRESH_PWD = _secret("REFRESH_PASSWORD", "r21qualidade")
 
-    # Botao: Atualizar Prevision (lento)
-    with st.expander("Atualizar Prevision (lento)"):
-        st.warning("Coleta completa leva ~20 minutos.", icon="⏱️")
-        confirma = st.checkbox("Confirmo que quero atualizar o Prevision")
-        if st.button("🔄 Iniciar coleta Prevision", disabled=not confirma, use_container_width=True):
-            st.info("Funcionalidade disponivel via linha de comando:\n`python collectors/operational_collector.py`")
+    if "refresh_autenticado" not in st.session_state:
+        st.session_state.refresh_autenticado = False
+
+    if not st.session_state.refresh_autenticado:
+        with st.expander("🔒 Atualizar dados (restrito)", expanded=False):
+            _pwd_input = st.text_input("Senha", type="password", key="pwd_input",
+                                       placeholder="Digite a senha...")
+            if st.button("Entrar", use_container_width=True):
+                if _pwd_input == _REFRESH_PWD:
+                    st.session_state.refresh_autenticado = True
+                    st.rerun()
+                else:
+                    st.error("Senha incorreta.")
+    else:
+        # Botao: Atualizar InMeta (rapido)
+        if st.button("🔄 Atualizar InMeta", use_container_width=True, type="primary"):
+            with st.spinner("Conectando ao InMeta..."):
+                try:
+                    client = InMetaClient(
+                        base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
+                        email=_secret("INMETA_EMAIL"),
+                        senha=_secret("INMETA_SENHA"),
+                    )
+                    dm.refresh_inmeta(obra, client)
+                    # Salva snapshot apos atualizar (max 1 por dia)
+                    for _obra_name in OBRAS:
+                        dm.save_snapshot(_obra_name)
+                    st.success("Dados atualizados e snapshot salvo!")
+                    st.rerun()
+                except Exception as e:
+                    st.error(f"Erro: {e}")
+
+        # Botao: Atualizar Prevision (lento)
+        with st.expander("Atualizar Prevision (lento)"):
+            st.warning("Coleta completa leva ~20 minutos.", icon="⏱️")
+            confirma = st.checkbox("Confirmo que quero atualizar o Prevision")
+            if st.button("🔄 Iniciar coleta Prevision", disabled=not confirma, use_container_width=True):
+                st.info("Funcionalidade disponivel via linha de comando:\n`python collectors/operational_collector.py`")
+
+        if st.button("🔓 Sair", use_container_width=True):
+            st.session_state.refresh_autenticado = False
+            st.rerun()
 
     st.divider()
     st.caption("Fase 6 — MVP Operacional")
