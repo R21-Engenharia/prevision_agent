@@ -36,13 +36,24 @@ except ImportError:
 class SupabaseAuth:
     """Wrapper de autenticação Supabase para o FVS Dashboard."""
 
-    def __init__(self, url: str, key: str) -> None:
+    def __init__(self, url: str, key: str, allowed_domains: str = "") -> None:
+        """
+        allowed_domains: domínios liberados separados por vírgula.
+            Ex.: "r21empreendimentos.com,r21engenharia.com"
+            Qualquer email @domínio é autorizado automaticamente.
+        """
         if not _SUPABASE_PKG:
             raise ImportError(
                 "Pacote 'supabase' não encontrado. Execute: pip install supabase>=2.0.0"
             )
         self._url = url
         self._key = key
+        # Normaliza lista de domínios: lower, sem espaços, sem vazios
+        self.allowed_domains: list[str] = [
+            d.strip().lower()
+            for d in allowed_domains.split(",")
+            if d.strip()
+        ]
         self.client: SupabaseClient = create_client(url, key)
 
     # ── Login / Logout ────────────────────────────────────────────────────────
@@ -113,12 +124,25 @@ class SupabaseAuth:
     # ── Whitelist ─────────────────────────────────────────────────────────────
 
     def is_authorized(self, email: str) -> bool:
-        """Verifica se o email está na tabela `authorized_emails`."""
+        """
+        Verifica se o email tem acesso. Ordem de verificação:
+        1. Domínio liberado (allowed_domains) → acesso imediato
+        2. Email individual na tabela authorized_emails
+        """
+        email = email.strip().lower()
+
+        # 1. Domínio liberado?
+        if self.allowed_domains:
+            email_domain = email.split("@")[-1] if "@" in email else ""
+            if email_domain in self.allowed_domains:
+                return True
+
+        # 2. Email individual na whitelist
         try:
             result = (
                 self.client.table("authorized_emails")
                 .select("email")
-                .eq("email", email.strip().lower())
+                .eq("email", email)
                 .execute()
             )
             return len(result.data) > 0
@@ -127,19 +151,25 @@ class SupabaseAuth:
             return False
 
     def get_role(self, email: str) -> str:
-        """Retorna o role do email ('admin', 'viewer', ou '' se não encontrado)."""
+        """
+        Retorna o role do email ('admin', 'viewer').
+        - Email na whitelist → usa o role cadastrado
+        - Email autorizado apenas por domínio → 'viewer' por padrão
+        """
+        email = email.strip().lower()
         try:
             result = (
                 self.client.table("authorized_emails")
                 .select("role")
-                .eq("email", email.strip().lower())
+                .eq("email", email)
                 .execute()
             )
             if result.data:
                 return result.data[0].get("role", "viewer")
         except Exception:
             pass
-        return ""
+        # Domínio liberado mas sem entrada individual → viewer
+        return "viewer"
 
     def list_authorized(self) -> list[dict]:
         """Lista todos os emails autorizados."""

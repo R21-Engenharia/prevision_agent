@@ -93,8 +93,13 @@ if _SUPABASE_URL and _SUPABASE_KEY:
     from fvs_dashboard.auth.supabase_auth import SupabaseAuth
     from fvs_dashboard.auth.login_ui import render_login_page
 
+    _ALLOWED_DOMAINS = _secret("ALLOWED_DOMAINS", "")
+
     if "auth_client" not in st.session_state:
-        st.session_state.auth_client = SupabaseAuth(_SUPABASE_URL, _SUPABASE_KEY)
+        st.session_state.auth_client = SupabaseAuth(
+            _SUPABASE_URL, _SUPABASE_KEY,
+            allowed_domains=_ALLOWED_DOMAINS,
+        )
 
     _auth: SupabaseAuth = st.session_state.auth_client
     _APP_URL = _secret("APP_URL", "http://localhost:8501")
