@@ -117,9 +117,24 @@ class SupabaseAuth:
         """
         Restaura a sessão a partir de tokens OAuth recebidos no callback.
         Retorna o objeto `user` ou lança exceção.
+        Se o access_token estiver expirado, o Supabase usa o refresh_token
+        automaticamente para emitir um novo par de tokens.
         """
         resp = self.client.auth.set_session(access_token, refresh_token)
         return resp.user
+
+    def get_session_tokens(self) -> tuple[str, str]:
+        """
+        Retorna (access_token, refresh_token) da sessão atual.
+        Usar para salvar no localStorage após login por email/senha.
+        """
+        try:
+            session = self.client.auth.get_session()
+            if session:
+                return session.access_token or "", session.refresh_token or ""
+        except Exception:
+            pass
+        return "", ""
 
     # ── Whitelist ─────────────────────────────────────────────────────────────
 

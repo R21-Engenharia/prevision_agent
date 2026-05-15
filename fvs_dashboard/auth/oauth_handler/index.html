@@ -2,42 +2,96 @@
 <html>
 <head><meta charset="utf-8"></head>
 <!--
-  Este componente faz UMA coisa: lê window.top.location.hash e devolve ao Python.
-  Ler hash é permitido com allow-same-origin.
-  Navegar window.top requer allow-top-navigation (bloqueado pelo browser no Streamlit).
-  Por isso o botão Google e a navegação são feitos fora do iframe (st.markdown <a>).
+  Componente de sessão FVS Dashboard.
+  Responsabilidades:
+    1. Lê URL hash (callback OAuth) e retorna ao Python
+    2. Salva access/refresh tokens no localStorage (persistência entre sessões)
+    3. Na ausência de hash, restaura tokens do localStorage
+    4. Limpa localStorage no logout (quando args.clear_tokens = true)
 -->
 <body style="margin:0;padding:0;height:0;overflow:hidden;">
 <script>
 (function () {
-    var hashValue = "";
-    try {
-        hashValue = window.top.location.hash || "";
-        // Limpa o hash da URL sem causar navegação (history.replaceState é permitido)
-        if (hashValue && hashValue.indexOf("access_token") !== -1) {
-            try {
-                window.top.history.replaceState(
-                    null, "",
-                    window.top.location.pathname + window.top.location.search
-                );
-            } catch (e) { /* ignora se bloqueado */ }
-        }
-    } catch (e) {
-        hashValue = "";
+    var _ready = false;
+
+    // ── Envia valor ao Python ─────────────────────────────────────────────
+    function sendValue(val) {
+        window.parent.postMessage(
+            { isStreamlitMessage: true, type: "streamlit:setComponentValue",
+              value: val, dataType: "json" },
+            "*"
+        );
     }
 
-    // Protocolo Streamlit
+    // ── Lê tokens salvos no localStorage ─────────────────────────────────
+    function getStoredHash() {
+        try {
+            var at = localStorage.getItem("fvs_at") || "";
+            var rt = localStorage.getItem("fvs_rt") || "";
+            if (at) {
+                return "#access_token=" + at + "&refresh_token=" + rt;
+            }
+        } catch (e) { /* localStorage bloqueado (modo privado strict) */ }
+        return "";
+    }
+
+    // ── Processa args vindos do Python ────────────────────────────────────
+    function handleRender(args) {
+        args = args || {};
+
+        // Salvar tokens no localStorage
+        if (args.save_at) {
+            try {
+                localStorage.setItem("fvs_at", args.save_at);
+                localStorage.setItem("fvs_rt", args.save_rt || "");
+            } catch (e) {}
+            sendValue("saved");
+            return;
+        }
+
+        // Limpar tokens do localStorage (logout)
+        if (args.clear_tokens) {
+            try {
+                localStorage.removeItem("fvs_at");
+                localStorage.removeItem("fvs_rt");
+            } catch (e) {}
+            sendValue("cleared");
+            return;
+        }
+
+        // Leitura normal: hash OAuth ou tokens salvos
+        var hashValue = "";
+        try {
+            hashValue = window.top.location.hash || "";
+            if (hashValue && hashValue.indexOf("access_token") !== -1) {
+                // Limpa o hash da URL sem causar navegação
+                try {
+                    window.top.history.replaceState(
+                        null, "",
+                        window.top.location.pathname + window.top.location.search
+                    );
+                } catch (e) {}
+            }
+        } catch (e) { hashValue = ""; }
+
+        sendValue(hashValue || getStoredHash());
+    }
+
+    // ── Escuta mensagens do Streamlit ─────────────────────────────────────
+    window.addEventListener("message", function (e) {
+        if (!e.data || !e.data.isStreamlitMessage) return;
+        if (e.data.type === "streamlit:render") {
+            handleRender(e.data.args);
+        }
+    });
+
+    // ── Protocolo de inicialização ────────────────────────────────────────
     window.parent.postMessage(
         { isStreamlitMessage: true, type: "streamlit:componentReady", apiVersion: 1 },
         "*"
     );
     window.parent.postMessage(
         { isStreamlitMessage: true, type: "streamlit:setFrameHeight", height: 0 },
-        "*"
-    );
-    window.parent.postMessage(
-        { isStreamlitMessage: true, type: "streamlit:setComponentValue",
-          value: hashValue, dataType: "json" },
         "*"
     );
 })();

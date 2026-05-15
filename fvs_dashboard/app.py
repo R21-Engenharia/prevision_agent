@@ -346,6 +346,8 @@ with st.sidebar:
         )
         st.markdown("")
         if st.button("Sair", use_container_width=True, key="btn_logout_global"):
+            # Sinaliza limpeza do localStorage na próxima renderização do login
+            st.session_state["_pending_clear_tokens"] = True
             _auth.logout()
             st.rerun()
 

@@ -120,7 +120,7 @@ body, .stApp { background: #F7F7F7 !important; }
 """
 
 
-# ── Processar tokens do hash OAuth ────────────────────────────────────────────
+# ── Helpers de tokens ─────────────────────────────────────────────────────────
 
 def _parse_hash(hash_str: str) -> tuple[str, str]:
     """Extrai access_token e refresh_token de uma string de hash OAuth."""
@@ -132,50 +132,66 @@ def _parse_hash(hash_str: str) -> tuple[str, str]:
     return tokens.get("access_token", ""), tokens.get("refresh_token", "")
 
 
+def _save_tokens(at: str, rt: str) -> None:
+    """Salva tokens no localStorage do browser para persistência entre sessões."""
+    if at:
+        _oauth_component(key="fvs_save_tokens", save_at=at, save_rt=rt, default="")
+
+
+def clear_tokens() -> None:
+    """Limpa tokens do localStorage (chamar no fluxo de logout)."""
+    _oauth_component(key="fvs_clear_tokens", clear_tokens=True, default="")
+
+
+def _set_session(auth: SupabaseAuth, user, at: str = "", rt: str = "") -> None:
+    """Popula st.session_state após autenticação bem-sucedida e salva tokens."""
+    email = (user.email or "").strip().lower()
+    role  = auth.get_role(email)
+    nome  = (user.user_metadata or {}).get("full_name") or email
+    st.session_state["auth_user"]  = user
+    st.session_state["auth_email"] = email
+    st.session_state["auth_nome"]  = nome
+    st.session_state["auth_role"]  = role
+    # Salvar tokens para restaurar sessão automaticamente nas próximas visitas
+    _save_tokens(at, rt)
+
+
+# ── Processar tokens do hash OAuth ────────────────────────────────────────────
+
 def _process_oauth_hash(auth: SupabaseAuth, hash_str: str) -> bool:
     """
-    Tenta criar sessão Supabase a partir dos tokens no hash OAuth.
+    Tenta criar sessão Supabase a partir dos tokens no hash OAuth ou localStorage.
     Retorna True se autenticado com sucesso.
     """
     at, rt = _parse_hash(hash_str)
     if not at:
         return False
 
-    with st.spinner("Verificando credenciais Google..."):
+    with st.spinner("Verificando sessão..."):
         try:
             user  = auth.set_session_from_token(at, rt)
-
-            # ── DEBUG TEMPORÁRIO — remover após confirmar ──────────────────────
-            with st.expander("🔍 DEBUG OAuth (remover depois)", expanded=True):
-                st.write("**user object:**", user)
-                st.write("**user.email:**", user.email)
-                st.write("**user.user_metadata:**", user.user_metadata)
-                st.write("**user.app_metadata:**", getattr(user, "app_metadata", None))
-                authorized_check = auth.is_authorized((user.email or "").strip().lower())
-                st.write("**is_authorized:**", authorized_check)
-            # ──────────────────────────────────────────────────────────────────
-
             email = (user.email or "").strip().lower()
+
             if not auth.is_authorized(email):
                 auth.logout()
+                # Tokens inválidos — limpa localStorage
+                clear_tokens()
                 st.error(
                     f"⛔ O e-mail **{email}** não tem acesso autorizado. "
                     "Solicite acesso ao administrador."
                 )
                 return False
-            role = auth.get_role(email)
-            nome = (user.user_metadata or {}).get("full_name") or email
-            st.session_state["auth_user"]  = user
-            st.session_state["auth_email"] = email
-            st.session_state["auth_nome"]  = nome
-            st.session_state["auth_role"]  = role
+
+            _set_session(auth, user, at, rt)
             st.rerun()
+
         except Exception as exc:
-            st.error(f"Erro ao processar login Google: {exc}")
-            # ── DEBUG TEMPORÁRIO ───────────────────────────────────────────────
-            import traceback
-            st.code(traceback.format_exc(), language="text")
-            # ──────────────────────────────────────────────────────────────────
+            _m = str(exc).lower()
+            # Token expirado / inválido — limpa silenciosamente e pede login
+            if any(w in _m for w in ("expired", "invalid", "jwt", "refresh")):
+                clear_tokens()
+            else:
+                st.error(f"Erro ao verificar sessão: {exc}")
 
     return False
 
@@ -186,31 +202,31 @@ def render_login_page(auth: SupabaseAuth, app_url: str = "") -> bool:
     """
     Renderiza a tela de login.
     Retorna True se autenticado, False caso contrário.
+
+    Fluxo de persistência:
+    1. Se session_state já tem auth_user → já logado nesta aba/sessão Python
+    2. Se _pending_clear_tokens → limpa localStorage (vindo do logout)
+    3. Componente JS devolve: hash OAuth (callback Google) ou tokens do localStorage
+    4. Tenta restaurar sessão a partir dos tokens
+    5. Se nenhum token → mostra formulário de login
     """
-    # 1. Sessão já ativa?
+    # 1. Sessão Python já ativa (mesma aba, sem recarregamento total)
     if "auth_user" in st.session_state:
         return True
 
-    # 2. Componente same-origin lê window.top.location.hash e devolve ao Python.
-    #    Na 1ª renderização devolve "" (default).
-    #    Na 2ª (após o JS do componente rodar) devolve o hash real.
+    # 2. Logout pendente — limpar localStorage antes de qualquer leitura
+    if st.session_state.pop("_pending_clear_tokens", False):
+        clear_tokens()
+
+    # 3. Componente JS: lê hash OAuth ou tokens salvos no localStorage
     _hash = _oauth_component(key="fvs_oauth_hash", default="")
 
-    # 3. Processar tokens vindos do Google OAuth
-    if _hash and "access_token" in _hash:
+    # 4. Processar tokens (vindos do Google OAuth ou do localStorage)
+    if _hash and _hash not in ("saved", "cleared") and "access_token" in _hash:
         if _process_oauth_hash(auth, _hash):
             return True
 
-    # 4. Verificar query params legados (fallback de sessões anteriores)
-    _at = st.query_params.get("oauth_at", "")
-    _rt = st.query_params.get("oauth_rt", "")
-    if _at:
-        st.query_params.clear()
-        fake_hash = f"#access_token={_at}&refresh_token={_rt}"
-        if _process_oauth_hash(auth, fake_hash):
-            return True
-
-    # 5. Mostrar formulário
+    # 5. Mostrar formulário de login
     _render_form(auth, app_url)
     return False
 
@@ -262,12 +278,9 @@ def _render_form(auth: SupabaseAuth, app_url: str) -> None:
                                 auth.logout()
                                 st.error("⛔ Acesso não autorizado para este e-mail.")
                             else:
-                                role = auth.get_role(email)
-                                nome = (user.user_metadata or {}).get("full_name") or email
-                                st.session_state["auth_user"]  = user
-                                st.session_state["auth_email"] = email
-                                st.session_state["auth_nome"]  = nome
-                                st.session_state["auth_role"]  = role
+                                # Pega tokens da sessão para salvar no localStorage
+                                at, rt = auth.get_session_tokens()
+                                _set_session(auth, user, at, rt)
                                 st.rerun()
                         except Exception as exc:
                             _m = str(exc).lower()
