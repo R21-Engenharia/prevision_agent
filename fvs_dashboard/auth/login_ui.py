@@ -6,6 +6,7 @@ render_login_page(auth, app_url) → bool
 """
 from __future__ import annotations
 
+import html as _html
 from pathlib import Path
 from urllib.parse import unquote
 
@@ -245,8 +246,11 @@ def _render_form(auth: SupabaseAuth, app_url: str) -> None:
                         '<div class="or-divider"><hr><span>ou continue com</span><hr></div>',
                         unsafe_allow_html=True,
                     )
+                    # html.escape converte & → &amp; na URL,
+                    # evitando que o href quebre com os query params do OAuth
+                    _gurl_safe = _html.escape(_gurl, quote=True)
                     st.markdown(
-                        f'<a href="{_gurl}" target="_self" class="g-oauth-btn">'
+                        f'<a href="{_gurl_safe}" target="_self" class="g-oauth-btn">'
                         f'{_GOOGLE_SVG}&nbsp; Entrar com Google</a>',
                         unsafe_allow_html=True,
                     )
