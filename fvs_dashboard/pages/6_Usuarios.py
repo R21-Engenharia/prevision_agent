@@ -1,11 +1,11 @@
 """
-Pagina 6 — Gestao de Usuarios Autorizados (somente admins).
+Pagina 6 — Gestao de Usuarios Autorizados (acesso restrito via senha).
 """
 import streamlit as st
 
-# Guard — so admins chegam aqui
-if st.session_state.get("auth_role") != "admin":
-    st.error("Acesso restrito a administradores.")
+# Guard — so aparece no menu quando o painel restrito esta desbloqueado
+if not st.session_state.get("refresh_autenticado"):
+    st.error("🔒 Acesso restrito. Desbloqueie o painel de dados na barra lateral.")
     st.stop()
 
 if "auth_client" not in st.session_state:

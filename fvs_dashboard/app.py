@@ -262,8 +262,8 @@ _pages = [
     st.Page("pages/5_Auditoria_Gerencial.py",    title="Auditoria Gerencial", icon="📈"),
 ]
 
-# Pagina de gestao de usuarios — apenas para admins autenticados
-if _auth is not None and st.session_state.get("auth_role") == "admin":
+# Pagina de gestao de usuarios — visivel apenas com painel restrito desbloqueado
+if _auth is not None and st.session_state.get("refresh_autenticado"):
     _pages.append(
         st.Page("pages/6_Usuarios.py", title="Usuarios", icon="👥")
     )
