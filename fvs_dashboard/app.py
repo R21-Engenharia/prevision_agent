@@ -95,6 +95,11 @@ st.markdown(f"""
     #MainMenu                      {{ visibility: hidden !important; }}
     footer                         {{ display: none !important; }}
 
+    /* ── Botao de reexpandir sidebar — sempre visivel ────────────────────── */
+    [data-testid="stSidebarCollapsedControl"] {{ display: flex !important; }}
+    [data-testid="collapsedControl"]          {{ display: flex !important; }}
+    button[kind="header"]                     {{ display: flex !important; }}
+
     /* ── Layout ──────────────────────────────────────────────────────────── */
     .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
     body, .stApp, .main {{ background-color: {_BG} !important; }}
