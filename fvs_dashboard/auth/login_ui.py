@@ -118,6 +118,17 @@ def _process_oauth_hash(auth: SupabaseAuth, hash_str: str) -> bool:
     with st.spinner("Verificando credenciais Google..."):
         try:
             user  = auth.set_session_from_token(at, rt)
+
+            # ── DEBUG TEMPORÁRIO — remover após confirmar ──────────────────────
+            with st.expander("🔍 DEBUG OAuth (remover depois)", expanded=True):
+                st.write("**user object:**", user)
+                st.write("**user.email:**", user.email)
+                st.write("**user.user_metadata:**", user.user_metadata)
+                st.write("**user.app_metadata:**", getattr(user, "app_metadata", None))
+                authorized_check = auth.is_authorized((user.email or "").strip().lower())
+                st.write("**is_authorized:**", authorized_check)
+            # ──────────────────────────────────────────────────────────────────
+
             email = (user.email or "").strip().lower()
             if not auth.is_authorized(email):
                 auth.logout()
@@ -135,6 +146,10 @@ def _process_oauth_hash(auth: SupabaseAuth, hash_str: str) -> bool:
             st.rerun()
         except Exception as exc:
             st.error(f"Erro ao processar login Google: {exc}")
+            # ── DEBUG TEMPORÁRIO ───────────────────────────────────────────────
+            import traceback
+            st.code(traceback.format_exc(), language="text")
+            # ──────────────────────────────────────────────────────────────────
 
     return False
 
@@ -307,9 +322,19 @@ def render_admin_panel(auth: SupabaseAuth) -> None:
     authorized = auth.list_authorized()
     if authorized:
         import pandas as pd
-        df = pd.DataFrame(authorized)[["email", "nome", "role", "created_at"]]
+        df = pd.DataFrame(authorized)
+        # garante colunas mesmo que a tabela tenha campos extras
+        for col in ["email", "nome", "role", "created_at"]:
+            if col not in df.columns:
+                df[col] = ""
+        df = df[["email", "nome", "role", "created_at"]].copy()
         df.columns = ["E-mail", "Nome", "Role", "Desde"]
-        df["Desde"] = pd.to_datetime(df["Desde"]).dt.strftime("%d/%m/%Y")
+        # parse robusto: aceita qualquer formato ISO, nulos viram ""
+        df["Desde"] = (
+            pd.to_datetime(df["Desde"], errors="coerce", utc=True)
+            .dt.strftime("%d/%m/%Y")
+            .fillna("")
+        )
         st.dataframe(df, use_container_width=True, hide_index=True)
     else:
         st.info("Nenhum email cadastrado.")
