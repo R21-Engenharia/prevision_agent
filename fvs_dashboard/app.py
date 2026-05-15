@@ -85,6 +85,25 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+# ── Auth Gate (Supabase) ──────────────────────────────────────────────────────
+_SUPABASE_URL = _secret("SUPABASE_URL", "")
+_SUPABASE_KEY = _secret("SUPABASE_KEY", "")
+
+if _SUPABASE_URL and _SUPABASE_KEY:
+    from fvs_dashboard.auth.supabase_auth import SupabaseAuth
+    from fvs_dashboard.auth.login_ui import render_login_page
+
+    if "auth_client" not in st.session_state:
+        st.session_state.auth_client = SupabaseAuth(_SUPABASE_URL, _SUPABASE_KEY)
+
+    _auth: SupabaseAuth = st.session_state.auth_client
+    _APP_URL = _secret("APP_URL", "http://localhost:8501")
+
+    if not render_login_page(_auth, _APP_URL):
+        st.stop()
+else:
+    _auth = None  # Auth nao configurado — modo sem restricao (dev local)
+
 # ── Session state ─────────────────────────────────────────────────────────────
 # Recria DataManager se nao existir OU se for versao antiga (sem snapshot_info)
 if "dm" not in st.session_state or not hasattr(st.session_state.dm, "snapshot_info"):
@@ -188,6 +207,21 @@ with st.sidebar:
     st.caption("Fase 6 — MVP Operacional")
     st.caption("Prevision + InMeta")
 
+    # ── Usuario logado (apenas quando auth esta ativo) ────────────────────────
+    if _auth is not None and "auth_email" in st.session_state:
+        st.divider()
+        _nome_display = st.session_state.get("auth_nome", st.session_state.get("auth_email", ""))
+        st.markdown(
+            f'<div style="font-size:11px;color:#8aa4cc;margin-bottom:2px;">👤 Logado como</div>'
+            f'<div style="font-size:12px;font-weight:600;color:#c5d4ea;word-break:break-all;">'
+            f'{_nome_display}</div>',
+            unsafe_allow_html=True,
+        )
+        st.markdown("")
+        if st.button("Sair", use_container_width=True, key="btn_logout_global"):
+            _auth.logout()
+            st.rerun()
+
     # ── Assinatura do desenvolvedor (rodape da sidebar) ──────────────────────
     st.markdown(
         """
@@ -215,12 +249,20 @@ with st.sidebar:
     )
 
 # ── Navegacao por paginas ─────────────────────────────────────────────────────
-pg = st.navigation([
-    st.Page("pages/1_Visao_Geral.py",              title="Visao Geral",           icon="📊"),
-    st.Page("pages/2_Backlog_FVS.py",              title="Backlog FVS",           icon="📋"),
-    st.Page("pages/3_Pendentes.py",                title="Pendentes",             icon="🔴"),
-    st.Page("pages/4_Exportar.py",                 title="Exportar",              icon="⬇️"),
-    st.Page("pages/5_Auditoria_Gerencial.py",       title="Auditoria Gerencial",    icon="📈"),
-], position="sidebar")
+_pages = [
+    st.Page("pages/1_Visao_Geral.py",            title="Visao Geral",        icon="📊"),
+    st.Page("pages/2_Backlog_FVS.py",            title="Backlog FVS",        icon="📋"),
+    st.Page("pages/3_Pendentes.py",              title="Pendentes",          icon="🔴"),
+    st.Page("pages/4_Exportar.py",               title="Exportar",           icon="⬇️"),
+    st.Page("pages/5_Auditoria_Gerencial.py",    title="Auditoria Gerencial", icon="📈"),
+]
+
+# Pagina de gestao de usuarios — apenas para admins autenticados
+if _auth is not None and st.session_state.get("auth_role") == "admin":
+    _pages.append(
+        st.Page("pages/6_Usuarios.py", title="Usuarios", icon="👥")
+    )
+
+pg = st.navigation(_pages, position="sidebar")
 
 pg.run()
