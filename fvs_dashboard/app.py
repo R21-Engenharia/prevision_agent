@@ -54,7 +54,14 @@ st.markdown("""
     [data-testid="stSidebar"] span { color: #e8eaf0 !important; }
     [data-testid="stSidebar"] .stSelectbox label { color: #a0b0d0 !important; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; }
 
-    /* Topo */
+    /* Topo — oculta botoes do header (GitHub, Share, Edit, Deploy) */
+    [data-testid="stToolbar"]             { display: none !important; }
+    [data-testid="stDecoration"]          { display: none !important; }
+    [data-testid="stMainMenu"]            { display: none !important; }
+    header[data-testid="stHeader"]        { background: transparent !important; }
+    #MainMenu                             { display: none !important; }
+    footer                                { display: none !important; }
+
     .block-container { padding-top: 1rem; padding-bottom: 1rem; }
 
     /* Metrics — cards com borda */
