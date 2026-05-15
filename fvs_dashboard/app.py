@@ -174,7 +174,9 @@ if _SUPABASE_URL and _SUPABASE_KEY:
 
     _ALLOWED_DOMAINS = _secret("ALLOWED_DOMAINS", "")
 
-    if "auth_client" not in st.session_state:
+    # Recria o client se estiver desatualizado (deploy novo com métodos novos)
+    if "auth_client" not in st.session_state or \
+       not hasattr(st.session_state.auth_client, "get_session_tokens"):
         st.session_state.auth_client = SupabaseAuth(
             _SUPABASE_URL, _SUPABASE_KEY,
             allowed_domains=_ALLOWED_DOMAINS,
