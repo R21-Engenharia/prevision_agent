@@ -88,17 +88,8 @@ st.markdown(f"""
         background: #2e2e2e !important; color: #cccccc !important; border: 1px solid #444 !important;
     }}
 
-    /* ── Header — oculta botoes do Streamlit ─────────────────────────────── */
-    [data-testid="stToolbar"]      {{ display: none !important; }}
-    [data-testid="stDecoration"]   {{ display: none !important; }}
-    header[data-testid="stHeader"] {{ background: transparent !important; }}
-    #MainMenu                      {{ visibility: hidden !important; }}
-    footer                         {{ display: none !important; }}
-
-    /* ── Botao de reexpandir sidebar — sempre visivel ────────────────────── */
-    [data-testid="stSidebarCollapsedControl"] {{ display: flex !important; }}
-    [data-testid="collapsedControl"]          {{ display: flex !important; }}
-    button[kind="header"]                     {{ display: flex !important; }}
+    /* ── Header — rodapé (toolbar ocultado via config.toml toolbarMode=minimal) */
+    footer {{ visibility: hidden; }}
 
     /* ── Layout ──────────────────────────────────────────────────────────── */
     .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}

@@ -5,3 +5,7 @@ backgroundColor        = "#F7F7F7"
 secondaryBackgroundColor = "#FFFFFF"
 textColor              = "#1A1A1A"
 font                   = "sans serif"
+
+[client]
+# "minimal" esconde GitHub/Share/Edit sem afetar a sidebar
+toolbarMode            = "minimal"

@@ -47,11 +47,7 @@ _LOGIN_CSS = """
 /* Paleta R21 Empreendimentos — Vermelho #C41230 | Carvão #1A1A1A */
 [data-testid="stSidebar"]                { display: none !important; }
 [data-testid="stSidebarCollapsedControl"] { display: none !important; }
-[data-testid="collapsedControl"]          { display: none !important; }
-[data-testid="stToolbar"]                 { display: none !important; }
-[data-testid="stDecoration"]              { display: none !important; }
-#MainMenu                                 { visibility: hidden !important; }
-footer                                    { display: none !important; }
+footer                                    { visibility: hidden; }
 
 body, .stApp { background: #F7F7F7 !important; }
 
