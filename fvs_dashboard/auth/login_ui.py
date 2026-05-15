@@ -44,28 +44,58 @@ _GOOGLE_SVG = (
 # ── CSS da página de login ─────────────────────────────────────────────────────
 _LOGIN_CSS = """
 <style>
+/* Paleta R21 Empreendimentos — Vermelho #C41230 | Carvão #1A1A1A */
 [data-testid="stSidebar"]                { display: none !important; }
 [data-testid="stSidebarCollapsedControl"] { display: none !important; }
 [data-testid="collapsedControl"]          { display: none !important; }
+[data-testid="stToolbar"]                 { display: none !important; }
+[data-testid="stDecoration"]              { display: none !important; }
+#MainMenu                                 { visibility: hidden !important; }
+footer                                    { display: none !important; }
+
+body, .stApp { background: #F7F7F7 !important; }
 
 .login-card {
     background: #ffffff;
-    border: 1px solid #e0e6f0;
-    border-radius: 16px;
-    padding: 2.2rem 2.4rem 2rem;
-    box-shadow: 0 4px 24px rgba(26,39,68,0.10);
+    border: 1px solid #e8e8e8;
+    border-top: 4px solid #C41230;
+    border-radius: 12px;
+    padding: 2.4rem 2.6rem 2rem;
+    box-shadow: 0 4px 24px rgba(196,18,48,0.10);
     margin-top: 1.5rem;
 }
 .login-header { text-align: center; padding-bottom: 1.4rem; }
-.login-header .brand-icon  { font-size: 40px; }
-.login-header .brand-title { font-size: 22px; font-weight: 800; color: #1a2744; margin-top: 6px; letter-spacing: -0.3px; }
-.login-header .brand-sub   { font-size: 12px; color: #6b7fa3; margin-top: 3px; }
+.login-header .brand-logo  { font-size: 42px; line-height: 1; }
+.login-header .brand-title {
+    font-size: 22px; font-weight: 800; color: #1A1A1A;
+    margin-top: 8px; letter-spacing: -0.3px;
+}
+.login-header .brand-r21 {
+    font-size: 13px; font-weight: 700; color: #C41230;
+    text-transform: uppercase; letter-spacing: 2px; margin-top: 2px;
+}
+.login-header .brand-sub { font-size: 12px; color: #888888; margin-top: 3px; }
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] { border-bottom: 2px solid #e8e8e8; }
+.stTabs [aria-selected="true"]    { color: #C41230 !important; border-bottom: 2px solid #C41230 !important; }
+
+/* Botão primário → vermelho R21 */
+.stButton > button[kind="primary"] {
+    background: #C41230 !important;
+    color: #fff !important;
+    border: none !important;
+    font-weight: 700 !important;
+    border-radius: 6px !important;
+    letter-spacing: 0.3px;
+}
+.stButton > button[kind="primary"]:hover { background: #a50e27 !important; }
 
 .or-divider { display:flex; align-items:center; gap:10px; margin:1rem 0 0.8rem; }
-.or-divider hr   { flex:1; border:none; border-top:1px solid #e8edf5; margin:0; }
-.or-divider span { font-size:11px; color:#9ba8bf; white-space:nowrap; }
+.or-divider hr   { flex:1; border:none; border-top:1px solid #e8e8e8; margin:0; }
+.or-divider span { font-size:11px; color:#aaaaaa; white-space:nowrap; }
 
-/* Botão Google — <a> direto no Streamlit, sem iframe */
+/* Botão Google */
 .g-oauth-btn {
     display: flex !important;
     align-items: center;
@@ -74,7 +104,7 @@ _LOGIN_CSS = """
     width: 100%;
     padding: 9px 16px;
     border: 1.5px solid #dadce0 !important;
-    border-radius: 8px;
+    border-radius: 6px;
     background: #fff !important;
     font-size: 13px;
     font-weight: 500;
@@ -84,11 +114,11 @@ _LOGIN_CSS = """
     transition: background 0.12s, border-color 0.12s;
     cursor: pointer;
 }
-.g-oauth-btn:hover { background: #f8f9fa !important; border-color: #c0c6cf !important; }
+.g-oauth-btn:hover { background: #f8f9fa !important; border-color: #C41230 !important; }
 
 .login-footer {
-    text-align: center; font-size: 11px; color: #9ba8bf;
-    margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid #f0f4fa;
+    text-align: center; font-size: 11px; color: #aaaaaa;
+    margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;
 }
 </style>
 """
@@ -201,9 +231,10 @@ def _render_form(auth: SupabaseAuth, app_url: str) -> None:
             """
             <div class="login-card">
                 <div class="login-header">
-                    <div class="brand-icon">🏗️</div>
+                    <div class="brand-logo">🏗️</div>
+                    <div class="brand-r21">R21 Empreendimentos</div>
                     <div class="brand-title">FVS Dashboard</div>
-                    <div class="brand-sub">R21 Empreendimentos — Portal de Qualidade</div>
+                    <div class="brand-sub">Portal de Qualidade</div>
                 </div>
             """,
             unsafe_allow_html=True,
