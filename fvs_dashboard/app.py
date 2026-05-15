@@ -42,143 +42,121 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
+# ── Tema: claro / escuro ──────────────────────────────────────────────────────
+if "theme" not in st.session_state:
+    st.session_state.theme = "light"
+
+_DARK = st.session_state.theme == "dark"
+
+# Variáveis de cor por tema
+_BG        = "#111111" if _DARK else "#F7F7F7"
+_CARD_BG   = "#1E1E1E" if _DARK else "#FFFFFF"
+_CARD_BRD  = "#333333" if _DARK else "#E8E8E8"
+_TEXT_PRI  = "#FFFFFF"  if _DARK else "#1A1A1A"
+_TEXT_SEC  = "#AAAAAA" if _DARK else "#888888"
+_DIVIDER   = "#2E2E2E" if _DARK else "#E8E8E8"
+_EXP_BG    = "#2A2A2A" if _DARK else "#FFFFFF"
+
 # ── CSS global — Paleta R21 Empreendimentos ───────────────────────────────────
-# Vermelho R21: #C41230  |  Carvão: #1A1A1A  |  Branco: #FFFFFF
-st.markdown("""
+st.markdown(f"""
 <style>
-    /* ── Sidebar ─────────────────────────────────────────────────────────── */
-    [data-testid="stSidebar"] { min-width: 260px; max-width: 260px; }
-    [data-testid="stSidebar"] > div:first-child {
+    /* ── Sidebar — sempre escura ─────────────────────────────────────────── */
+    [data-testid="stSidebar"] {{ min-width: 260px; max-width: 260px; }}
+    [data-testid="stSidebar"] > div:first-child {{
         background: #1A1A1A;
         border-right: 3px solid #C41230;
-    }
-    /* Texto geral da sidebar */
+    }}
     [data-testid="stSidebar"] label,
     [data-testid="stSidebar"] .stMarkdown,
     [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] span { color: #e8e8e8 !important; }
-    [data-testid="stSidebar"] .stSelectbox label {
-        color: #aaaaaa !important;
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    /* Links de navegação na sidebar */
-    [data-testid="stSidebar"] a {
-        color: #e8e8e8 !important;
-        text-decoration: none !important;
-    }
+    [data-testid="stSidebar"] span {{ color: #e8e8e8 !important; }}
+    [data-testid="stSidebar"] .stSelectbox label {{
+        color: #aaaaaa !important; font-size: 11px;
+        text-transform: uppercase; letter-spacing: 0.5px;
+    }}
+    [data-testid="stSidebar"] a {{ color: #e8e8e8 !important; text-decoration: none !important; }}
     [data-testid="stSidebar"] [aria-selected="true"],
-    [data-testid="stSidebar"] [data-testid="stSidebarNavLink"][aria-current="page"] {
-        background: #C41230 !important;
-        border-radius: 6px;
-        color: #ffffff !important;
-    }
-    /* Botoes na sidebar */
-    [data-testid="stSidebar"] .stButton > button {
-        background: #C41230 !important;
-        color: #ffffff !important;
-        border: none !important;
-        font-weight: 600 !important;
-        border-radius: 6px !important;
-    }
-    [data-testid="stSidebar"] .stButton > button:hover {
-        background: #a50e27 !important;
-    }
-    [data-testid="stSidebar"] .stButton > button[kind="secondary"] {
-        background: #2e2e2e !important;
-        color: #cccccc !important;
-        border: 1px solid #444 !important;
-    }
+    [data-testid="stSidebar"] [data-testid="stSidebarNavLink"][aria-current="page"] {{
+        background: #C41230 !important; border-radius: 6px; color: #ffffff !important;
+    }}
+    [data-testid="stSidebar"] .stButton > button {{
+        background: #C41230 !important; color: #ffffff !important;
+        border: none !important; font-weight: 600 !important; border-radius: 6px !important;
+    }}
+    [data-testid="stSidebar"] .stButton > button:hover {{ background: #a50e27 !important; }}
+    [data-testid="stSidebar"] .stButton > button[kind="secondary"] {{
+        background: #2e2e2e !important; color: #cccccc !important; border: 1px solid #444 !important;
+    }}
 
     /* ── Header — oculta botoes do Streamlit ─────────────────────────────── */
-    [data-testid="stToolbar"]      { display: none !important; }
-    [data-testid="stDecoration"]   { display: none !important; }
-    header[data-testid="stHeader"] { background: transparent !important; }
-    #MainMenu                      { visibility: hidden !important; }
-    footer                         { display: none !important; }
+    [data-testid="stToolbar"]      {{ display: none !important; }}
+    [data-testid="stDecoration"]   {{ display: none !important; }}
+    header[data-testid="stHeader"] {{ background: transparent !important; }}
+    #MainMenu                      {{ visibility: hidden !important; }}
+    footer                         {{ display: none !important; }}
 
     /* ── Layout ──────────────────────────────────────────────────────────── */
-    .block-container { padding-top: 1rem; padding-bottom: 1rem; }
-    body, .stApp { background-color: #F7F7F7; }
+    .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
+    body, .stApp, .main {{ background-color: {_BG} !important; }}
 
     /* ── Metric cards ────────────────────────────────────────────────────── */
-    [data-testid="stMetric"] {
-        background: #ffffff;
-        border: 1px solid #e8e8e8;
-        border-top: 3px solid #C41230;
+    [data-testid="stMetric"] {{
+        background: {_CARD_BG} !important;
+        border: 1px solid {_CARD_BRD} !important;
+        border-top: 3px solid #C41230 !important;
         border-radius: 8px;
         padding: 14px 18px;
         box-shadow: 0 2px 8px rgba(196,18,48,0.08);
-    }
-    [data-testid="stMetricLabel"] {
-        font-size: 11px;
-        font-weight: 700;
-        color: #888888;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-    [data-testid="stMetricValue"] {
-        font-size: 28px;
-        font-weight: 800;
-        color: #1A1A1A;
-    }
-    [data-testid="stMetricDelta"] { font-size: 12px; font-weight: 600; }
+    }}
+    [data-testid="stMetricLabel"] {{
+        font-size: 11px; font-weight: 700; color: {_TEXT_SEC} !important;
+        text-transform: uppercase; letter-spacing: 0.5px;
+    }}
+    [data-testid="stMetricValue"] {{ font-size: 28px; font-weight: 800; color: {_TEXT_PRI} !important; }}
+    [data-testid="stMetricDelta"] {{ font-size: 12px; font-weight: 600; }}
 
     /* ── Titulos ─────────────────────────────────────────────────────────── */
-    h1 { color: #1A1A1A !important; font-weight: 800 !important; }
-    h2 { color: #1A1A1A !important; font-weight: 700 !important; }
-    h3 {
-        color: #C41230 !important;
-        font-size: 14px !important;
-        font-weight: 700 !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
-        margin-top: 1.2rem !important;
-    }
+    h1 {{ color: {_TEXT_PRI} !important; font-weight: 800 !important; }}
+    h2 {{ color: {_TEXT_PRI} !important; font-weight: 700 !important; }}
+    h3 {{
+        color: #C41230 !important; font-size: 14px !important;
+        font-weight: 700 !important; text-transform: uppercase !important;
+        letter-spacing: 0.5px !important; margin-top: 1.2rem !important;
+    }}
+    p, li, span {{ color: {_TEXT_PRI}; }}
 
     /* ── Botoes primarios globais ────────────────────────────────────────── */
-    .stButton > button[kind="primary"] {
-        background: #C41230 !important;
-        color: #ffffff !important;
-        border: none !important;
-        border-radius: 6px !important;
-        font-weight: 600 !important;
-    }
-    .stButton > button[kind="primary"]:hover {
-        background: #a50e27 !important;
-    }
+    .stButton > button[kind="primary"] {{
+        background: #C41230 !important; color: #ffffff !important;
+        border: none !important; border-radius: 6px !important; font-weight: 600 !important;
+    }}
+    .stButton > button[kind="primary"]:hover {{ background: #a50e27 !important; }}
 
     /* ── Tabs ────────────────────────────────────────────────────────────── */
-    .stTabs [data-baseweb="tab-list"] {
-        border-bottom: 2px solid #e8e8e8;
-        gap: 4px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        color: #888888 !important;
-        font-weight: 600;
-        border-radius: 6px 6px 0 0;
-    }
-    .stTabs [aria-selected="true"] {
-        color: #C41230 !important;
-        border-bottom: 2px solid #C41230 !important;
+    .stTabs [data-baseweb="tab-list"] {{ border-bottom: 2px solid {_DIVIDER}; gap: 4px; }}
+    .stTabs [data-baseweb="tab"] {{ color: {_TEXT_SEC} !important; font-weight: 600; }}
+    .stTabs [aria-selected="true"] {{
+        color: #C41230 !important; border-bottom: 2px solid #C41230 !important;
         background: transparent !important;
-    }
+    }}
 
     /* ── Badges de status ────────────────────────────────────────────────── */
-    .badge-fin { background:#E8F5E9; color:#2E7D32; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }
-    .badge-and { background:#FFF8E1; color:#F57F17; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }
-    .badge-nao { background:#FFEBEE; color:#C41230; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }
+    .badge-fin {{ background:#E8F5E9; color:#2E7D32; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }}
+    .badge-and {{ background:#FFF8E1; color:#F57F17; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }}
+    .badge-nao {{ background:#FFEBEE; color:#C41230; padding:3px 10px; border-radius:5px; font-weight:600; font-size:12px; }}
 
     /* ── Dividers e tabelas ──────────────────────────────────────────────── */
-    hr { border: none; border-top: 1px solid #e8e8e8; margin: 0.6rem 0; }
-    .stDataFrame { border-radius: 8px; overflow: hidden; }
+    hr {{ border: none; border-top: 1px solid {_DIVIDER}; margin: 0.6rem 0; }}
+    .stDataFrame {{ border-radius: 8px; overflow: hidden; }}
 
     /* ── Expanders ───────────────────────────────────────────────────────── */
-    [data-testid="stExpander"] summary {
-        font-weight: 600;
-        color: #1A1A1A !important;
-    }
+    [data-testid="stExpander"] {{ background: {_EXP_BG} !important; border-radius: 8px; }}
+    [data-testid="stExpander"] summary {{ font-weight: 600; color: {_TEXT_PRI} !important; }}
+
+    /* ── Inputs e selects ────────────────────────────────────────────────── */
+    [data-testid="stSelectbox"] > div > div {{
+        background: {_CARD_BG} !important; color: {_TEXT_PRI} !important;
+    }}
 </style>
 """, unsafe_allow_html=True)
 
@@ -229,22 +207,50 @@ if not st.session_state.snapshots_initialized:
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
+    # ── Logo ──────────────────────────────────────────────────────────────────
+    _LOGO_PATH = Path(__file__).parent / "assets" / "r21_logo.png"
+    if _LOGO_PATH.exists():
+        st.image(str(_LOGO_PATH), width=170)
+        st.markdown(
+            '<div style="font-size:13px; font-weight:700; color:#ffffff; '
+            'margin: 4px 0 0 2px;">FVS Dashboard</div>'
+            '<div style="font-size:10px; color:#888888; margin-bottom:4px;">Portal de Qualidade</div>',
+            unsafe_allow_html=True,
+        )
+    else:
+        st.markdown(
+            """
+            <div style="padding: 4px 0 8px 0;">
+                <div style="font-size:10px; font-weight:700; color:#C41230;
+                            text-transform:uppercase; letter-spacing:2.5px; margin-bottom:2px;">
+                    R21 Empreendimentos
+                </div>
+                <div style="font-size:18px; font-weight:800; color:#ffffff; letter-spacing:-0.3px;">
+                    🏗️ FVS Dashboard
+                </div>
+                <div style="font-size:10px; color:#888888; margin-top:2px;">
+                    Portal de Qualidade
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
+    # ── Toggle claro / escuro ─────────────────────────────────────────────────
+    _t1, _t2 = st.columns(2)
+    with _t1:
+        if st.button("☀️ Claro",  use_container_width=True,
+                     type="primary" if not _DARK else "secondary", key="btn_light"):
+            st.session_state.theme = "light"
+            st.rerun()
+    with _t2:
+        if st.button("🌙 Escuro", use_container_width=True,
+                     type="primary" if _DARK else "secondary", key="btn_dark"):
+            st.session_state.theme = "dark"
+            st.rerun()
+
     st.markdown(
-        """
-        <div style="padding: 4px 0 12px 0;">
-            <div style="font-size:10px; font-weight:700; color:#C41230;
-                        text-transform:uppercase; letter-spacing:2.5px; margin-bottom:2px;">
-                R21 Empreendimentos
-            </div>
-            <div style="font-size:18px; font-weight:800; color:#ffffff; letter-spacing:-0.3px;">
-                🏗️ FVS Dashboard
-            </div>
-            <div style="font-size:10px; color:#888888; margin-top:2px;">
-                Portal de Qualidade
-            </div>
-        </div>
-        <hr style="border-top:1px solid #333333; margin: 0 0 12px 0;">
-        """,
+        '<hr style="border-top:1px solid #333333; margin: 8px 0 12px 0;">',
         unsafe_allow_html=True,
     )
 

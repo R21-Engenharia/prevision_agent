@@ -35,16 +35,24 @@ from fvs_dashboard.core.audit_engine import (
 # ── Sessao ────────────────────────────────────────────────────────────────────
 dm: DataManager = st.session_state.dm
 
-# ── Paleta corporativa ────────────────────────────────────────────────────────
-C_AZUL     = "#2F5597"
-C_AZUL_ESC = "#1a2744"
-C_VERDE    = "#1e7e34"
-C_AMARELO  = "#d39e00"
-C_VERMELHO = "#b21f2d"
+# ── Paleta R21 Empreendimentos ────────────────────────────────────────────────
+C_AZUL     = "#C41230"   # vermelho R21 no lugar do azul
+C_AZUL_ESC = "#8B0D22"   # vermelho escuro
+C_VERDE    = "#2E7D32"
+C_AMARELO  = "#F57F17"
+C_VERMELHO = "#C41230"
 C_CINZA    = "#6c757d"
-C_VERDE_BG = "#d4edda"
-C_AMAR_BG  = "#fff3cd"
-C_VERM_BG  = "#f8d7da"
+C_VERDE_BG = "#E8F5E9"
+C_AMAR_BG  = "#FFF8E1"
+C_VERM_BG  = "#FFEBEE"
+
+# Tema da sessão
+_DARK      = st.session_state.get("theme", "light") == "dark"
+_CARD_BG   = "#1E1E1E" if _DARK else "#FFFFFF"
+_CARD_BRD  = "#333333" if _DARK else "#E8E8E8"
+_TEXT_PRI  = "#FFFFFF"  if _DARK else "#1A1A1A"
+_TEXT_SEC  = "#AAAAAA" if _DARK else "#6c757d"
+_CHART_BG  = "rgba(0,0,0,0)"   # sempre transparente
 
 OBRA_OPTS = ["Todas as Obras"] + list(OBRAS.keys())
 
@@ -53,31 +61,31 @@ st.markdown("""
 <style>
 /* KPI Cards executivos */
 .kpi-card {
-    background: #ffffff;
+    background: var(--kpi-bg, #ffffff);
     border-radius: 12px;
     padding: 18px 20px 14px 20px;
-    border-left: 5px solid #2F5597;
-    box-shadow: 0 2px 8px rgba(47,85,151,0.10);
+    border-left: 5px solid #C41230;
+    box-shadow: 0 2px 8px rgba(196,18,48,0.10);
     margin-bottom: 8px;
     min-height: 110px;
 }
-.kpi-card.green  { border-left-color: #1e7e34; }
-.kpi-card.yellow { border-left-color: #d39e00; }
-.kpi-card.red    { border-left-color: #b21f2d; }
+.kpi-card.green  { border-left-color: #2E7D32; }
+.kpi-card.yellow { border-left-color: #F57F17; }
+.kpi-card.red    { border-left-color: #C41230; }
 .kpi-card.gray   { border-left-color: #6c757d; }
 .kpi-icon  { font-size: 20px; margin-bottom: 4px; }
-.kpi-value { font-size: 36px; font-weight: 800; color: #1a2744; line-height: 1.1; }
-.kpi-label { font-size: 11px; font-weight: 600; color: #6b7fa3;
+.kpi-value { font-size: 36px; font-weight: 800; color: inherit; line-height: 1.1; }
+.kpi-label { font-size: 11px; font-weight: 600; color: #888888;
              text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-.kpi-sub   { font-size: 12px; color: #6c757d; margin-top: 4px; }
+.kpi-sub   { font-size: 12px; color: #888888; margin-top: 4px; }
 .kpi-delta { font-size: 12px; margin-top: 6px; font-weight: 600; }
-.delta-pos { color: #1e7e34; }
-.delta-neg { color: #b21f2d; }
+.delta-pos { color: #2E7D32; }
+.delta-neg { color: #C41230; }
 .delta-neu { color: #6c757d; }
 
 /* Header */
 .audit-header {
-    background: linear-gradient(135deg, #1a2744 0%, #2F5597 100%);
+    background: linear-gradient(135deg, #8B0D22 0%, #C41230 100%);
     border-radius: 12px;
     padding: 22px 28px;
     margin-bottom: 1.5rem;
@@ -90,42 +98,42 @@ st.markdown("""
     margin: 0 0 4px 0 !important;
     letter-spacing: 0.3px;
 }
-.audit-header p { color: #a0b8e0; font-size: 13px; margin: 0; }
+.audit-header p { color: rgba(255,255,255,0.75); font-size: 13px; margin: 0; }
 
 /* Secoes */
 .section-title {
     font-size: 13px;
     font-weight: 700;
-    color: #2F5597;
+    color: #C41230;
     text-transform: uppercase;
     letter-spacing: 0.6px;
-    border-bottom: 2px solid #e8edf5;
+    border-bottom: 2px solid #C41230;
     padding-bottom: 6px;
     margin: 1.4rem 0 0.8rem 0;
 }
 
 /* Alert boxes */
 .alert-critico {
-    background: #fff5f5;
-    border: 1px solid #f5c6cb;
-    border-left: 4px solid #b21f2d;
+    background: #FFEBEE;
+    border: 1px solid #FFCDD2;
+    border-left: 4px solid #C41230;
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 8px;
     font-size: 13px;
 }
 .alert-aviso {
-    background: #fffbf0;
-    border: 1px solid #ffeeba;
-    border-left: 4px solid #d39e00;
+    background: #FFF8E1;
+    border: 1px solid #FFE082;
+    border-left: 4px solid #F57F17;
     border-radius: 8px;
     padding: 12px 16px;
     margin-bottom: 8px;
     font-size: 13px;
 }
 .badge-fonte {
-    background: #e8edf5;
-    color: #2F5597;
+    background: #FFEBEE;
+    color: #C41230;
     font-size: 10px;
     padding: 2px 8px;
     border-radius: 10px;
@@ -325,7 +333,7 @@ with col_evol:
         fig_evol.update_layout(
             title=dict(text="Evolucao Mensal de FVS", font=dict(size=13, color=C_AZUL_ESC)),
             height=300,
-            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="#f8fafd",
+            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
             margin=dict(l=10, r=10, t=40, b=10),
             legend=dict(orientation="h", y=-0.15, font=dict(size=11)),
             xaxis=dict(tickfont=dict(size=10), gridcolor="#eaeef5"),
@@ -382,7 +390,7 @@ if not mi_periodo.empty:
                              marker_color=C_AMARELO,  opacity=0.85))
     fig_bar.update_layout(
         barmode="stack", height=260,
-        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="#f8fafd",
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         margin=dict(l=10, r=10, t=20, b=10),
         legend=dict(orientation="h", y=-0.2, font=dict(size=11)),
         xaxis=dict(tickfont=dict(size=10), gridcolor="#eaeef5"),
@@ -417,7 +425,7 @@ with col_nc:
         ))
         fig_nc.update_layout(
             height=270,
-            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="#f8fafd",
+            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
             margin=dict(l=10, r=10, t=20, b=10),
             legend=dict(orientation="h", y=-0.25, font=dict(size=10)),
             xaxis=dict(tickfont=dict(size=9)),
@@ -449,7 +457,7 @@ with col_comp:
                                   marker_color="#5b9bd5", opacity=0.85))
         fig_comp.update_layout(
             barmode="group", height=270,
-            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="#f8fafd",
+            paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
             margin=dict(l=10, r=10, t=20, b=10),
             legend=dict(orientation="h", y=-0.25, font=dict(size=10)),
             xaxis=dict(tickfont=dict(size=9)),
@@ -482,7 +490,7 @@ with col_aging:
             ))
             fig_aging.update_layout(
                 height=220,
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="#f8fafd",
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=10, r=10, t=10, b=10),
                 xaxis=dict(tickfont=dict(size=10)),
                 yaxis=dict(tickfont=dict(size=11), tickfont_color=C_AZUL_ESC),
@@ -532,7 +540,7 @@ with col_top:
             ))
             fig_top.update_layout(
                 barmode="overlay", height=280,
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="#f8fafd",
+                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
                 margin=dict(l=10, r=10, t=10, b=10),
                 legend=dict(orientation="h", y=-0.15, font=dict(size=10)),
                 xaxis=dict(tickfont=dict(size=9)),
