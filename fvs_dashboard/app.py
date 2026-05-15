@@ -88,8 +88,16 @@ st.markdown(f"""
         background: #2e2e2e !important; color: #cccccc !important; border: 1px solid #444 !important;
     }}
 
-    /* ── Header — rodapé (toolbar ocultado via config.toml toolbarMode=minimal) */
-    footer {{ visibility: hidden; }}
+    /* ── Sidebar: remove botao de recolher (sidebar sempre aberta) ──────── */
+    [data-testid="stSidebarCollapseButton"] {{ display: none !important; }}
+    [data-testid="stSidebarCollapsedControl"] {{ display: none !important; }}
+
+    /* ── Esconde link GitHub / Manage app / rodape do Streamlit Cloud ────── */
+    footer                                   {{ visibility: hidden; }}
+    [data-testid="stStatusWidget"]           {{ display: none !important; }}
+    [data-testid="stDeployButton"]           {{ display: none !important; }}
+    .stDeployButton                          {{ display: none !important; }}
+    iframe[title="streamlit_analytics"]      {{ display: none !important; }}
 
     /* ── Layout ──────────────────────────────────────────────────────────── */
     .block-container {{ padding-top: 1rem; padding-bottom: 1rem; }}
