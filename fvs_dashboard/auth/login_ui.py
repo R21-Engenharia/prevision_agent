@@ -8,10 +8,21 @@ render_login_page(auth, app_url) → bool
 """
 from __future__ import annotations
 
+from pathlib import Path
 import streamlit as st
 import streamlit.components.v1 as components
 
 from fvs_dashboard.auth.supabase_auth import SupabaseAuth
+
+# ── Componente OAuth (iframe same-origin: pode ler window.top.location.hash) ──
+# declare_component com path= serve os arquivos pelo mesmo domínio do app,
+# o que garante acesso a window.top — diferente de st.components.v1.html
+# que usa srcdoc (origem nula) e não pode acessar o frame pai.
+_OAUTH_COMPONENT_DIR = Path(__file__).parent / "oauth_handler"
+_oauth_component = components.declare_component(
+    "fvs_oauth_handler",
+    path=str(_OAUTH_COMPONENT_DIR),
+)
 
 
 # ── CSS da página de login ─────────────────────────────────────────────────────
@@ -91,48 +102,19 @@ _LOGIN_CSS = """
 </style>
 """
 
-# SVG do logo Google
-_GOOGLE_SVG = """<svg class="google-svg" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/>
-  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-</svg>"""
 
 
 # ── Handler do callback OAuth (Google) ────────────────────────────────────────
 
 def _inject_oauth_hash_handler() -> None:
     """
-    Injeta JavaScript que converte o fragmento #access_token=... (retornado
-    pelo Supabase após login Google) em query params que o Python pode ler.
-
-    Funciona porque os iframes de components.html no Streamlit têm
-    sandbox="allow-scripts allow-same-origin", permitindo acessar window.top.
+    Roda o componente OAuth (same-origin) que converte o fragmento
+    #access_token=... em query params que o Python pode ler.
+    Ao contrário de st.components.v1.html (srcdoc / origem nula),
+    este componente é servido pelo mesmo domínio do app e pode
+    acessar window.top.location sem erro de cross-origin.
     """
-    components.html(
-        """
-        <script>
-        (function() {
-            try {
-                var hash = window.top.location.hash;
-                if (hash && hash.indexOf('access_token') !== -1) {
-                    var params = new URLSearchParams(hash.substring(1));
-                    var at = params.get('access_token') || '';
-                    var rt = params.get('refresh_token') || '';
-                    if (at) {
-                        var clean = window.top.location.pathname
-                            + '?oauth_at=' + encodeURIComponent(at)
-                            + '&oauth_rt=' + encodeURIComponent(rt);
-                        window.top.location.replace(clean);
-                    }
-                }
-            } catch (e) { /* cross-origin ou hash vazio — ignorar */ }
-        })();
-        </script>
-        """,
-        height=0,
-    )
+    _oauth_component(google_url="", key="fvs_oauth_hash", default=None)
 
 
 def _handle_oauth_callback(auth: SupabaseAuth) -> bool:
@@ -270,23 +252,20 @@ def _render_form(auth: SupabaseAuth, app_url: str) -> None:
                             else:
                                 st.error(f"Erro ao entrar: {exc}")
 
-            # ── Botão Google ──────────────────────────────────────────────────
+            # ── Botão Google (componente same-origin) ────────────────────────
             if app_url:
                 try:
                     _gurl = auth.google_auth_url(app_url)
-                    # Renderiza botão como link HTML com target="_top"
-                    # para navegar o frame principal (não o iframe)
                     st.markdown(
-                        f"""
-                        <div class="or-divider"><hr><span>ou continue com</span><hr></div>
-                        <div class="google-btn-wrap">
-                            <a href="{_gurl}" target="_top">
-                                {_GOOGLE_SVG}
-                                Entrar com Google
-                            </a>
-                        </div>
-                        """,
+                        '<div class="or-divider"><hr><span>ou continue com</span><hr></div>',
                         unsafe_allow_html=True,
+                    )
+                    # O componente usa window.top.location.href para navegar
+                    # sem depender de target= ou comportamento do navegador
+                    _oauth_component(
+                        google_url=_gurl,
+                        key="fvs_oauth_google_btn",
+                        default=None,
                     )
                 except Exception:
                     st.caption("_(Google OAuth não configurado no Supabase)_")
