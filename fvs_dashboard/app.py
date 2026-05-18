@@ -287,23 +287,11 @@ with st.sidebar:
     st.markdown("")
 
     # ── Autenticacao para atualizacoes ────────────────────────────────────────
-    _REFRESH_PWD = _secret("REFRESH_PASSWORD", "r21qualidade")
+    _is_admin  = st.session_state.get("auth_role") == "admin"
+    _is_viewer = st.session_state.get("auth_role") in ("viewer", "admin")
 
-    if "refresh_autenticado" not in st.session_state:
-        st.session_state.refresh_autenticado = False
-
-    if not st.session_state.refresh_autenticado:
-        with st.expander("🔒 Atualizar dados (restrito)", expanded=False):
-            _pwd_input = st.text_input("Senha", type="password", key="pwd_input",
-                                       placeholder="Digite a senha...")
-            if st.button("Entrar", use_container_width=True):
-                if _pwd_input == _REFRESH_PWD:
-                    st.session_state.refresh_autenticado = True
-                    st.rerun()
-                else:
-                    st.error("Senha incorreta.")
-    else:
-        # Botao: Atualizar InMeta (rapido)
+    # ── Atualizar InMeta — disponível para todos (viewer + admin) ─────────────
+    if _is_viewer:
         if st.button("🔄 Atualizar InMeta", use_container_width=True, type="primary"):
             with st.spinner("Conectando ao InMeta..."):
                 try:
@@ -313,24 +301,22 @@ with st.sidebar:
                         senha=_secret("INMETA_SENHA"),
                     )
                     dm.refresh_inmeta(obra, client)
-                    # Salva snapshot apos atualizar (max 1 por dia)
                     for _obra_name in OBRAS:
                         dm.save_snapshot(_obra_name)
-                    st.success("Dados atualizados e snapshot salvo!")
+                    st.success("Dados atualizados!")
                     st.rerun()
                 except Exception as e:
                     st.error(f"Erro: {e}")
 
-        # Botao: Atualizar Prevision (lento)
+    # ── Atualizar Prevision — somente admin ───────────────────────────────────
+    if _is_admin:
         with st.expander("Atualizar Prevision (lento)"):
             st.warning("Coleta completa leva ~20 minutos.", icon="⏱️")
             confirma = st.checkbox("Confirmo que quero atualizar o Prevision")
-            if st.button("🔄 Iniciar coleta Prevision", disabled=not confirma, use_container_width=True):
-                st.info("Funcionalidade disponivel via linha de comando:\n`python collectors/operational_collector.py`")
-
-        if st.button("🔓 Sair", use_container_width=True):
-            st.session_state.refresh_autenticado = False
-            st.rerun()
+            if st.button("🔄 Iniciar coleta Prevision",
+                         disabled=not confirma, use_container_width=True):
+                st.info("Funcionalidade disponivel via linha de comando:\n"
+                        "`python collectors/operational_collector.py`")
 
     st.divider()
     st.caption("Fase 6 — MVP Operacional")
@@ -388,8 +374,8 @@ _pages = [
     st.Page("pages/5_Auditoria_Gerencial.py",    title="Auditoria Gerencial", icon="📈"),
 ]
 
-# Pagina de gestao de usuarios — visivel apenas com painel restrito desbloqueado
-if _auth is not None and st.session_state.get("refresh_autenticado"):
+# Pagina de gestao de usuarios — somente admins
+if _auth is not None and st.session_state.get("auth_role") == "admin":
     _pages.append(
         st.Page("pages/6_Usuarios.py", title="Usuarios", icon="👥")
     )
