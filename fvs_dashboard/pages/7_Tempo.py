@@ -11,7 +11,7 @@ from __future__ import annotations
 import json
 import sys
 from pathlib import Path
-from datetime import date
+from datetime import date, timedelta
 
 import streamlit as st
 import plotly.graph_objects as go
@@ -191,8 +191,9 @@ def _monthly(df: pd.DataFrame) -> pd.DataFrame:
     return grp.sort_values("mes")
 
 
-def _count_period(df: pd.DataFrame, year: int, month: int) -> dict[str, int]:
-    mask = (df["data"].dt.year == year) & (df["data"].dt.month == month)
+def _count_range(df: pd.DataFrame, d_start, d_end) -> dict[str, int]:
+    """Conta dias por condicao num intervalo de datas [d_start, d_end] (inclusive)."""
+    mask = (df["data"].dt.date >= d_start) & (df["data"].dt.date <= d_end)
     sub  = df[mask]
     return {k: int((sub["condicao"] == k).sum()) for k in WEATHER_KEYS}
 
@@ -290,36 +291,50 @@ counts_total  = {k: hist_total.get(k, 0) + counts_comb[k] for k in WEATHER_KEYS}
 # (mantém counts_inmeta por obra selecionada — usado na composição)
 counts_inmeta = {k: int((df["condicao"] == k).sum()) if not df.empty else 0 for k in WEATHER_KEYS}
 
-# Períodos disponíveis no InMeta
-periods: list[tuple[int,int]] = []
-if not df_months.empty:
-    for _, row in df_months.iterrows():
-        p = row["mes"]
-        periods.append((p.year, p.month))
-period_labels = [f"{MONTHS_SHORT[m]}/{str(y)[-2:]}" for y, m in periods]
+# ── Defaults de intervalo baseados nos dados disponíveis ─────────────────────
+if not df.empty:
+    d_min = df["data"].dt.date.min()
+    d_max = df["data"].dt.date.max()
+else:
+    d_max = date.today()
+    d_min = d_max - timedelta(days=365)
 
-# ── Seletores de período ──────────────────────────────────────────────────────
+# Período 1 default: últimos 30 dias com dados
+p1_end_def   = d_max
+p1_start_def = max(d_min, d_max - timedelta(days=29))
+# Período 2 default: 30 dias antes do período 1
+p2_end_def   = p1_start_def - timedelta(days=1) if p1_start_def > d_min else d_min
+p2_start_def = max(d_min, p2_end_def - timedelta(days=29))
+
+# ── Seletores de intervalo ────────────────────────────────────────────────────
 sc1, sc2 = st.columns(2)
+
 with sc1:
-    if period_labels:
-        sel_p1    = st.selectbox("Período 1", period_labels,
-                                 index=max(0, len(periods)-1), key="tp1")
-        p1_y, p1_m = periods[period_labels.index(sel_p1)]
-        counts_p1  = _count_period(df, p1_y, p1_m)
-        label_p1   = f"{MONTHS_PT[p1_m]} {p1_y}"
+    st.markdown("**📅 Período 1**")
+    sel_p1 = st.date_input(
+        "Período 1", label_visibility="collapsed",
+        value=(p1_start_def, p1_end_def),
+        min_value=d_min, max_value=d_max,
+        format="DD/MM/YYYY", key="tp1",
+    )
+    if isinstance(sel_p1, (list, tuple)) and len(sel_p1) == 2:
+        counts_p1 = _count_range(df, sel_p1[0], sel_p1[1])
+        label_p1  = f"{sel_p1[0].strftime('%d/%m/%y')} – {sel_p1[1].strftime('%d/%m/%y')}"
     else:
-        st.selectbox("Período 1", ["(sem dados)"], disabled=True, key="tp1")
-        counts_p1 = label_p1 = None
+        counts_p1 = label_p1 = None   # usuário ainda arrastando a seleção
 
 with sc2:
-    if period_labels:
-        sel_p2    = st.selectbox("Período 2", period_labels,
-                                 index=max(0, len(periods)-2), key="tp2")
-        p2_y, p2_m = periods[period_labels.index(sel_p2)]
-        counts_p2  = _count_period(df, p2_y, p2_m)
-        label_p2   = f"{MONTHS_PT[p2_m]} {p2_y}"
+    st.markdown("**📅 Período 2**")
+    sel_p2 = st.date_input(
+        "Período 2", label_visibility="collapsed",
+        value=(p2_start_def, p2_end_def),
+        min_value=d_min, max_value=d_max,
+        format="DD/MM/YYYY", key="tp2",
+    )
+    if isinstance(sel_p2, (list, tuple)) and len(sel_p2) == 2:
+        counts_p2 = _count_range(df, sel_p2[0], sel_p2[1])
+        label_p2  = f"{sel_p2[0].strftime('%d/%m/%y')} – {sel_p2[1].strftime('%d/%m/%y')}"
     else:
-        st.selectbox("Período 2", ["(sem dados)"], disabled=True, key="tp2")
         counts_p2 = label_p2 = None
 
 st.markdown("")
