@@ -73,20 +73,28 @@ class InMetaClient:
         except Exception:
             return False
 
-    def fetch_diario(self, alvo_id: str) -> list[dict]:
+    def fetch_diario_obra(self, alvo_id: str) -> list[dict]:
         """
-        Retorna inspecoes do Diario de Obra (modulo=DIARIO).
-        Usado para extrair condicao climatica diaria.
+        Retorna todos os RDOs do Diario de Obra.
+        Endpoint: GET /api/inspecoes?modulo=DIARIO_OBRA&alvoId={alvo_id}
+        Campos uteis: dataInspecao, classificacaoTempo, condicaoTrabalho,
+                      alvo.nome, modelo.nome, codigo, _id
         """
         r = httpx.get(
-            f"{self.base_url}/api/v1/alvos/{alvo_id}/inspecoes/atuais",
+            f"{self.base_url}/api/inspecoes",
             headers=self._headers,
-            params={"modulo": "DIARIO"},
-            timeout=30,
+            params={"modulo": "DIARIO_OBRA", "alvoId": alvo_id},
+            timeout=60,
         )
         r.raise_for_status()
         data = r.json()
-        return data.get("content", []) if isinstance(data, dict) else data
+        if isinstance(data, dict) and "content" in data:
+            content = data["content"]
+            if isinstance(content, dict):
+                return content.get("list", [])
+            if isinstance(content, list):
+                return content
+        return data if isinstance(data, list) else []
 
     def whoami(self) -> dict:
         """Retorna contexto do usuario autenticado."""

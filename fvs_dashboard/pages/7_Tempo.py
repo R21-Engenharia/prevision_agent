@@ -1,9 +1,9 @@
 """
 Pagina 7 — Condicao do Tempo
 ============================
-Le o relatorio do Diario de Obra (Excel/CSV exportado do InMeta)
-e gera graficos de pizza interativos por periodo.
-Historico pre-InMeta fixo: Cape Town Sol=129, Nub=77, Chu=42.
+Dados do Diario de Obra via API InMeta.
+Endpoint: GET /api/inspecoes?modulo=DIARIO_OBRA&alvoId={id}
+Campos: dataInspecao, classificacaoTempo, condicaoTrabalho
 """
 
 from __future__ import annotations
@@ -17,15 +17,16 @@ import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
 
-# ── Path setup ────────────────────────────────────────────────────────────────
 _ROOT = Path(__file__).resolve().parent.parent.parent
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from fvs_dashboard.core.data_manager import OBRAS, DATA_RAW
+from fvs_dashboard.core.inmeta_client import InMetaClient
+import os
 
 # ── Histórico pré-InMeta (fixo) ───────────────────────────────────────────────
-HISTORICAL: dict[str, dict[str, int]] = {
+HISTORICAL = {
     "Cape Town Residence": {"ENSOLARADO": 129, "NUBLADO": 77, "CHUVOSO": 42},
     "Holmes Residence":    {"ENSOLARADO": 0,   "NUBLADO": 0,  "CHUVOSO": 0},
 }
@@ -41,111 +42,121 @@ MONTHS_PT    = {1:"Janeiro",2:"Fevereiro",3:"Março",4:"Abril",5:"Maio",6:"Junho
                 7:"Julho",8:"Agosto",9:"Setembro",10:"Outubro",11:"Novembro",12:"Dezembro"}
 MONTHS_SHORT = {k: v[:3] for k, v in MONTHS_PT.items()}
 
-WEATHER_CACHE = DATA_RAW / "weather_diario.json"
+DIARIO_CACHE = DATA_RAW / "inmeta_diario_raw.json"
 
-# ── Normalização ──────────────────────────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────────────
 
-def _normalize(val: str) -> str:
-    v = str(val).upper().strip()
-    if any(x in v for x in ["SOL", "ENSOL", "BOM", "CLARO"]):
-        return "ENSOLARADO"
-    if any(x in v for x in ["NUBLA", "PARCIAL", "ENCOBERTO"]):
-        return "NUBLADO"
-    if any(x in v for x in ["CHUV", "RAIN", "MOLHA"]):
-        return "CHUVOSO"
-    return "OUTRO"
+def _secret(key, default=""):
+    try:
+        return st.secrets[key]
+    except Exception:
+        return os.getenv(key, default)
 
-# ── Cache JSON ────────────────────────────────────────────────────────────────
 
 def _load_cache() -> dict:
-    if not WEATHER_CACHE.exists():
+    if not DIARIO_CACHE.exists():
         return {}
     try:
-        return json.loads(WEATHER_CACHE.read_text(encoding="utf-8"))
+        return json.loads(DIARIO_CACHE.read_text(encoding="utf-8"))
     except Exception:
         return {}
 
+
 def _save_cache(data: dict) -> None:
-    WEATHER_CACHE.parent.mkdir(parents=True, exist_ok=True)
-    WEATHER_CACHE.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    DIARIO_CACHE.parent.mkdir(parents=True, exist_ok=True)
+    DIARIO_CACHE.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
 
-def _obra_key(obra: str) -> str:
-    return OBRAS[obra]["insp_key"]
 
-# ── Lê relatório do Diário de Obra ────────────────────────────────────────────
+# ── Normaliza classificacaoTempo ──────────────────────────────────────────────
 
-def _parse_diario(uploaded_file) -> pd.DataFrame:
-    """
-    Lê Excel ou CSV do relatório Diário de Obra.
-    Detecta automaticamente colunas de data e condição do tempo.
-    Retorna DataFrame com colunas: data (date), condicao (str normalizada).
-    """
-    name = uploaded_file.name.lower()
-    if name.endswith(".csv"):
-        df = pd.read_csv(uploaded_file, sep=None, engine="python", dtype=str)
-    else:
-        df = pd.read_excel(uploaded_file, dtype=str)
+def _normalize(val: str) -> str:
+    v = str(val).upper().strip()
+    if "ENSOL" in v or v == "BOM":
+        return "ENSOLARADO"
+    if "NUBLADO" in v or "PARCIAL" in v:
+        return "NUBLADO"
+    if "CHUV" in v:
+        return "CHUVOSO"
+    return v  # mantém o valor original se não reconhecido
 
-    df.columns = [str(c).strip() for c in df.columns]
 
-    # ── Detecta coluna de condição ────────────────────────────────────────────
-    clima_candidates = [c for c in df.columns if any(
-        x in c.lower() for x in ["clima", "tempo", "condicao", "condicão",
-                                  "weather", "situacao", "situação"]
-    )]
-    if not clima_candidates:
-        raise ValueError(
-            f"Coluna de condição do tempo não encontrada.\n"
-            f"Colunas disponíveis: {list(df.columns)}"
+# ── Fetch e cache ─────────────────────────────────────────────────────────────
+
+def _do_refresh() -> tuple[bool, str]:
+    try:
+        client = InMetaClient(
+            base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
+            email=_secret("INMETA_EMAIL"),
+            senha=_secret("INMETA_SENHA"),
         )
-    col_clima = clima_candidates[0]
+        cache = {"collected_at": str(date.today())}
+        total = 0
+        for obra_name, cfg in OBRAS.items():
+            rdos = client.fetch_diario_obra(cfg["inmeta_id"])
+            cache[cfg["insp_key"]] = rdos
+            total += len(rdos)
+        _save_cache(cache)
+        # Limpa cache de session_state
+        for k in list(st.session_state.keys()):
+            if k.startswith("diario_df_"):
+                del st.session_state[k]
+        return True, f"✅ {total} RDOs carregados."
+    except Exception as e:
+        return False, f"❌ {e}"
 
-    # ── Detecta coluna de data ────────────────────────────────────────────────
-    date_candidates = [c for c in df.columns if any(
-        x in c.lower() for x in ["data", "date", "dia"]
-    )]
-    col_data = date_candidates[0] if date_candidates else None
 
-    result = pd.DataFrame()
-    result["condicao"] = df[col_clima].dropna().apply(_normalize)
+def _get_df(obra: str) -> pd.DataFrame:
+    """Carrega RDOs da obra como DataFrame com colunas: data, condicao, condicao_trabalho."""
+    key = f"diario_df_{obra}"
+    if key in st.session_state:
+        return st.session_state[key]
 
-    if col_data:
-        result["data"] = pd.to_datetime(
-            df[col_data], dayfirst=True, errors="coerce"
-        )
-    else:
-        result["data"] = pd.NaT
+    cache = _load_cache()
+    rdos  = cache.get(OBRAS[obra]["insp_key"], [])
+    if not rdos:
+        return pd.DataFrame(columns=["data", "condicao", "condicao_trabalho"])
 
-    return result[["data", "condicao"]]
+    rows = []
+    for r in rdos:
+        data_str = r.get("dataInspecao", "") or ""
+        cond     = _normalize(r.get("classificacaoTempo", "") or "")
+        trab     = r.get("condicaoTrabalho", "") or ""
+        rows.append({
+            "data":             data_str[:10],
+            "condicao":         cond,
+            "condicao_trabalho": trab,
+        })
+
+    df = pd.DataFrame(rows)
+    df["data"] = pd.to_datetime(df["data"], errors="coerce")
+    df = df.dropna(subset=["data"]).sort_values("data")
+    st.session_state[key] = df
+    return df
+
 
 # ── Agrega por mês ────────────────────────────────────────────────────────────
 
-def _aggregate_months(df: pd.DataFrame) -> dict[str, dict[str, int]]:
-    """
-    Retorna {"YYYY-MM": {"ENSOLARADO":n, "NUBLADO":n, "CHUVOSO":n}, ...}
-    """
-    result: dict[str, dict[str, int]] = {}
-    for _, row in df.iterrows():
-        cond = row["condicao"]
-        if cond not in WEATHER_KEYS:
-            continue
-        if pd.notna(row["data"]):
-            key = row["data"].strftime("%Y-%m")
-        else:
-            key = "sem-data"
-        if key not in result:
-            result[key] = {k: 0 for k in WEATHER_KEYS}
-        result[key][cond] = result[key].get(cond, 0) + 1
-    return result
+def _monthly(df: pd.DataFrame) -> pd.DataFrame:
+    if df.empty:
+        return pd.DataFrame()
+    df = df.copy()
+    df["mes"] = df["data"].dt.to_period("M")
+    grp = df.groupby(["mes", "condicao"]).size().unstack(fill_value=0).reset_index()
+    for k in WEATHER_KEYS:
+        if k not in grp.columns:
+            grp[k] = 0
+    grp["label"] = grp["mes"].apply(
+        lambda p: f"{MONTHS_SHORT[p.month]}/{str(p.year)[-2:]}"
+    )
+    grp["total"] = grp[WEATHER_KEYS].sum(axis=1)
+    return grp.sort_values("mes")
 
-# ── Soma todos os meses ───────────────────────────────────────────────────────
 
-def _sum_months(months: dict) -> dict[str, int]:
-    total = {k: 0 for k in WEATHER_KEYS}
-    for m in months.values():
-        for k in WEATHER_KEYS:
-            total[k] += m.get(k, 0)
-    return total
+def _count_period(df: pd.DataFrame, year: int, month: int) -> dict[str, int]:
+    mask = (df["data"].dt.year == year) & (df["data"].dt.month == month)
+    sub  = df[mask]
+    return {k: int((sub["condicao"] == k).sum()) for k in WEATHER_KEYS}
+
 
 # ── Gráfico de pizza ─────────────────────────────────────────────────────────
 
@@ -158,8 +169,7 @@ def _make_pie(counts: dict[str, int], title: str) -> go.Figure:
     fig = go.Figure(go.Pie(
         labels=labels, values=values, hole=0.45,
         marker=dict(colors=colors, line=dict(color="#fff", width=2)),
-        textinfo="label+percent",
-        textfont=dict(size=12),
+        textinfo="label+percent", textfont=dict(size=12),
         hovertemplate="<b>%{label}</b><br>%{value} dias (%{percent})<extra></extra>",
         sort=False,
     ))
@@ -169,18 +179,18 @@ def _make_pie(counts: dict[str, int], title: str) -> go.Figure:
                    x=0.5, xanchor="center"),
         annotations=[dict(
             text=f"<b>{total}</b><br><span style='font-size:10px'>dias</span>",
-            x=0.5, y=0.5, font=dict(size=20, color="#1A1A1A", family="Arial Black"),
-            showarrow=False,
+            x=0.5, y=0.5, showarrow=False,
+            font=dict(size=20, color="#1A1A1A", family="Arial Black"),
         )],
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.30, xanchor="center", x=0.5,
-                    font=dict(size=11)),
+        legend=dict(orientation="h", yanchor="bottom", y=-0.30,
+                    xanchor="center", x=0.5, font=dict(size=11)),
         margin=dict(t=55, b=70, l=10, r=10),
-        paper_bgcolor="rgba(0,0,0,0)",
-        plot_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
         height=380,
     )
     return fig
+
 
 _PLOTLY_CFG = {
     "displaylogo": False,
@@ -199,112 +209,70 @@ st.markdown("""
     padding:18px 24px 14px;border-radius:10px;margin-bottom:20px;">
     <div style="font-size:22px;font-weight:800;color:#fff;">🌤️ Condição do Tempo</div>
     <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-top:4px;">
-        Relatório do Diário de Obra + histórico pré-InMeta</div>
+        Diário de Obra — InMeta</div>
 </div>""", unsafe_allow_html=True)
 
 obra = st.session_state.get("obra", list(OBRAS.keys())[0])
-cache = _load_cache()
-obra_months: dict = cache.get(_obra_key(obra), {})
 
-# ── Upload do relatório ───────────────────────────────────────────────────────
-with st.expander("📂 Importar relatório do Diário de Obra", expanded=not bool(obra_months)):
-    st.caption(
-        "Exporte o Diário de Obra do InMeta (Excel ou CSV) e importe aqui. "
-        "O arquivo precisa ter uma coluna com a data e outra com a condição do tempo."
-    )
-    uploaded = st.file_uploader(
-        f"Relatório — {obra}",
-        type=["xlsx", "xls", "csv"],
-        key=f"upload_{obra}",
-    )
-    if uploaded:
-        try:
-            df_parsed = _parse_diario(uploaded)
-            months_new = _aggregate_months(df_parsed)
-            total_rows = sum(sum(m.values()) for m in months_new.values())
+# ── Barra de atualização ──────────────────────────────────────────────────────
+c_info, c_btn = st.columns([3, 1])
+cache_meta = _load_cache()
+with c_info:
+    if cache_meta.get("collected_at"):
+        n_rdos = len(cache_meta.get(OBRAS[obra]["insp_key"], []))
+        st.caption(f"📅 Atualizado em **{cache_meta['collected_at']}** — {n_rdos} RDOs de {obra}")
+    else:
+        st.caption("Sem dados. Clique em **Atualizar Diário**.")
 
-            st.success(
-                f"✅ {total_rows} dias lidos em {len(months_new)} mês(es). "
-                f"Confirme para salvar."
-            )
-            # Preview
-            preview_rows = []
-            for p in sorted(months_new.keys()):
-                d = months_new[p]
-                try:
-                    yr, mo = int(p[:4]), int(p[5:])
-                    label = f"{MONTHS_PT[mo]} {yr}"
-                except Exception:
-                    label = p
-                preview_rows.append({
-                    "Mês": label,
-                    "☀️ Ensolarado": d.get("ENSOLARADO", 0),
-                    "⛅ Nublado":    d.get("NUBLADO",    0),
-                    "🌧️ Chuvoso":   d.get("CHUVOSO",    0),
-                    "Total": sum(d.values()),
-                })
-            st.dataframe(pd.DataFrame(preview_rows), use_container_width=True, hide_index=True)
-
-            col_save, col_replace = st.columns(2)
-            with col_save:
-                if st.button("💾 Adicionar aos dados existentes", use_container_width=True,
-                             type="primary"):
-                    cache.setdefault(_obra_key(obra), {}).update(months_new)
-                    _save_cache(cache)
-                    st.success("Dados adicionados!")
-                    st.rerun()
-            with col_replace:
-                if st.button("🔄 Substituir todos os dados desta obra", use_container_width=True):
-                    cache[_obra_key(obra)] = months_new
-                    _save_cache(cache)
-                    st.success("Dados substituídos!")
-                    st.rerun()
-
-        except Exception as e:
-            st.error(f"Erro ao ler arquivo: {e}")
-            st.info("Verifique se o arquivo tem colunas de **data** e **condição do tempo**.")
+with c_btn:
+    if st.button("🔄 Atualizar Diário", use_container_width=True, type="primary"):
+        with st.spinner("Buscando RDOs no InMeta..."):
+            ok, msg = _do_refresh()
+        if ok:
+            st.success(msg)
+            st.rerun()
+        else:
+            st.error(msg)
 
 st.divider()
 
-# ── Carrega totais ────────────────────────────────────────────────────────────
-hist          = HISTORICAL.get(obra, {})
-counts_manual = _sum_months(obra_months)
-counts_total  = {k: hist.get(k, 0) + counts_manual.get(k, 0) for k in WEATHER_KEYS}
+# ── Dados ────────────────────────────────────────────────────────────────────
+df        = _get_df(obra)
+hist      = HISTORICAL.get(obra, {})
+df_months = _monthly(df)
 
-periods       = sorted(p for p in obra_months if p != "sem-data")
-period_labels = []
-for p in periods:
-    try:
-        period_labels.append(f"{MONTHS_SHORT[int(p[5:7])]}/{p[2:4]}")
-    except Exception:
-        period_labels.append(p)
+# Totais acumulados (histórico + InMeta)
+counts_inmeta = {k: int((df["condicao"] == k).sum()) if not df.empty else 0 for k in WEATHER_KEYS}
+counts_total  = {k: hist.get(k, 0) + counts_inmeta[k] for k in WEATHER_KEYS}
+
+# Períodos disponíveis no InMeta
+periods: list[tuple[int,int]] = []
+if not df_months.empty:
+    for _, row in df_months.iterrows():
+        p = row["mes"]
+        periods.append((p.year, p.month))
+period_labels = [f"{MONTHS_SHORT[m]}/{str(y)[-2:]}" for y, m in periods]
 
 # ── Seletores de período ──────────────────────────────────────────────────────
 sc1, sc2 = st.columns(2)
 with sc1:
     if period_labels:
-        sel_p1   = st.selectbox("Período 1", period_labels,
-                                index=max(0, len(periods)-1), key="tp1")
-        p1_key   = periods[period_labels.index(sel_p1)]
-        counts_p1 = obra_months.get(p1_key, {k: 0 for k in WEATHER_KEYS})
-        try:
-            label_p1 = f"{MONTHS_PT[int(p1_key[5:7])]} {p1_key[:4]}"
-        except Exception:
-            label_p1 = p1_key
+        sel_p1    = st.selectbox("Período 1", period_labels,
+                                 index=max(0, len(periods)-1), key="tp1")
+        p1_y, p1_m = periods[period_labels.index(sel_p1)]
+        counts_p1  = _count_period(df, p1_y, p1_m)
+        label_p1   = f"{MONTHS_PT[p1_m]} {p1_y}"
     else:
         st.selectbox("Período 1", ["(sem dados)"], disabled=True, key="tp1")
         counts_p1 = label_p1 = None
 
 with sc2:
     if period_labels:
-        sel_p2   = st.selectbox("Período 2", period_labels,
-                                index=max(0, len(periods)-2), key="tp2")
-        p2_key   = periods[period_labels.index(sel_p2)]
-        counts_p2 = obra_months.get(p2_key, {k: 0 for k in WEATHER_KEYS})
-        try:
-            label_p2 = f"{MONTHS_PT[int(p2_key[5:7])]} {p2_key[:4]}"
-        except Exception:
-            label_p2 = p2_key
+        sel_p2    = st.selectbox("Período 2", period_labels,
+                                 index=max(0, len(periods)-2), key="tp2")
+        p2_y, p2_m = periods[period_labels.index(sel_p2)]
+        counts_p2  = _count_period(df, p2_y, p2_m)
+        label_p2   = f"{MONTHS_PT[p2_m]} {p2_y}"
     else:
         st.selectbox("Período 2", ["(sem dados)"], disabled=True, key="tp2")
         counts_p2 = label_p2 = None
@@ -314,111 +282,92 @@ st.markdown("")
 # ── 3 pizzas ──────────────────────────────────────────────────────────────────
 c1, c2, c3 = st.columns(3)
 
-with c1:
-    st.plotly_chart(_make_pie(counts_total, "Total Acumulado"),
-                    use_container_width=True, config=_PLOTLY_CFG)
-    h_tot = sum(hist.values())
-    m_tot = sum(counts_manual.values())
-    st.markdown(
-        f"""<div style="background:rgba(196,18,48,0.06);border-left:3px solid #C41230;
-            border-radius:6px;padding:10px 14px;font-size:12px;">
-            <div style="font-weight:700;color:#C41230;margin-bottom:6px;">Composição</div>
-            <div>📚 Pré-InMeta: <b>{h_tot}</b> dias</div>
-            <div>📋 Diário InMeta: <b>{m_tot}</b> dias ({len(obra_months)} meses)</div>
-            <div style="margin-top:6px;border-top:1px solid rgba(196,18,48,0.2);padding-top:6px;">
-                <b>Total: {h_tot+m_tot}</b> dias</div></div>""",
-        unsafe_allow_html=True,
-    )
-
-def _pie_col(counts, label, border):
-    if counts is None:
-        st.markdown(
-            """<div style="display:flex;align-items:center;justify-content:center;
-                height:340px;background:rgba(0,0,0,0.04);border-radius:10px;
-                border:1px dashed #ccc;flex-direction:column;gap:8px;">
-                <div style="font-size:36px;">📂</div>
-                <div style="font-size:13px;color:#888;text-align:center;">
-                    Importe o relatório do<br>Diário de Obra acima.</div>
-            </div>""", unsafe_allow_html=True)
-        return
-    st.plotly_chart(_make_pie(counts, label),
-                    use_container_width=True, config=_PLOTLY_CFG)
+def _card(counts, label, border):
     total = sum(counts.get(k, 0) for k in WEATHER_KEYS)
     lines = "".join(
         f"<div>{WEATHER_META[k]['icon']} {WEATHER_META[k]['label']}: "
-        f"<b>{counts.get(k,0)}</b> "
-        f"({'—' if total==0 else f'{counts.get(k,0)/total*100:.0f}%'})</div>"
+        f"<b>{counts.get(k,0)}</b>"
+        f"{' ('+f\"{counts.get(k,0)/total*100:.0f}%\" +')' if total else ''}</div>"
         for k in WEATHER_KEYS
     )
     st.markdown(
         f"""<div style="background:rgba(0,0,0,0.04);border-left:3px solid {border};
             border-radius:6px;padding:10px 14px;font-size:12px;">
-            <div style="font-weight:700;color:{border};margin-bottom:6px;">{label}</div>
+            <div style="font-weight:700;color:{border};margin-bottom:5px;">{label}</div>
             {lines}
-            <div style="margin-top:6px;border-top:1px solid rgba(0,0,0,0.1);padding-top:6px;">
-                <b>Total: {total}</b> dias</div></div>""",
+            <div style="margin-top:5px;border-top:1px solid rgba(0,0,0,0.1);
+                padding-top:5px;"><b>Total: {total}</b> dias</div></div>""",
+        unsafe_allow_html=True,
+    )
+
+with c1:
+    st.plotly_chart(_make_pie(counts_total, "Total Acumulado"),
+                    use_container_width=True, config=_PLOTLY_CFG)
+    h_tot = sum(hist.values())
+    m_tot = sum(counts_inmeta.values())
+    st.markdown(
+        f"""<div style="background:rgba(196,18,48,0.06);border-left:3px solid #C41230;
+            border-radius:6px;padding:10px 14px;font-size:12px;">
+            <div style="font-weight:700;color:#C41230;margin-bottom:5px;">Composição</div>
+            <div>📚 Pré-InMeta: <b>{h_tot}</b> dias</div>
+            <div>📋 InMeta Diário: <b>{m_tot}</b> dias ({len(df)} RDOs)</div>
+            <div style="margin-top:5px;border-top:1px solid rgba(196,18,48,0.2);
+                padding-top:5px;"><b>Total: {h_tot+m_tot}</b> dias</div></div>""",
         unsafe_allow_html=True,
     )
 
 with c2:
-    _pie_col(counts_p1, label_p1 or "Período 1", "#82A0C0")
+    if counts_p1 is not None:
+        st.plotly_chart(_make_pie(counts_p1, f"Período 1 — {label_p1}"),
+                        use_container_width=True, config=_PLOTLY_CFG)
+        _card(counts_p1, label_p1, "#82A0C0")
+    else:
+        st.info("Atualize o Diário para ver dados por período.")
+
 with c3:
-    _pie_col(counts_p2, label_p2 or "Período 2", "#F6A623")
+    if counts_p2 is not None:
+        st.plotly_chart(_make_pie(counts_p2, f"Período 2 — {label_p2}"),
+                        use_container_width=True, config=_PLOTLY_CFG)
+        _card(counts_p2, label_p2, "#F6A623")
+    else:
+        st.info("Atualize o Diário para ver dados por período.")
 
 # ── Evolução mensal ───────────────────────────────────────────────────────────
-if obra_months:
+if not df_months.empty:
     st.divider()
     st.markdown("#### 📊 Evolução Mensal")
 
-    rows_bar = []
-    for p in periods:
-        d = obra_months[p]
-        try:
-            lbl = f"{MONTHS_SHORT[int(p[5:7])]}/{p[2:4]}"
-        except Exception:
-            lbl = p
-        rows_bar.append({"Mês": lbl,
-                         "Ensolarado": d.get("ENSOLARADO", 0),
-                         "Nublado":    d.get("NUBLADO",    0),
-                         "Chuvoso":    d.get("CHUVOSO",    0)})
-
-    df_bar = pd.DataFrame(rows_bar)
     fig_bar = go.Figure()
-    for col, color, name in [("Ensolarado","#F6A623","☀️ Ensolarado"),
-                               ("Nublado",   "#82A0C0","⛅ Nublado"),
-                               ("Chuvoso",   "#4A7BB5","🌧️ Chuvoso")]:
+    for k, color, name in [
+        ("ENSOLARADO", "#F6A623", "☀️ Ensolarado"),
+        ("NUBLADO",    "#82A0C0", "⛅ Nublado"),
+        ("CHUVOSO",    "#4A7BB5", "🌧️ Chuvoso"),
+    ]:
         fig_bar.add_trace(go.Bar(
-            name=name, x=df_bar["Mês"], y=df_bar[col],
-            marker_color=color, text=df_bar[col], textposition="inside",
+            name=name,
+            x=df_months["label"],
+            y=df_months[k],
+            marker_color=color,
+            text=df_months[k].where(df_months[k] > 0),
+            textposition="inside",
         ))
+
     fig_bar.update_layout(
         barmode="stack", height=300,
         margin=dict(t=20, b=10, l=10, r=10),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        legend=dict(orientation="h", yanchor="bottom", y=1.02,
+                    xanchor="right", x=1),
         xaxis=dict(tickangle=-30, tickfont=dict(size=11)),
         yaxis=dict(title="Dias", gridcolor="rgba(0,0,0,0.08)"),
     )
     st.plotly_chart(fig_bar, use_container_width=True, config={
         **_PLOTLY_CFG,
         "toImageButtonOptions": {**_PLOTLY_CFG["toImageButtonOptions"],
-                                  "filename":"tempo_mensal","width":1000},
+                                  "filename": "tempo_mensal", "width": 1000},
     })
 
     with st.expander("Ver tabela"):
-        df_bar["Total"] = df_bar["Ensolarado"] + df_bar["Nublado"] + df_bar["Chuvoso"]
-        st.dataframe(df_bar, use_container_width=True, hide_index=True)
-
-    # Opção de limpar dados
-    if st.button("🗑️ Limpar dados importados desta obra", type="secondary"):
-        cache.pop(_obra_key(obra), None)
-        _save_cache(cache)
-        st.rerun()
-
-st.markdown(
-    """<div style="margin-top:20px;padding:10px 14px;background:rgba(0,0,0,0.03);
-        border-radius:6px;font-size:11px;color:#888;">
-        ℹ️ Exporte o <b>Diário de Obra</b> do InMeta em Excel ou CSV e importe aqui.
-        Clique no ícone 📷 em qualquer gráfico para salvar como imagem.</div>""",
-    unsafe_allow_html=True,
-)
+        tbl = df_months[["label", "ENSOLARADO", "NUBLADO", "CHUVOSO", "total"]].copy()
+        tbl.columns = ["Mês", "☀️ Ensolarado", "⛅ Nublado", "🌧️ Chuvoso", "Total"]
+        st.dataframe(tbl, use_container_width=True, hide_index=True)
