@@ -260,6 +260,156 @@ _PLOTLY_CFG = {
                               "height":500,"width":600,"scale":2},
 }
 
+
+# ── Exportar PDF ──────────────────────────────────────────────────────────────
+
+def _export_pdf(
+    fig_total: go.Figure,
+    fig_p1,
+    fig_p2,
+    fig_bar,
+    obra: str,
+    label_total_sub: str,
+    label_p1: str,
+    label_p2: str,
+    total_total: int,
+    total_p1: int,
+    total_p2: int,
+) -> bytes:
+    """Gera PDF A4 com as 3 pizzas + evolução mensal usando reportlab + kaleido."""
+    import io as _io
+    import copy
+    import plotly.io as pio
+    from reportlab.lib.pagesizes import A4
+    from reportlab.lib.units import cm
+    from reportlab.lib import colors as rlc
+    from reportlab.platypus import (
+        SimpleDocTemplate, Image as RLImage, Paragraph,
+        Spacer, Table, TableStyle, HRFlowable,
+    )
+    from reportlab.lib.styles import ParagraphStyle
+    from reportlab.lib.enums import TA_CENTER, TA_LEFT
+
+    # ── render Plotly → PNG com fundo branco ──────────────────────────────────
+    def _to_png(fig: go.Figure, w_px: int, h_px: int) -> bytes:
+        f = copy.deepcopy(fig)
+        f.update_layout(paper_bgcolor="white", plot_bgcolor="white")
+        return pio.to_image(f, format="png", width=w_px, height=h_px, scale=2)
+
+    # ── cores e estilos ───────────────────────────────────────────────────────
+    C_RED   = rlc.HexColor("#C41230")
+    C_DARK  = rlc.HexColor("#1A1A1A")
+    C_GRAY  = rlc.HexColor("#666666")
+    C_LGRAY = rlc.HexColor("#DDDDDD")
+    C_BLUE  = rlc.HexColor("#82A0C0")
+    C_YEL   = rlc.HexColor("#F6A623")
+
+    def _ps(name, **kw):
+        return ParagraphStyle(name, **kw)
+
+    sty_title   = _ps("tt",  fontSize=15, fontName="Helvetica-Bold",  textColor=C_RED,   spaceAfter=2)
+    sty_sub     = _ps("ts",  fontSize=8,  fontName="Helvetica",       textColor=C_GRAY,  spaceAfter=6)
+    sty_section = _ps("tsc", fontSize=10, fontName="Helvetica-Bold",  textColor=C_DARK,  spaceBefore=6, spaceAfter=3)
+    sty_footer  = _ps("tf",  fontSize=6,  fontName="Helvetica",       textColor=C_GRAY,  alignment=TA_CENTER, spaceBefore=3)
+
+    def _sty_kpi(color):
+        return _ps("kpi", fontSize=17, fontName="Helvetica-Bold", textColor=color, alignment=TA_CENTER)
+
+    def _sty_cap(color):
+        return _ps("cap", fontSize=7, fontName="Helvetica-Bold", textColor=color, alignment=TA_CENTER, spaceAfter=1)
+
+    sty_micro = _ps("mc", fontSize=6, fontName="Helvetica", textColor=C_GRAY, alignment=TA_CENTER)
+
+    # ── dimensões ─────────────────────────────────────────────────────────────
+    W, H  = A4
+    M     = 1.5 * cm
+    use_w = W - 2 * M              # ~510 pt
+
+    gap     = 0.5 * cm
+    pie_pt  = (use_w - 2 * gap) / 3   # ~160 pt per column
+    pie_px  = 400                      # render resolution
+
+    # ── montagem da coluna de cada pizza ─────────────────────────────────────
+    def _pie_col(fig, accent, title, subtitle, dias):
+        items = []
+        if fig is not None:
+            img_b = _to_png(fig, pie_px, pie_px)
+            items.append(RLImage(_io.BytesIO(img_b), width=pie_pt, height=pie_pt))
+        else:
+            items.append(Paragraph("—", sty_micro))
+        items.append(Paragraph(title,    _sty_cap(accent)))
+        items.append(Paragraph(subtitle, sty_micro))
+        items.append(Paragraph(f"{dias} dias", _sty_kpi(accent)))
+        return Table(
+            [[it] for it in items],
+            colWidths=[pie_pt],
+            style=TableStyle([
+                ("ALIGN",          (0, 0), (-1, -1), "CENTER"),
+                ("VALIGN",         (0, 0), (-1, -1), "MIDDLE"),
+                ("TOPPADDING",     (0, 0), (-1, -1), 0),
+                ("BOTTOMPADDING",  (0, 0), (-1, -1), 2),
+            ]),
+        )
+
+    # ── documento ─────────────────────────────────────────────────────────────
+    buf = _io.BytesIO()
+    doc = SimpleDocTemplate(
+        buf, pagesize=A4,
+        leftMargin=M, rightMargin=M, topMargin=M, bottomMargin=M,
+        title="Condição do Tempo — Diário de Obra",
+        author="R21 Empreendimentos",
+    )
+
+    story = []
+
+    # cabeçalho
+    story.append(Paragraph("🌤️  Condição do Tempo — Diário de Obra", sty_title))
+    story.append(Paragraph(
+        f"<b>{obra}</b> &nbsp;·&nbsp; Gerado em {date.today().strftime('%d/%m/%Y')}",
+        sty_sub,
+    ))
+    story.append(HRFlowable(width="100%", thickness=2, color=C_RED, spaceAfter=10))
+
+    # 3 pizzas
+    story.append(Paragraph("Distribuição por Condição", sty_section))
+
+    col_w = pie_pt + gap
+    pie_row = Table(
+        [[
+            _pie_col(fig_total, C_RED,  "Total Acumulado", label_total_sub, total_total),
+            _pie_col(fig_p1,    C_BLUE, "Período 1",       label_p1,        total_p1),
+            _pie_col(fig_p2,    C_YEL,  "Período 2",       label_p2,        total_p2),
+        ]],
+        colWidths=[col_w, col_w, col_w],
+        style=TableStyle([
+            ("ALIGN",  (0, 0), (-1, -1), "CENTER"),
+            ("VALIGN", (0, 0), (-1, -1), "TOP"),
+        ]),
+    )
+    story.append(pie_row)
+    story.append(Spacer(1, 0.4 * cm))
+
+    # evolução mensal
+    if fig_bar is not None:
+        story.append(HRFlowable(width="100%", thickness=1, color=C_LGRAY, spaceAfter=6))
+        story.append(Paragraph("Evolução Mensal", sty_section))
+        bar_h_pt  = use_w * 0.38
+        bar_bytes = _to_png(fig_bar, int(use_w * 3.2), int(bar_h_pt * 3.2))
+        story.append(RLImage(_io.BytesIO(bar_bytes), width=use_w, height=bar_h_pt))
+
+    # rodapé
+    story.append(Spacer(1, 0.3 * cm))
+    story.append(HRFlowable(width="100%", thickness=1, color=C_LGRAY))
+    story.append(Paragraph(
+        "R21 Empreendimentos &nbsp;·&nbsp; FVS Dashboard &nbsp;·&nbsp; "
+        "Fonte: InMeta Diário de Obra",
+        sty_footer,
+    ))
+
+    doc.build(story)
+    buf.seek(0)
+    return buf.read()
+
 # ═══════════════════════════════════════════════════════════════════════════════
 # PÁGINA
 # ═══════════════════════════════════════════════════════════════════════════════
@@ -359,18 +509,26 @@ with sc2:
 
 st.markdown("")
 
+# ── Preparar figuras (display + PDF) ─────────────────────────────────────────
+h_tot     = sum(hist_total.values())
+m_tot     = sum(counts_comb.values())
+n_ct      = len(_get_df("Cape Town Residence"))
+n_hm      = len(_get_df("Holmes Residence"))
+_total_p1 = sum(counts_p1.values()) if counts_p1 is not None else 0
+_total_p2 = sum(counts_p2.values()) if counts_p2 is not None else 0
+
+_fig_total = _make_pie(counts_total)
+_fig_p1    = _make_pie(counts_p1) if counts_p1 is not None else None
+_fig_p2    = _make_pie(counts_p2) if counts_p2 is not None else None
+_fig_bar   = None   # preenchido no bloco de evolução mensal
+
 # ── 3 pizzas ──────────────────────────────────────────────────────────────────
 c1, c2, c3 = st.columns(3)
 
 with c1:
-    h_tot = sum(hist_total.values())
-    m_tot = sum(counts_comb.values())
-    n_ct  = len(_get_df("Cape Town Residence"))
-    n_hm  = len(_get_df("Holmes Residence"))
     _pie_header("Total Acumulado", f"Pré-InMeta ({h_tot}d) + InMeta combinado ({len(df_comb)}d)",
                 h_tot + m_tot, "#C41230")
-    st.plotly_chart(_make_pie(counts_total),
-                    use_container_width=True, config=_PLOTLY_CFG)
+    st.plotly_chart(_fig_total, use_container_width=True, config=_PLOTLY_CFG)
     st.markdown(
         f"""<div style="font-size:11px;color:#666;padding:4px 6px;
             background:rgba(0,0,0,0.03);border-radius:6px;line-height:1.7;">
@@ -383,20 +541,16 @@ with c1:
     )
 
 with c2:
-    if counts_p1 is not None:
-        total_p1 = sum(counts_p1.values())
-        _pie_header("Período 1", label_p1, total_p1, "#82A0C0")
-        st.plotly_chart(_make_pie(counts_p1),
-                        use_container_width=True, config=_PLOTLY_CFG)
+    if _fig_p1 is not None:
+        _pie_header("Período 1", label_p1, _total_p1, "#82A0C0")
+        st.plotly_chart(_fig_p1, use_container_width=True, config=_PLOTLY_CFG)
     else:
         st.info("Selecione um intervalo completo no Período 1.")
 
 with c3:
-    if counts_p2 is not None:
-        total_p2 = sum(counts_p2.values())
-        _pie_header("Período 2", label_p2, total_p2, "#F6A623")
-        st.plotly_chart(_make_pie(counts_p2),
-                        use_container_width=True, config=_PLOTLY_CFG)
+    if _fig_p2 is not None:
+        _pie_header("Período 2", label_p2, _total_p2, "#F6A623")
+        st.plotly_chart(_fig_p2, use_container_width=True, config=_PLOTLY_CFG)
     else:
         st.info("Atualize o Diário para ver dados por período.")
 
@@ -405,13 +559,13 @@ if not df_months.empty:
     st.divider()
     st.markdown("#### 📊 Evolução Mensal")
 
-    fig_bar = go.Figure()
+    _fig_bar = go.Figure()
     for k, color, name in [
         ("ENSOLARADO", "#F6A623", "☀️ Ensolarado"),
         ("NUBLADO",    "#82A0C0", "⛅ Nublado"),
         ("CHUVOSO",    "#4A7BB5", "🌧️ Chuvoso"),
     ]:
-        fig_bar.add_trace(go.Bar(
+        _fig_bar.add_trace(go.Bar(
             name=name,
             x=df_months["label"],
             y=df_months[k],
@@ -420,7 +574,7 @@ if not df_months.empty:
             textposition="inside",
         ))
 
-    fig_bar.update_layout(
+    _fig_bar.update_layout(
         barmode="stack", height=300,
         margin=dict(t=20, b=10, l=10, r=10),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
@@ -429,7 +583,7 @@ if not df_months.empty:
         xaxis=dict(tickangle=-30, tickfont=dict(size=11)),
         yaxis=dict(title="Dias", gridcolor="rgba(0,0,0,0.08)"),
     )
-    st.plotly_chart(fig_bar, use_container_width=True, config={
+    st.plotly_chart(_fig_bar, use_container_width=True, config={
         **_PLOTLY_CFG,
         "toImageButtonOptions": {**_PLOTLY_CFG["toImageButtonOptions"],
                                   "filename": "tempo_mensal", "width": 1000},
@@ -439,3 +593,41 @@ if not df_months.empty:
         tbl = df_months[["label", "ENSOLARADO", "NUBLADO", "CHUVOSO", "total"]].copy()
         tbl.columns = ["Mês", "☀️ Ensolarado", "⛅ Nublado", "🌧️ Chuvoso", "Total"]
         st.dataframe(tbl, use_container_width=True, hide_index=True)
+
+# ── Exportar PDF ──────────────────────────────────────────────────────────────
+st.divider()
+_lbl_total_sub = f"Pré-InMeta ({h_tot}d) + InMeta ({len(df_comb)}d)"
+
+bc_gen, bc_dl = st.columns([1, 1])
+with bc_gen:
+    if st.button("📄 Gerar PDF", use_container_width=True, type="primary"):
+        with st.spinner("Renderizando gráficos e montando PDF… (alguns segundos)"):
+            try:
+                _pdf_bytes = _export_pdf(
+                    fig_total       = _fig_total,
+                    fig_p1          = _fig_p1,
+                    fig_p2          = _fig_p2,
+                    fig_bar         = _fig_bar,
+                    obra            = obra,
+                    label_total_sub = _lbl_total_sub,
+                    label_p1        = label_p1 or "—",
+                    label_p2        = label_p2 or "—",
+                    total_total     = h_tot + m_tot,
+                    total_p1        = _total_p1,
+                    total_p2        = _total_p2,
+                )
+                st.session_state["tempo_pdf"] = _pdf_bytes
+                st.success("PDF pronto — clique em **Baixar PDF** ao lado.")
+            except Exception as _exc:
+                st.error(f"❌ Erro ao gerar PDF: {_exc}")
+
+with bc_dl:
+    if "tempo_pdf" in st.session_state:
+        _fname = f"condicao_tempo_{obra.replace(' ', '_')}_{date.today()}.pdf"
+        st.download_button(
+            "⬇️ Baixar PDF",
+            data        = st.session_state["tempo_pdf"],
+            file_name   = _fname,
+            mime        = "application/pdf",
+            use_container_width = True,
+        )
