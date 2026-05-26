@@ -223,7 +223,7 @@ def _pie_header(title: str, subtitle: str, total: int, accent: str) -> None:
 # ── Gráfico de pizza ─────────────────────────────────────────────────────────
 
 def _make_pie(counts: dict[str, int]) -> go.Figure:
-    """Pizza limpa: sem título interno, sem anotação central, legenda lateral."""
+    """Pizza com rótulo + ícone + percentual dentro de cada fatia. Sem legenda separada."""
     labels = [f"{WEATHER_META[k]['icon']} {WEATHER_META[k]['label']}" for k in WEATHER_KEYS]
     values = [counts.get(k, 0) for k in WEATHER_KEYS]
     colors = [WEATHER_META[k]["color"] for k in WEATHER_KEYS]
@@ -231,29 +231,23 @@ def _make_pie(counts: dict[str, int]) -> go.Figure:
     fig = go.Figure(go.Pie(
         labels=labels,
         values=values,
-        hole=0.0,                                   # pizza sólida — sem buraco
+        hole=0.0,
         marker=dict(colors=colors, line=dict(color="#fff", width=2.5)),
-        textinfo="percent",
-        textfont=dict(size=13, color="#fff"),
-        insidetextorientation="radial",
+        textinfo="label+percent",
+        textposition="inside",
+        insidetextorientation="horizontal",
+        textfont=dict(size=13, color="#fff", family="Arial"),
+        outsidetextfont=dict(size=11, color="#444"),   # fatias pequenas: texto fora
         hovertemplate="<b>%{label}</b><br>%{value} dias — %{percent}<extra></extra>",
         sort=False,
-        pull=[0.02, 0.02, 0.02],                   # leve separação entre fatias
+        pull=[0.025, 0.025, 0.025],
     ))
     fig.update_layout(
-        showlegend=True,
-        legend=dict(
-            orientation="v",
-            yanchor="middle", y=0.5,
-            xanchor="left",   x=1.02,
-            font=dict(size=12),
-            bgcolor="rgba(0,0,0,0)",
-            itemwidth=30,
-        ),
-        margin=dict(t=8, b=8, l=8, r=120),        # margem direita para a legenda
+        showlegend=False,
+        margin=dict(t=6, b=6, l=6, r=6),
         paper_bgcolor="rgba(0,0,0,0)",
         plot_bgcolor="rgba(0,0,0,0)",
-        height=260,
+        height=290,
     )
     return fig
 
