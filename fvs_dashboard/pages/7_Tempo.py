@@ -13,6 +13,8 @@ import sys
 from pathlib import Path
 from datetime import date
 
+import httpx
+import time
 import streamlit as st
 import plotly.graph_objects as go
 import pandas as pd
@@ -23,7 +25,6 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 from fvs_dashboard.core.data_manager import OBRAS, DATA_RAW
-from fvs_dashboard.core.inmeta_client import InMetaClient
 
 # ── Constantes históricas (pré-InMeta) ───────────────────────────────────────
 # Registros manuais anteriores ao uso do InMeta Diário de Obra
@@ -243,26 +244,54 @@ _PLOTLY_CFG = {
 
 # ── Fetch InMeta diário ───────────────────────────────────────────────────────
 
+def _fetch_diario_httpx(base_url: str, email: str, senha: str, alvo_id: str) -> list[dict]:
+    """
+    Busca inspecoes do Diario de Obra diretamente via httpx (sem InMetaClient).
+    Faz auth JWT própria para evitar dependência de módulo cacheado.
+    """
+    base_url = base_url.rstrip("/")
+    # 1. Autentica
+    r_auth = httpx.post(
+        f"{base_url}/api/v1/token",
+        json={"email": email, "senha": senha},
+        timeout=15,
+    )
+    r_auth.raise_for_status()
+    token = r_auth.json()["content"]["token"]
+    headers = {"Authorization": f"Bearer {token}"}
+
+    # 2. Busca diário
+    r = httpx.get(
+        f"{base_url}/api/v1/alvos/{alvo_id}/inspecoes/atuais",
+        headers=headers,
+        params={"modulo": "DIARIO"},
+        timeout=30,
+    )
+    r.raise_for_status()
+    data = r.json()
+    return data.get("content", []) if isinstance(data, dict) else data
+
+
 def _do_refresh_diario() -> tuple[bool, str]:
     """Busca dados diário do InMeta e salva no cache. Retorna (sucesso, msg)."""
     try:
-        client = InMetaClient(
-            base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
-            email=_secret("INMETA_EMAIL"),
-            senha=_secret("INMETA_SENHA"),
-        )
+        base_url = _secret("INMETA_BASE_URL", "https://api.inmeta.com.br")
+        email    = _secret("INMETA_EMAIL")
+        senha    = _secret("INMETA_SENHA")
+
         cache: dict = _load_diario_cache()
         cache["collected_at"] = str(date.today())
         total = 0
         for obra_name, cfg in OBRAS.items():
-            insps = client.fetch_diario(cfg["inmeta_id"])
-            key = cfg["insp_key"]
+            insps = _fetch_diario_httpx(base_url, email, senha, cfg["inmeta_id"])
+            key   = cfg["insp_key"]
             cache[key] = {"inspections": insps}
             total += len(insps)
         _save_diario_cache(cache)
-        # invalida cache streamlit
-        if "diario_rows" in st.session_state:
-            del st.session_state["diario_rows"]
+        # Invalida cache de session_state
+        for k in list(st.session_state.keys()):
+            if k.startswith("diario_rows_"):
+                del st.session_state[k]
         return True, f"✅ {total} registros diários carregados."
     except Exception as e:
         return False, f"❌ Erro ao buscar InMeta: {e}"
