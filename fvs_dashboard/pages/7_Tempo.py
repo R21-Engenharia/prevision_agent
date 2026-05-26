@@ -307,38 +307,55 @@ def _export_pdf(
     def _ps(name, **kw):
         return ParagraphStyle(name, **kw)
 
-    sty_title   = _ps("tt",  fontSize=15, fontName="Helvetica-Bold",  textColor=C_RED,   spaceAfter=2)
-    sty_sub     = _ps("ts",  fontSize=8,  fontName="Helvetica",       textColor=C_GRAY,  spaceAfter=6)
-    sty_section = _ps("tsc", fontSize=10, fontName="Helvetica-Bold",  textColor=C_DARK,  spaceBefore=6, spaceAfter=3)
-    sty_footer  = _ps("tf",  fontSize=6,  fontName="Helvetica",       textColor=C_GRAY,  alignment=TA_CENTER, spaceBefore=3)
+    sty_title   = _ps("tt",  fontSize=17, fontName="Helvetica-Bold",  textColor=C_RED,   spaceAfter=2)
+    sty_sub     = _ps("ts",  fontSize=9,  fontName="Helvetica",       textColor=C_GRAY,  spaceAfter=6)
+    sty_section = _ps("tsc", fontSize=12, fontName="Helvetica-Bold",  textColor=C_DARK,  spaceBefore=6, spaceAfter=4)
+    sty_footer  = _ps("tf",  fontSize=7,  fontName="Helvetica",       textColor=C_GRAY,  alignment=TA_CENTER, spaceBefore=3)
 
     def _sty_kpi(color):
-        return _ps("kpi", fontSize=17, fontName="Helvetica-Bold", textColor=color, alignment=TA_CENTER)
+        return _ps("kpi", fontSize=22, fontName="Helvetica-Bold", textColor=color, alignment=TA_CENTER)
 
     def _sty_cap(color):
-        return _ps("cap", fontSize=7, fontName="Helvetica-Bold", textColor=color, alignment=TA_CENTER, spaceAfter=1)
+        return _ps("cap", fontSize=10, fontName="Helvetica-Bold", textColor=color, alignment=TA_CENTER, spaceAfter=2)
 
-    sty_micro = _ps("mc", fontSize=6, fontName="Helvetica", textColor=C_GRAY, alignment=TA_CENTER)
+    sty_micro = _ps("mc", fontSize=8, fontName="Helvetica", textColor=C_GRAY, alignment=TA_CENTER)
 
     # ── dimensões ─────────────────────────────────────────────────────────────
     W, H  = A4
     M     = 1.5 * cm
     use_w = W - 2 * M              # ~510 pt
 
-    gap     = 0.5 * cm
-    pie_pt  = (use_w - 2 * gap) / 3   # ~160 pt per column
-    pie_px  = 400                      # render resolution
+    gap    = 0.5 * cm
+    pie_pt = (use_w - 2 * gap) / 3   # ~160 pt per column
+    pie_px = 420                      # render resolution
+    bar_h_pt = use_w * 0.38
+    bar_w_px = int(use_w * 3.2)
+    bar_h_px = int(bar_h_pt * 3.2)
+
+    # ── render em paralelo (ThreadPoolExecutor) ───────────────────────────────
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    jobs = {"total": (fig_total, pie_px, pie_px)}
+    if fig_p1  is not None: jobs["p1"]  = (fig_p1,  pie_px, pie_px)
+    if fig_p2  is not None: jobs["p2"]  = (fig_p2,  pie_px, pie_px)
+    if fig_bar is not None: jobs["bar"] = (fig_bar,  bar_w_px, bar_h_px)
+
+    rendered: dict = {}
+    with ThreadPoolExecutor(max_workers=len(jobs)) as ex:
+        fs = {ex.submit(_to_png, *args): key for key, args in jobs.items()}
+        for f in as_completed(fs):
+            rendered[fs[f]] = f.result()
 
     # ── montagem da coluna de cada pizza ─────────────────────────────────────
-    def _pie_col(fig, accent, title, subtitle, dias):
+    def _pie_col(key, accent, title, subtitle, dias):
         items = []
-        if fig is not None:
-            img_b = _to_png(fig, pie_px, pie_px)
-            items.append(RLImage(_io.BytesIO(img_b), width=pie_pt, height=pie_pt))
+        if key in rendered:
+            items.append(RLImage(_io.BytesIO(rendered[key]), width=pie_pt, height=pie_pt))
         else:
-            items.append(Paragraph("—", sty_micro))
-        items.append(Paragraph(title,    _sty_cap(accent)))
-        items.append(Paragraph(subtitle, sty_micro))
+            items.append(Paragraph("sem dados", sty_micro))
+        items.append(Spacer(1, 3))
+        items.append(Paragraph(title,          _sty_cap(accent)))
+        items.append(Paragraph(subtitle,       sty_micro))
+        items.append(Spacer(1, 2))
         items.append(Paragraph(f"{dias} dias", _sty_kpi(accent)))
         return Table(
             [[it] for it in items],
@@ -356,14 +373,14 @@ def _export_pdf(
     doc = SimpleDocTemplate(
         buf, pagesize=A4,
         leftMargin=M, rightMargin=M, topMargin=M, bottomMargin=M,
-        title="Condição do Tempo — Diário de Obra",
+        title="Condicao do Tempo - Diario de Obra",
         author="R21 Empreendimentos",
     )
 
     story = []
 
-    # cabeçalho
-    story.append(Paragraph("🌤️  Condição do Tempo — Diário de Obra", sty_title))
+    # cabecalho (sem emoji — Helvetica nao suporta Unicode)
+    story.append(Paragraph("Condicao do Tempo  —  Diario de Obra", sty_title))
     story.append(Paragraph(
         f"<b>{obra}</b> &nbsp;·&nbsp; Gerado em {date.today().strftime('%d/%m/%Y')}",
         sty_sub,
@@ -371,14 +388,14 @@ def _export_pdf(
     story.append(HRFlowable(width="100%", thickness=2, color=C_RED, spaceAfter=10))
 
     # 3 pizzas
-    story.append(Paragraph("Distribuição por Condição", sty_section))
+    story.append(Paragraph("Distribuicao por Condicao", sty_section))
 
     col_w = pie_pt + gap
     pie_row = Table(
         [[
-            _pie_col(fig_total, C_RED,  "Total Acumulado", label_total_sub, total_total),
-            _pie_col(fig_p1,    C_BLUE, "Período 1",       label_p1,        total_p1),
-            _pie_col(fig_p2,    C_YEL,  "Período 2",       label_p2,        total_p2),
+            _pie_col("total", C_RED,  "Total Acumulado", label_total_sub, total_total),
+            _pie_col("p1",    C_BLUE, "Periodo 1",       label_p1,        total_p1),
+            _pie_col("p2",    C_YEL,  "Periodo 2",       label_p2,        total_p2),
         ]],
         colWidths=[col_w, col_w, col_w],
         style=TableStyle([
@@ -389,20 +406,18 @@ def _export_pdf(
     story.append(pie_row)
     story.append(Spacer(1, 0.4 * cm))
 
-    # evolução mensal
-    if fig_bar is not None:
+    # evolucao mensal
+    if "bar" in rendered:
         story.append(HRFlowable(width="100%", thickness=1, color=C_LGRAY, spaceAfter=6))
-        story.append(Paragraph("Evolução Mensal", sty_section))
-        bar_h_pt  = use_w * 0.38
-        bar_bytes = _to_png(fig_bar, int(use_w * 3.2), int(bar_h_pt * 3.2))
-        story.append(RLImage(_io.BytesIO(bar_bytes), width=use_w, height=bar_h_pt))
+        story.append(Paragraph("Evolucao Mensal", sty_section))
+        story.append(RLImage(_io.BytesIO(rendered["bar"]), width=use_w, height=bar_h_pt))
 
-    # rodapé
+    # rodape
     story.append(Spacer(1, 0.3 * cm))
     story.append(HRFlowable(width="100%", thickness=1, color=C_LGRAY))
     story.append(Paragraph(
         "R21 Empreendimentos &nbsp;·&nbsp; FVS Dashboard &nbsp;·&nbsp; "
-        "Fonte: InMeta Diário de Obra",
+        "Fonte: InMeta Diario de Obra",
         sty_footer,
     ))
 
