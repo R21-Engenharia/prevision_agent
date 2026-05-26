@@ -198,36 +198,62 @@ def _count_range(df: pd.DataFrame, d_start, d_end) -> dict[str, int]:
     return {k: int((sub["condicao"] == k).sum()) for k in WEATHER_KEYS}
 
 
+# ── Cabeçalho de pizza (fora do gráfico) ────────────────────────────────────
+
+def _pie_header(title: str, subtitle: str, total: int, accent: str) -> None:
+    """Renderiza título, subtítulo e total de dias acima da pizza."""
+    st.markdown(
+        f"""<div style="
+            background:linear-gradient(135deg,{accent}18 0%,{accent}08 100%);
+            border-left:4px solid {accent};border-radius:8px;
+            padding:10px 14px 8px;margin-bottom:2px;">
+            <div style="font-size:13px;font-weight:800;color:{accent};
+                letter-spacing:.3px;">{title}</div>
+            <div style="font-size:11px;color:#555;margin:1px 0 6px;">{subtitle}</div>
+            <div style="display:flex;align-items:baseline;gap:4px;">
+                <span style="font-size:28px;font-weight:900;
+                    color:#1A1A1A;line-height:1">{total}</span>
+                <span style="font-size:12px;color:#777">dias</span>
+            </div>
+        </div>""",
+        unsafe_allow_html=True,
+    )
+
+
 # ── Gráfico de pizza ─────────────────────────────────────────────────────────
 
-def _make_pie(counts: dict[str, int], title: str) -> go.Figure:
+def _make_pie(counts: dict[str, int]) -> go.Figure:
+    """Pizza limpa: sem título interno, sem anotação central, legenda lateral."""
     labels = [f"{WEATHER_META[k]['icon']} {WEATHER_META[k]['label']}" for k in WEATHER_KEYS]
     values = [counts.get(k, 0) for k in WEATHER_KEYS]
     colors = [WEATHER_META[k]["color"] for k in WEATHER_KEYS]
-    total  = sum(values)
 
     fig = go.Figure(go.Pie(
-        labels=labels, values=values, hole=0.45,
-        marker=dict(colors=colors, line=dict(color="#fff", width=2)),
-        textinfo="label+percent", textfont=dict(size=12),
-        hovertemplate="<b>%{label}</b><br>%{value} dias (%{percent})<extra></extra>",
+        labels=labels,
+        values=values,
+        hole=0.0,                                   # pizza sólida — sem buraco
+        marker=dict(colors=colors, line=dict(color="#fff", width=2.5)),
+        textinfo="percent",
+        textfont=dict(size=13, color="#fff"),
+        insidetextorientation="radial",
+        hovertemplate="<b>%{label}</b><br>%{value} dias — %{percent}<extra></extra>",
         sort=False,
+        pull=[0.02, 0.02, 0.02],                   # leve separação entre fatias
     ))
     fig.update_layout(
-        title=dict(text=f"<b>{title}</b>",
-                   font=dict(size=14, color="#C41230", family="Arial Black"),
-                   x=0.5, xanchor="center"),
-        annotations=[dict(
-            text=f"<b>{total}</b><br><span style='font-size:10px'>dias</span>",
-            x=0.5, y=0.5, showarrow=False,
-            font=dict(size=20, color="#1A1A1A", family="Arial Black"),
-        )],
         showlegend=True,
-        legend=dict(orientation="h", yanchor="bottom", y=-0.30,
-                    xanchor="center", x=0.5, font=dict(size=11)),
-        margin=dict(t=55, b=70, l=10, r=10),
-        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        height=380,
+        legend=dict(
+            orientation="v",
+            yanchor="middle", y=0.5,
+            xanchor="left",   x=1.02,
+            font=dict(size=12),
+            bgcolor="rgba(0,0,0,0)",
+            itemwidth=30,
+        ),
+        margin=dict(t=8, b=8, l=8, r=120),        # margem direita para a legenda
+        paper_bgcolor="rgba(0,0,0,0)",
+        plot_bgcolor="rgba(0,0,0,0)",
+        height=260,
     )
     return fig
 
@@ -342,58 +368,41 @@ st.markdown("")
 # ── 3 pizzas ──────────────────────────────────────────────────────────────────
 c1, c2, c3 = st.columns(3)
 
-def _card(counts, label, border):
-    total = sum(counts.get(k, 0) for k in WEATHER_KEYS)
-    def _pct(n):
-        return f" ({n*100//total}%)" if total else ""
-    lines = "".join(
-        f"<div>{WEATHER_META[k]['icon']} {WEATHER_META[k]['label']}: "
-        f"<b>{counts.get(k,0)}</b>{_pct(counts.get(k,0))}</div>"
-        for k in WEATHER_KEYS
-    )
-    st.markdown(
-        f"""<div style="background:rgba(0,0,0,0.04);border-left:3px solid {border};
-            border-radius:6px;padding:10px 14px;font-size:12px;">
-            <div style="font-weight:700;color:{border};margin-bottom:5px;">{label}</div>
-            {lines}
-            <div style="margin-top:5px;border-top:1px solid rgba(0,0,0,0.1);
-                padding-top:5px;"><b>Total: {total}</b> dias</div></div>""",
-        unsafe_allow_html=True,
-    )
-
 with c1:
-    st.plotly_chart(_make_pie(counts_total, "Total Acumulado"),
-                    use_container_width=True, config=_PLOTLY_CFG)
     h_tot = sum(hist_total.values())
     m_tot = sum(counts_comb.values())
     n_ct  = len(_get_df("Cape Town Residence"))
     n_hm  = len(_get_df("Holmes Residence"))
+    _pie_header("Total Acumulado", f"Pré-InMeta ({h_tot}d) + InMeta combinado ({len(df_comb)}d)",
+                h_tot + m_tot, "#C41230")
+    st.plotly_chart(_make_pie(counts_total),
+                    use_container_width=True, config=_PLOTLY_CFG)
     st.markdown(
-        f"""<div style="background:rgba(196,18,48,0.06);border-left:3px solid #C41230;
-            border-radius:6px;padding:10px 14px;font-size:12px;">
-            <div style="font-weight:700;color:#C41230;margin-bottom:5px;">Composição (sem duplic.)</div>
-            <div>📚 Pré-InMeta: <b>{h_tot}</b> dias</div>
-            <div>📋 InMeta — Cape Town: <b>{n_ct}</b> dias únicos</div>
-            <div>📋 InMeta — Holmes: <b>{n_hm}</b> dias únicos</div>
-            <div>📋 InMeta combinado: <b>{len(df_comb)}</b> dias (sem duplic.)</div>
-            <div style="margin-top:5px;border-top:1px solid rgba(196,18,48,0.2);
-                padding-top:5px;"><b>Total: {h_tot+m_tot}</b> dias</div></div>""",
+        f"""<div style="font-size:11px;color:#666;padding:4px 6px;
+            background:rgba(0,0,0,0.03);border-radius:6px;line-height:1.7;">
+            📚 Pré-InMeta <b>{h_tot}</b>d &nbsp;·&nbsp;
+            📋 Cape Town <b>{n_ct}</b>d &nbsp;·&nbsp;
+            📋 Holmes <b>{n_hm}</b>d &nbsp;·&nbsp;
+            🔗 Combinado <b>{len(df_comb)}</b>d (sem duplic.)
+        </div>""",
         unsafe_allow_html=True,
     )
 
 with c2:
     if counts_p1 is not None:
-        st.plotly_chart(_make_pie(counts_p1, f"Período 1 — {label_p1}"),
+        total_p1 = sum(counts_p1.values())
+        _pie_header("Período 1", label_p1, total_p1, "#82A0C0")
+        st.plotly_chart(_make_pie(counts_p1),
                         use_container_width=True, config=_PLOTLY_CFG)
-        _card(counts_p1, label_p1, "#82A0C0")
     else:
-        st.info("Atualize o Diário para ver dados por período.")
+        st.info("Selecione um intervalo completo no Período 1.")
 
 with c3:
     if counts_p2 is not None:
-        st.plotly_chart(_make_pie(counts_p2, f"Período 2 — {label_p2}"),
+        total_p2 = sum(counts_p2.values())
+        _pie_header("Período 2", label_p2, total_p2, "#F6A623")
+        st.plotly_chart(_make_pie(counts_p2),
                         use_container_width=True, config=_PLOTLY_CFG)
-        _card(counts_p2, label_p2, "#F6A623")
     else:
         st.info("Atualize o Diário para ver dados por período.")
 
