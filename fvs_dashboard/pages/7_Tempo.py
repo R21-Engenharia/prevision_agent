@@ -255,47 +255,68 @@ def _get_jwt(base_url: str, email: str, senha: str) -> str:
     return r.json()["content"]["token"]
 
 
-# Candidatos de modulo para Diário de Obra (ordem de tentativa)
-_MODULOS_DIARIO = [
-    "DIARIO_DE_OBRA",
-    "DIARIO",
-    "OBRA",
-    "DIARIODEOBRA",
-    "DAILY",
-]
+def _probe_diario_endpoints(base_url: str, headers: dict, alvo_id: str) -> tuple[list[dict], str]:
+    """
+    Sonda varios endpoints/params para encontrar o Diario de Obra.
+    Retorna (lista_registros, descricao_endpoint_usado).
+    Lança RuntimeError com relatório completo se nenhum funcionar.
+    """
+    candidates: list[tuple[str, dict | None]] = [
+        # Endpoint dedicado diario
+        (f"/api/v1/alvos/{alvo_id}/diarios",            None),
+        (f"/api/v1/alvos/{alvo_id}/diarios/atuais",     None),
+        (f"/api/v1/alvos/{alvo_id}/diario",             None),
+        # Endpoint genérico com modulo
+        (f"/api/v1/alvos/{alvo_id}/inspecoes/atuais",   {"modulo": "DIARIO_DE_OBRA"}),
+        (f"/api/v1/alvos/{alvo_id}/inspecoes/atuais",   {"modulo": "DIARIO"}),
+        (f"/api/v1/alvos/{alvo_id}/inspecoes/atuais",   {"modulo": "OBRA"}),
+        # Query params alternativos
+        (f"/api/v1/diarios",                             {"alvoId": alvo_id}),
+        (f"/api/v1/diarios",                             {"alvo": alvo_id}),
+        (f"/api/v1/diarios/atuais",                      {"alvoId": alvo_id}),
+        (f"/api/v1/registros",                           {"alvoId": alvo_id, "modulo": "DIARIO"}),
+    ]
+
+    errors = []
+    for path, params in candidates:
+        label = path + (f"?{params}" if params else "")
+        try:
+            r = httpx.get(
+                f"{base_url}{path}",
+                headers=headers,
+                params=params,
+                timeout=30,
+            )
+            if r.status_code in (403, 404, 405):
+                errors.append(f"{label} → {r.status_code}")
+                continue
+            r.raise_for_status()
+            data  = r.json()
+            items = (
+                data.get("content") or
+                data.get("data") or
+                data.get("items") or
+                data.get("registros") or
+                (data if isinstance(data, list) else [])
+            )
+            return items, label
+        except httpx.HTTPStatusError as e:
+            errors.append(f"{label} → {e.response.status_code}")
+        except Exception as e:
+            errors.append(f"{label} → {e}")
+
+    raise RuntimeError(
+        "Nenhum endpoint Diario de Obra encontrado.\n"
+        "Tentativas:\n" + "\n".join(f"  • {e}" for e in errors)
+    )
 
 
 def _fetch_diario_httpx(base_url: str, email: str, senha: str, alvo_id: str) -> tuple[list[dict], str]:
-    """
-    Busca inspecoes do Diario de Obra diretamente via httpx.
-    Testa varios nomes de modulo ate encontrar um que funcione (sem 403/404).
-    Retorna (lista_insps, modulo_usado).
-    """
+    """Autentica e busca registros do Diario de Obra."""
     base_url = base_url.rstrip("/")
     token    = _get_jwt(base_url, email, senha)
     headers  = {"Authorization": f"Bearer {token}"}
-    endpoint = f"{base_url}/api/v1/alvos/{alvo_id}/inspecoes/atuais"
-
-    errors = []
-    for modulo in _MODULOS_DIARIO:
-        try:
-            r = httpx.get(endpoint, headers=headers, params={"modulo": modulo}, timeout=30)
-            if r.status_code in (403, 404):
-                errors.append(f"{modulo}: {r.status_code}")
-                continue
-            r.raise_for_status()
-            data = r.json()
-            insps = data.get("content", []) if isinstance(data, dict) else data
-            return insps, modulo
-        except httpx.HTTPStatusError as e:
-            errors.append(f"{modulo}: {e.response.status_code}")
-        except Exception as e:
-            errors.append(f"{modulo}: {e}")
-
-    raise RuntimeError(
-        f"Nenhum modulo Diario funcionou para o alvo {alvo_id}.\n"
-        f"Tentativas: {', '.join(errors)}"
-    )
+    return _probe_diario_endpoints(base_url, headers, alvo_id)
 
 
 def _do_refresh_diario() -> tuple[bool, str]:
