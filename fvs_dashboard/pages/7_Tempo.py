@@ -284,10 +284,11 @@ c1, c2, c3 = st.columns(3)
 
 def _card(counts, label, border):
     total = sum(counts.get(k, 0) for k in WEATHER_KEYS)
+    def _pct(n):
+        return f" ({n*100//total}%)" if total else ""
     lines = "".join(
         f"<div>{WEATHER_META[k]['icon']} {WEATHER_META[k]['label']}: "
-        f"<b>{counts.get(k,0)}</b>"
-        f"{' ('+f\"{counts.get(k,0)/total*100:.0f}%\" +')' if total else ''}</div>"
+        f"<b>{counts.get(k,0)}</b>{_pct(counts.get(k,0))}</div>"
         for k in WEATHER_KEYS
     )
     st.markdown(
