@@ -129,9 +129,48 @@ def _get_df(obra: str) -> pd.DataFrame:
 
     df = pd.DataFrame(rows)
     df["data"] = pd.to_datetime(df["data"], errors="coerce")
-    df = df.dropna(subset=["data"]).sort_values("data")
+    df = (df
+          .dropna(subset=["data"])
+          .sort_values("data")
+          .drop_duplicates(subset=["data"], keep="last")   # 1 RDO por dia (mais recente)
+          .reset_index(drop=True))
     st.session_state[key] = df
     return df
+
+
+def _get_df_combined() -> pd.DataFrame:
+    """
+    Combina RDOs de todas as obras sem duplicidade de dias.
+    Prioridade: Cape Town > Holmes.
+    Se Cape Town nao tem RDO num dia, usa Holmes; caso contrario usa Cape Town.
+    """
+    key = "diario_df_combined"
+    if key in st.session_state:
+        return st.session_state[key]
+
+    obra_names = list(OBRAS.keys())   # Cape Town = indice 0 (maior prioridade)
+    frames = []
+    for obra_name in obra_names:
+        df_obra = _get_df(obra_name)
+        if not df_obra.empty:
+            df_obra = df_obra.copy()
+            df_obra["_prio"] = obra_names.index(obra_name)
+            frames.append(df_obra)
+
+    if not frames:
+        empty = pd.DataFrame(columns=["data", "condicao", "condicao_trabalho"])
+        st.session_state[key] = empty
+        return empty
+
+    combined = pd.concat(frames, ignore_index=True)
+    combined = (combined
+                .sort_values(["data", "_prio"])          # menor _prio = maior prioridade
+                .drop_duplicates(subset=["data"], keep="first")   # Cape Town ganha em conflito
+                .drop(columns=["_prio"])
+                .reset_index(drop=True))
+
+    st.session_state[key] = combined
+    return combined
 
 
 # ── Agrega por mês ────────────────────────────────────────────────────────────
@@ -237,13 +276,19 @@ with c_btn:
 st.divider()
 
 # ── Dados ────────────────────────────────────────────────────────────────────
-df        = _get_df(obra)
+df        = _get_df(obra)          # dados da obra selecionada (períodos 1 e 2)
+df_comb   = _get_df_combined()     # todos os dias únicos, Cape Town > Holmes
 hist      = HISTORICAL.get(obra, {})
 df_months = _monthly(df)
 
-# Totais acumulados (histórico + InMeta)
+# Totais acumulados (histórico pré-InMeta + InMeta combinado sem duplicidade de dias)
+# Histórico existe apenas para Cape Town; Holmes = 0 → usamos o dict de Cape Town
+hist_total    = HISTORICAL.get("Cape Town Residence", {})
+counts_comb   = {k: int((df_comb["condicao"] == k).sum()) if not df_comb.empty else 0
+                 for k in WEATHER_KEYS}
+counts_total  = {k: hist_total.get(k, 0) + counts_comb[k] for k in WEATHER_KEYS}
+# (mantém counts_inmeta por obra selecionada — usado na composição)
 counts_inmeta = {k: int((df["condicao"] == k).sum()) if not df.empty else 0 for k in WEATHER_KEYS}
-counts_total  = {k: hist.get(k, 0) + counts_inmeta[k] for k in WEATHER_KEYS}
 
 # Períodos disponíveis no InMeta
 periods: list[tuple[int,int]] = []
@@ -304,14 +349,18 @@ def _card(counts, label, border):
 with c1:
     st.plotly_chart(_make_pie(counts_total, "Total Acumulado"),
                     use_container_width=True, config=_PLOTLY_CFG)
-    h_tot = sum(hist.values())
-    m_tot = sum(counts_inmeta.values())
+    h_tot = sum(hist_total.values())
+    m_tot = sum(counts_comb.values())
+    n_ct  = len(_get_df("Cape Town Residence"))
+    n_hm  = len(_get_df("Holmes Residence"))
     st.markdown(
         f"""<div style="background:rgba(196,18,48,0.06);border-left:3px solid #C41230;
             border-radius:6px;padding:10px 14px;font-size:12px;">
-            <div style="font-weight:700;color:#C41230;margin-bottom:5px;">Composição</div>
+            <div style="font-weight:700;color:#C41230;margin-bottom:5px;">Composição (sem duplic.)</div>
             <div>📚 Pré-InMeta: <b>{h_tot}</b> dias</div>
-            <div>📋 InMeta Diário: <b>{m_tot}</b> dias ({len(df)} RDOs)</div>
+            <div>📋 InMeta — Cape Town: <b>{n_ct}</b> dias únicos</div>
+            <div>📋 InMeta — Holmes: <b>{n_hm}</b> dias únicos</div>
+            <div>📋 InMeta combinado: <b>{len(df_comb)}</b> dias (sem duplic.)</div>
             <div style="margin-top:5px;border-top:1px solid rgba(196,18,48,0.2);
                 padding-top:5px;"><b>Total: {h_tot+m_tot}</b> dias</div></div>""",
         unsafe_allow_html=True,
