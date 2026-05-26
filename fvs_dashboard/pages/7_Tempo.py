@@ -244,32 +244,58 @@ _PLOTLY_CFG = {
 
 # ── Fetch InMeta diário ───────────────────────────────────────────────────────
 
-def _fetch_diario_httpx(base_url: str, email: str, senha: str, alvo_id: str) -> list[dict]:
-    """
-    Busca inspecoes do Diario de Obra diretamente via httpx (sem InMetaClient).
-    Faz auth JWT própria para evitar dependência de módulo cacheado.
-    """
-    base_url = base_url.rstrip("/")
-    # 1. Autentica
-    r_auth = httpx.post(
+def _get_jwt(base_url: str, email: str, senha: str) -> str:
+    """Autentica e retorna JWT."""
+    r = httpx.post(
         f"{base_url}/api/v1/token",
         json={"email": email, "senha": senha},
         timeout=15,
     )
-    r_auth.raise_for_status()
-    token = r_auth.json()["content"]["token"]
-    headers = {"Authorization": f"Bearer {token}"}
-
-    # 2. Busca diário
-    r = httpx.get(
-        f"{base_url}/api/v1/alvos/{alvo_id}/inspecoes/atuais",
-        headers=headers,
-        params={"modulo": "DIARIO"},
-        timeout=30,
-    )
     r.raise_for_status()
-    data = r.json()
-    return data.get("content", []) if isinstance(data, dict) else data
+    return r.json()["content"]["token"]
+
+
+# Candidatos de modulo para Diário de Obra (ordem de tentativa)
+_MODULOS_DIARIO = [
+    "DIARIO_DE_OBRA",
+    "DIARIO",
+    "OBRA",
+    "DIARIODEOBRA",
+    "DAILY",
+]
+
+
+def _fetch_diario_httpx(base_url: str, email: str, senha: str, alvo_id: str) -> tuple[list[dict], str]:
+    """
+    Busca inspecoes do Diario de Obra diretamente via httpx.
+    Testa varios nomes de modulo ate encontrar um que funcione (sem 403/404).
+    Retorna (lista_insps, modulo_usado).
+    """
+    base_url = base_url.rstrip("/")
+    token    = _get_jwt(base_url, email, senha)
+    headers  = {"Authorization": f"Bearer {token}"}
+    endpoint = f"{base_url}/api/v1/alvos/{alvo_id}/inspecoes/atuais"
+
+    errors = []
+    for modulo in _MODULOS_DIARIO:
+        try:
+            r = httpx.get(endpoint, headers=headers, params={"modulo": modulo}, timeout=30)
+            if r.status_code in (403, 404):
+                errors.append(f"{modulo}: {r.status_code}")
+                continue
+            r.raise_for_status()
+            data = r.json()
+            insps = data.get("content", []) if isinstance(data, dict) else data
+            return insps, modulo
+        except httpx.HTTPStatusError as e:
+            errors.append(f"{modulo}: {e.response.status_code}")
+        except Exception as e:
+            errors.append(f"{modulo}: {e}")
+
+    raise RuntimeError(
+        f"Nenhum modulo Diario funcionou para o alvo {alvo_id}.\n"
+        f"Tentativas: {', '.join(errors)}"
+    )
 
 
 def _do_refresh_diario() -> tuple[bool, str]:
@@ -281,18 +307,20 @@ def _do_refresh_diario() -> tuple[bool, str]:
 
         cache: dict = _load_diario_cache()
         cache["collected_at"] = str(date.today())
-        total = 0
+        total    = 0
+        modulos_usados = []
         for obra_name, cfg in OBRAS.items():
-            insps = _fetch_diario_httpx(base_url, email, senha, cfg["inmeta_id"])
-            key   = cfg["insp_key"]
-            cache[key] = {"inspections": insps}
+            insps, modulo = _fetch_diario_httpx(base_url, email, senha, cfg["inmeta_id"])
+            key = cfg["insp_key"]
+            cache[key] = {"inspections": insps, "modulo": modulo}
             total += len(insps)
+            modulos_usados.append(f"{obra_name}: {modulo}")
         _save_diario_cache(cache)
         # Invalida cache de session_state
         for k in list(st.session_state.keys()):
             if k.startswith("diario_rows_"):
                 del st.session_state[k]
-        return True, f"✅ {total} registros diários carregados."
+        return True, f"✅ {total} registros diários carregados. ({' | '.join(modulos_usados)})"
     except Exception as e:
         return False, f"❌ Erro ao buscar InMeta: {e}"
 
