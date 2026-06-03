@@ -373,6 +373,7 @@ _pages = [
     st.Page("pages/4_Exportar.py",               title="Exportar",           icon="⬇️"),
     st.Page("pages/5_Auditoria_Gerencial.py",    title="Auditoria Gerencial", icon="📈"),
     st.Page("pages/7_Tempo.py",                  title="Condicao do Tempo",  icon="🌤️"),
+    st.Page("pages/8_Decoracao.py",              title="Decoracao",          icon="🏛️"),
 ]
 
 # Pagina de gestao de usuarios — somente admins
