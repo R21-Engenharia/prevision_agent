@@ -468,8 +468,14 @@ fig_gantt.update_layout(
     hoverlabel=dict(bgcolor="#1A1A2E", font_color="#fff", font_size=12),
 )
 fig_gantt.add_vline(
-    x=pd.Timestamp(today), line_width=1.5, line_dash="dash", line_color="#C41230",
-    annotation=dict(text="Hoje", font_size=10, font_color="#C41230", yref="paper", y=1.01),
+    x=pd.Timestamp(today),
+    line_width=1.5,
+    line_dash="dash",
+    line_color="#C41230",
+    annotation_text="Hoje",
+    annotation_font_size=10,
+    annotation_font_color="#C41230",
+    annotation_position="top right",
 )
 
 st.plotly_chart(fig_gantt, use_container_width=True,
