@@ -472,10 +472,17 @@ fig_gantt.add_vline(
     line_width=1.5,
     line_dash="dash",
     line_color="#C41230",
-    annotation_text="Hoje",
-    annotation_font_size=10,
-    annotation_font_color="#C41230",
-    annotation_position="top right",
+)
+fig_gantt.add_annotation(
+    x=today.isoformat(),
+    y=1.02,
+    yref="paper",
+    xref="x",
+    text="Hoje",
+    showarrow=False,
+    font=dict(size=10, color="#C41230"),
+    bgcolor="rgba(255,255,255,0.8)",
+    xanchor="center",
 )
 
 st.plotly_chart(fig_gantt, use_container_width=True,
