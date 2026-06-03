@@ -468,7 +468,7 @@ fig_gantt.update_layout(
     hoverlabel=dict(bgcolor="#1A1A2E", font_color="#fff", font_size=12),
 )
 fig_gantt.add_vline(
-    x=pd.Timestamp(today),
+    x=today.isoformat(),
     line_width=1.5,
     line_dash="dash",
     line_color="#C41230",
