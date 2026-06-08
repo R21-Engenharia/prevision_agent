@@ -27,7 +27,6 @@ from .business import (
 )
 from .inmeta_client import InMetaClient
 from .snapshot_manager import SnapshotManager
-from .supabase_snapshot import SupabaseSnapshotManager
 
 # ── Raiz do projeto ───────────────────────────────────────────────────────────
 # fvs_dashboard/ esta dentro de prevision_agent/
@@ -79,15 +78,20 @@ class DataManager:
 
     def __init__(self) -> None:
         self._cache: dict[str, Any] = {}
-        self._sm: SnapshotManager | SupabaseSnapshotManager = SnapshotManager()
+        self._sm: Any = SnapshotManager()
 
     def setup_supabase(self, url: str, key: str) -> None:
         """Ativa persistencia via Supabase (substitui Parquet local)."""
+        from .supabase_snapshot import SupabaseSnapshotManager
         self._sm = SupabaseSnapshotManager(url, key)
 
     @property
     def uses_supabase(self) -> bool:
-        return isinstance(self._sm, SupabaseSnapshotManager)
+        try:
+            from .supabase_snapshot import SupabaseSnapshotManager
+            return isinstance(self._sm, SupabaseSnapshotManager)
+        except Exception:
+            return False
 
     # ── Internos: leitura de cache JSON ──────────────────────────────────────
 

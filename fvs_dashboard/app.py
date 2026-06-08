@@ -203,7 +203,7 @@ if "snapshots_initialized" not in st.session_state:
 dm: DataManager = st.session_state.dm
 
 # ── Ativa persistencia Supabase (uma vez por sessao) ──────────────────────────
-if not dm.uses_supabase:
+if not getattr(dm, "uses_supabase", False):
     _sb_url = _secret("SUPABASE_URL", "")
     _sb_key = _secret("SUPABASE_KEY", "")
     if _sb_url and _sb_key:
