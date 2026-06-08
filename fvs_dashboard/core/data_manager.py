@@ -27,6 +27,7 @@ from .business import (
 )
 from .inmeta_client import InMetaClient
 from .snapshot_manager import SnapshotManager
+from .supabase_snapshot import SupabaseSnapshotManager
 
 # ── Raiz do projeto ───────────────────────────────────────────────────────────
 # fvs_dashboard/ esta dentro de prevision_agent/
@@ -78,6 +79,15 @@ class DataManager:
 
     def __init__(self) -> None:
         self._cache: dict[str, Any] = {}
+        self._sm: SnapshotManager | SupabaseSnapshotManager = SnapshotManager()
+
+    def setup_supabase(self, url: str, key: str) -> None:
+        """Ativa persistencia via Supabase (substitui Parquet local)."""
+        self._sm = SupabaseSnapshotManager(url, key)
+
+    @property
+    def uses_supabase(self) -> bool:
+        return isinstance(self._sm, SupabaseSnapshotManager)
 
     # ── Internos: leitura de cache JSON ──────────────────────────────────────
 
@@ -235,15 +245,17 @@ class DataManager:
 
     def save_snapshot(self, obra: str) -> bool:
         """
-        Salva snapshot do dia para a obra em Parquet.
-        Retorna True se salvou, False se ja existia snapshot hoje.
+        Salva snapshot do dia para a obra.
+        Parquet: pula se ja existir snapshot hoje.
+        Supabase: sempre upserta (dados mais recentes vencem).
         """
         rows = self.get_rows(obra)
-        sm   = SnapshotManager()
-        if sm.has_today_snapshot(obra):
+        if not rows:
             return False
-        result = sm.save_snapshot(obra, rows)
-        return result is not None
+        if not self.uses_supabase and self._sm.has_today_snapshot(obra):
+            return False
+        result = self._sm.save_snapshot(obra, rows)
+        return bool(result)
 
     def save_all_snapshots(self) -> dict[str, bool]:
         """Salva snapshot de todas as obras. Retorna {obra: salvou}."""
@@ -251,22 +263,15 @@ class DataManager:
 
     def load_history(self, obra: str) -> "pd.DataFrame":
         """Carrega historico completo de snapshots para a obra."""
-        return SnapshotManager().load_history(obra)
+        return self._sm.load_history(obra)
 
     def load_latest_snapshot(self, obra: str) -> "pd.DataFrame":
         """Carrega apenas o snapshot mais recente."""
-        return SnapshotManager().load_latest_snapshot(obra)
+        return self._sm.load_latest_snapshot(obra)
 
     def snapshot_info(self, obra: str) -> dict:
         """Informacoes sobre os snapshots disponiveis."""
-        sm = SnapshotManager()
-        dates = sm.list_snapshot_dates(obra)
-        return {
-            "n_snapshots": len(dates),
-            "oldest":      dates[0].isoformat() if dates else None,
-            "latest":      dates[-1].isoformat() if dates else None,
-            "has_today":   sm.has_today_snapshot(obra),
-        }
+        return self._sm.snapshot_info(obra)
 
     # ── Refresh de dados ──────────────────────────────────────────────────────
 

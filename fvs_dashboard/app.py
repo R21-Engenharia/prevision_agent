@@ -191,10 +191,10 @@ else:
     _auth = None  # Auth nao configurado — modo sem restricao (dev local)
 
 # ── Session state ─────────────────────────────────────────────────────────────
-# Recria DataManager se nao existir OU se for versao antiga (sem snapshot_info)
-if "dm" not in st.session_state or not hasattr(st.session_state.dm, "snapshot_info"):
+# Recria DataManager se nao existir OU se for versao antiga (sem uses_supabase)
+if "dm" not in st.session_state or not hasattr(st.session_state.dm, "uses_supabase"):
     st.session_state.dm = DataManager()
-    st.session_state.snapshots_initialized = False  # forcca re-inicializacao
+    st.session_state.snapshots_initialized = False
 if "obra" not in st.session_state:
     st.session_state.obra = list(OBRAS.keys())[0]
 if "snapshots_initialized" not in st.session_state:
@@ -202,18 +202,19 @@ if "snapshots_initialized" not in st.session_state:
 
 dm: DataManager = st.session_state.dm
 
-# ── Snapshot inicial automatico (retroativo com data de hoje) ─────────────────
-if not st.session_state.snapshots_initialized:
-    try:
-        for _obra_name in OBRAS:
-            dm.save_snapshot(_obra_name)  # no-op se ja existe hoje
-        st.session_state.snapshots_initialized = True
-    except Exception:
-        st.session_state.snapshots_initialized = True  # nao travar o app
+# ── Ativa persistencia Supabase (uma vez por sessao) ──────────────────────────
+if not dm.uses_supabase:
+    _sb_url = _secret("SUPABASE_URL", "")
+    _sb_key = _secret("SUPABASE_KEY", "")
+    if _sb_url and _sb_key:
+        try:
+            dm.setup_supabase(_sb_url, _sb_key)
+        except Exception:
+            pass  # sem Supabase: continua com Parquet local (dev)
 
 # ── Auto-refresh InMeta se dados estiverem desatualizados ─────────────────────
 # Roda uma vez por sessao. Se o cache nao existir ou tiver mais de 8h,
-# busca dados frescos antes de qualquer pagina carregar.
+# busca dados frescos e salva snapshot historico no Supabase.
 _AUTO_REFRESH_HOURS = 8
 
 if "auto_refresh_done" not in st.session_state:
@@ -231,11 +232,11 @@ if "auto_refresh_done" not in st.session_state:
             )
             for _obra_name in OBRAS:
                 dm.refresh_inmeta(_obra_name, _ar_client)
-                dm.save_snapshot(_obra_name)
+                dm.save_snapshot(_obra_name)  # persiste no Supabase
             _ar_ph.empty()
             st.session_state["auto_refresh_done"] = True
             st.session_state["auto_refresh_ok"]   = True
-            st.rerun()  # recarrega a pagina com os dados frescos
+            st.rerun()
         except Exception as _ar_err:
             _ar_ph.warning(
                 f"⚠️ Auto-refresh falhou: {_ar_err}. "
@@ -244,6 +245,14 @@ if "auto_refresh_done" not in st.session_state:
             st.session_state["auto_refresh_done"] = True
             st.session_state["auto_refresh_ok"]   = False
     else:
+        # Dados locais ainda frescos — garante snapshot do dia no Supabase
+        if "snapshots_saved_today" not in st.session_state:
+            try:
+                for _obra_name in OBRAS:
+                    dm.save_snapshot(_obra_name)
+                st.session_state["snapshots_saved_today"] = True
+            except Exception:
+                pass
         st.session_state["auto_refresh_done"] = True
         st.session_state["auto_refresh_ok"]   = True
 
