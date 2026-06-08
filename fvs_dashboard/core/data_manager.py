@@ -125,6 +125,13 @@ class DataManager:
             return datetime.datetime.fromtimestamp(p.stat().st_mtime) if p.exists() else None
         return {"prevision": _mt(cfg["jobs_cache"]), "inmeta": _mt(INSP_CACHE)}
 
+    def inmeta_age_hours(self) -> float | None:
+        """Retorna idade do cache InMeta em horas. None se nao existir."""
+        if not INSP_CACHE.exists():
+            return None
+        delta = datetime.datetime.now() - datetime.datetime.fromtimestamp(INSP_CACHE.stat().st_mtime)
+        return delta.total_seconds() / 3600
+
     # ── Carregamento de dados ─────────────────────────────────────────────────
 
     def _get_activities(self, obra: str) -> list[dict]:

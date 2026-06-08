@@ -211,6 +211,35 @@ if not st.session_state.snapshots_initialized:
     except Exception:
         st.session_state.snapshots_initialized = True  # nao travar o app
 
+# ── Auto-refresh InMeta se dados estiverem desatualizados ─────────────────────
+# Roda uma vez por sessao. Se o cache nao existir ou tiver mais de 8h,
+# atualiza silenciosamente antes de qualquer pagina carregar.
+_AUTO_REFRESH_HOURS = 8
+
+if "auto_refresh_done" not in st.session_state:
+    _ar_age = dm.inmeta_age_hours()
+    _needs_refresh = _ar_age is None or _ar_age > _AUTO_REFRESH_HOURS
+    if _needs_refresh:
+        _ar_msg = st.empty()
+        _ar_label = "sem dados" if _ar_age is None else f"ha {_ar_age:.0f}h"
+        _ar_msg.info(f"⏳ InMeta desatualizado ({_ar_label}) — atualizando automaticamente...")
+        try:
+            _ar_client = InMetaClient(
+                base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
+                email   =_secret("INMETA_EMAIL"),
+                senha   =_secret("INMETA_SENHA"),
+            )
+            for _obra_name in OBRAS:
+                dm.refresh_inmeta(_obra_name, _ar_client)
+                dm.save_snapshot(_obra_name)
+            _ar_msg.empty()  # remove o aviso silenciosamente apos sucesso
+        except Exception as _ar_err:
+            _ar_msg.warning(
+                f"⚠️ Auto-refresh falhou: {_ar_err}. "
+                "Use o botao **Atualizar InMeta** na barra lateral."
+            )
+    st.session_state["auto_refresh_done"] = True
+
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
     # ── Logo ──────────────────────────────────────────────────────────────────
@@ -273,9 +302,13 @@ with st.sidebar:
     st.divider()
 
     # Idade dos caches
-    ages = dm.cache_age(obra)
+    ages        = dm.cache_age(obra)
+    _imeta_h    = dm.inmeta_age_hours()
+    _dot        = "🟢" if (_imeta_h is not None and _imeta_h < 6)  else \
+                  "🟡" if (_imeta_h is not None and _imeta_h < 24) else "🔴"
     st.caption(f"Prevision: **{ages['prevision']}**")
-    st.caption(f"InMeta:    **{ages['inmeta']}**")
+    st.caption(f"InMeta: {_dot} **{ages['inmeta']}**")
+    st.caption("↻ Auto-atualiza se dados > 8h")
     st.markdown("")
 
     # Info de snapshots
