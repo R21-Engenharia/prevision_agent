@@ -146,6 +146,21 @@ class DataManager:
         delta = datetime.datetime.now() - datetime.datetime.fromtimestamp(INSP_CACHE.stat().st_mtime)
         return delta.total_seconds() / 3600
 
+    def inmeta_needs_refresh(self) -> bool:
+        """
+        True se o cache precisa ser atualizado.
+        Criterios: arquivo inexistente, ou de dia anterior, ou com mais de 4h.
+        """
+        if not INSP_CACHE.exists():
+            return True
+        mtime = datetime.datetime.fromtimestamp(INSP_CACHE.stat().st_mtime)
+        now   = datetime.datetime.now()
+        if mtime.date() < now.date():          # dado de ontem ou antes
+            return True
+        if (now - mtime).total_seconds() > 4 * 3600:  # mais de 4h mesmo dia
+            return True
+        return False
+
     # ── Carregamento de dados ─────────────────────────────────────────────────
 
     def _get_activities(self, obra: str) -> list[dict]:

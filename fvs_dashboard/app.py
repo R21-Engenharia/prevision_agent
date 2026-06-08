@@ -213,17 +213,18 @@ if not getattr(dm, "uses_supabase", False):
             pass  # sem Supabase: continua com Parquet local (dev)
 
 # ── Auto-refresh InMeta se dados estiverem desatualizados ─────────────────────
-# Roda uma vez por sessao. Se o cache nao existir ou tiver mais de 8h,
-# busca dados frescos e salva snapshot historico no Supabase.
-_AUTO_REFRESH_HOURS = 8
+# Roda uma vez por sessao.
+# Criterios para refresh: sem cache, dado de dia anterior, ou mais de 4h.
 
 if "auto_refresh_done" not in st.session_state:
-    _ar_age = dm.inmeta_age_hours()
-    _needs_refresh = _ar_age is None or _ar_age > _AUTO_REFRESH_HOURS
+    _needs_refresh = dm.inmeta_needs_refresh()
     if _needs_refresh:
-        _ar_label = "sem dados locais" if _ar_age is None else f"dados com {_ar_age:.0f}h"
+        _ar_age   = dm.inmeta_age_hours()
+        _ar_label = "sem dados" if _ar_age is None else (
+            "dado de ontem" if _ar_age > 12 else f"{_ar_age:.0f}h atras"
+        )
         _ar_ph = st.empty()
-        _ar_ph.info(f"⏳ Atualizando InMeta ({_ar_label})...")
+        _ar_ph.info(f"⏳ Atualizando dados InMeta ({_ar_label})...")
         try:
             _ar_client = InMetaClient(
                 base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
@@ -245,7 +246,7 @@ if "auto_refresh_done" not in st.session_state:
             st.session_state["auto_refresh_done"] = True
             st.session_state["auto_refresh_ok"]   = False
     else:
-        # Dados locais ainda frescos — garante snapshot do dia no Supabase
+        # Dados do dia ainda frescos — garante snapshot no Supabase
         if "snapshots_saved_today" not in st.session_state:
             try:
                 for _obra_name in OBRAS:
