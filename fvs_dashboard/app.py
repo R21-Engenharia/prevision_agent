@@ -212,50 +212,33 @@ if not getattr(dm, "uses_supabase", False):
         except Exception:
             pass  # sem Supabase: continua com Parquet local (dev)
 
-# ── Auto-refresh InMeta se dados estiverem desatualizados ─────────────────────
-# Roda uma vez por sessao.
-# Criterios para refresh: sem cache, dado de dia anterior, ou mais de 4h.
+# ── Auto-refresh InMeta — roda sempre ao abrir nova sessao ────────────────────
+# auto_refresh_done garante que executa uma unica vez por sessao de browser,
+# nao a cada navegacao entre paginas. Sempre busca dados frescos do InMeta.
 
 if "auto_refresh_done" not in st.session_state:
-    _needs_refresh = dm.inmeta_needs_refresh()
-    if _needs_refresh:
-        _ar_age   = dm.inmeta_age_hours()
-        _ar_label = "sem dados" if _ar_age is None else (
-            "dado de ontem" if _ar_age > 12 else f"{_ar_age:.0f}h atras"
+    _ar_ph = st.empty()
+    _ar_ph.info("⏳ Buscando dados atualizados do InMeta...")
+    try:
+        _ar_client = InMetaClient(
+            base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
+            email   =_secret("INMETA_EMAIL"),
+            senha   =_secret("INMETA_SENHA"),
         )
-        _ar_ph = st.empty()
-        _ar_ph.info(f"⏳ Atualizando dados InMeta ({_ar_label})...")
-        try:
-            _ar_client = InMetaClient(
-                base_url=_secret("INMETA_BASE_URL", "https://api.inmeta.com.br"),
-                email   =_secret("INMETA_EMAIL"),
-                senha   =_secret("INMETA_SENHA"),
-            )
-            for _obra_name in OBRAS:
-                dm.refresh_inmeta(_obra_name, _ar_client)
-                dm.save_snapshot(_obra_name)  # persiste no Supabase
-            _ar_ph.empty()
-            st.session_state["auto_refresh_done"] = True
-            st.session_state["auto_refresh_ok"]   = True
-            st.rerun()
-        except Exception as _ar_err:
-            _ar_ph.warning(
-                f"⚠️ Auto-refresh falhou: {_ar_err}. "
-                "Use o botao **Atualizar InMeta** na barra lateral."
-            )
-            st.session_state["auto_refresh_done"] = True
-            st.session_state["auto_refresh_ok"]   = False
-    else:
-        # Dados do dia ainda frescos — garante snapshot no Supabase
-        if "snapshots_saved_today" not in st.session_state:
-            try:
-                for _obra_name in OBRAS:
-                    dm.save_snapshot(_obra_name)
-                st.session_state["snapshots_saved_today"] = True
-            except Exception:
-                pass
+        for _obra_name in OBRAS:
+            dm.refresh_inmeta(_obra_name, _ar_client)
+            dm.save_snapshot(_obra_name)  # persiste historico no Supabase
+        _ar_ph.empty()
         st.session_state["auto_refresh_done"] = True
         st.session_state["auto_refresh_ok"]   = True
+        st.rerun()
+    except Exception as _ar_err:
+        _ar_ph.warning(
+            f"⚠️ Nao foi possivel atualizar o InMeta: {_ar_err}. "
+            "Os dados exibidos podem estar desatualizados."
+        )
+        st.session_state["auto_refresh_done"] = True
+        st.session_state["auto_refresh_ok"]   = False
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
