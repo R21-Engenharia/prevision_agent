@@ -37,6 +37,9 @@ jobs:
       - name: Coletar Jobs FVS (liberados + status)
         env:
           PREVISION_TOKEN: ${{ secrets.PREVISION_TOKEN }}
+          # Sem isto o script reaproveita o jobs_raw.json existente e a coleta
+          # agendada nunca atualiza o dado que decide "pacote liberado".
+          PREVISION_FORCE_REFRESH: "1"
         run: python fase4_fvs_liberados.py
 
       - name: Commit e push do cache atualizado

@@ -260,12 +260,25 @@ def collect_all_jobs(project: dict) -> list[dict]:
     pid        = project["id"]
     pname      = project["name"]
 
-    # Verifica cache
-    if cache_path.exists():
+    # Verifica cache.
+    #
+    # ATENCAO: este cache nunca expirava. Uma vez escrito, o arquivo era
+    # reaproveitado para sempre — o jobs_raw.json ficou parado em 13/05/2026
+    # (69 dias) enquanto o app calculava "pacotes liberados" em cima dele.
+    # PREVISION_FORCE_REFRESH=1 ignora o cache e recoleta do Prevision; a
+    # coleta agendada usa isso para o dado nao envelhecer indefinidamente.
+    forcar = os.getenv("PREVISION_FORCE_REFRESH", "").strip().lower() in {"1", "true", "sim"}
+
+    if cache_path.exists() and not forcar:
         cached = json.loads(cache_path.read_text(encoding="utf-8"))
         activities = cached.get("activities_list", [])
-        print(f"  ✓ Cache encontrado: {len(activities)} activities")
+        coletado = cached.get("collected_at", "?")[:10]
+        print(f"  ✓ Cache encontrado: {len(activities)} activities (coletado em {coletado})")
+        print("    (defina PREVISION_FORCE_REFRESH=1 para recoletar)")
         return activities
+
+    if forcar and cache_path.exists():
+        print("  ↻ PREVISION_FORCE_REFRESH ativo — ignorando cache e recoletando")
 
     print(f"\n  Coletando jobs — {pname} (project {pid})...")
     floors, cursors = collect_floors(pid)
