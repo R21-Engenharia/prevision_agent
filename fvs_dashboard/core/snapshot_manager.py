@@ -226,3 +226,14 @@ class SnapshotManager:
     def oldest_snapshot(self, obra: str) -> datetime.date | None:
         dates = self.list_snapshot_dates(obra)
         return dates[0] if dates else None
+
+    def snapshot_info(self, obra: str) -> dict:
+        """Resumo dos snapshots — mesma interface do SupabaseSnapshotManager."""
+        dates = self.list_snapshot_dates(obra)
+        today = datetime.date.today()
+        return {
+            "n_snapshots": len(dates),
+            "oldest":      dates[0].isoformat() if dates else None,
+            "latest":      dates[-1].isoformat() if dates else None,
+            "has_today":   today in dates,
+        }

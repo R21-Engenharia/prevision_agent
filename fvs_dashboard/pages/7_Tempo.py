@@ -23,6 +23,7 @@ if str(_ROOT) not in sys.path:
 
 from fvs_dashboard.core.data_manager import OBRAS, DATA_RAW
 from fvs_dashboard.core.inmeta_client import InMetaClient
+from fvs_dashboard.ui import theme as ui
 import os
 
 # ── Histórico pré-InMeta (fixo) ───────────────────────────────────────────────
@@ -32,9 +33,9 @@ HISTORICAL = {
 }
 
 WEATHER_META = {
-    "ENSOLARADO": {"icon": "☀️",  "label": "Ensolarado", "color": "#F6A623"},
-    "NUBLADO":    {"icon": "⛅", "label": "Nublado",    "color": "#82A0C0"},
-    "CHUVOSO":    {"icon": "🌧️", "label": "Chuvoso",    "color": "#4A7BB5"},
+    "ENSOLARADO": {"icon": "☀️",  "label": "Ensolarado", "color": ui.SERIES["sun"]},
+    "NUBLADO":    {"icon": "⛅", "label": "Nublado",    "color": ui.SERIES["cloud"]},
+    "CHUVOSO":    {"icon": "🌧️", "label": "Chuvoso",    "color": ui.SERIES["rain"]},
 }
 WEATHER_KEYS = list(WEATHER_META.keys())
 
@@ -114,7 +115,12 @@ def _get_df(obra: str) -> pd.DataFrame:
     cache = _load_cache()
     rdos  = cache.get(OBRAS[obra]["insp_key"], [])
     if not rdos:
-        return pd.DataFrame(columns=["data", "condicao", "condicao_trabalho"])
+        # Coluna 'data' como datetime mesmo vazia — permite uso seguro de .dt
+        return pd.DataFrame({
+            "data":             pd.Series(dtype="datetime64[ns]"),
+            "condicao":         pd.Series(dtype="object"),
+            "condicao_trabalho": pd.Series(dtype="object"),
+        })
 
     rows = []
     for r in rdos:
@@ -429,15 +435,14 @@ def _export_pdf(
 # PÁGINA
 # ═══════════════════════════════════════════════════════════════════════════════
 
-st.markdown("""
-<div style="background:linear-gradient(135deg,#8B0D22 0%,#C41230 100%);
-    padding:18px 24px 14px;border-radius:10px;margin-bottom:20px;">
-    <div style="font-size:22px;font-weight:800;color:#fff;">🌤️ Condição do Tempo</div>
-    <div style="font-size:12px;color:rgba(255,255,255,0.75);margin-top:4px;">
-        Diário de Obra — InMeta</div>
-</div>""", unsafe_allow_html=True)
-
 obra = st.session_state.get("obra", list(OBRAS.keys())[0])
+
+ui.page_header(
+    "Condição do Tempo",
+    eyebrow="Diário de Obra · InMeta",
+    subtitle="Distribuição de dias por condição climática registrada nos RDOs.",
+    chip=obra,
+)
 
 # ── Barra de atualização ──────────────────────────────────────────────────────
 c_info, c_btn = st.columns([3, 1])
@@ -543,7 +548,8 @@ c1, c2, c3 = st.columns(3)
 with c1:
     _pie_header("Total Acumulado", f"Pré-InMeta ({h_tot}d) + InMeta combinado ({len(df_comb)}d)",
                 h_tot + m_tot, "#C41230")
-    st.plotly_chart(_fig_total, use_container_width=True, config=_PLOTLY_CFG)
+    st.plotly_chart(_fig_total, use_container_width=True, config=_PLOTLY_CFG,
+                    key="tempo_pie_total")
     st.markdown(
         f"""<div style="font-size:11px;color:#666;padding:4px 6px;
             background:rgba(0,0,0,0.03);border-radius:6px;line-height:1.7;">
@@ -558,27 +564,29 @@ with c1:
 with c2:
     if _fig_p1 is not None:
         _pie_header("Período 1", label_p1, _total_p1, "#82A0C0")
-        st.plotly_chart(_fig_p1, use_container_width=True, config=_PLOTLY_CFG)
+        st.plotly_chart(_fig_p1, use_container_width=True, config=_PLOTLY_CFG,
+                        key="tempo_pie_p1")
     else:
         st.info("Selecione um intervalo completo no Período 1.")
 
 with c3:
     if _fig_p2 is not None:
         _pie_header("Período 2", label_p2, _total_p2, "#F6A623")
-        st.plotly_chart(_fig_p2, use_container_width=True, config=_PLOTLY_CFG)
+        st.plotly_chart(_fig_p2, use_container_width=True, config=_PLOTLY_CFG,
+                        key="tempo_pie_p2")
     else:
         st.info("Atualize o Diário para ver dados por período.")
 
 # ── Evolução mensal ───────────────────────────────────────────────────────────
 if not df_months.empty:
     st.divider()
-    st.markdown("#### 📊 Evolução Mensal")
+    ui.section("Evolução Mensal")
 
     _fig_bar = go.Figure()
     for k, color, name in [
-        ("ENSOLARADO", "#F6A623", "☀️ Ensolarado"),
-        ("NUBLADO",    "#82A0C0", "⛅ Nublado"),
-        ("CHUVOSO",    "#4A7BB5", "🌧️ Chuvoso"),
+        ("ENSOLARADO", ui.SERIES["sun"],   "☀️ Ensolarado"),
+        ("NUBLADO",    ui.SERIES["cloud"], "⛅ Nublado"),
+        ("CHUVOSO",    ui.SERIES["rain"],  "🌧️ Chuvoso"),
     ]:
         _fig_bar.add_trace(go.Bar(
             name=name,
@@ -598,7 +606,7 @@ if not df_months.empty:
         xaxis=dict(tickangle=-30, tickfont=dict(size=11)),
         yaxis=dict(title="Dias", gridcolor="rgba(0,0,0,0.08)"),
     )
-    st.plotly_chart(_fig_bar, use_container_width=True, config={
+    st.plotly_chart(_fig_bar, use_container_width=True, key="tempo_bar_mensal", config={
         **_PLOTLY_CFG,
         "toImageButtonOptions": {**_PLOTLY_CFG["toImageButtonOptions"],
                                   "filename": "tempo_mensal", "width": 1000},
