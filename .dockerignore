@@ -1,0 +1,30 @@
+# Frontend (vai para a Vercel, nao para a imagem da API)
+web/
+
+# Snapshots e relatorios gerados
+data/snapshots/
+data/reports/
+data/exports/
+data/schema/
+
+# Scripts de coleta e exploracao — a API nao os usa
+collectors/
+explorer/
+engine/
+client/
+config/
+scripts/
+phase*.py
+fase*.py
+discover_projects.py
+check_connection.py
+
+# Ambiente e cache
+.git/
+.github/
+.venv/
+__pycache__/
+*.pyc
+.env
+.env.*
+.streamlit/secrets.toml

@@ -1,0 +1,59 @@
+name: Build da imagem da API
+
+# Valida o Dockerfile a cada mudanca. Sem isto, um erro na imagem so apareceria
+# no primeiro deploy — e o build nao pode ser testado em Windows sem Docker.
+on:
+  push:
+    paths:
+      - "Dockerfile"
+      - "requirements.txt"
+      - "api/**"
+      - "fvs_dashboard/**"
+      - ".github/workflows/build_api.yml"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Construir a imagem
+        run: docker build -t fvs-api:ci .
+
+      - name: Subir o container e checar o health
+        run: |
+          docker run -d --name fvs-api-ci -p 8080:8080 \
+            -e FVS_DEV_NO_AUTH=1 fvs-api:ci
+          for i in $(seq 1 30); do
+            if curl -sf http://localhost:8080/api/health > /dev/null; then
+              echo "API respondeu ao health check"
+              break
+            fi
+            sleep 2
+          done
+          curl -sf http://localhost:8080/api/health || {
+            echo "::error::A API nao respondeu"; docker logs fvs-api-ci; exit 1; }
+
+      - name: Checar que a API serve dados reais
+        run: |
+          obras=$(curl -sf "http://localhost:8080/api/obras")
+          echo "obras: $obras"
+          echo "$obras" | grep -q "Cape Town" || {
+            echo "::error::A imagem nao tem os dados embarcados"; exit 1; }
+
+      - name: Checar geracao de PDF (valida o kaleido no container)
+        run: |
+          status=$(curl -s -o /tmp/audit.pdf -w "%{http_code}" \
+            "http://localhost:8080/api/export/auditoria?periodo=Mes&formato=pdf")
+          tamanho=$(stat -c%s /tmp/audit.pdf)
+          echo "HTTP $status | $tamanho bytes"
+          [ "$status" = "200" ] && [ "$tamanho" -gt 10000 ] || {
+            echo "::error::PDF nao gerado — kaleido provavelmente falhou no container"
+            docker logs fvs-api-ci; exit 1; }
+
+      - name: Logs do container
+        if: always()
+        run: docker logs fvs-api-ci || true
