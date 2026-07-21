@@ -42,79 +42,67 @@ _GOOGLE_SVG = (
 )
 
 # ── CSS da página de login ─────────────────────────────────────────────────────
+# O CSS global (design system) ja foi injetado por app.py. Aqui apenas o que
+# e especifico da tela de login.
 _LOGIN_CSS = """
 <style>
-/* Paleta R21 Empreendimentos — Vermelho #C41230 | Carvão #1A1A1A */
-[data-testid="stSidebar"]                { display: none !important; }
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+[data-testid="stSidebar"]                 { display: none !important; }
 [data-testid="stSidebarCollapsedControl"] { display: none !important; }
 footer                                    { visibility: hidden; }
 
-body, .stApp { background: #F7F7F7 !important; }
+body, .stApp { background: #F4F6F9 !important; }
+.block-container { max-width: 460px; padding-top: 4vh; }
 
 .login-card {
     background: #ffffff;
-    border: 1px solid #e8e8e8;
-    border-top: 4px solid #C41230;
-    border-radius: 12px;
-    padding: 2.4rem 2.6rem 2rem;
-    box-shadow: 0 4px 24px rgba(196,18,48,0.10);
-    margin-top: 1.5rem;
+    border: 1px solid #E2E7EE;
+    border-radius: 16px;
+    padding: 2.4rem 2.4rem 2rem;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 12px 40px rgba(16,24,40,0.08);
+    position: relative;
+    overflow: hidden;
+    margin-top: 0.5rem;
 }
-.login-header { text-align: center; padding-bottom: 1.4rem; }
-.login-header .brand-logo  { font-size: 42px; line-height: 1; }
-.login-header .brand-title {
-    font-size: 22px; font-weight: 800; color: #1A1A1A;
-    margin-top: 8px; letter-spacing: -0.3px;
+.login-card::before {
+    content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+    background: #C41230;
 }
+.login-header { text-align: center; padding-bottom: 1.5rem; }
+.login-header .brand-logo  { font-size: 40px; line-height: 1; }
 .login-header .brand-r21 {
-    font-size: 13px; font-weight: 700; color: #C41230;
-    text-transform: uppercase; letter-spacing: 2px; margin-top: 2px;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px; font-weight: 600; color: #C41230;
+    text-transform: uppercase; letter-spacing: 0.16em; margin-top: 10px;
 }
-.login-header .brand-sub { font-size: 12px; color: #888888; margin-top: 3px; }
-
-/* Tabs */
-.stTabs [data-baseweb="tab-list"] { border-bottom: 2px solid #e8e8e8; }
-.stTabs [aria-selected="true"]    { color: #C41230 !important; border-bottom: 2px solid #C41230 !important; }
-
-/* Botão primário → vermelho R21 */
-.stButton > button[kind="primary"] {
-    background: #C41230 !important;
-    color: #fff !important;
-    border: none !important;
-    font-weight: 700 !important;
-    border-radius: 6px !important;
-    letter-spacing: 0.3px;
+.login-header .brand-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 25px; font-weight: 700; color: #171A1F;
+    margin-top: 4px; letter-spacing: -0.02em;
 }
-.stButton > button[kind="primary"]:hover { background: #a50e27 !important; }
+.login-header .brand-sub { font-size: 12.5px; color: #5C6572; margin-top: 4px; }
 
-.or-divider { display:flex; align-items:center; gap:10px; margin:1rem 0 0.8rem; }
-.or-divider hr   { flex:1; border:none; border-top:1px solid #e8e8e8; margin:0; }
-.or-divider span { font-size:11px; color:#aaaaaa; white-space:nowrap; }
+.or-divider { display:flex; align-items:center; gap:12px; margin:1.1rem 0 0.9rem; }
+.or-divider hr   { flex:1; border:none; border-top:1px solid #E2E7EE; margin:0; }
+.or-divider span { font-size:11px; color:#909AA7; white-space:nowrap;
+                   text-transform:uppercase; letter-spacing:0.06em; }
 
 /* Botão Google */
 .g-oauth-btn {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: 100%;
-    padding: 9px 16px;
-    border: 1.5px solid #dadce0 !important;
-    border-radius: 6px;
-    background: #fff !important;
-    font-size: 13px;
-    font-weight: 500;
-    color: #3c4043 !important;
-    text-decoration: none !important;
-    box-sizing: border-box;
-    transition: background 0.12s, border-color 0.12s;
-    cursor: pointer;
+    display: flex !important; align-items: center; justify-content: center;
+    gap: 10px; width: 100%; padding: 10px 16px;
+    border: 1px solid #D2D8E0 !important; border-radius: 9px;
+    background: #fff !important; font-family: 'Inter', sans-serif;
+    font-size: 13.5px; font-weight: 600; color: #3c4043 !important;
+    text-decoration: none !important; box-sizing: border-box;
+    transition: background 0.12s, border-color 0.12s; cursor: pointer;
 }
-.g-oauth-btn:hover { background: #f8f9fa !important; border-color: #C41230 !important; }
+.g-oauth-btn:hover { background: #F4F6F9 !important; border-color: #C41230 !important; }
 
 .login-footer {
-    text-align: center; font-size: 11px; color: #aaaaaa;
-    margin-top: 1.4rem; padding-top: 1rem; border-top: 1px solid #f0f0f0;
+    text-align: center; font-size: 11.5px; color: #909AA7;
+    margin-top: 1.5rem; padding-top: 1.1rem; border-top: 1px solid #EDF1F6;
 }
 </style>
 """
@@ -234,11 +222,11 @@ def render_login_page(auth: SupabaseAuth, app_url: str = "") -> bool:
 # ── Formulário ─────────────────────────────────────────────────────────────────
 
 def _render_form(auth: SupabaseAuth, app_url: str) -> None:
+    import contextlib
     st.markdown(_LOGIN_CSS, unsafe_allow_html=True)
 
-    _, col, _ = st.columns([1.2, 2, 1.2])
-
-    with col:
+    # Container ja e estreito (max-width no CSS) — sem colunas laterais.
+    with contextlib.nullcontext():
         st.markdown(
             """
             <div class="login-card">

@@ -14,12 +14,17 @@ import pandas as pd
 
 from fvs_dashboard.core.data_manager import DataManager
 from fvs_dashboard.core.business import STATUS_FINALIZADA, STATUS_EM_ANDAMENTO, STATUS_NAO_INICIADA
+from fvs_dashboard.ui import theme as ui
 
 dm: DataManager = st.session_state.dm
 obra: str       = st.session_state.obra
 
-st.title(f"Visao Geral — {obra}")
-st.caption("Indicadores operacionais de FVS para pacotes liberados.")
+ui.page_header(
+    "Visão Geral",
+    eyebrow=obra,
+    subtitle="Indicadores operacionais de FVS para pacotes liberados.",
+    chip="Pacotes liberados",
+)
 
 # ── Carrega dados ─────────────────────────────────────────────────────────────
 with st.spinner("Carregando dados..."):
@@ -32,7 +37,7 @@ with st.spinner("Carregando dados..."):
         st.stop()
 
 # ── KPI Cards ─────────────────────────────────────────────────────────────────
-st.markdown("### Indicadores")
+ui.section("Indicadores")
 c1, c2, c3, c4, c5 = st.columns(5)
 c1.metric("Pacotes Liberados", kpis["total_lib"])
 c2.metric("Total FVS",         kpis["total_fvs"])
@@ -66,32 +71,28 @@ st.divider()
 col_graf, col_nc = st.columns([2, 1])
 
 with col_graf:
-    st.markdown("### Distribuicao por Status")
-    labels  = ["Finalizada", "Em Andamento", "Nao Iniciada"]
+    ui.section("Distribuição por Status")
+    labels  = ["Finalizada", "Em Andamento", "Não Iniciada"]
     values  = [kpis["finalizada"], kpis["em_andamento"], kpis["nao_iniciada"]]
-    colors_ = ["#375623", "#7F6000", "#C00000"]
+    colors_ = [ui.STATUS["fin"], ui.STATUS["and"], ui.STATUS["nao"]]
     pull_   = [0, 0, 0.06 if kpis["nao_iniciada"] > 0 else 0]
 
     fig = go.Figure(go.Pie(
         labels=labels,
         values=values,
-        marker_colors=colors_,
+        marker=dict(colors=colors_, line=dict(color="#ffffff", width=2)),
         pull=pull_,
-        hole=0.4,
+        hole=0.5,
         textinfo="label+percent",
         textfont_size=12,
         hovertemplate="%{label}: %{value} FVS (%{percent})<extra></extra>",
     ))
-    fig.update_layout(
-        margin=dict(l=20, r=20, t=20, b=20),
-        height=280,
-        showlegend=False,
-        paper_bgcolor="rgba(0,0,0,0)",
-    )
-    st.plotly_chart(fig, use_container_width=True)
+    fig.update_layout(**ui.plotly_layout(height=280, legend=False,
+                                         margin=dict(l=20, r=20, t=20, b=20)))
+    st.plotly_chart(fig, use_container_width=True, config=ui.PLOTLY_CONFIG)
 
 with col_nc:
-    st.markdown("### Nao-Conformidades")
+    ui.section("Não-Conformidades")
     nc_total = kpis["nc_total"]
     fvs_nc   = sum(1 for r in dm.get_rows(obra) if r["nc"] > 0)
 
@@ -107,7 +108,7 @@ with col_nc:
 st.divider()
 
 # ── Top Modelos ───────────────────────────────────────────────────────────────
-st.markdown("### Top Modelos FVS com Pendencias")
+ui.section("Top Modelos FVS com Pendências")
 
 if not top_mods.empty:
     # Grafico de barras empilhadas horizontais
@@ -117,7 +118,7 @@ if not top_mods.empty:
         y=top_mods["Modelo FVS"].str[:45],
         x=top_mods["Finalizada"],
         orientation="h",
-        marker_color="#375623",
+        marker_color=ui.STATUS["fin"],
         hovertemplate="%{y}<br>Finalizada: %{x}<extra></extra>",
     ))
     fig2.add_trace(go.Bar(
@@ -125,26 +126,23 @@ if not top_mods.empty:
         y=top_mods["Modelo FVS"].str[:45],
         x=top_mods["Em_Andamento"],
         orientation="h",
-        marker_color="#7F6000",
+        marker_color=ui.STATUS["and"],
         hovertemplate="%{y}<br>Em Andamento: %{x}<extra></extra>",
     ))
     fig2.add_trace(go.Bar(
-        name="Nao Iniciada",
+        name="Não Iniciada",
         y=top_mods["Modelo FVS"].str[:45],
         x=top_mods["Nao_Iniciada"],
         orientation="h",
-        marker_color="#C00000",
-        hovertemplate="%{y}<br>Nao Iniciada: %{x}<extra></extra>",
+        marker_color=ui.STATUS["nao"],
+        hovertemplate="%{y}<br>Não Iniciada: %{x}<extra></extra>",
     ))
-    fig2.update_layout(
-        barmode="stack",
+    fig2.update_layout(**ui.plotly_layout(
         height=max(300, len(top_mods) * 32),
-        margin=dict(l=10, r=10, t=10, b=10),
-        paper_bgcolor="rgba(0,0,0,0)",
-        legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
+        barmode="stack",
         xaxis_title="Quantidade de FVS",
-    )
-    st.plotly_chart(fig2, use_container_width=True)
+    ))
+    st.plotly_chart(fig2, use_container_width=True, config=ui.PLOTLY_CONFIG)
 
     # Tabela resumo
     with st.expander("Ver tabela detalhada"):

@@ -1,11 +1,15 @@
 [theme]
-base                   = "light"
-primaryColor           = "#C41230"
-backgroundColor        = "#F7F7F7"
+base                     = "light"
+primaryColor             = "#C41230"
+backgroundColor          = "#F4F6F9"
 secondaryBackgroundColor = "#FFFFFF"
-textColor              = "#1A1A1A"
-font                   = "sans serif"
+textColor                = "#171A1F"
+font                     = "sans serif"
 
 [client]
 # "minimal" esconde GitHub/Share/Edit sem afetar a sidebar
-toolbarMode            = "minimal"
+toolbarMode              = "minimal"
+
+[server]
+# Hot reload — recarrega a pagina ao salvar arquivos-fonte
+runOnSave                = true

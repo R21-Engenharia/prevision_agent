@@ -15,12 +15,16 @@ from fvs_dashboard.core.data_manager import DataManager
 from fvs_dashboard.core.business import (
     STATUS_FINALIZADA, STATUS_EM_ANDAMENTO, STATUS_NAO_INICIADA, short_floor
 )
+from fvs_dashboard.ui import theme as ui
 
 dm: DataManager = st.session_state.dm
 obra: str       = st.session_state.obra
 
-st.title(f"Backlog FVS — {obra}")
-st.caption("Todos os pacotes liberados e o status de cada FVS associada.")
+ui.page_header(
+    "Backlog FVS",
+    eyebrow=obra,
+    subtitle="Todos os pacotes liberados e o status de cada FVS associada.",
+)
 
 # ── Dados ─────────────────────────────────────────────────────────────────────
 with st.spinner("Carregando..."):
@@ -35,7 +39,7 @@ if df.empty:
     st.stop()
 
 # ── Filtros ───────────────────────────────────────────────────────────────────
-st.markdown("### Filtros")
+ui.section("Filtros")
 f1, f2, f3 = st.columns(3)
 
 status_opts = ["Todos", "Nao Iniciada", "Em Andamento", "Finalizada"]

@@ -58,10 +58,11 @@ DISC_COLORS: dict[str, str] = {
     "Outros":            "#95A5A6",
 }
 
+# Alinhado ao design system (fvs_dashboard/ui/theme.py — GANTT_STATUS)
 STATUS_COLORS: dict[str, str] = {
-    "Finalizada":   "#27AE60",
-    "Em andamento": "#2980B9",
-    "Nao iniciada": "#BDC3C7",
+    "Finalizada":   "#1E8E5A",
+    "Em andamento": "#D98A00",
+    "Nao iniciada": "#8A94A6",
     "Atrasada":     "#C41230",
 }
 

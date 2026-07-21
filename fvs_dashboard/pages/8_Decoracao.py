@@ -39,31 +39,24 @@ from fvs_dashboard.core.decoracao_engine import (
     load_decoracao,
 )
 from fvs_dashboard.core.data_manager import OBRAS
+from fvs_dashboard.ui import theme as ui
 
-# ─── Helpers de UI ────────────────────────────────────────────────────────────
+# ─── Helpers de UI (delegam ao design system) ─────────────────────────────────
+
+# Mapeia as cores-hex usadas nas chamadas de _kpi para os tons do design system.
+_KPI_TONE = {
+    "#1A1A1A": "neutral", "#27AE60": "fin", "#2980B9": "info",
+    "#95A5A6": "neutral", "#C41230": "nao", "#F6A623": "and",
+}
+
 
 def _kpi(label: str, value: str, delta: str = "", color: str = "#C41230") -> str:
-    delta_html = (
-        f'<div style="font-size:11px;font-weight:600;color:{color};margin-top:2px;">{delta}</div>'
-        if delta else ""
-    )
-    return (
-        f'<div style="background:#fff;border-radius:8px;padding:14px 18px;'
-        f'border-top:3px solid {color};box-shadow:0 2px 8px rgba(0,0,0,0.06);">'
-        f'<div style="font-size:10px;font-weight:700;color:#888;text-transform:uppercase;'
-        f'letter-spacing:.5px;margin-bottom:4px;">{label}</div>'
-        f'<div style="font-size:26px;font-weight:800;color:#1A1A1A;line-height:1">{value}</div>'
-        f'{delta_html}</div>'
-    )
+    tone = _KPI_TONE.get(color, "brand")
+    return ui.kpi(label, value, sub=delta, tone=tone)
 
 
 def _section(title: str) -> None:
-    st.markdown(
-        f'<div style="font-size:11px;font-weight:700;color:#C41230;text-transform:uppercase;'
-        f'letter-spacing:1px;margin:18px 0 8px 0;border-bottom:1px solid #E8E8E8;'
-        f'padding-bottom:4px;">{title}</div>',
-        unsafe_allow_html=True,
-    )
+    ui.section(title)
 
 
 # ─── PDF ──────────────────────────────────────────────────────────────────────
@@ -284,22 +277,11 @@ def _cached_load(obra_key: str) -> pd.DataFrame:
 # PAGINA
 # ═══════════════════════════════════════════════════════════════════════════════
 
-st.markdown("""
-<div style="background:linear-gradient(135deg,#1A1A2E 0%,#16213E 60%,#0F3460 100%);
-    padding:20px 28px 16px;border-radius:12px;margin-bottom:22px;
-    border-left:5px solid #C41230;">
-    <div style="font-size:11px;font-weight:700;color:#C41230;
-        text-transform:uppercase;letter-spacing:2px;margin-bottom:6px;">
-        R21 Empreendimentos
-    </div>
-    <div style="font-size:24px;font-weight:800;color:#fff;letter-spacing:-.3px;">
-        🏛️ Decoracao &amp; Acabamentos
-    </div>
-    <div style="font-size:12px;color:rgba(255,255,255,0.6);margin-top:5px;">
-        Cronograma executivo · Pacotes Prevision · activities_raw + jobs_raw
-    </div>
-</div>
-""", unsafe_allow_html=True)
+ui.page_header(
+    "Decoração & Acabamentos",
+    eyebrow="R21 Empreendimentos",
+    subtitle="Cronograma executivo das atividades de acabamento — pacotes Prevision.",
+)
 
 # ─── Filtros — linha 1 ────────────────────────────────────────────────────────
 f1, f2, f3, f4 = st.columns([2, 2, 2, 2])
@@ -528,7 +510,7 @@ if not floor_sum.empty:
     fig_bar.add_trace(go.Bar(
         y=floor_sum["floor_short"], x=floor_sum["pct_medio"],
         orientation="h",
-        marker_color=["#27AE60" if p>=100 else "#2980B9" if p>0 else "#BDC3C7"
+        marker_color=[ui.STATUS["fin"] if p>=100 else ui.SERIES["b"] if p>0 else ui.STATUS["neutral"]
                       for p in floor_sum["pct_medio"]],
         text=floor_sum["pct_medio"].apply(lambda x: f"{x:.0f}%"),
         textposition="outside", textfont=dict(size=10),
@@ -541,7 +523,7 @@ if not floor_sum.empty:
         margin=dict(t=8,b=8,l=10,r=40),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)", height=320,
     )
-    fig_bar.add_vline(x=100, line_dash="dot", line_color="#27AE60",
+    fig_bar.add_vline(x=100, line_dash="dot", line_color=ui.STATUS["fin"],
                       line_width=1, opacity=0.5)
 
 with col_pie:

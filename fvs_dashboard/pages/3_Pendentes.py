@@ -13,11 +13,16 @@ import pandas as pd
 
 from fvs_dashboard.core.data_manager import DataManager
 from fvs_dashboard.core.business import STATUS_NAO_INICIADA
+from fvs_dashboard.ui import theme as ui
 
 dm: DataManager = st.session_state.dm
 obra: str       = st.session_state.obra
 
-st.title(f"🔴 Pendentes — {obra}")
+ui.page_header(
+    "Pendentes",
+    eyebrow=obra,
+    subtitle="FVS ainda não abertas no InMeta — ação imediata necessária.",
+)
 
 # ── Dados ─────────────────────────────────────────────────────────────────────
 with st.spinner("Carregando..."):

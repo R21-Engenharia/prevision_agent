@@ -13,12 +13,16 @@ import datetime
 
 from fvs_dashboard.core.data_manager import DataManager
 from fvs_dashboard.core.exporter import export_excel, export_pdf
+from fvs_dashboard.ui import theme as ui
 
 dm: DataManager = st.session_state.dm
 obra: str       = st.session_state.obra
 
-st.title(f"Exportar — {obra}")
-st.caption("Gere relatorios em Excel ou PDF com os dados atuais.")
+ui.page_header(
+    "Exportar",
+    eyebrow=obra,
+    subtitle="Gere relatórios em Excel ou PDF com os dados atuais.",
+)
 
 # ── Dados ─────────────────────────────────────────────────────────────────────
 with st.spinner("Preparando dados..."):
@@ -35,7 +39,7 @@ obra_slug  = obra.replace(" ", "_").replace("/", "-")
 st.divider()
 
 # ── Opcoes ────────────────────────────────────────────────────────────────────
-st.markdown("### Opcoes")
+ui.section("Opções")
 include_fin = st.checkbox("Incluir FVS Finalizadas", value=True,
                            help="Se desmarcado, exporta apenas FVS Em Andamento e Nao Iniciadas.")
 
@@ -65,7 +69,7 @@ if not df_prev.empty:
 st.divider()
 
 # ── Botoes de download ────────────────────────────────────────────────────────
-st.markdown("### Downloads")
+ui.section("Downloads")
 
 col_xl, col_pdf = st.columns(2)
 

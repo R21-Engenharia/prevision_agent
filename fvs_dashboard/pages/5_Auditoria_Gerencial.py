@@ -31,17 +31,18 @@ from fvs_dashboard.core.audit_engine import (
     period_dates,
     STATUS_NAO_INICIADA, STATUS_EM_ANDAMENTO, STATUS_FINALIZADA,
 )
+from fvs_dashboard.ui import theme as ui
 
 # ── Sessao ────────────────────────────────────────────────────────────────────
 dm: DataManager = st.session_state.dm
 
-# ── Paleta R21 Empreendimentos ────────────────────────────────────────────────
-C_AZUL     = "#C41230"   # vermelho R21 no lugar do azul
-C_AZUL_ESC = "#8B0D22"   # vermelho escuro
-C_VERDE    = "#2E7D32"
-C_AMARELO  = "#F57F17"
-C_VERMELHO = "#C41230"
-C_CINZA    = "#6c757d"
+# ── Paleta — vem do design system (ui.theme) ──────────────────────────────────
+C_AZUL     = ui.SERIES["a"]      # serie primaria (Cape Town) — vermelho R21
+C_AZUL_ESC = ui.STATUS["nao"]    # vermelho escuro p/ titulos de grafico
+C_VERDE    = ui.STATUS["fin"]
+C_AMARELO  = ui.STATUS["and"]
+C_VERMELHO = ui.STATUS["nao"]
+C_CINZA    = ui.STATUS["neutral"]
 C_VERDE_BG = "#E8F5E9"
 C_AMAR_BG  = "#FFF8E1"
 C_VERM_BG  = "#FFEBEE"
@@ -56,101 +57,64 @@ _CHART_BG  = "rgba(0,0,0,0)"   # sempre transparente
 
 OBRA_OPTS = ["Todas as Obras"] + list(OBRAS.keys())
 
-# ── CSS executivo ─────────────────────────────────────────────────────────────
+# ── CSS especifico da pagina (herda o design system global) ──────────────────
 st.markdown("""
 <style>
-/* KPI Cards executivos */
+/* KPI Cards — alinhados ao design system (leitura de instrumento) */
 .kpi-card {
-    background: var(--kpi-bg, #ffffff);
-    border-radius: 12px;
-    padding: 18px 20px 14px 20px;
-    border-left: 5px solid #C41230;
-    box-shadow: 0 2px 8px rgba(196,18,48,0.10);
-    margin-bottom: 8px;
-    min-height: 110px;
+    position: relative; background: var(--kpi-bg, #FFFFFF);
+    border: 1px solid #E2E7EE; border-radius: 12px;
+    padding: 15px 18px 18px; margin-bottom: 8px; min-height: 108px;
+    box-shadow: 0 1px 2px rgba(16,24,40,0.04), 0 4px 16px rgba(16,24,40,0.05);
 }
-.kpi-card.green  { border-left-color: #2E7D32; }
-.kpi-card.yellow { border-left-color: #F57F17; }
-.kpi-card.red    { border-left-color: #C41230; }
-.kpi-card.gray   { border-left-color: #6c757d; }
-.kpi-icon  { font-size: 20px; margin-bottom: 4px; }
-.kpi-value { font-size: 36px; font-weight: 800; color: inherit; line-height: 1.1; }
-.kpi-label { font-size: 11px; font-weight: 600; color: #888888;
-             text-transform: uppercase; letter-spacing: 0.5px; margin-top: 2px; }
-.kpi-sub   { font-size: 12px; color: #888888; margin-top: 4px; }
+.kpi-card::after { content:""; position:absolute; left:0; bottom:0;
+    height:3px; width:100%; background:#C41230; }
+.kpi-card.green::after  { background:#1E8E5A; }
+.kpi-card.yellow::after { background:#D98A00; }
+.kpi-card.red::after    { background:#C41230; }
+.kpi-card.gray::after   { background:#8A94A6; }
+.kpi-icon  { font-size: 17px; margin-bottom: 4px; opacity: .85; }
+.kpi-value { font-family:'Space Grotesk',sans-serif; font-size: 32px;
+    font-weight: 700; color: #171A1F; line-height: 1.05;
+    font-variant-numeric: tabular-nums; }
+.kpi-label { font-size: 10.5px; font-weight: 600; color: #5C6572;
+    text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px; }
+.kpi-sub   { font-size: 12px; color: #909AA7; margin-top: 5px; }
 .kpi-delta { font-size: 12px; margin-top: 6px; font-weight: 600; }
-.delta-pos { color: #2E7D32; }
+.delta-pos { color: #1E8E5A; }
 .delta-neg { color: #C41230; }
-.delta-neu { color: #6c757d; }
+.delta-neu { color: #8A94A6; }
 
-/* Header */
-.audit-header {
-    background: linear-gradient(135deg, #8B0D22 0%, #C41230 100%);
-    border-radius: 12px;
-    padding: 22px 28px;
-    margin-bottom: 1.5rem;
-    color: white;
-}
-.audit-header h1 {
-    color: white !important;
-    font-size: 22px !important;
-    font-weight: 800 !important;
-    margin: 0 0 4px 0 !important;
-    letter-spacing: 0.3px;
-}
-.audit-header p { color: rgba(255,255,255,0.75); font-size: 13px; margin: 0; }
-
-/* Secoes */
+/* Secoes — replica ui.section (tick vermelho + label + hairline) */
 .section-title {
-    font-size: 13px;
-    font-weight: 700;
-    color: #C41230;
-    text-transform: uppercase;
-    letter-spacing: 0.6px;
-    border-bottom: 2px solid #C41230;
-    padding-bottom: 6px;
-    margin: 1.4rem 0 0.8rem 0;
+    position: relative; font-family:'Space Grotesk',sans-serif;
+    font-size: 13px; font-weight: 600; color: #171A1F;
+    letter-spacing: 0.02em; padding: 0 0 8px 12px;
+    border-bottom: 1px solid #E2E7EE; margin: 1.8rem 0 0.9rem 0;
 }
+.section-title::before { content:""; position:absolute; left:0; top:1px;
+    width:3px; height:15px; border-radius:2px; background:#C41230; }
 
 /* Alert boxes */
-.alert-critico {
-    background: #FFEBEE;
-    border: 1px solid #FFCDD2;
-    border-left: 4px solid #C41230;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    font-size: 13px;
-}
-.alert-aviso {
-    background: #FFF8E1;
-    border: 1px solid #FFE082;
-    border-left: 4px solid #F57F17;
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin-bottom: 8px;
-    font-size: 13px;
-}
-.badge-fonte {
-    background: #FFEBEE;
-    color: #C41230;
-    font-size: 10px;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-weight: 600;
-    letter-spacing: 0.3px;
-}
+.alert-critico { background: rgba(196,18,48,0.06); border: 1px solid rgba(196,18,48,0.18);
+    border-left: 4px solid #C41230; border-radius: 10px; padding: 12px 16px;
+    margin-bottom: 8px; font-size: 13px; }
+.alert-aviso { background: rgba(217,138,0,0.08); border: 1px solid rgba(217,138,0,0.22);
+    border-left: 4px solid #D98A00; border-radius: 10px; padding: 12px 16px;
+    margin-bottom: 8px; font-size: 13px; }
+.badge-fonte { background: rgba(138,148,166,0.14); color: #5C6572;
+    font-size: 10px; padding: 2px 9px; border-radius: 999px;
+    font-weight: 600; letter-spacing: 0.02em; }
 </style>
 """, unsafe_allow_html=True)
 
 # ── Header ────────────────────────────────────────────────────────────────────
-st.markdown("""
-<div class="audit-header">
-  <h1>AUDITORIA GERENCIAL — R21 EMPREENDIMENTOS</h1>
-  <p>Indicadores historicos de FVS e Nao-Conformidades &nbsp;|&nbsp;
-     Dados: InMeta (nov/2024 a mai/2026) + Snapshots diarios (a partir de 14/05/2026)</p>
-</div>
-""", unsafe_allow_html=True)
+ui.page_header(
+    "Auditoria Gerencial",
+    eyebrow="R21 Empreendimentos",
+    subtitle="Indicadores históricos de FVS e Não-Conformidades — "
+             "InMeta (nov/2024 a mai/2026) + Snapshots diários (desde 14/05/2026)",
+)
 
 # ── Filtros ───────────────────────────────────────────────────────────────────
 col_obra, col_period, col_datas = st.columns([2, 3, 3])
@@ -454,7 +418,7 @@ with col_comp:
         fig_comp.add_trace(go.Bar(name="Cape Town", x=labels, y=comp_filt["fin_ct"].tolist(),
                                   marker_color=C_AZUL, opacity=0.85))
         fig_comp.add_trace(go.Bar(name="Holmes",    x=labels, y=comp_filt["fin_hm"].tolist(),
-                                  marker_color="#5b9bd5", opacity=0.85))
+                                  marker_color=ui.SERIES["b"], opacity=0.85))
         fig_comp.update_layout(
             barmode="group", height=270,
             paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
