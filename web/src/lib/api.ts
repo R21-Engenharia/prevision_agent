@@ -214,14 +214,27 @@ export interface Decoracao {
 
 export type Condicao = 'ENSOLARADO' | 'NUBLADO' | 'CHUVOSO'
 
+/**
+ * Condição do tempo consolidada — visão única, não por obra.
+ * Cada dia entra uma vez só, pela obra de maior prioridade que registrou.
+ */
 export interface Tempo {
-  obra: string
   disponivel: boolean
   coletado_em: string | null
-  dias: Array<{ data: string; condicao: string }>
+  prioridade: string[]
+  dias: Array<{ data: string; condicao: string; origem: string }>
   meses: Array<{ mes: string; ENSOLARADO: number; NUBLADO: number; CHUVOSO: number; total: number }>
-  totais: Record<Condicao, number>
-  historico: Record<Condicao, number>
+  inmeta: Record<Condicao, number>      // dias únicos vindos do InMeta
+  historico: Record<Condicao, number>   // controle interno pré-InMeta
+  totais: Record<Condicao, number>      // histórico + inmeta
+  cobertura: Array<{
+    obra: string
+    dias_registrados: number
+    dias_aproveitados: number
+  }>
+  dias_com_rdo: number
+  sem_condicao: number
+  nao_classificados: number
 }
 
 export interface FiltrosBacklog {

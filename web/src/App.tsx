@@ -61,10 +61,13 @@ export default function App() {
   // ── Sessão Supabase ────────────────────────────────────────────────────────
   useEffect(() => {
     if (!supabase) return
+    // Referência local: dentro dos callbacks o TypeScript não consegue garantir
+    // que `supabase` (mutável no módulo) continua não-nulo.
+    const cliente = supabase
 
     // O token vai no header Authorization de toda chamada à API.
     setTokenProvider(async () => {
-      const { data } = await supabase.auth.getSession()
+      const { data } = await cliente.auth.getSession()
       return data.session?.access_token ?? null
     })
 
@@ -79,7 +82,7 @@ export default function App() {
       if (!u) {
         // Autenticou no Supabase, mas não está autorizado neste app.
         setErroAcesso(`O e-mail ${sessao.user.email} não tem acesso autorizado.`)
-        await supabase!.auth.signOut()
+        await cliente.auth.signOut()
         setUsuario(null)
       } else {
         setErroAcesso(null)
@@ -88,8 +91,8 @@ export default function App() {
       setChecandoSessao(false)
     }
 
-    supabase.auth.getSession().then(({ data }) => void aplicarSessao(data.session))
-    const { data: sub } = supabase.auth.onAuthStateChange((_evt, sessao) => {
+    cliente.auth.getSession().then(({ data }) => void aplicarSessao(data.session))
+    const { data: sub } = cliente.auth.onAuthStateChange((_evt, sessao) => {
       void aplicarSessao(sessao)
     })
     return () => sub.subscription.unsubscribe()

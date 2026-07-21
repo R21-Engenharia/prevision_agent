@@ -24,6 +24,7 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 import datetime
+import os
 import unicodedata
 from urllib.parse import quote
 
@@ -42,12 +43,22 @@ from api.auth import usuario_atual, descrever_modo
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
+# Origens liberadas. Em producao, defina FVS_ORIGENS com o dominio do frontend
+# (separado por virgula) — sem isso o navegador bloqueia as chamadas.
+_ORIGENS = [
+    o.strip()
+    for o in os.getenv(
+        "FVS_ORIGENS", "http://localhost:5173,http://127.0.0.1:5173"
+    ).split(",")
+    if o.strip()
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=_ORIGENS,
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET"],
+    allow_headers=["Authorization", "Content-Type"],
 )
 
 _dm = DataManager()

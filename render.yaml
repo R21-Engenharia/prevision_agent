@@ -1,0 +1,29 @@
+# Deploy da API FVS no Render (render.com).
+# O frontend fica na Vercel e aponta para esta URL via rewrite em web/vercel.json.
+services:
+  - type: web
+    name: fvs-api
+    runtime: python
+    plan: starter          # o plano free hiberna e a primeira chamada demora ~50s
+    region: oregon
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      # Autenticacao — sem estas duas a API responde 503 (falha fechada)
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_KEY
+        sync: false
+      # Dominio do frontend, senao o navegador bloqueia por CORS
+      - key: FVS_ORIGENS
+        sync: false
+      # Coleta do InMeta
+      - key: INMETA_EMAIL
+        sync: false
+      - key: INMETA_SENHA
+        sync: false
+      - key: INMETA_BASE_URL
+        value: https://api.inmeta.com.br

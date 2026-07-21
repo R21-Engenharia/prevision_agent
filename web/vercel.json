@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/api/:caminho*",
+      "destination": "https://SUBSTITUA-PELA-URL-DA-API/api/:caminho*"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
