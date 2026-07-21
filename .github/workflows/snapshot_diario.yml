@@ -1,0 +1,36 @@
+name: Snapshot diario das FVS
+
+# Constroi o historico real das FVS sem depender de alguem abrir o app.
+# O snapshot e gravado no Supabase (mesma base que o app le).
+on:
+  schedule:
+    # 09:10 UTC = 06:10 em Brasilia — antes do inicio do expediente na obra
+    - cron: "10 9 * * *"
+  workflow_dispatch:        # permite rodar manualmente pela aba Actions
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Gravar snapshot do dia
+        env:
+          INMETA_EMAIL:    ${{ secrets.INMETA_EMAIL }}
+          INMETA_SENHA:    ${{ secrets.INMETA_SENHA }}
+          INMETA_BASE_URL: ${{ secrets.INMETA_BASE_URL }}
+          SUPABASE_URL:    ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY:    ${{ secrets.SUPABASE_KEY }}
+        run: python scripts/daily_snapshot.py
