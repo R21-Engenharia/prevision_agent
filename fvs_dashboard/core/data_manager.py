@@ -96,11 +96,37 @@ class DataManager:
     # ── Internos: leitura de cache JSON ──────────────────────────────────────
 
     def _load_json(self, path: Path) -> Any:
+        """
+        Le o JSON com cache em memoria, invalidado pela data de modificacao.
+
+        Antes o cache era indexado so pelo caminho: uma vez lido, o arquivo
+        nunca mais era relido. No Streamlit isso passava despercebido (processo
+        curto), mas a API e um processo longo — depois da coleta diaria ela
+        continuaria servindo o dado antigo ate alguem reinicia-la.
+        """
         key = str(path)
-        if key not in self._cache:
-            with open(path, encoding="utf-8") as f:
-                self._cache[key] = json.load(f)
-        return self._cache[key]
+        try:
+            mtime = path.stat().st_mtime
+        except OSError:
+            mtime = None
+
+        em_cache = self._cache.get(key)
+        if em_cache is not None and em_cache[0] == mtime:
+            return em_cache[1]
+
+        with open(path, encoding="utf-8") as f:
+            dados = json.load(f)
+
+        self._cache[key] = (mtime, dados)
+        # Derivados (rows/df/kpis) foram calculados sobre o conteudo antigo
+        self._invalidar_derivados()
+        return dados
+
+    def _invalidar_derivados(self) -> None:
+        """Descarta rows_/df_/kpis_ apos releitura de um arquivo de origem."""
+        for k in [k for k in self._cache
+                  if k.startswith(("rows_", "df_", "kpis_", "top_modelos_"))]:
+            self._cache.pop(k, None)
 
     def invalidate(self, path: Path | None = None) -> None:
         """Invalida cache interno (forcca releitura do disco)."""
