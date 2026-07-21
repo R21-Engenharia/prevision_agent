@@ -154,7 +154,12 @@ def prepare_project(
                 "pct_exec":    pct_exec,
                 "nc":          nc,
                 "nc_tratadas": nc_tratadas,
-                "nc_pendentes": max(0, nc - nc_tratadas),
+                # qtdNaoConformidade JA e o saldo em aberto do InMeta — nao o
+                # total historico. Ha inspecoes com nc=0 e tratadas=4, e a soma
+                # de qtdNaoConformidade bate exatamente com o painel do InMeta.
+                # A formula antiga (nc - nc_tratadas) subnotificava as NC em
+                # aberto (180 reais viravam 155 na Cape Town).
+                "nc_pendentes": nc,
                 "data_ins":    data_ins,
                 "link":        link,
             })

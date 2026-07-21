@@ -102,7 +102,10 @@ def build_monthly_from_inspections(obra_filter: str | None = None) -> pd.DataFra
         return pd.DataFrame()
 
     df = pd.DataFrame(records)
-    df["nc_pendentes"] = (df["nc"] - df["nc_tratadas"]).clip(lower=0)
+    # qtdNaoConformidade (df["nc"]) ja e o saldo EM ABERTO no InMeta; nao se
+    # subtrai as tratadas. Ver nota em business.py — a formula antiga
+    # (nc - nc_tratadas) subnotificava as NC pendentes em ~14%.
+    df["nc_pendentes"] = df["nc"]
 
     grp = df.groupby(["date_month", "obra"]).agg(
         finalizada   = ("status", lambda s: (s == STATUS_FINALIZADA).sum()),
