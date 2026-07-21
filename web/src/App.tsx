@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react'
+import { lazy, Suspense, useCallback, useEffect, useState } from 'react'
 import {
   api, setTokenProvider,
   type Auditoria as AuditoriaData, type Backlog as BacklogData,
@@ -8,13 +8,16 @@ import {
 import { authConfigurada, resolverUsuario, supabase, type Usuario } from './lib/supabase'
 import { Shell } from './components/Shell'
 import { Login } from './pages/Login'
-import { VisaoGeral } from './pages/VisaoGeral'
-import { Backlog } from './pages/Backlog'
-import { Pendentes } from './pages/Pendentes'
-import { Auditoria } from './pages/Auditoria'
-import { Tempo } from './pages/Tempo'
-import { Decoracao } from './pages/Decoracao'
-import { Exportar } from './pages/Exportar'
+// Telas carregadas sob demanda: o recharts (~400 KB) so entra quando o usuario
+// abre uma tela com grafico. Backlog e Pendentes, as mais usadas no dia a dia,
+// nem chegam a baixar essa parte.
+const VisaoGeral = lazy(() => import('./pages/VisaoGeral').then((m) => ({ default: m.VisaoGeral })))
+const Backlog    = lazy(() => import('./pages/Backlog').then((m) => ({ default: m.Backlog })))
+const Pendentes  = lazy(() => import('./pages/Pendentes').then((m) => ({ default: m.Pendentes })))
+const Auditoria  = lazy(() => import('./pages/Auditoria').then((m) => ({ default: m.Auditoria })))
+const Tempo      = lazy(() => import('./pages/Tempo').then((m) => ({ default: m.Tempo })))
+const Decoracao  = lazy(() => import('./pages/Decoracao').then((m) => ({ default: m.Decoracao })))
+const Exportar   = lazy(() => import('./pages/Exportar').then((m) => ({ default: m.Exportar })))
 
 type Theme = 'light' | 'dark'
 
@@ -241,7 +244,8 @@ export default function App() {
       onSair={sair}
       authAtiva={authConfigurada}
     >
-      {conteudo()}
+      {/* O esqueleto cobre tambem o download do chunk da tela */}
+      <Suspense fallback={esqueleto}>{conteudo()}</Suspense>
     </Shell>
   )
 }
