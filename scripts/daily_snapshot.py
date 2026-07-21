@@ -67,8 +67,11 @@ def main() -> int:
 
     # 1. Atualiza o cache do InMeta
     try:
+        # `or` em vez do default do getenv: quando o secret nao existe, o
+        # GitHub Actions define a variavel VAZIA — e getenv(x, default)
+        # devolveria "" (a variavel existe), deixando a URL em branco.
         client = InMetaClient(
-            base_url=os.getenv("INMETA_BASE_URL", "https://api.inmeta.com.br"),
+            base_url=os.getenv("INMETA_BASE_URL") or "https://api.inmeta.com.br",
             email=email,
             senha=senha,
         )

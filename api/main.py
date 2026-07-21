@@ -47,8 +47,8 @@ app = FastAPI(title="FVS API — R21", version="1.0.0")
 # (separado por virgula) — sem isso o navegador bloqueia as chamadas.
 _ORIGENS = [
     o.strip()
-    for o in os.getenv(
-        "FVS_ORIGENS", "http://localhost:5173,http://127.0.0.1:5173"
+    for o in (
+        os.getenv("FVS_ORIGENS") or "http://localhost:5173,http://127.0.0.1:5173"
     ).split(",")
     if o.strip()
 ]
