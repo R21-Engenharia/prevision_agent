@@ -192,6 +192,15 @@ def _serie_evolucao(obra: str) -> tuple[list[dict], str, int]:
     return serie, "inspecoes", dias
 
 
+def _idade_caches(obra: str) -> dict[str, float | None]:
+    """Idade dos caches em horas — base para o alerta de dado desatualizado."""
+    agora = datetime.datetime.now()
+    idades: dict[str, float | None] = {}
+    for chave, quando in _dm.cache_mtime(obra).items():
+        idades[chave] = round((agora - quando).total_seconds() / 3600, 1) if quando else None
+    return idades
+
+
 # ── Visao Geral ───────────────────────────────────────────────────────────────
 
 @app.get("/api/overview")
@@ -282,6 +291,10 @@ def overview(obra: str = Query(...),
             "dias_faltam":  max(0, LIMIAR_SNAPSHOTS - dias_snap) if fonte == "inspecoes" else 0,
         },
         "aging":       aging,
+        # Idade numerica dos caches — permite a tela alertar quando o dado
+        # envelhece. O texto sozinho ("ha 69d") ficava num canto da barra
+        # lateral e passou 69 dias sem ninguem notar.
+        "cache_horas": _idade_caches(obra),
         "cache": {"prevision": ages["prevision"], "inmeta": ages["inmeta"]},
     }
 

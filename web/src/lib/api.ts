@@ -66,7 +66,15 @@ export interface Overview {
   evolucao_meta: EvolucaoMeta
   aging: AgingFaixa[]
   cache: { prevision: string; inmeta: string }
+  cache_horas: { prevision: number | null; inmeta: number | null }
 }
+
+/**
+ * A partir de quantas horas cada fonte é considerada desatualizada.
+ * Prevision roda em dias úteis, então 72h cobre um fim de semana sem alarme
+ * falso. InMeta atualiza diariamente.
+ */
+export const LIMITE_HORAS = { prevision: 72, inmeta: 36 } as const
 
 export type StatusFVS = 'FINALIZADA' | 'EM_ANDAMENTO' | 'NAO_INICIADA'
 

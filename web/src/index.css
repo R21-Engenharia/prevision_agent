@@ -394,6 +394,15 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .opcao small{display:block;color:var(--muted);font-size:12.5px;margin-top:3px;line-height:1.45;}
 .exp-desc{color:var(--muted);font-size:13px;line-height:1.5;margin:14px 0 16px;}
 
+/* ── Alerta de dado desatualizado ──────────────────────── */
+.alerta-cache{display:flex;gap:12px;align-items:flex-start;background:var(--accent-soft);
+  border:1px solid color-mix(in srgb,var(--accent) 30%,transparent);border-left:4px solid var(--accent);
+  border-radius:var(--radius);padding:14px 18px;margin-bottom:14px;}
+.alerta-cache > svg{color:var(--accent-ink);flex:none;margin-top:1px;}
+.ac-titulo{font-size:14.5px;font-weight:650;color:var(--accent-ink);}
+.ac-texto{font-size:13px;color:var(--ink-2);margin-top:4px;line-height:1.55;}
+.ac-acao{color:var(--muted);font-size:12.5px;margin-top:6px;}
+
 /* ── Gantt ─────────────────────────────────────────────── */
 .gantt{--rot-w:190px;margin-top:14px;position:relative;}
 .gantt-eixo{display:flex;align-items:flex-end;height:22px;

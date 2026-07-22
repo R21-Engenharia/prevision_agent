@@ -1,6 +1,7 @@
 import type { Overview } from '../lib/api'
 import { CountUp } from '../components/CountUp'
 import { Donut } from '../components/Donut'
+import { AlertaCache } from '../components/AlertaCache'
 import { EvolucaoChart } from '../components/EvolucaoChart'
 
 const fmtPct = (n: number) => `${n.toFixed(1).replace('.', ',')}%`
@@ -62,6 +63,8 @@ export function VisaoGeral({ data }: { data: Overview }) {
           </div>
         </div>
       </div>
+
+      <AlertaCache data={data} />
 
       {/* Universo completo da obra — contexto separado dos KPIs do backlog,
           para o total do InMeta não ser confundido com o backlog operacional. */}
