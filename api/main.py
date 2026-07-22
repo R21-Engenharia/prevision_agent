@@ -91,9 +91,32 @@ def _clean(value):
 
 # ── Meta ──────────────────────────────────────────────────────────────────────
 
+def _checar_pdf() -> bool:
+    """
+    O kaleido embute um chromium para transformar graficos Plotly em imagem.
+    Se faltar biblioteca de sistema no host, so a exportacao em PDF quebra — e
+    em runtime, no meio de uma reuniao. Aqui a capacidade e verificada uma vez
+    na subida, para aparecer no health check em vez de virar surpresa.
+    """
+    try:
+        import plotly.graph_objects as go
+        import plotly.io as pio
+        fig = go.Figure(go.Bar(x=[1], y=[1]))
+        pio.to_image(fig, format="png", width=80, height=60)
+        return True
+    except Exception as exc:      # noqa: BLE001 — diagnostico, nao pode derrubar
+        print(f"[api] AVISO: geracao de PDF indisponivel ({exc})", flush=True)
+        return False
+
+
+_PDF_OK = _checar_pdf()
+print(f"[api] Exportacao em PDF: {'ok' if _PDF_OK else 'INDISPONIVEL'}", flush=True)
+
+
 @app.get("/api/health")
 def health():
-    return {"ok": True}
+    """Aberto de proposito: usado pelo monitoramento do host."""
+    return {"ok": True, "pdf": _PDF_OK}
 
 
 @app.get("/api/obras")
