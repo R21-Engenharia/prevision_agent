@@ -4,7 +4,10 @@ services:
   - type: web
     name: fvs-api
     runtime: python
-    plan: starter          # o plano free hiberna e a primeira chamada demora ~50s
+    # free nao pede cartao. Em troca o servico hiberna apos 15 min parado e a
+    # primeira chamada seguinte demora ~50s. Para eliminar a espera, troque
+    # para "starter" (US$ 7/mes) — e a unica mudanca necessaria.
+    plan: free
     region: oregon
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn api.main:app --host 0.0.0.0 --port $PORT
