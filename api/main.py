@@ -417,6 +417,27 @@ def _intervalo_periodo(periodo: str, d_ini, d_fim):
     return period_dates(periodo, d_ini, d_fim)
 
 
+def _cobertura_inmeta() -> datetime.date | None:
+    """
+    Ate quando o cache do InMeta tem dados confiaveis.
+
+    Preencher zeros alem disso inventaria dias vazios: hoje apareceria como
+    "nenhuma FVS" quando na verdade a coleta ainda nao rodou. Como a coleta do
+    dia pode acontecer no meio do expediente, o ultimo dia completo e o
+    anterior a ela.
+    """
+    try:
+        import json as _json
+        caminho = Path(_ROOT) / "data" / "raw" / "inmeta_inspections_raw.json"
+        bruto = _json.loads(caminho.read_text(encoding="utf-8"))
+        coletado = bruto.get("collected_at")
+        if coletado:
+            return datetime.date.fromisoformat(coletado[:10]) - datetime.timedelta(days=1)
+    except Exception:
+        pass
+    return None
+
+
 def _serie_inspecoes(obra: str, inicio, fim, granularidade: str) -> list[dict]:
     """
     Agrupa as inspecoes do InMeta por dia, semana ou mes.
@@ -455,7 +476,42 @@ def _serie_inspecoes(obra: str, inicio, fim, granularidade: str) -> list[dict]:
         alvo["nc_total"] += int(ins.get("qtdNaoConformidade") or 0)
         alvo["total"] += 1
 
-    return [{"data": d.isoformat(), **v} for d, v in sorted(registros.items())]
+    if not registros:
+        return []
+
+    # Preenche os periodos sem nenhuma FVS com zero.
+    #
+    # Sem isso o grafico omite o dia vazio e liga 10/jul direto a 14/jul, como
+    # se fosse uma linha continua — escondendo tres dias parados. Justamente o
+    # que o acompanhamento diario precisa mostrar.
+    #
+    # Em recortes curtos (dia/semana) preenche o intervalo inteiro. No mensal,
+    # comeca no primeiro mes com dado: "Tudo" abre em 2024-01 e a obra so tem
+    # registro a partir de nov/2024 — dez meses zerados so poluiriam a leitura.
+    if granularidade == "mes":
+        atual = min(registros)
+    else:
+        atual = inicio if granularidade == "dia" else inicio - datetime.timedelta(days=inicio.weekday())
+
+    # Nao preenche alem do que o cache cobre — evita mostrar zeros de dias que
+    # simplesmente ainda nao foram coletados.
+    cobertura = _cobertura_inmeta()
+    limite = min(fim, cobertura) if cobertura else fim
+    limite = max(limite, max(registros))     # nunca cortar dado existente
+
+    vazio = {"finalizada": 0, "em_andamento": 0, "nc_total": 0, "total": 0}
+    completo: list[dict] = []
+
+    while atual <= limite:
+        completo.append({"data": atual.isoformat(), **registros.get(atual, vazio)})
+        if granularidade == "dia":
+            atual += datetime.timedelta(days=1)
+        elif granularidade == "semana":
+            atual += datetime.timedelta(weeks=1)
+        else:
+            atual = (atual.replace(day=28) + datetime.timedelta(days=4)).replace(day=1)
+
+    return completo
 
 
 def _dados_auditoria(obra: str, periodo: str, de: str, ate: str):
