@@ -115,8 +115,21 @@ print(f"[api] Exportacao em PDF: {'ok' if _PDF_OK else 'INDISPONIVEL'}", flush=T
 
 @app.get("/api/health")
 def health():
-    """Aberto de proposito: usado pelo monitoramento do host."""
-    return {"ok": True, "pdf": _PDF_OK}
+    """
+    Aberto de proposito: usado pelo monitoramento do host.
+
+    Inclui o commit implantado — sem isso nao da para saber, de fora, se o
+    deploy acompanhou o frontend. Um front novo com API velha aparece para o
+    usuario como erro de dados, nao como versao defasada.
+    """
+    return {
+        "ok": True,
+        "pdf": _PDF_OK,
+        # Render/Vercel expoem o commit; local fica "dev"
+        "commit": (os.getenv("RENDER_GIT_COMMIT")
+                   or os.getenv("VERCEL_GIT_COMMIT_SHA") or "dev")[:7],
+        "periodos": sorted(PERIODOS),
+    }
 
 
 @app.get("/api/obras")
