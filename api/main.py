@@ -382,7 +382,67 @@ def backlog(obra: str = Query(...), limit: int = Query(default=5000, le=20000),
 
 # ── Auditoria Gerencial ───────────────────────────────────────────────────────
 
-PERIODOS = {"Mes", "Trimestre", "Semestre", "Anual", "Tudo", "Personalizado"}
+PERIODOS = {"Dia", "Semana", "Mes", "Trimestre", "Semestre", "Anual", "Tudo", "Personalizado"}
+
+# Granularidade da serie por periodo. Filtrar 14 dias e plotar por mes daria
+# um unico ponto — a escala do grafico acompanha o recorte.
+GRANULARIDADE = {
+    "Dia":       "dia",
+    "Semana":    "semana",
+    "Mes":       "dia",
+    "Trimestre": "semana",
+}       # demais periodos: mensal
+
+
+def _intervalo_periodo(periodo: str, d_ini, d_fim):
+    """Dia e Semana sao proprios da tela nova; o resto delega ao audit_engine."""
+    hoje = datetime.date.today()
+    if periodo == "Dia":
+        return hoje - datetime.timedelta(days=13), hoje      # 14 dias
+    if periodo == "Semana":
+        return hoje - datetime.timedelta(weeks=11), hoje     # 12 semanas
+    return period_dates(periodo, d_ini, d_fim)
+
+
+def _serie_inspecoes(obra: str, inicio, fim, granularidade: str) -> list[dict]:
+    """
+    Agrupa as inspecoes do InMeta por dia, semana ou mes.
+
+    Mesma ressalva do grafico da Visao Geral: e o status ATUAL agrupado pela
+    data da inspecao, nao um historico congelado.
+    """
+    registros: dict[datetime.date, dict[str, int]] = {}
+
+    for ins in load_raw_inspections(obra or None):
+        bruto = (ins.get("dataInspecao") or "")[:10]
+        if not bruto:
+            continue
+        try:
+            dia = datetime.date.fromisoformat(bruto)
+        except ValueError:
+            continue
+        if not (inicio <= dia <= fim):
+            continue
+
+        if granularidade == "dia":
+            chave = dia
+        elif granularidade == "semana":
+            chave = dia - datetime.timedelta(days=dia.weekday())   # segunda
+        else:
+            chave = dia.replace(day=1)
+
+        alvo = registros.setdefault(chave, {
+            "finalizada": 0, "em_andamento": 0, "nc_total": 0, "total": 0,
+        })
+        status = ins.get("status", "")
+        if status == "FINALIZADA":
+            alvo["finalizada"] += 1
+        elif status == "EM_ANDAMENTO":
+            alvo["em_andamento"] += 1
+        alvo["nc_total"] += int(ins.get("qtdNaoConformidade") or 0)
+        alvo["total"] += 1
+
+    return [{"data": d.isoformat(), **v} for d, v in sorted(registros.items())]
 
 
 def _dados_auditoria(obra: str, periodo: str, de: str, ate: str):
@@ -404,7 +464,7 @@ def _dados_auditoria(obra: str, periodo: str, de: str, ate: str):
         except ValueError:
             raise HTTPException(400, "Datas devem estar no formato AAAA-MM-DD.")
 
-    inicio, fim = period_dates(periodo, d_ini, d_fim)
+    inicio, fim = _intervalo_periodo(periodo, d_ini, d_fim)
     filtro_obra = obra or None
 
     mi_todas = build_monthly_from_inspections()
@@ -450,20 +510,25 @@ def auditoria(
     )
     sla = compute_sla(hist) if not hist.empty else {}
 
-    # ── Series mensais ────────────────────────────────────────────────────────
-    serie = []
-    if not mi.empty:
-        agrupado = mi.groupby("date_month", as_index=False).sum(numeric_only=True)
-        for _, r in agrupado.sort_values("date_month").iterrows():
-            serie.append({
-                "mes":          r["date_month"].isoformat(),
-                "finalizada":   int(r["finalizada"]),
-                "em_andamento": int(r["em_andamento"]),
-                "nc_total":     int(r["nc_total"]),
-                "nc_pendentes": int(r["nc_pendentes"]),
-                "nc_tratadas":  int(r["nc_tratadas"]),
-                "total":        int(r["total_insp"]),
-            })
+    # ── Serie na granularidade do periodo (dia / semana / mes) ───────────────
+    granularidade = GRANULARIDADE.get(periodo, "mes")
+    serie = _serie_inspecoes(obra, inicio, fim, granularidade)
+
+    # KPIs do periodo derivados da MESMA serie do grafico.
+    #
+    # compute_audit_kpis() filtra a agregacao mensal por date_month dentro do
+    # intervalo. Para recortes menores que um mes isso zera tudo: no filtro
+    # "Dia" (09/07 a 22/07) o balde do mes e 01/07, anterior ao inicio, e some.
+    # Calculando daqui, numero do card e curva do grafico nunca divergem.
+    total_periodo = {
+        "total_insp":   sum(p["total"] for p in serie),
+        "finalizada":   sum(p["finalizada"] for p in serie),
+        "em_andamento": sum(p["em_andamento"] for p in serie),
+        "nc_total":     sum(p["nc_total"] for p in serie),
+    }
+    total_periodo["pct_finalizada"] = round(
+        100 * total_periodo["finalizada"] / total_periodo["total_insp"], 1
+    ) if total_periodo["total_insp"] else 0.0
 
     # ── Comparativo entre obras ──────────────────────────────────────────────
     comparativo = []
@@ -518,12 +583,14 @@ def auditoria(
         "periodo":  periodo,
         "intervalo": {"de": inicio.isoformat(), "ate": fim.isoformat()},
         "kpis": {
-            "total_insp":        int(kpis.get("total_insp", 0)),
-            "finalizada":        int(kpis.get("finalizada", 0)),
-            "em_andamento":      int(kpis.get("em_andamento", 0)),
-            "pct_finalizada":    float(kpis.get("pct_finalizada", 0)),
-            "nc_total":          int(kpis.get("nc_total", 0)),
-            "nc_pendentes":      int(kpis.get("nc_pendentes", 0)),
+            # do periodo — mesma fonte da serie do grafico
+            "total_insp":        total_periodo["total_insp"],
+            "finalizada":        total_periodo["finalizada"],
+            "em_andamento":      total_periodo["em_andamento"],
+            "pct_finalizada":    total_periodo["pct_finalizada"],
+            "nc_total":          total_periodo["nc_total"],
+            "nc_pendentes":      total_periodo["nc_total"],
+            # do estado atual — vem dos snapshots, independem do recorte
             "snap_nao_iniciada": int(kpis.get("snap_nao_iniciada", 0)),
             "snap_criticas":     int(kpis.get("snap_criticas", 0)),
             "snap_nc_pendentes": int(kpis.get("snap_nc_pendentes", 0)),
@@ -533,6 +600,7 @@ def auditoria(
             "max_dias":   int(sla.get("max_dias_nao_iniciada", 0) or 0),
         },
         "serie":         serie,
+        "granularidade": granularidade,
         "comparativo":   comparativo,
         "aging":         aging,
         "criticas":      criticas,

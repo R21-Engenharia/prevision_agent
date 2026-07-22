@@ -5,7 +5,7 @@ import {
 import { useState } from 'react'
 import {
   baixarRelatorioAuditoria,
-  type Auditoria as AuditoriaData, type Formato, type Periodo,
+  type Auditoria as AuditoriaData, type Formato, type Granularidade, type Periodo,
 } from '../lib/api'
 import { CountUp } from '../components/CountUp'
 
@@ -15,7 +15,21 @@ const rotuloMes = (iso: string) => {
   return `${MESES[d.getMonth()]}/${String(d.getFullYear()).slice(2)}`
 }
 
+/** O eixo acompanha a granularidade: dia/mês, semana ("13/jul") ou mês. */
+function rotuloSerie(iso: string, g: Granularidade): string {
+  const d = new Date(iso + 'T00:00:00')
+  const dia = String(d.getDate()).padStart(2, '0')
+  if (g === 'mes') return rotuloMes(iso)
+  return `${dia}/${MESES[d.getMonth()]}`
+}
+
+const NOME_GRANULARIDADE: Record<Granularidade, string> = {
+  dia: 'por dia', semana: 'por semana', mes: 'por mês',
+}
+
 const PERIODOS: Array<{ id: Periodo; label: string }> = [
+  { id: 'Dia', label: 'Dia' },
+  { id: 'Semana', label: 'Semana' },
   { id: 'Mes', label: 'Mês' },
   { id: 'Trimestre', label: 'Trimestre' },
   { id: 'Semestre', label: 'Semestre' },
@@ -50,7 +64,7 @@ export function Auditoria({
   onPeriodo: (p: Periodo) => void
 }) {
   const k = data.kpis
-  const serie = data.serie.map((s) => ({ ...s, label: rotuloMes(s.mes) }))
+  const serie = data.serie.map((s) => ({ ...s, label: rotuloSerie(s.data, data.granularidade) }))
   const comp = data.comparativo.map((c) => ({ ...c, label: rotuloMes(c.mes) }))
   const agingMax = Math.max(1, ...data.aging.map((a) => a.qtd))
   const maxPend = Math.max(1, ...data.top_pendentes.map((m) => m.pendentes))
@@ -145,8 +159,8 @@ export function Auditoria({
         <div className="panel reveal" style={{ animationDelay: '.12s' }}>
           <div className="phead">
             <div>
-              <h2>Evolução mensal</h2>
-              <div className="ph-sub">inspeções agrupadas pelo mês de execução</div>
+              <h2>Evolução</h2>
+              <div className="ph-sub">inspeções {NOME_GRANULARIDADE[data.granularidade]} · pela data de execução</div>
             </div>
           </div>
           {serie.length > 0 ? (

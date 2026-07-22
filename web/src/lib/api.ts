@@ -145,10 +145,11 @@ async function get<T>(path: string): Promise<T> {
 
 // ── Auditoria ────────────────────────────────────────────────────────────────
 
-export type Periodo = 'Mes' | 'Trimestre' | 'Semestre' | 'Anual' | 'Tudo'
+export type Periodo = 'Dia' | 'Semana' | 'Mes' | 'Trimestre' | 'Semestre' | 'Anual' | 'Tudo'
+export type Granularidade = 'dia' | 'semana' | 'mes'
 
 export interface AuditoriaSerie {
-  mes: string
+  data: string
   finalizada: number
   em_andamento: number
   nc_total: number
@@ -174,6 +175,7 @@ export interface Auditoria {
   }
   sla: { media_dias: number; max_dias: number }
   serie: AuditoriaSerie[]
+  granularidade: Granularidade
   comparativo: Array<{ mes: string; cape_town: number; holmes: number }>
   aging: AgingFaixa[]
   criticas: Array<{
