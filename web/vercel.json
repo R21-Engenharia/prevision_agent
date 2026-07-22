@@ -6,7 +6,7 @@
   "rewrites": [
     {
       "source": "/api/:caminho*",
-      "destination": "https://SUBSTITUA-PELA-URL-DA-API/api/:caminho*"
+      "destination": "https://fvs-api.onrender.com/api/:caminho*"
     },
     { "source": "/(.*)", "destination": "/index.html" }
   ]
