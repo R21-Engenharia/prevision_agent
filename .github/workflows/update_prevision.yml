@@ -11,6 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
 
+    # Sem isto o job coleta tudo e falha no push com 403: o GITHUB_TOKEN nasce
+    # somente-leitura, e o github-actions[bot] nao consegue commitar o cache.
+    # A coleta inteira (~25 min) era descartada no ultimo passo.
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -47,7 +53,35 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/raw/
-          git diff --staged --quiet && echo "Sem alteracoes" || (
-            git commit -m "chore: atualiza cache Prevision $(date +%Y-%m-%d) [skip ci]"
-            git push
-          )
+
+          if git diff --staged --quiet; then
+            echo "Sem alteracoes no cache"
+            exit 0
+          fi
+
+          git commit -m "chore: atualiza cache Prevision $(date +%Y-%m-%d) [skip ci]"
+
+          # A coleta leva ~25 min. Se master avancou nesse intervalo, o push
+          # seria rejeitado e todo o trabalho perdido — daí o rebase e as
+          # tentativas.
+          for tentativa in 1 2 3; do
+            if git push; then
+              echo "Cache publicado"
+              exit 0
+            fi
+            echo "Push rejeitado (tentativa $tentativa) — rebaseando sobre o remoto"
+            git pull --rebase origin master || break
+          done
+
+          echo "::error::Nao foi possivel publicar o cache coletado"
+          exit 1
+
+      # Rede de seguranca: se o push falhar, os dados coletados ficam
+      # disponiveis para download em vez de se perderem com o runner.
+      - name: Guardar cache coletado como artefato
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cache-prevision-${{ github.run_number }}
+          path: data/raw/
+          retention-days: 7
