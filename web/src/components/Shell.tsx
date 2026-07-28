@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 import type { Usuario } from '../lib/supabase'
+import { AtualizarMenu } from './AtualizarMenu'
 
 const PAGES = [
   { id: 'visao-geral', label: 'Visão geral', group: 'Operação', icon: 'grid' },
@@ -165,16 +166,7 @@ export function Shell({
 
             {/* A exportação vive na tela de Backlog, onde há filtros para
                 aplicar ao relatório — evita um botão global sem contexto. */}
-            <button
-              className={refreshing ? 'icobtn spin' : 'icobtn'}
-              onClick={onRefresh}
-              aria-label="Atualizar dados"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M4 12a8 8 0 018-8 8 8 0 017 4M20 12a8 8 0 01-8 8 8 8 0 01-7-4" />
-                <path d="M17 4v4h4M7 20v-4H3" />
-              </svg>
-            </button>
+            <AtualizarMenu onRecarregar={onRefresh} recarregando={refreshing} />
           </div>
         </header>
 

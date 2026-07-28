@@ -337,8 +337,38 @@ export function baixarRelatorioTempo(
   return baixar(`/api/export/tempo${qs ? `?${qs}` : ''}`, 'diario_do_tempo.xlsx')
 }
 
+export type FonteRefresh = 'prevision' | 'inmeta'
+
+export interface RespostaRefresh {
+  ok: boolean
+  fonte: FonteRefresh
+  workflow: string
+  eta_min: number | null
+  mensagem: string
+}
+
+/** Dispara a coleta de uma fonte (Prevision ou InMeta) no GitHub. */
+async function postRefresh(fonte: FonteRefresh): Promise<RespostaRefresh> {
+  const res = await fetch(`/api/refresh/${fonte}`, {
+    method: 'POST',
+    headers: await cabecalhos(),
+  })
+  if (!res.ok) {
+    let detail = `HTTP ${res.status}`
+    try {
+      const body = await res.json()
+      if (body?.detail) detail = body.detail
+    } catch {
+      /* sem corpo JSON */
+    }
+    throw new Error(detail)
+  }
+  return res.json() as Promise<RespostaRefresh>
+}
+
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
+  refresh: postRefresh,
   overview: (obra: string) =>
     get<Overview>(`/api/overview?obra=${encodeURIComponent(obra)}`),
   backlog: (obra: string) =>

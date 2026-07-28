@@ -28,6 +28,7 @@ import os
 import unicodedata
 from urllib.parse import quote
 
+import httpx
 from fastapi import Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
@@ -57,7 +58,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=_ORIGENS,
     allow_credentials=True,
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["Authorization", "Content-Type"],
 )
 
@@ -150,6 +151,96 @@ def status(obra: str = Query(default=None),
         "inmeta": ages["inmeta"],
         "inmeta_horas": _dm.inmeta_age_hours(),
         "snapshots": _dm.snapshot_info(o),
+    }
+
+
+# ── Atualizacao de dados (dispara os workflows do GitHub) ─────────────────────
+
+# Cada fonte tem seu workflow. O botao no app nao coleta nada em processo — ele
+# so dispara a rotina que ja roda agendada, para o dado ser coletado e commitado
+# de forma persistente (o Render serve o que esta no repositorio).
+_WORKFLOWS = {
+    "prevision": "update_prevision.yml",
+    "inmeta": "update_inmeta.yml",
+}
+
+# Tempo estimado ate o dado novo aparecer (coleta + redeploy do Render).
+_ETA_MIN = {"prevision": 30, "inmeta": 8}
+
+# Anti-duplo-clique: guarda o ultimo disparo por fonte. Em memoria — se a API
+# reiniciar o cooldown zera, o que nao tem problema.
+_ULTIMO_DISPARO: dict[str, float] = {}
+_COOLDOWN_S = 90
+
+
+@app.post("/api/refresh/{fonte}")
+async def refresh(fonte: str, _usuario: str = Depends(usuario_atual)):
+    """
+    Dispara a coleta de uma fonte (prevision | inmeta) via workflow_dispatch.
+
+    Requer, no ambiente da API:
+        GITHUB_DISPATCH_TOKEN   PAT com permissao de Actions (write)
+        GITHUB_REPO             "owner/repo"
+        GITHUB_REF              branch alvo (opcional, default "master")
+    """
+    import time
+
+    workflow = _WORKFLOWS.get(fonte)
+    if not workflow:
+        raise HTTPException(404, f"Fonte desconhecida: {fonte}")
+
+    token = os.getenv("GITHUB_DISPATCH_TOKEN", "").strip()
+    repo = os.getenv("GITHUB_REPO", "").strip()
+    ref = os.getenv("GITHUB_REF") or "master"
+    if not token or not repo:
+        raise HTTPException(
+            503,
+            "Atualizacao pela interface nao configurada. Defina GITHUB_DISPATCH_TOKEN "
+            "e GITHUB_REPO no ambiente da API.",
+        )
+
+    agora = time.time()
+    anterior = _ULTIMO_DISPARO.get(fonte, 0.0)
+    if agora - anterior < _COOLDOWN_S:
+        espera = int(_COOLDOWN_S - (agora - anterior))
+        raise HTTPException(
+            429, f"Atualizacao ja solicitada ha pouco. Aguarde {espera}s.")
+
+    url = f"https://api.github.com/repos/{repo}/actions/workflows/{workflow}/dispatches"
+    try:
+        async with httpx.AsyncClient(timeout=15) as cli:
+            r = await cli.post(
+                url,
+                headers={
+                    "Authorization": f"Bearer {token}",
+                    "Accept": "application/vnd.github+json",
+                    "X-GitHub-Api-Version": "2022-11-28",
+                },
+                json={"ref": ref},
+            )
+    except httpx.HTTPError as exc:
+        raise HTTPException(502, f"Falha ao contatar o GitHub: {exc}") from exc
+
+    # 204 = aceito. Qualquer outra coisa e erro de token/permissao/branch.
+    if r.status_code != 204:
+        detalhe = ""
+        try:
+            detalhe = (r.json() or {}).get("message", "")
+        except Exception:
+            detalhe = r.text[:200]
+        raise HTTPException(
+            502, f"GitHub recusou o disparo (HTTP {r.status_code}). {detalhe}".strip())
+
+    _ULTIMO_DISPARO[fonte] = agora
+    return {
+        "ok": True,
+        "fonte": fonte,
+        "workflow": workflow,
+        "eta_min": _ETA_MIN.get(fonte),
+        "mensagem": (
+            "Atualizacao iniciada. O dado novo aparece em cerca de "
+            f"{_ETA_MIN.get(fonte, 30)} minutos."
+        ),
     }
 
 
