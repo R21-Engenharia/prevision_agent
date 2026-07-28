@@ -40,7 +40,7 @@ from fvs_dashboard.core.audit_engine import (
 )
 from api.report import build_backlog_report
 from api.report_tempo import build_tempo_report
-from api.auth import usuario_atual, descrever_modo
+from api.auth import usuario_atual, usuario_admin, descrever_modo
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
@@ -174,9 +174,11 @@ _COOLDOWN_S = 90
 
 
 @app.post("/api/refresh/{fonte}")
-async def refresh(fonte: str, _usuario: str = Depends(usuario_atual)):
+async def refresh(fonte: str, _usuario: str = Depends(usuario_admin)):
     """
     Dispara a coleta de uma fonte (prevision | inmeta) via workflow_dispatch.
+
+    Restrito a administradores (role=admin na authorized_emails).
 
     Requer, no ambiente da API:
         GITHUB_DISPATCH_TOKEN   PAT com permissao de Actions (write)

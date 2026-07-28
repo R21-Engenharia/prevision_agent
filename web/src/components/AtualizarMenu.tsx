@@ -11,6 +11,8 @@ import { api, type FonteRefresh } from '../lib/api'
 interface Props {
   onRecarregar: () => void
   recarregando: boolean
+  /** Só administradores disparam a coleta; viewers veem apenas "Recarregar tela". */
+  admin: boolean
 }
 
 type EstadoFonte =
@@ -24,7 +26,7 @@ const FONTES: Array<{ id: FonteRefresh; nome: string; nota: string }> = [
   { id: 'inmeta', nome: 'Atualizar InMeta', nota: 'Inspeções e tempo · ~8 min' },
 ]
 
-export function AtualizarMenu({ onRecarregar, recarregando }: Props) {
+export function AtualizarMenu({ onRecarregar, recarregando, admin }: Props) {
   const [aberto, setAberto] = useState(false)
   const [estado, setEstado] = useState<Record<FonteRefresh, EstadoFonte>>({
     prevision: { fase: 'ocioso' },
@@ -90,10 +92,10 @@ export function AtualizarMenu({ onRecarregar, recarregando }: Props) {
             <div className="atu-nt">Rebusca os dados já coletados · imediato</div>
           </button>
 
-          <div className="atu-sep" />
-          <div className="atu-lbl">Coletar da fonte</div>
+          {admin && <div className="atu-sep" />}
+          {admin && <div className="atu-lbl">Coletar da fonte</div>}
 
-          {FONTES.map(({ id, nome, nota }) => {
+          {admin && FONTES.map(({ id, nome, nota }) => {
             const e = estado[id]
             return (
               <div key={id} className="atu-fonte">

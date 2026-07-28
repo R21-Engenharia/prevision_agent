@@ -166,7 +166,11 @@ export function Shell({
 
             {/* A exportação vive na tela de Backlog, onde há filtros para
                 aplicar ao relatório — evita um botão global sem contexto. */}
-            <AtualizarMenu onRecarregar={onRefresh} recarregando={refreshing} />
+            <AtualizarMenu
+              onRecarregar={onRefresh}
+              recarregando={refreshing}
+              admin={usuario.papel === 'admin'}
+            />
           </div>
         </header>
 

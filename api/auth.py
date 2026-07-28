@@ -90,3 +90,45 @@ async def usuario_atual(authorization: str | None = Header(default=None)) -> str
                 _CACHE.pop(k, None)
 
     return email
+
+
+async def _papel_do_usuario(email: str, token: str) -> str:
+    """
+    Le o papel (role) do e-mail na tabela authorized_emails.
+
+    Usa o proprio token do usuario no Authorization para respeitar o RLS —
+    e a mesma consulta que o frontend faz. Na duvida, devolve "viewer" (nega
+    o privilegio) em vez de assumir admin.
+    """
+    try:
+        async with httpx.AsyncClient(timeout=10) as cli:
+            r = await cli.get(
+                f"{_SUPABASE_URL}/rest/v1/authorized_emails",
+                params={"email": f"eq.{email}", "select": "role"},
+                headers={"Authorization": f"Bearer {token}", "apikey": _SUPABASE_KEY},
+            )
+        if r.status_code != 200:
+            return "viewer"
+        linhas = r.json() or []
+    except Exception:
+        return "viewer"
+    if linhas and str(linhas[0].get("role", "")).lower() == "admin":
+        return "admin"
+    return "viewer"
+
+
+async def usuario_admin(authorization: str | None = Header(default=None)) -> str:
+    """
+    Como usuario_atual, mas exige role=admin — 403 caso contrario.
+    Use em rotas de controle (ex.: disparar coleta de dados).
+    """
+    if _DEV_SEM_AUTH:
+        return "dev@local"
+
+    # Valida o token e obtem o e-mail (levanta 401/503 quando for o caso).
+    email = await usuario_atual(authorization)
+    token = authorization.split(" ", 1)[1].strip()  # ja validado acima
+
+    if await _papel_do_usuario(email, token) != "admin":
+        raise HTTPException(403, "Acao restrita a administradores.")
+    return email
