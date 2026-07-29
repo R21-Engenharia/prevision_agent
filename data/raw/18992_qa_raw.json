@@ -37416,7 +37416,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881848",
       "name": "REB | REBOCO EXTERNO (ATÉ 7º PVTO)",
-      "position": 118
+      "position": 117
     },
     {
       "color": "#3D3D3D",
@@ -37424,7 +37424,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881849",
       "name": "PIS | CONTRAPISO INTERNO",
-      "position": 113
+      "position": 112
     },
     {
       "color": "#274702",
@@ -37432,7 +37432,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881851",
       "name": "IMP | IMPERM. INTERNA",
-      "position": 122
+      "position": 121
     },
     {
       "color": "#A76330",
@@ -37440,7 +37440,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881852",
       "name": "CER | REVEST CERÂMICOS PISOS INTERNOS",
-      "position": 130
+      "position": 129
     },
     {
       "color": "#513567",
@@ -37448,7 +37448,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881853",
       "name": "GES | FORRO GESSO",
-      "position": 141
+      "position": 140
     },
     {
       "color": "#07293F",
@@ -37456,7 +37456,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1881855",
       "name": "ELEV | MONTAGEM ELEVADOR",
-      "position": 141
+      "position": 140
     },
     {
       "color": "#BE0503",
@@ -37464,7 +37464,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881857",
       "name": "PNT | PINTURA INTERNA - 2ª ETAPA",
-      "position": 143
+      "position": 142
     },
     {
       "color": "#BE0503",
@@ -37472,7 +37472,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881858",
       "name": "PNT | PINTURA INTERNA - 3ª ETAPA",
-      "position": 143
+      "position": 142
     },
     {
       "color": "#BE0503",
@@ -37576,7 +37576,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881879",
       "name": "IMP | ESQUADRIAS - FRISOS (ATÉ 7º PVTO)",
-      "position": 129
+      "position": 128
     },
     {
       "color": "#055589",
@@ -37632,7 +37632,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881886",
       "name": "REB | REBOCO EXTERNO (ACIMA DO 7º PVTO)",
-      "position": 118
+      "position": 117
     },
     {
       "color": "#274702",
@@ -37640,7 +37640,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881887",
       "name": "IMP | ESQUADRIAS | FRISO (ACIMA DO 7º PVTO)",
-      "position": 130
+      "position": 129
     },
     {
       "color": "#274702",
@@ -37648,7 +37648,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881889",
       "name": "IMP | IMPERM. POÇO ELEVADOR",
-      "position": 120
+      "position": 119
     },
     {
       "color": "#5A4B66",
@@ -37664,7 +37664,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881894",
       "name": "CER | CERÂMICOS PISCINA",
-      "position": 137
+      "position": 136
     },
     {
       "color": "#017E9E",
@@ -37688,7 +37688,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881899",
       "name": "PNT | PINTURA INTERNA - 1ª ETAPA",
-      "position": 142
+      "position": 141
     },
     {
       "color": "#4A810B",
@@ -37752,7 +37752,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881911",
       "name": "IMP | RESERVATÓRIO POTÁVEL",
-      "position": 126
+      "position": 125
     },
     {
       "color": "#274702",
@@ -37760,7 +37760,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881912",
       "name": "IMP | IMPERM. BALDRAMES",
-      "position": 119
+      "position": 118
     },
     {
       "color": "#274702",
@@ -37768,7 +37768,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881913",
       "name": "IMP | IMPERM. TERRAÇOS",
-      "position": 124
+      "position": 123
     },
     {
       "color": "#274702",
@@ -37776,7 +37776,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881914",
       "name": "IMP | IMPERM. FLOREIRAS",
-      "position": 125
+      "position": 124
     },
     {
       "color": "#274702",
@@ -37784,7 +37784,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881915",
       "name": "IMP | IMPERM. PISCINAS",
-      "position": 126
+      "position": 125
     },
     {
       "color": "#274702",
@@ -37792,7 +37792,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881916",
       "name": "IMP | IMPERM. CISTERNAS",
-      "position": 121
+      "position": 120
     },
     {
       "color": "#3D3D3D",
@@ -37800,7 +37800,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1881918",
       "name": "PIS | POLIMENTO PISO",
-      "position": 116
+      "position": 115
     },
     {
       "color": "#4F2301",
@@ -37848,7 +37848,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881925",
       "name": "CER | REVEST CERÂMICOS PAREDES INTERNAS",
-      "position": 132
+      "position": 131
     },
     {
       "color": "#A76330",
@@ -37856,7 +37856,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881926",
       "name": "CER | REJUNTE INTERNO",
-      "position": 131
+      "position": 130
     },
     {
       "color": "#A76330",
@@ -37864,7 +37864,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881927",
       "name": "CER | REVEST CERÂMICOS EMBASAMENTO",
-      "position": 138
+      "position": 137
     },
     {
       "color": "#3D3D3D",
@@ -37872,7 +37872,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1881928",
       "name": "PIS | PROTEÇÃO MECÂNICA",
-      "position": 113
+      "position": 112
     },
     {
       "color": "#3D3D3D",
@@ -37880,7 +37880,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1881929",
       "name": "REB | REBOCO EXTERNO",
-      "position": 117
+      "position": 116
     },
     {
       "color": "#B12726",
@@ -37912,7 +37912,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1881935",
       "name": "IMP | RESERVATÓRIO PLUVIAL",
-      "position": 127
+      "position": 126
     },
     {
       "color": "#52331B",
@@ -37984,7 +37984,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2006463",
       "name": "PIS | ALISAMENTO CONCRETO (PARTE 1)",
-      "position": 114
+      "position": 113
     },
     {
       "color": "#3D3D3D",
@@ -37992,7 +37992,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2006464",
       "name": "PIS | ALISAMENTO CONCRETO (PARTE 2)",
-      "position": 115
+      "position": 114
     },
     {
       "color": "#B18706",
@@ -38073,14 +38073,6 @@
       "id": "2164481",
       "name": "REB | REGULARIZAÇÃO POÇO ELEVADOR",
       "position": 105
-    },
-    {
-      "color": "#3D3D3D",
-      "hasQualityAssociations": false,
-      "hasQualityModelsAssociations": false,
-      "id": "2164527",
-      "name": "REB | TRATAMENTO LAJE TÉCNICA",
-      "position": 106
     },
     {
       "color": "#BD5200",
@@ -38183,8 +38175,8 @@
       "hasQualityAssociations": true,
       "hasQualityModelsAssociations": true,
       "id": "2476193",
-      "name": "PNT | GARAGENS - PISOS E DEMARCAÇÕES - 2ª ETAPA",
-      "position": 147
+      "name": "PNT | PISOS - RESINA - 2ª ETAPA",
+      "position": 146
     },
     {
       "color": "#AB4646",
@@ -38240,15 +38232,15 @@
       "hasQualityModelsAssociations": true,
       "id": "2583091",
       "name": "PNT | GARAGENS - PAREDES E TETOS - 1ª ETAPA",
-      "position": 144
+      "position": 143
     },
     {
       "color": "#BE0503",
       "hasQualityAssociations": true,
       "hasQualityModelsAssociations": true,
       "id": "2583955",
-      "name": "PNT | GARAGENS - PISOS - 1ª ETAPA",
-      "position": 146
+      "name": "PNT | PISOS - RESINA - 1ª ETAPA",
+      "position": 145
     },
     {
       "color": "#540B8E",
@@ -38384,7 +38376,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2930357",
       "name": "IMP | IMPERM. ÁREA TÉCNICA EXT.",
-      "position": 123
+      "position": 122
     },
     {
       "color": "#B18706",
@@ -38408,7 +38400,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2975051",
       "name": "CER | REVEST CERÂMICOS EXTERNOS",
-      "position": 133
+      "position": 132
     },
     {
       "color": "#274702",
@@ -38440,7 +38432,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2976801",
       "name": "CER | REJUNTE EXTERNO",
-      "position": 135
+      "position": 134
     },
     {
       "color": "#A76330",
@@ -38448,7 +38440,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2976802",
       "name": "CER | REJUNTE PISCINA",
-      "position": 136
+      "position": 135
     },
     {
       "color": "#540B8E",
@@ -38528,7 +38520,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2981058",
       "name": "PIS | CONTRAPISO ESCADARIA",
-      "position": 112
+      "position": 111
     },
     {
       "color": "#3D3D3D",
@@ -38536,7 +38528,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2981060",
       "name": "PIS | CONTRAPISO EXTERNO",
-      "position": 109
+      "position": 108
     },
     {
       "color": "#3D3D3D",
@@ -38552,7 +38544,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2983193",
       "name": "PNT | GARAGENS - PAREDES E TETOS - 2ª ETAPA",
-      "position": 145
+      "position": 144
     },
     {
       "color": "#02375A",
@@ -38584,7 +38576,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2984458",
       "name": "PIS | PREPARAÇÃO CONTRAPISO INTERNO",
-      "position": 108
+      "position": 107
     },
     {
       "color": "#3D3D3D",
@@ -38592,7 +38584,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2984788",
       "name": "PIS | PREPARAÇÃO CONTRAPISO EXTERNO",
-      "position": 107
+      "position": 106
     },
     {
       "color": "#AB4646",
@@ -38607,7 +38599,7 @@
       "hasQualityAssociations": false,
       "hasQualityModelsAssociations": false,
       "id": "3053214",
-      "name": "PNT | ESCADARIA - PINTURA DE PISO",
+      "name": "PNT | PISOS - CONVENCIONAL",
       "position": 149
     },
     {
@@ -38728,7 +38720,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3268568",
       "name": "GES | FORRO ÁREA TÉCNICA",
-      "position": 139
+      "position": 138
     },
     {
       "color": "#B18706",
@@ -38760,7 +38752,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3310840",
       "name": "GES | FORRO HALL",
-      "position": 140
+      "position": 139
     },
     {
       "color": "#A76330",
@@ -38768,7 +38760,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3310850",
       "name": "CER | REVEST HALL",
-      "position": 134
+      "position": 133
     },
     {
       "color": "#BE0503",
@@ -38944,7 +38936,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3327019",
       "name": "IMP | PAVIMENTO TÉCNICO",
-      "position": 128
+      "position": 127
     },
     {
       "color": "#28353D",
@@ -38976,7 +38968,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3334433",
       "name": "PIS | ÁREA TÉCNICA",
-      "position": 111
+      "position": 110
     },
     {
       "color": "#BE0503",
@@ -39048,7 +39040,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3683955",
       "name": "PIS | HALL E ANTECÂMARA",
-      "position": 110
+      "position": 109
     },
     {
       "color": "#727800",
@@ -39121,6 +39113,14 @@
       "id": "3702859",
       "name": "DEC | ADM | GESTÃO DECORAÇÃO",
       "position": 241
+    },
+    {
+      "color": "#BE0503",
+      "hasQualityAssociations": false,
+      "hasQualityModelsAssociations": false,
+      "id": "3804985",
+      "name": "PNT | PISOS - DEMARCAÇÕES",
+      "position": 147
     }
   ]
 }
