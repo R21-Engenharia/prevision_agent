@@ -1,9 +1,9 @@
 {
   "project_id": 18992,
   "project_name": "HOLMES RESIDENCE",
-  "collected_at": "2026-07-29T11:25:51.724740",
+  "collected_at": "2026-07-30T11:09:06.556108",
   "floors_total": 48,
-  "activities_total": 2205,
+  "activities_total": 2209,
   "activities_list": [
     {
       "budgetCost": 0.0,
@@ -2679,7 +2679,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-24 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:30:12 UTC",
       "wbsCode": "32.129",
       "workDuration": 5.0,
       "_floor_name": "02º PV - G1",
@@ -2789,7 +2789,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-17 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:30:10 UTC",
       "wbsCode": "32.131",
       "workDuration": 5.0,
       "_floor_name": "02º PV - G1",
@@ -2811,7 +2811,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-03-03 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:30:14 UTC",
       "wbsCode": "32.63",
       "workDuration": 5.0,
       "_floor_name": "02º PV - G1",
@@ -3229,7 +3229,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-03-03 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:30:15 UTC",
       "wbsCode": "32.130",
       "workDuration": 5.0,
       "_floor_name": "02º PV - G1",
@@ -3328,7 +3328,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 29253.854125,
+      "budgetCost": 9163.23325,
       "endAt": "2027-03-05 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648041",
@@ -3339,7 +3339,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-08 00:00:00 UTC",
-      "updatedAt": "2026-06-24 18:25:38 UTC",
+      "updatedAt": "2026-07-29 11:33:38 UTC",
       "wbsCode": "32.146",
       "workDuration": 20.0,
       "_floor_name": "02º PV - G1",
@@ -3746,6 +3746,28 @@
       "_floor_has_quality": true
     },
     {
+      "budgetCost": 6240.0,
+      "endAt": "2027-03-11 23:59:59 UTC",
+      "expectedPercentageCompleted": 0.0,
+      "floorId": "648041",
+      "floorNameWithActivityPart": "02º PV - G1",
+      "hasJobs": true,
+      "hasQualityAssociations": false,
+      "id": "48642472",
+      "part": null,
+      "percentageCompleted": 0.0,
+      "startAt": "2027-02-26 00:00:00 UTC",
+      "updatedAt": "2026-07-29 11:34:34 UTC",
+      "wbsCode": "32.147",
+      "workDuration": 10.0,
+      "_floor_name": "02º PV - G1",
+      "_floor_position": 32,
+      "_floor_tag": null,
+      "_floor_start_at": "2024-06-25 00:00:00 UTC",
+      "_floor_end_at": "2027-05-04 23:59:59 UTC",
+      "_floor_has_quality": true
+    },
+    {
       "budgetCost": 94440.44322667696,
       "endAt": "2025-06-20 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
@@ -3764,7 +3786,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3786,7 +3808,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3808,7 +3830,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3830,7 +3852,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3852,7 +3874,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3874,7 +3896,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3896,7 +3918,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3918,7 +3940,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3940,7 +3962,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3962,7 +3984,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -3984,7 +4006,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4006,7 +4028,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4028,7 +4050,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4050,7 +4072,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4072,7 +4094,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4094,7 +4116,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4116,7 +4138,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4138,7 +4160,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4160,7 +4182,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4182,7 +4204,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4204,7 +4226,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4226,7 +4248,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4248,7 +4270,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4270,7 +4292,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4292,7 +4314,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4314,7 +4336,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4336,7 +4358,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4358,7 +4380,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4380,7 +4402,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4402,7 +4424,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4424,7 +4446,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4446,11 +4468,11 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 29253.854125,
+      "budgetCost": 27353.854125,
       "endAt": "2026-10-05 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648042",
@@ -4461,14 +4483,14 @@
       "part": null,
       "percentageCompleted": 0.0,
       "startAt": "2026-09-08 00:00:00 UTC",
-      "updatedAt": "2026-07-10 11:55:49 UTC",
+      "updatedAt": "2026-07-29 11:33:38 UTC",
       "wbsCode": "31.146",
       "workDuration": 20.0,
       "_floor_name": "03º PV - G2",
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4490,7 +4512,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4512,7 +4534,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4534,7 +4556,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4556,7 +4578,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4578,7 +4600,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4600,7 +4622,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4622,7 +4644,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4644,7 +4666,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4666,7 +4688,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4688,7 +4710,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4710,7 +4732,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4732,7 +4754,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4754,7 +4776,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4776,7 +4798,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4798,7 +4820,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4820,7 +4842,29 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-08-27 00:00:00 UTC",
-      "_floor_end_at": "2027-04-19 23:59:59 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
+      "_floor_has_quality": true
+    },
+    {
+      "budgetCost": 3120.0,
+      "endAt": "2027-05-10 23:59:59 UTC",
+      "expectedPercentageCompleted": 0.0,
+      "floorId": "648042",
+      "floorNameWithActivityPart": "03º PV - G2",
+      "hasJobs": true,
+      "hasQualityAssociations": false,
+      "id": "48642474",
+      "part": null,
+      "percentageCompleted": 0.0,
+      "startAt": "2027-04-12 00:00:00 UTC",
+      "updatedAt": "2026-07-29 11:34:34 UTC",
+      "wbsCode": "31.147",
+      "workDuration": 20.0,
+      "_floor_name": "03º PV - G2",
+      "_floor_position": 31,
+      "_floor_tag": null,
+      "_floor_start_at": "2024-08-27 00:00:00 UTC",
+      "_floor_end_at": "2027-05-10 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4842,7 +4886,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4864,7 +4908,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4886,7 +4930,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4908,7 +4952,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4930,7 +4974,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4952,7 +4996,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4974,7 +5018,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -4996,7 +5040,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5018,7 +5062,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5040,7 +5084,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5062,7 +5106,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5084,7 +5128,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5106,7 +5150,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5128,7 +5172,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5150,7 +5194,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5172,7 +5216,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5194,7 +5238,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5216,7 +5260,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5238,7 +5282,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5260,7 +5304,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5282,7 +5326,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5304,7 +5348,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5326,7 +5370,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5348,7 +5392,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5370,7 +5414,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5392,7 +5436,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5414,7 +5458,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5436,7 +5480,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5458,7 +5502,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5480,11 +5524,11 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 29253.854125,
+      "budgetCost": 27353.854125,
       "endAt": "2026-12-02 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648043",
@@ -5495,14 +5539,14 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2026-11-05 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:33:38 UTC",
       "wbsCode": "31.146",
       "workDuration": 20.0,
       "_floor_name": "04º PV - G3",
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5524,7 +5568,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5546,7 +5590,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5568,7 +5612,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5590,7 +5634,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5612,7 +5656,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5634,7 +5678,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5656,7 +5700,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5678,7 +5722,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5700,7 +5744,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5722,7 +5766,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5744,7 +5788,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5766,7 +5810,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5788,7 +5832,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5810,7 +5854,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5832,7 +5876,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5854,7 +5898,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5876,7 +5920,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5898,7 +5942,7 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5920,7 +5964,29 @@
       "_floor_position": 31,
       "_floor_tag": null,
       "_floor_start_at": "2024-10-04 00:00:00 UTC",
-      "_floor_end_at": "2027-04-05 23:59:59 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
+      "_floor_has_quality": true
+    },
+    {
+      "budgetCost": 3120.0,
+      "endAt": "2027-04-09 23:59:59 UTC",
+      "expectedPercentageCompleted": 0.0,
+      "floorId": "648043",
+      "floorNameWithActivityPart": "04º PV - G3",
+      "hasJobs": true,
+      "hasQualityAssociations": false,
+      "id": "48642473",
+      "part": null,
+      "percentageCompleted": 0.0,
+      "startAt": "2027-03-12 00:00:00 UTC",
+      "updatedAt": "2026-07-29 11:34:34 UTC",
+      "wbsCode": "31.147",
+      "workDuration": 20.0,
+      "_floor_name": "04º PV - G3",
+      "_floor_position": 31,
+      "_floor_tag": null,
+      "_floor_start_at": "2024-10-04 00:00:00 UTC",
+      "_floor_end_at": "2027-04-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -5979,7 +6045,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-03 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:31:24 UTC",
       "wbsCode": "30.129",
       "workDuration": 5.0,
       "_floor_name": "05º PV - G4",
@@ -6023,7 +6089,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-01-27 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:31:23 UTC",
       "wbsCode": "30.131",
       "workDuration": 5.0,
       "_floor_name": "05º PV - G4",
@@ -6441,7 +6507,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-01-20 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:31:19 UTC",
       "wbsCode": "30.121",
       "workDuration": 5.0,
       "_floor_name": "05º PV - G4",
@@ -6463,7 +6529,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-24 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:31:36 UTC",
       "wbsCode": "30.168",
       "workDuration": 3.0,
       "_floor_name": "05º PV - G4",
@@ -6529,7 +6595,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-10 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:31:29 UTC",
       "wbsCode": "30.130",
       "workDuration": 5.0,
       "_floor_name": "05º PV - G4",
@@ -6595,7 +6661,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-15 00:00:00 UTC",
-      "updatedAt": "2026-03-16 13:35:19 UTC",
+      "updatedAt": "2026-07-29 11:31:41 UTC",
       "wbsCode": "30.59",
       "workDuration": 5.0,
       "_floor_name": "05º PV - G4",
@@ -6628,7 +6694,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 29253.854125,
+      "budgetCost": 27353.854125,
       "endAt": "2027-02-05 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648044",
@@ -6639,7 +6705,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-01-11 00:00:00 UTC",
-      "updatedAt": "2026-06-30 15:15:41 UTC",
+      "updatedAt": "2026-07-29 11:33:38 UTC",
       "wbsCode": "30.146",
       "workDuration": 20.0,
       "_floor_name": "05º PV - G4",
@@ -6991,7 +7057,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-02-15 00:00:00 UTC",
-      "updatedAt": "2026-03-16 13:35:19 UTC",
+      "updatedAt": "2026-07-29 11:31:33 UTC",
       "wbsCode": "30.78",
       "workDuration": 5.0,
       "_floor_name": "05º PV - G4",
@@ -7104,6 +7170,28 @@
       "updatedAt": "2026-06-30 15:15:41 UTC",
       "wbsCode": "30.133",
       "workDuration": 5.0,
+      "_floor_name": "05º PV - G4",
+      "_floor_position": 30,
+      "_floor_tag": null,
+      "_floor_start_at": "2024-11-19 00:00:00 UTC",
+      "_floor_end_at": "2027-03-19 23:59:59 UTC",
+      "_floor_has_quality": true
+    },
+    {
+      "budgetCost": 3120.0,
+      "endAt": "2027-02-25 23:59:59 UTC",
+      "expectedPercentageCompleted": 0.0,
+      "floorId": "648044",
+      "floorNameWithActivityPart": "05º PV - G4",
+      "hasJobs": true,
+      "hasQualityAssociations": false,
+      "id": "48642475",
+      "part": null,
+      "percentageCompleted": 0.0,
+      "startAt": "2027-01-29 00:00:00 UTC",
+      "updatedAt": "2026-07-29 11:34:34 UTC",
+      "wbsCode": "30.147",
+      "workDuration": 20.0,
       "_floor_name": "05º PV - G4",
       "_floor_position": 30,
       "_floor_tag": null,
@@ -39188,7 +39276,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 7084.15365,
+      "budgetCost": 3084.15365,
       "endAt": "2026-10-22 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648072",
@@ -39199,7 +39287,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2026-10-08 00:00:00 UTC",
-      "updatedAt": "2026-03-16 13:35:19 UTC",
+      "updatedAt": "2026-07-29 11:34:34 UTC",
       "wbsCode": "11.148",
       "workDuration": 10.0,
       "_floor_name": "CMQ1 | PLATIBANDA",
@@ -40112,7 +40200,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 7983.82365,
+      "budgetCost": 3983.82365,
       "endAt": "2026-11-06 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648073",
@@ -40123,7 +40211,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2026-10-23 00:00:00 UTC",
-      "updatedAt": "2026-03-16 13:35:19 UTC",
+      "updatedAt": "2026-07-29 11:34:34 UTC",
       "wbsCode": "10.148",
       "workDuration": 10.0,
       "_floor_name": "CMQ2 | BARRILETE",
@@ -48547,7 +48635,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 56
+        "totalCount": 57
       },
       "endAt": "2027-05-04 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -48561,9 +48649,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 49
+        "totalCount": 50
       },
-      "endAt": "2027-04-19 23:59:59 UTC",
+      "endAt": "2027-05-10 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648042",
       "name": "03º PV - G2",
@@ -48575,9 +48663,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 50
+        "totalCount": 51
       },
-      "endAt": "2027-04-05 23:59:59 UTC",
+      "endAt": "2027-04-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648043",
       "name": "04º PV - G3",
@@ -48589,7 +48677,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 54
+        "totalCount": 55
       },
       "endAt": "2027-03-19 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,

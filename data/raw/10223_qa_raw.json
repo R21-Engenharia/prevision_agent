@@ -52,7 +52,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 44
+        "totalCount": 45
       },
       "endAt": "2027-05-12 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -64,7 +64,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 44
+        "totalCount": 45
       },
       "endAt": "2027-06-28 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -76,7 +76,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 43
+        "totalCount": 44
       },
       "endAt": "2027-03-22 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -88,7 +88,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 108
+        "totalCount": 109
       },
       "endAt": "2027-06-29 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -65911,7 +65911,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238766",
       "name": "PNT | PINTURA - ESCADARIA",
-      "position": 137
+      "position": 138
     },
     {
       "color": "#BE0503",
@@ -65919,7 +65919,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238768",
       "name": "PNT | PINTURA EXTERNA",
-      "position": 138
+      "position": 139
     },
     {
       "color": "#1D7A92",
@@ -65927,7 +65927,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238769",
       "name": "ESQ | ESQUADRIAS DE ALUMÍNIO",
-      "position": 140
+      "position": 141
     },
     {
       "color": "#1D7A92",
@@ -65935,7 +65935,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238771",
       "name": "ESQ | SERRALHERIAS",
-      "position": 150
+      "position": 151
     },
     {
       "color": "#7A4E2D",
@@ -65943,7 +65943,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238772",
       "name": "ESQ | CORRIMÃO (MADEIRA)",
-      "position": 155
+      "position": 156
     },
     {
       "color": "#7A4E2D",
@@ -65951,7 +65951,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238776",
       "name": "ESQ | PORTAS DE MADEIRA",
-      "position": 154
+      "position": 155
     },
     {
       "color": "#40505B",
@@ -65959,7 +65959,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238777",
       "name": "PAV | PASSEIOS EXTERNOS",
-      "position": 157
+      "position": 158
     },
     {
       "color": "#4A810B",
@@ -65967,7 +65967,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238779",
       "name": "PSG | PAISAGISMO | DEC",
-      "position": 161
+      "position": 162
     },
     {
       "color": "#285777",
@@ -65975,7 +65975,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238784",
       "name": "LMP | LIMPEZA FINA",
-      "position": 162
+      "position": 163
     },
     {
       "color": "#4A810B",
@@ -66006,8 +66006,8 @@
       "hasQualityAssociations": true,
       "hasQualityModelsAssociations": true,
       "id": "1240535",
-      "name": "PNT | GARAGENS - PISOS - 1ª ETAPA",
-      "position": 133
+      "name": "PNT | PISOS - RESINA - 1ª ETAPA",
+      "position": 134
     },
     {
       "color": "#3D3D3D",
@@ -66055,7 +66055,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1260109",
       "name": "PING | PEITORIS E PINGADEIRAS",
-      "position": 157
+      "position": 158
     },
     {
       "color": "#000000",
@@ -66135,7 +66135,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1467312",
       "name": "PCF | PORTAS CORTA FOGO",
-      "position": 138
+      "position": 139
     },
     {
       "color": "#A76330",
@@ -66151,7 +66151,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1477270",
       "name": "PISC | INSTALAÇÃO PISCINA",
-      "position": 159
+      "position": 160
     },
     {
       "color": "#285777",
@@ -66159,7 +66159,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1569612",
       "name": "LMP | LIMPEZA FACHADAS",
-      "position": 162
+      "position": 163
     },
     {
       "color": "#BE0503",
@@ -66191,7 +66191,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570088",
       "name": "ESQ | PAGTO - ESQUADRIAS METÁLICAS E VIDRO",
-      "position": 145
+      "position": 146
     },
     {
       "color": "#C22CC2",
@@ -66199,7 +66199,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570089",
       "name": "CKL | CHECKLIST E RETOQUES",
-      "position": 163
+      "position": 164
     },
     {
       "color": "#1D7A92",
@@ -66207,7 +66207,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570091",
       "name": "ESQ | GUARDA-CORPOS",
-      "position": 144
+      "position": 145
     },
     {
       "color": "#C22CC2",
@@ -66231,7 +66231,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570095",
       "name": "DEC | DECORAÇÃO",
-      "position": 160
+      "position": 161
     },
     {
       "color": "#6806B5",
@@ -66239,7 +66239,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570096",
       "name": "COMP | CXS PASSAGEM E INSPEÇÃO",
-      "position": 159
+      "position": 160
     },
     {
       "color": "#274702",
@@ -66311,7 +66311,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570112",
       "name": "ESQ | FACHADA EM MADEIRA",
-      "position": 156
+      "position": 157
     },
     {
       "color": "#1D7A92",
@@ -66319,7 +66319,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570113",
       "name": "ESQ | BRISES EM ALUMÍNIO",
-      "position": 143
+      "position": 144
     },
     {
       "color": "#1D7A92",
@@ -66327,7 +66327,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570115",
       "name": "ESQ | PORTÕES",
-      "position": 151
+      "position": 152
     },
     {
       "color": "#AB4646",
@@ -66351,7 +66351,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570289",
       "name": "ESQ | CONTRAMARCOS - JANELAS",
-      "position": 139
+      "position": 140
     },
     {
       "color": "#A76330",
@@ -66463,7 +66463,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2337503",
       "name": "ESQ | VIDROS",
-      "position": 142
+      "position": 143
     },
     {
       "color": "#1D7A92",
@@ -66471,7 +66471,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2337509",
       "name": "ESQ | VISTAS / REGULAGENS",
-      "position": 141
+      "position": 142
     },
     {
       "color": "#A76330",
@@ -66487,7 +66487,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361310",
       "name": "ESQ | PELE DE VIDRO",
-      "position": 149
+      "position": 150
     },
     {
       "color": "#1D7A92",
@@ -66495,7 +66495,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2361328",
       "name": "ESQ | SALAS COMERCIAIS",
-      "position": 148
+      "position": 149
     },
     {
       "color": "#1D7A92",
@@ -66503,7 +66503,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361329",
       "name": "ESQ | TELA CORRUGADA",
-      "position": 147
+      "position": 148
     },
     {
       "color": "#1D7A92",
@@ -66511,7 +66511,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361344",
       "name": "ESQ | BOX DE PRAIA",
-      "position": 146
+      "position": 147
     },
     {
       "color": "#1D7A92",
@@ -66519,7 +66519,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361345",
       "name": "ESQ | VIDRO HIDRANTES",
-      "position": 145
+      "position": 146
     },
     {
       "color": "#9D673F",
@@ -66583,14 +66583,14 @@
       "hasQualityModelsAssociations": true,
       "id": "2538544",
       "name": "PNT | GARAGENS - PAREDES E TETOS - 1ª ETAPA",
-      "position": 133
+      "position": 132
     },
     {
       "color": "#BE0503",
       "hasQualityAssociations": true,
       "hasQualityModelsAssociations": true,
       "id": "2538545",
-      "name": "PNT | GARAGENS - PISOS E DEMARCAÇÕES - 2ª ETAPA",
+      "name": "PNT | PISOS - RESINA - 2ª ETAPA",
       "position": 134
     },
     {
@@ -66599,7 +66599,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2583956",
       "name": "PNT | PAVIMENTO TÉCNICO INT.",
-      "position": 136
+      "position": 137
     },
     {
       "color": "#1D7A92",
@@ -66607,7 +66607,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2723183",
       "name": "ESQ | CONTRAMARCOS - PORTAS",
-      "position": 138
+      "position": 139
     },
     {
       "color": "#587832",
@@ -66647,7 +66647,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2874319",
       "name": "PNT | GARAGENS - PAREDES E TETOS - 2ª ETAPA",
-      "position": 132
+      "position": 133
     },
     {
       "color": "#7A4E2D",
@@ -66655,7 +66655,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2876315",
       "name": "ESQ | BRISES EM MADEIRAS",
-      "position": 152
+      "position": 153
     },
     {
       "color": "#348248",
@@ -66663,7 +66663,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2876316",
       "name": "CAL | CALÇADA ESTAMPADA",
-      "position": 163
+      "position": 164
     },
     {
       "color": "#B12726",
@@ -66783,7 +66783,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2933703",
       "name": "COMP | REFRATÁRIOS",
-      "position": 158
+      "position": 159
     },
     {
       "color": "#243A0B",
@@ -66799,7 +66799,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2943648",
       "name": "COMP | INSTALAÇÕES (PISO EXTERNO)",
-      "position": 157
+      "position": 158
     },
     {
       "color": "#7A4E2D",
@@ -66807,7 +66807,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2946451",
       "name": "ESQ | MEDIÇÃO PORTAS DE MADEIRA E RODAPÉ",
-      "position": 153
+      "position": 154
     },
     {
       "color": "#7A4E2D",
@@ -66815,7 +66815,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2946665",
       "name": "ESQ | RODAPÉS DE POLIESTIRENO",
-      "position": 153
+      "position": 154
     },
     {
       "color": "#A76330",
@@ -66999,7 +66999,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3050116",
       "name": "DESPESAS DE GESTÃO | MENSAIS",
-      "position": 164
+      "position": 165
     },
     {
       "color": "#973841",
@@ -67007,7 +67007,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3056942",
       "name": "LEG | LEGALIZAÇÃO PRÉ OBRA",
-      "position": 165
+      "position": 166
     },
     {
       "color": "#274702",
@@ -67015,7 +67015,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3057067",
       "name": "OUT | OUTORGA ONEROSA",
-      "position": 165
+      "position": 166
     },
     {
       "color": "#B18706",
@@ -67031,7 +67031,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3102722",
       "name": "PNT | RETOQUE PINTURA EXT.",
-      "position": 166
+      "position": 167
     },
     {
       "color": "#3D3D3D",
@@ -67047,7 +67047,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3156778",
       "name": "EPC | TELA FACHADEIRA - COMPRA",
-      "position": 167
+      "position": 168
     },
     {
       "color": "#193A92",
@@ -67055,7 +67055,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3156779",
       "name": "EPC | TELA FACHADEIRA - MANUTENÇÃO",
-      "position": 168
+      "position": 169
     },
     {
       "color": "#017E9E",
@@ -67063,7 +67063,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3186379",
       "name": "ADM | ADMINISTRAÇÃO GTR",
-      "position": 169
+      "position": 170
     },
     {
       "color": "#017E9E",
@@ -67071,7 +67071,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3186380",
       "name": "ADM | ADMINISTRAÇÃO A10",
-      "position": 170
+      "position": 171
     },
     {
       "color": "#574467",
@@ -67135,7 +67135,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320591",
       "name": "MOV | MED. MÓVEIS PLAN. | DEC",
-      "position": 171
+      "position": 172
     },
     {
       "color": "#73772E",
@@ -67143,7 +67143,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320592",
       "name": "MOV | INST. MÓVEIS PLAN. | DEC",
-      "position": 172
+      "position": 173
     },
     {
       "color": "#193A92",
@@ -67151,7 +67151,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320593",
       "name": "EST | ESTOFADOS",
-      "position": 173
+      "position": 174
     },
     {
       "color": "#73772E",
@@ -67159,7 +67159,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320594",
       "name": "MOV | DIVISÓRIAS WC | DEC",
-      "position": 174
+      "position": 175
     },
     {
       "color": "#6E730E",
@@ -67167,7 +67167,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320595",
       "name": "MOV | ESPELHOS | DEC",
-      "position": 176
+      "position": 177
     },
     {
       "color": "#6E730E",
@@ -67175,7 +67175,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320596",
       "name": "MOV | LEDS | DEC",
-      "position": 177
+      "position": 178
     },
     {
       "color": "#52801D",
@@ -67183,7 +67183,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320597",
       "name": "GRAN | PEDRAS E GRANITOS | DEC",
-      "position": 178
+      "position": 179
     },
     {
       "color": "#2A5FEC",
@@ -67191,7 +67191,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320598",
       "name": "HID | LOUÇAS E ACESSÓRIOS | DEC",
-      "position": 179
+      "position": 180
     },
     {
       "color": "#07293F",
@@ -67199,7 +67199,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320599",
       "name": "CHU | SISTEMA CHURRASQ. | DEC",
-      "position": 180
+      "position": 181
     },
     {
       "color": "#07293F",
@@ -67207,7 +67207,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320600",
       "name": "CHU | FORNO PIZZA",
-      "position": 181
+      "position": 182
     },
     {
       "color": "#018367",
@@ -67215,7 +67215,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320601",
       "name": "ELT | ELETROELETRÔNICOS | DEC",
-      "position": 182
+      "position": 183
     },
     {
       "color": "#018367",
@@ -67223,7 +67223,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320602",
       "name": "ELT | CHOPEIRA | DEC",
-      "position": 183
+      "position": 184
     },
     {
       "color": "#BD5200",
@@ -67231,7 +67231,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320603",
       "name": "COM | COMUNICAÇÃO VISUAL | DEC",
-      "position": 184
+      "position": 185
     },
     {
       "color": "#1D7A92",
@@ -67239,7 +67239,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320604",
       "name": "UTE | UTENSÍLIOS | DEC",
-      "position": 185
+      "position": 186
     },
     {
       "color": "#AF46AF",
@@ -67247,7 +67247,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320605",
       "name": "ORN | ORNAMENTOS",
-      "position": 186
+      "position": 187
     },
     {
       "color": "#B12726",
@@ -67255,7 +67255,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320607",
       "name": "ALV | ALV. DECORAÇÃO",
-      "position": 188
+      "position": 189
     },
     {
       "color": "#961046",
@@ -67263,7 +67263,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320608",
       "name": "PNT | PINTURAS DECORATIVAS | DEC",
-      "position": 189
+      "position": 190
     },
     {
       "color": "#A45D5C",
@@ -67271,7 +67271,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320609",
       "name": "MOV | MÓVEIS SOLTOS | DEC",
-      "position": 190
+      "position": 191
     },
     {
       "color": "#9D673F",
@@ -67279,7 +67279,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320610",
       "name": "CAD | EQUIP. ACADEMIA | DEC",
-      "position": 191
+      "position": 192
     },
     {
       "color": "#03A12A",
@@ -67287,7 +67287,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320611",
       "name": "JOG | EQUIP. RECREATIVOS | DEC",
-      "position": 192
+      "position": 193
     },
     {
       "color": "#52801D",
@@ -67295,7 +67295,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320620",
       "name": "ARC | EQUIP. CLIMATIZAÇÃO | DEC",
-      "position": 198
+      "position": 199
     },
     {
       "color": "#BE0503",
@@ -67319,7 +67319,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3327227",
       "name": "MOV | MÓVEIS HALL | DEC",
-      "position": 175
+      "position": 176
     },
     {
       "color": "#3D3D3D",
@@ -67343,7 +67343,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3334495",
       "name": "EX | CHAPÉU AQUECEDORES",
-      "position": 208
+      "position": 209
     },
     {
       "color": "#3D3D3D",
@@ -67359,7 +67359,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3338608",
       "name": "PNT | ÁREA TÉCNICA",
-      "position": 135
+      "position": 136
     },
     {
       "color": "#000000",
@@ -67383,7 +67383,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3526936",
       "name": "MODIFICAÇÕES CLIENTES",
-      "position": 208
+      "position": 209
     },
     {
       "color": "#3D3D3D",
@@ -67399,7 +67399,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3675076",
       "name": "PCI | BEP (SPDA)",
-      "position": 224
+      "position": 225
     },
     {
       "color": "#E66503",
@@ -67407,7 +67407,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3682351",
       "name": "ILU | ILUMINAÇÃO | DEC",
-      "position": 225
+      "position": 226
     },
     {
       "color": "#C50553",
@@ -67415,7 +67415,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3682632",
       "name": "DEC | ACOMPANHAMENTO DECORAÇÃO",
-      "position": 226
+      "position": 227
     },
     {
       "color": "#B12726",
@@ -67423,7 +67423,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3732523",
       "name": "ALV | QUIOSQUE (DRYWALL)",
-      "position": 187
+      "position": 188
     },
     {
       "color": "#961046",
@@ -67431,7 +67431,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3755394",
       "name": "PER | CORTINAS E PERSIANAS | DEC",
-      "position": 227
+      "position": 228
     },
     {
       "color": "#3D3D3D",
@@ -67440,6 +67440,14 @@
       "id": "3764363",
       "name": "PIS | LAPIDAÇÃO PISO",
       "position": 101
+    },
+    {
+      "color": "#BE0503",
+      "hasQualityAssociations": false,
+      "hasQualityModelsAssociations": false,
+      "id": "3806040",
+      "name": "PNT | PISOS - DEMARCAÇÕES",
+      "position": 135
     }
   ]
 }

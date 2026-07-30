@@ -28,7 +28,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 56
+        "totalCount": 57
       },
       "endAt": "2027-05-04 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -40,9 +40,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 49
+        "totalCount": 50
       },
-      "endAt": "2027-04-19 23:59:59 UTC",
+      "endAt": "2027-05-10 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648042",
       "name": "03º PV - G2",
@@ -52,9 +52,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 50
+        "totalCount": 51
       },
-      "endAt": "2027-04-05 23:59:59 UTC",
+      "endAt": "2027-04-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648043",
       "name": "04º PV - G3",
@@ -64,7 +64,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 54
+        "totalCount": 55
       },
       "endAt": "2027-03-19 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
