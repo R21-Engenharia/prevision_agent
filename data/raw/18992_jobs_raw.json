@@ -1,7 +1,7 @@
 {
   "project_id": 18992,
   "project_name": "HOLMES RESIDENCE",
-  "collected_at": "2026-07-30T11:37:43.686258",
+  "collected_at": "2026-07-31T12:03:36.030904",
   "total": 2209,
   "total_with_jobs": 1869,
   "activities_list": [
@@ -5630,7 +5630,7 @@
       "id": "16260910",
       "wbsCode": "30.112",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11253260",
@@ -17574,7 +17574,7 @@
       "id": "36703888",
       "wbsCode": "24.52",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922722",
@@ -19151,7 +19151,7 @@
       "id": "30792095",
       "wbsCode": "23.107",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11262331",
@@ -19351,7 +19351,7 @@
       "id": "36703889",
       "wbsCode": "23.52",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922725",
@@ -25273,7 +25273,7 @@
       "id": "16182210",
       "wbsCode": "19.53",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10779673",
@@ -26980,7 +26980,7 @@
       "id": "16182132",
       "wbsCode": "18.104",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "8227835",
@@ -32799,7 +32799,7 @@
       "id": "16182964",
       "wbsCode": "15.99",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "9844655",
@@ -34083,7 +34083,7 @@
       "id": "16182109",
       "wbsCode": "14.38",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10712719",
@@ -34253,7 +34253,7 @@
       "id": "16182298",
       "wbsCode": "14.92",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10818730",
@@ -34636,7 +34636,7 @@
       "id": "16183173",
       "wbsCode": "14.39",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10712693",
@@ -35289,7 +35289,7 @@
       "id": "33219008",
       "wbsCode": "14.49",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "13490894",
@@ -35725,7 +35725,7 @@
       "id": "16181997",
       "wbsCode": "13.61",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10779338",
@@ -35835,7 +35835,7 @@
       "id": "16182082",
       "wbsCode": "13.85",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10780766",
@@ -36215,7 +36215,7 @@
       "id": "16182774",
       "wbsCode": "13.71",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10819102",
@@ -36816,7 +36816,7 @@
       "id": "29979136",
       "wbsCode": "13.64",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10866533",
@@ -40890,7 +40890,7 @@
       "id": "36995629",
       "wbsCode": "11.50",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15034256",
@@ -40955,7 +40955,7 @@
       "id": "16181839",
       "wbsCode": "10.29",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "8220715",
@@ -40965,7 +40965,7 @@
         {
           "id": "11265181",
           "name": "RETIRADA CUBETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11265182",
@@ -41232,7 +41232,7 @@
       "id": "16183066",
       "wbsCode": "10.71",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11265844",
@@ -41476,7 +41476,7 @@
       "id": "29056607",
       "wbsCode": "10.35",
       "hasJobs": true,
-      "percentageCompleted": 20.0,
+      "percentageCompleted": 74.0,
       "jobs": [
         {
           "id": "10714039",
@@ -41486,7 +41486,7 @@
         {
           "id": "10714040",
           "name": "EXECUÇÃO DA ALVENARIA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "10714041",
@@ -41501,7 +41501,7 @@
       "id": "29768156",
       "wbsCode": "10.61",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10779598",
@@ -41878,17 +41878,17 @@
       "id": "16181977",
       "wbsCode": "09.29",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 66.667,
       "jobs": [
         {
           "id": "8220722",
           "name": "RETIRADA ESCORAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11265183",
           "name": "RETIRADA CUBETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11265184",

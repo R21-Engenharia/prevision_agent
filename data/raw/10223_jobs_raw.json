@@ -1,7 +1,7 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-07-30T11:28:34.405573",
+  "collected_at": "2026-07-31T11:51:59.134099",
   "total": 2944,
   "total_with_jobs": 2394,
   "activities_list": [
@@ -5762,7 +5762,7 @@
       "id": "11730605",
       "wbsCode": "39.89",
       "hasJobs": true,
-      "percentageCompleted": 70.0,
+      "percentageCompleted": 75.0,
       "jobs": [
         {
           "id": "11119169",
@@ -5772,7 +5772,7 @@
         {
           "id": "11119170",
           "name": "REQUADROS",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11119171",
@@ -22527,7 +22527,7 @@
       "id": "21684923",
       "wbsCode": "30.120",
       "hasJobs": true,
-      "percentageCompleted": 60.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10844692",
@@ -22542,7 +22542,7 @@
         {
           "id": "10844694",
           "name": "ASSENT. SAIA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "29496888",
@@ -24220,17 +24220,17 @@
       "id": "21684924",
       "wbsCode": "29.120",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 12.0,
       "jobs": [
         {
           "id": "10844701",
           "name": "EXECUÇÃO DA PAGINAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 20.0
         },
         {
           "id": "10844702",
           "name": "ASSENT. PAREDE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 20.0
         },
         {
           "id": "10844703",
@@ -30573,12 +30573,12 @@
       "id": "11714060",
       "wbsCode": "25.98",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 24.0,
       "jobs": [
         {
           "id": "10662999",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10663000",
@@ -31705,22 +31705,22 @@
       "id": "30773475",
       "wbsCode": "25.97",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "11255865",
           "name": "MANTA ACÚSTICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11255866",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11255867",
           "name": "CHUMB. TUBULAÇÕES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11255868",
@@ -32049,12 +32049,12 @@
       "id": "37004311",
       "wbsCode": "25.88",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "15035501",
           "name": "EXECUÇÃO NICHOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "15035502",
@@ -33281,12 +33281,12 @@
       "id": "29908769",
       "wbsCode": "24.159",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10844818",
           "name": "EXECUÇÃO REFRATÁRIO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844819",
@@ -33486,7 +33486,7 @@
       "id": "30773476",
       "wbsCode": "24.97",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11255869",
@@ -33830,12 +33830,12 @@
       "id": "37004312",
       "wbsCode": "24.88",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "15035503",
           "name": "EXECUÇÃO NICHOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "15035504",
@@ -36411,12 +36411,12 @@
       "id": "12751449",
       "wbsCode": "22.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766818",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766819",
@@ -38173,7 +38173,7 @@
       "id": "12751401",
       "wbsCode": "21.87",
       "hasJobs": true,
-      "percentageCompleted": 44.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10662879",
@@ -38183,12 +38183,12 @@
         {
           "id": "10662880",
           "name": "CHUMB. INSTALAÇÕES",
-          "percentageCompleted": 20.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10662881",
           "name": "TELAS GALVANIZADAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10662882",
@@ -38213,12 +38213,12 @@
       "id": "12751450",
       "wbsCode": "21.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766820",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766821",
@@ -38726,12 +38726,12 @@
       "id": "30111541",
       "wbsCode": "21.89",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 6.0,
       "jobs": [
         {
           "id": "10933927",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 10.0
         },
         {
           "id": "10933928",
@@ -39011,32 +39011,32 @@
       "id": "33177686",
       "wbsCode": "21.91",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 62.5,
       "jobs": [
         {
           "id": "13490551",
           "name": "CHAPISCO ROLADO EST",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490552",
           "name": "CHUMB. INSTALAÇÕES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490553",
           "name": "TELAS GALVANIZADAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490554",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490555",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490556",
@@ -40015,12 +40015,12 @@
       "id": "12751451",
       "wbsCode": "20.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766837",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766838",
@@ -40264,7 +40264,7 @@
       "id": "29049839",
       "wbsCode": "20.48",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "24º PV - TIPO",
       "_floor_id": "380221"
@@ -40768,7 +40768,7 @@
       "id": "31662417",
       "wbsCode": "20.69",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "12786909",
@@ -40813,7 +40813,7 @@
       "id": "33177687",
       "wbsCode": "20.91",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "13490495",
@@ -41463,12 +41463,12 @@
       "id": "11714236",
       "wbsCode": "19.80",
       "hasJobs": true,
-      "percentageCompleted": 33.333,
+      "percentageCompleted": 66.667,
       "jobs": [
         {
           "id": "10664244",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664245",
@@ -41817,12 +41817,12 @@
       "id": "12751452",
       "wbsCode": "19.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766839",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766840",
@@ -42066,7 +42066,7 @@
       "id": "29049840",
       "wbsCode": "19.48",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "25º PV - TIPO",
       "_floor_id": "380222"
@@ -43285,12 +43285,12 @@
       "id": "11714237",
       "wbsCode": "18.80",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "10664248",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664249",
@@ -43599,12 +43599,12 @@
       "id": "12751404",
       "wbsCode": "18.87",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [
         {
           "id": "10662894",
           "name": "CHAPISCO ROLADO EST",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10662895",
@@ -43639,12 +43639,12 @@
       "id": "12751453",
       "wbsCode": "18.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766841",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766842",
@@ -45087,12 +45087,12 @@
       "id": "11714238",
       "wbsCode": "17.80",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "10664252",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664253",
@@ -45441,12 +45441,12 @@
       "id": "12751454",
       "wbsCode": "17.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766843",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766844",
@@ -46889,12 +46889,12 @@
       "id": "11714239",
       "wbsCode": "16.80",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "10664256",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664257",
@@ -47243,12 +47243,12 @@
       "id": "12751455",
       "wbsCode": "16.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766849",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766850",
@@ -47841,12 +47841,12 @@
       "id": "30517788",
       "wbsCode": "16.84",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "11142364",
           "name": "COIFA CHURRASQUEIRA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11142365",
@@ -48691,12 +48691,12 @@
       "id": "11714240",
       "wbsCode": "15.80",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "10664260",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664261",
@@ -49045,12 +49045,12 @@
       "id": "12751456",
       "wbsCode": "15.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766851",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766852",
@@ -49643,12 +49643,12 @@
       "id": "30517789",
       "wbsCode": "15.84",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "11142366",
           "name": "COIFA CHURRASQUEIRA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11142367",
@@ -50493,12 +50493,12 @@
       "id": "11714241",
       "wbsCode": "14.80",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "10664264",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664265",
@@ -50847,12 +50847,12 @@
       "id": "12751457",
       "wbsCode": "14.140",
       "hasJobs": true,
-      "percentageCompleted": 15.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766853",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766854",
@@ -51445,12 +51445,12 @@
       "id": "30517790",
       "wbsCode": "14.84",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "11142382",
           "name": "COIFA CHURRASQUEIRA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11142383",
@@ -52295,12 +52295,12 @@
       "id": "11714242",
       "wbsCode": "13.80",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "10664268",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10664269",
@@ -52649,12 +52649,12 @@
       "id": "12751458",
       "wbsCode": "13.140",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 18.0,
       "jobs": [
         {
           "id": "10766860",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10766861",
@@ -52907,7 +52907,7 @@
       "id": "29407782",
       "wbsCode": "13.30",
       "hasJobs": true,
-      "percentageCompleted": 20.0,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "10658499",
@@ -52917,7 +52917,7 @@
         {
           "id": "10658500",
           "name": "BOCA ATÉ COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658501",
@@ -52987,17 +52987,17 @@
       "id": "29408087",
       "wbsCode": "13.26",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10659154",
           "name": "PAREDE TÉCNICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10659155",
           "name": "ENCUNHAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10659156",
@@ -53247,12 +53247,12 @@
       "id": "30517791",
       "wbsCode": "13.84",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "11142370",
           "name": "COIFA CHURRASQUEIRA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11142371",
@@ -54645,17 +54645,17 @@
       "id": "12938480",
       "wbsCode": "12.30",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "10670518",
           "name": "CONCRETO BASE",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10670519",
           "name": "BOCA ATÉ COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10670520",
@@ -54968,17 +54968,17 @@
       "id": "29574771",
       "wbsCode": "12.26",
       "hasJobs": true,
-      "percentageCompleted": 36.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10714311",
           "name": "PAREDE TÉCNICA",
-          "percentageCompleted": 60.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10714312",
           "name": "ENCUNHAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10714313",
@@ -57610,27 +57610,27 @@
       "id": "24984463",
       "wbsCode": "10.137",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11173559",
           "name": "FUNDO PREPARADOR",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11173560",
           "name": "EMASSAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11173561",
           "name": "1ª DEMÃO DE PINTURA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11173562",
           "name": "ÚLTIMA DEMÃO PINTURA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11173563",
@@ -58684,17 +58684,17 @@
       "id": "11732807",
       "wbsCode": "04.105",
       "hasJobs": true,
-      "percentageCompleted": 62.759,
+      "percentageCompleted": 72.414,
       "jobs": [
         {
           "id": "10934088",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 65.0
+          "percentageCompleted": 75.0
         },
         {
           "id": "10934089",
           "name": "REQUADROS",
-          "percentageCompleted": 65.0
+          "percentageCompleted": 75.0
         },
         {
           "id": "10934090",
@@ -58729,7 +58729,7 @@
       "id": "11732996",
       "wbsCode": "04.158",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [],
       "_floor_name": "TORRE FRONTAL",
       "_floor_id": "382438"
@@ -58918,7 +58918,7 @@
       "id": "47895840",
       "wbsCode": "03.103",
       "hasJobs": false,
-      "percentageCompleted": 16.667,
+      "percentageCompleted": 50.0,
       "jobs": [],
       "_floor_name": "TORRE LATERAL DIREITA | RUA 3122",
       "_floor_id": "382439"
@@ -59371,7 +59371,7 @@
       "id": "12745967",
       "wbsCode": "56.02",
       "hasJobs": false,
-      "percentageCompleted": 78.704,
+      "percentageCompleted": 79.074,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59380,7 +59380,7 @@
       "id": "32473097",
       "wbsCode": "56.165",
       "hasJobs": false,
-      "percentageCompleted": 77.948,
+      "percentageCompleted": 78.332,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59389,7 +59389,7 @@
       "id": "34369827",
       "wbsCode": "56.170",
       "hasJobs": false,
-      "percentageCompleted": 76.362,
+      "percentageCompleted": 76.773,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59398,7 +59398,7 @@
       "id": "34371035",
       "wbsCode": "56.171",
       "hasJobs": false,
-      "percentageCompleted": 77.092,
+      "percentageCompleted": 77.49,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
