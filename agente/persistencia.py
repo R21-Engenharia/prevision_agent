@@ -54,6 +54,16 @@ def salvar_pendencias(obra: str, pendencias: list[Pendencia]) -> int:
     cli = _cliente()
     regras = _mapa_regras(cli)
 
+    # Dedup do lote: o WBS pode repetir entre "partes" da atividade, mas a
+    # pendência é única por (obra, wbs, categoria). Mantém a de maior peso.
+    unicas: dict[tuple, Pendencia] = {}
+    for p in pendencias:
+        k = (p.wbs_code, p.categoria)
+        atual = unicas.get(k)
+        if atual is None or (p.severidade, p.impacto) > (atual.severidade, atual.impacto):
+            unicas[k] = p
+    pendencias = list(unicas.values())
+
     # Pendências já abertas desta obra, indexadas por (wbs, categoria)
     r = (cli.table("pendencias")
          .select("id, wbs_code, categoria, impacto, pct_real, status")
