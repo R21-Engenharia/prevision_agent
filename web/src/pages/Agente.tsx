@@ -7,21 +7,32 @@ import {
 
 interface Props { obra: string }
 
-const CAT_COR: Record<string, string> = {
-  atraso_proprio: 'var(--accent-ink)',
-  fora_sequencia: '#D98A00',
-  parada: '#D98A00',
-  nc_critica: '#C41230',
-  atraso_herdado: 'var(--muted)',
-  aging: 'var(--muted)',
+interface Grupo { servico: string; itens: Pendencia[]; maxImpacto: number }
+
+/** Agrupa as pendências por pacote (serviço); dentro, ordena por pavimento. */
+function agrupar(lista: Pendencia[]): Grupo[] {
+  const m = new Map<string, Pendencia[]>()
+  for (const p of lista) {
+    const k = p.servico || p.wbs_code
+    const arr = m.get(k) ?? []
+    arr.push(p)
+    m.set(k, arr)
+  }
+  return [...m.entries()]
+    .map(([servico, itens]) => ({
+      servico,
+      itens: itens.sort((a, b) =>
+        (a.pavimento || '').localeCompare(b.pavimento || '', undefined, { numeric: true })),
+      maxImpacto: Math.max(...itens.map((i) => i.impacto)),
+    }))
+    .sort((a, b) => b.maxImpacto - a.maxImpacto)
 }
 
-function Sev({ n }: { n: number }) {
-  return (
-    <span className="ag-sev" title={`Severidade ${n}`}>
-      {'●'.repeat(n)}<span className="ag-sev-off">{'●'.repeat(5 - n)}</span>
-    </span>
-  )
+interface CausaRaiz {
+  provavel_so_fvs?: boolean
+  jobs_pendentes?: Array<{ name: string; pct: number }>
+  predecessor_wbs?: string
+  pred_pct?: number
 }
 
 export function Agente({ obra }: Props) {
@@ -29,7 +40,14 @@ export function Agente({ obra }: Props) {
   const [lista, setLista] = useState<Pendencia[] | null>(null)
   const [cat, setCat] = useState<CategoriaPendencia | ''>('')
   const [sel, setSel] = useState<PendenciaDetalhe | null>(null)
+  const [expandido, setExpandido] = useState<Set<string>>(new Set())
   const [erro, setErro] = useState<string | null>(null)
+
+  const toggle = (k: string) => setExpandido((s) => {
+    const n = new Set(s)
+    n.has(k) ? n.delete(k) : n.add(k)
+    return n
+  })
 
   const carregar = useCallback(async () => {
     setErro(null)
@@ -81,30 +99,51 @@ export function Agente({ obra }: Props) {
       </div>
 
       <div className="ag-grid">
-        {/* lista priorizada */}
+        {/* lista agrupada por pacote */}
         <div className="panel ag-lista">
           {!lista && <div className="skel" style={{ height: 240 }} />}
           {lista?.length === 0 && <div className="empty">Nenhuma pendência neste filtro.</div>}
-          {lista?.map((p) => (
-            <button key={p.id} className={sel?.id === p.id ? 'ag-item sel' : 'ag-item'}
-                    onClick={() => abrir(p.id)}>
-              <div className="ag-item-top">
-                <span className="ag-servico">{p.servico || p.wbs_code}</span>
-                <span className="ag-cat" style={{ color: CAT_COR[p.categoria] }}>
-                  {CATEGORIA_LABEL[p.categoria]}
-                </span>
-              </div>
-              <div className="ag-item-wbs">{p.wbs_code}{p.pavimento && ` · ${p.pavimento}º pav`}</div>
-              <div className="ag-item-mid">
-                {p.pct_real != null && (
-                  <span className="ag-pct">{p.pct_real.toFixed(0)}%
-                    <span className="ag-pct-exp"> / {(p.pct_esperado ?? 0).toFixed(0)}%</span></span>
+          {lista && agrupar(lista).map((g) => {
+            const aberto = expandido.has(g.servico)
+            return (
+              <div key={g.servico} className="ag-pkg">
+                <button className="ag-pkg-head" onClick={() => toggle(g.servico)}>
+                  <span className={aberto ? 'ag-caret open' : 'ag-caret'}>▸</span>
+                  <span className="ag-pkg-nome">{g.servico}</span>
+                  <span className="ag-pkg-meta">{g.itens.length} pav</span>
+                  {g.maxImpacto > 0 && <span className="ag-imp">trava {g.maxImpacto}</span>}
+                </button>
+                {aberto && (
+                  <div className="ag-pkg-body">
+                    {g.itens.map((p) => {
+                      const cr = (p.causa_raiz ?? {}) as CausaRaiz
+                      const jobs = cr.jobs_pendentes ?? []
+                      return (
+                        <button key={p.id}
+                                className={sel?.id === p.id ? 'ag-flr sel' : 'ag-flr'}
+                                onClick={() => abrir(p.id)}>
+                          <div className="ag-flr-top">
+                            <span className="ag-flr-pav">
+                              {p.pavimento ? `${p.pavimento}º pav` : p.wbs_code}
+                            </span>
+                            <span className="ag-flr-pct">{(p.pct_real ?? 0).toFixed(0)}%</span>
+                          </div>
+                          <div className="ag-bar"><span style={{ width: `${p.pct_real ?? 0}%` }} /></div>
+                          {cr.provavel_so_fvs && <span className="ag-tag-fvs">provável só FVS</span>}
+                          {jobs.length > 0 && (
+                            <div className="ag-jobs">
+                              falta: {jobs.slice(0, 3).map((j) => j.name).join(', ')}
+                              {jobs.length > 3 ? '…' : ''}
+                            </div>
+                          )}
+                        </button>
+                      )
+                    })}
+                  </div>
                 )}
-                {p.impacto > 0 && <span className="ag-imp">trava {p.impacto}</span>}
-                <Sev n={p.severidade} />
               </div>
-            </button>
-          ))}
+            )
+          })}
         </div>
 
         {/* detalhe / conversa */}

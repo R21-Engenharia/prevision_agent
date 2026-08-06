@@ -39,13 +39,42 @@ def _carregar_grafo(pid: int) -> dict | None:
     return json.loads(caminho.read_text(encoding="utf-8"))
 
 
+def _mapa_jobs(pid: int) -> dict[str, list]:
+    """activity_id -> [jobs pendentes {name, pct}], do cache jobs_raw."""
+    caminho = _ROOT / "data" / "raw" / f"{pid}_jobs_raw.json"
+    if not caminho.exists():
+        return {}
+    dados = json.loads(caminho.read_text(encoding="utf-8"))
+    mapa: dict[str, list] = {}
+    for a in dados.get("activities_list", []):
+        pend = [{"name": j.get("name", ""), "pct": j.get("percentageCompleted") or 0}
+                for j in (a.get("jobs") or [])
+                if (j.get("percentageCompleted") or 0) < 100]
+        if pend:
+            pend.sort(key=lambda x: x["pct"])          # o mais atrasado primeiro
+            mapa[a["id"]] = pend[:6]
+    return mapa
+
+
+# Acima deste avanço físico, o que falta costuma ser só o preenchimento da FVS,
+# não obra. Sinaliza para o usuário decidir (item validado pelo Elrik).
+LIMIAR_PROVAVEL_FVS = 80
+
+
 def gerar(obra: str) -> list:
     pid = OBRA_PID[obra]
     dados = _carregar_grafo(pid)
     if not dados:
         print(f"  [{obra}] sem grafo de dependências coletado — pule/rode o coletor.")
         return []
-    return analisar(dados, obra)
+    pend = analisar(dados, obra)
+
+    # Enriquecer: qual serviço específico (job) falta, e se é provável só FVS.
+    jobs = _mapa_jobs(pid)
+    for p in pend:
+        p.causa_raiz["jobs_pendentes"] = jobs.get(p.activity_id, [])
+        p.causa_raiz["provavel_so_fvs"] = p.pct_real >= LIMIAR_PROVAVEL_FVS
+    return pend
 
 
 def imprimir(obra: str, pendencias: list) -> None:
