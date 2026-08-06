@@ -25,18 +25,22 @@ def perguntas_para(categoria: str, ctx: dict) -> list[str]:
 _TEMPLATES: dict[str, list[str]] = {
     # Frente liberada (predecessores prontos) e mesmo assim atrasou → é a equipe.
     "atraso_proprio": [
-        "O serviço {wbs} está em {pct_real:.0f}% (esperado {pct_esperado:.0f}%) com a "
-        "frente totalmente liberada — todos os predecessores concluídos. Por que não avançou?",
+        "O serviço {servico} ({pavimento}) está em {pct_real:.0f}% (esperado "
+        "{pct_esperado:.0f}%) com a frente liberada — todos os predecessores concluídos. "
+        "Por que não avançou?",
         "Há algum impedimento além da frente de trabalho? (material, projeto, mão de obra)",
-        "Este atraso está travando {impacto} serviço(s) na sequência. Qual a previsão de conclusão?",
+        "Este atraso está segurando {impacto} serviço(s) a jusante{travados}. Qual a "
+        "previsão de conclusão?",
         "É necessário reforço de equipe ou replanejamento do cronograma?",
     ],
     # Feito antes do predecessor → risco de retrabalho.
     "fora_sequencia": [
-        "O serviço {wbs} está em {pct_real:.0f}% mas seu predecessor {predecessor} está em "
-        "apenas {pred_pct:.0f}%. Confirmar que a execução fora de sequência não gera retrabalho.",
-        "A dependência com {predecessor} é física (a execução exige) ou apenas lógica no cronograma?",
-        "Houve liberação formal para executar {wbs} antes de {predecessor}?",
+        "O serviço {servico} ({pavimento}) está em {pct_real:.0f}% mas o serviço que vem "
+        "antes dele — {predecessor_servico} ({predecessor}) — está em apenas {pred_pct:.0f}%. "
+        "Confirmar que a execução fora de sequência não gera retrabalho.",
+        "A dependência com {predecessor_servico} é física (a execução exige) ou apenas "
+        "lógica no cronograma?",
+        "Houve liberação formal para executar {servico} antes de {predecessor_servico}?",
     ],
     # Vinha andando e parou.
     "parada": [

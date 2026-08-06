@@ -101,9 +101,12 @@ def analisar(dados: dict, obra: str, regras: dict | None = None) -> list[Pendenc
 
     proprio_set = set(proprio_ids)
 
-    def raio_impacto(raiz: str) -> int:
-        """Sucessores a jusante, também atrasados, alcançáveis a partir da raiz."""
-        visto, fila, n = set(), deque([raiz]), 0
+    def travados_de(raiz: str) -> list[dict]:
+        """
+        Sucessores a jusante, também atrasados — os serviços REAIS que esta raiz
+        está segurando (nome + WBS + %), em ordem de proximidade (BFS).
+        """
+        visto, fila, out = set(), deque([raiz]), []
         while fila:
             cur = fila.popleft()
             for succ in frente.get(cur, []):
@@ -112,36 +115,39 @@ def analisar(dados: dict, obra: str, regras: dict | None = None) -> list[Pendenc
                 visto.add(succ)
                 s = acts.get(succ)
                 if s and atrasada(s):
-                    n += 1
+                    out.append({"id": succ, "wbs": s.get("wbs", ""),
+                                "servico": s.get("servico", ""), "pct": _num(s.get("pct"))})
                     fila.append(succ)   # a cadeia continua a jusante
-        return n
+        return out
 
     pend: list[Pendencia] = []
 
     for aid in proprio_ids:
         a = acts[aid]
         wbs = a.get("wbs", "")
+        travados = travados_de(aid)
         pend.append(Pendencia(
             obra=obra, wbs_code=wbs, activity_id=aid,
             categoria="atraso_proprio",
             severidade=r.get("atraso_proprio", {}).get("severidade", 5),
             pct_real=_num(a.get("pct")), pct_esperado=_num(a.get("exp")),
-            impacto=raio_impacto(aid),
+            impacto=len(travados),
             servico=a.get("servico", ""), pavimento=_pavimento_de(wbs),
-            causa_raiz={"frente_liberada": True},
+            causa_raiz={"frente_liberada": True, "trava": travados[:8]},
         ))
 
     for aid, pred_id, real, pred_pct in fora_seq:
         a = acts[aid]
         wbs = a.get("wbs", "")
-        pred_wbs = acts.get(pred_id, {}).get("wbs", "?")
+        pred = acts.get(pred_id, {})
         pend.append(Pendencia(
             obra=obra, wbs_code=wbs, activity_id=aid,
             categoria="fora_sequencia",
             severidade=r.get("fora_sequencia", {}).get("severidade", 4),
             pct_real=real, pct_esperado=_num(a.get("exp")),
             impacto=0, servico=a.get("servico", ""), pavimento=_pavimento_de(wbs),
-            causa_raiz={"predecessor_wbs": pred_wbs, "pred_pct": pred_pct},
+            causa_raiz={"predecessor_wbs": pred.get("wbs", "?"),
+                        "predecessor_servico": pred.get("servico", ""), "pred_pct": pred_pct},
         ))
 
     # Mais crítico primeiro: severidade, depois raio de impacto.

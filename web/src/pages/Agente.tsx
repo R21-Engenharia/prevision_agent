@@ -46,7 +46,15 @@ interface CausaRaiz {
   provavel_so_fvs?: boolean
   jobs_pendentes?: Array<{ name: string; pct: number }>
   predecessor_wbs?: string
+  predecessor_servico?: string
   pred_pct?: number
+  trava?: Array<{ wbs: string; servico: string; pct: number; pavimento?: string }>
+}
+
+/** "17º PV - TIPO" → "17º" */
+const pavCurtoTxt = (n: string) => {
+  const m = (n || '').match(/^\d+\s*º/)
+  return m ? m[0].replace(/\s/g, '') : n
 }
 
 type Aba = 'obra' | 'fvs'
@@ -314,7 +322,8 @@ function Detalhe({ p, obra, onResponder }: {
     finally { setEnviando(false) }
   }
 
-  const pred = p.causa_raiz?.predecessor_wbs as string | undefined
+  const cr = (p.causa_raiz ?? {}) as CausaRaiz
+  const trava = cr.trava ?? []
 
   return (
     <div className="ag-conv">
@@ -325,12 +334,36 @@ function Detalhe({ p, obra, onResponder }: {
             {p.wbs_code} · {CATEGORIA_LABEL[p.categoria]}
             {p.pavimento && ` · ${p.pavimento}`}<br />
             {p.pct_real != null && `${p.pct_real.toFixed(0)}% de ${(p.pct_esperado ?? 0).toFixed(0)}% esperado`}
-            {p.impacto > 0 && ` · trava ${p.impacto} serviço(s)`}
-            {pred && ` · aguardando ${pred}`}
           </div>
         </div>
         <span className={`ag-badge ${p.status}`}>{p.status}</span>
       </div>
+
+      {/* serviços reais que este atraso está segurando */}
+      {trava.length > 0 && (
+        <div className="ag-trava">
+          <div className="ag-trava-h">Está segurando {p.impacto} serviço(s) a jusante:</div>
+          <div className="ag-trava-lista">
+            {trava.map((t, i) => (
+              <span key={i} className="ag-trava-item">
+                {t.servico || t.wbs}
+                {t.pavimento && <b> {pavCurtoTxt(t.pavimento)}</b>}
+                <i>{(t.pct ?? 0).toFixed(0)}%</i>
+              </span>
+            ))}
+            {p.impacto > trava.length && <span className="ag-trava-mais">+{p.impacto - trava.length}</span>}
+          </div>
+        </div>
+      )}
+
+      {/* serviço que vem antes (fora de sequência) */}
+      {cr.predecessor_servico && (
+        <div className="ag-trava aguardando">
+          <div className="ag-trava-h">
+            Executado antes de: <b>{cr.predecessor_servico}</b> ({cr.predecessor_wbs}) — só {(cr.pred_pct ?? 0).toFixed(0)}%
+          </div>
+        </div>
+      )}
 
       {/* perguntas do agente */}
       <div className="ag-perguntas">

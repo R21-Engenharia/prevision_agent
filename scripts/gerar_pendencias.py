@@ -91,6 +91,10 @@ def gerar(obra: str) -> list:
             p.pavimento = nome_pav
         p.causa_raiz["jobs_pendentes"] = jobs.get(p.activity_id, [])
         p.causa_raiz["provavel_so_fvs"] = p.pct_real >= LIMIAR_PROVAVEL_FVS
+        # dá pavimento real aos serviços travados (para a conversa mostrar
+        # "trava REBOCO INTERNO no 17º", não "trava o 21")
+        for t in p.causa_raiz.get("trava", []):
+            t["pavimento"] = pav.get(t.get("id", ""), "")
     return pend
 
 

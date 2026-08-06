@@ -657,3 +657,18 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .ag-clear:hover span{opacity:1;}
 .ag-export{background:var(--surface);border:1px solid var(--hairline-2);color:var(--ink);gap:8px;box-shadow:var(--shadow-sm);}
 .ag-export:hover{border-color:var(--muted);}
+
+/* Agente — serviços travados na conversa */
+.ag-trava{margin:12px 0;padding:11px 13px;border-radius:11px;background:var(--surface-2);
+  border:1px solid var(--hairline);}
+.ag-trava.aguardando{background:var(--accent-soft);border-color:transparent;}
+.ag-trava-h{font-size:12px;font-weight:600;color:var(--ink-2);margin-bottom:8px;}
+.ag-trava.aguardando .ag-trava-h{margin-bottom:0;color:var(--accent-ink);font-weight:500;}
+.ag-trava-h b{color:var(--ink);}
+.ag-trava-lista{display:flex;flex-wrap:wrap;gap:6px;}
+.ag-trava-item{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;color:var(--ink-2);
+  background:var(--surface);border:1px solid var(--hairline-2);border-radius:8px;padding:3px 8px;}
+.ag-trava-item b{color:var(--accent-ink);font-weight:600;}
+.ag-trava-item i{font-family:var(--mono);font-style:normal;color:var(--faint);font-size:10.5px;}
+.ag-trava-mais{display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;color:var(--muted);
+  padding:3px 8px;}

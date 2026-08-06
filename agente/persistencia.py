@@ -11,6 +11,7 @@ Requer SUPABASE_URL e SUPABASE_KEY no ambiente (mesmas do snapshot diário).
 from __future__ import annotations
 
 import os
+import re
 
 from agente.motor import Pendencia
 from agente.perguntas import perguntas_para
@@ -37,12 +38,26 @@ def _mapa_regras(cli) -> dict[str, int]:
     return {row["codigo"]: row["id"] for row in (r.data or [])}
 
 
+def _pav_curto(nome: str) -> str:
+    m = re.match(r"^\d+\s*º", nome or "")
+    return m.group(0).replace(" ", "") if m else (nome or "")
+
+
 def _ctx(p: Pendencia) -> dict:
+    trava = p.causa_raiz.get("trava", []) or []
+    travados = ""
+    if trava:
+        amostra = ", ".join(
+            f"{t.get('servico') or '?'} ({_pav_curto(t.get('pavimento', ''))})"
+            for t in trava[:3])
+        travados = f" — como {amostra}"
     return {
-        "wbs": p.wbs_code, "servico": p.servico, "pavimento": p.pavimento,
+        "wbs": p.wbs_code, "servico": p.servico or p.wbs_code, "pavimento": p.pavimento or "—",
         "pct_real": p.pct_real, "pct_esperado": p.pct_esperado, "impacto": p.impacto,
         "predecessor": p.causa_raiz.get("predecessor_wbs", ""),
+        "predecessor_servico": p.causa_raiz.get("predecessor_servico") or "o serviço anterior",
         "pred_pct": p.causa_raiz.get("pred_pct", 0),
+        "travados": travados,
     }
 
 
