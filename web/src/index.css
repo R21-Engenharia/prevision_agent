@@ -672,3 +672,10 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .ag-trava-item i{font-family:var(--mono);font-style:normal;color:var(--faint);font-size:10.5px;}
 .ag-trava-mais{display:inline-flex;align-items:center;font-size:11.5px;font-weight:600;color:var(--muted);
   padding:3px 8px;}
+
+/* Agente — stat tiles */
+.ag-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:12px;margin-bottom:14px;}
+.ag-stat{background:var(--surface);border:1px solid var(--hairline);border-radius:14px;padding:14px 16px;}
+.ag-stat-v{font-size:27px;font-weight:700;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums;}
+.ag-stat-v small{font-size:12.5px;font-weight:600;color:var(--faint);}
+.ag-stat-l{font-size:11.5px;color:var(--muted);margin-top:5px;}

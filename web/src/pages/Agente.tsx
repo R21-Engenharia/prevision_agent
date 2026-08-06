@@ -21,6 +21,56 @@ const pavCurto = (n: string) => {
   return m ? m[0].replace(/\s/g, '') : n.split(/[-|]/)[0].trim()
 }
 
+/** Disciplina/trade a partir do prefixo do serviço: "ALV | ALVENARIA..." → "ALV". */
+const disciplina = (s: string) => (s && s.includes('|') ? s.split('|')[0].trim() : 'Outros')
+
+/** Número do pavimento para ordenar (ground→topo). "17º PV" → 17; sem número → 999. */
+const floorNum = (n: string) => {
+  const m = (n || '').match(/^(\d+)/)
+  return m ? parseInt(m[1], 10) : 999
+}
+
+interface PkgRow { nome: string; impacto: number; pav: number; label: string }
+interface Agg {
+  topPkg: PkgRow[]
+  topPkgCnt: PkgRow[]
+  topDisc: Array<{ nome: string; count: number; impacto: number }>
+  porPav: Array<{ nome: string; count: number; impacto: number; ordem: number; label: string }>
+  count: number; travados: number; pacotes: number; pavimentos: number; atrasoMedio: number
+}
+
+/** Todas as agregações de uma lista (uma aba). */
+function agregar(lista: Pendencia[]): Agg {
+  const pkg = new Map<string, { nome: string; impacto: number; pav: number }>()
+  const disc = new Map<string, { nome: string; count: number; impacto: number }>()
+  const pav = new Map<string, { nome: string; count: number; impacto: number; ordem: number }>()
+  let gap = 0
+  for (const p of lista) {
+    const k = p.servico || p.wbs_code
+    const cp = pkg.get(k) ?? { nome: k, impacto: 0, pav: 0 }
+    cp.impacto += p.impacto; cp.pav += 1; pkg.set(k, cp)
+    const d = disciplina(p.servico)
+    const cd = disc.get(d) ?? { nome: d, count: 0, impacto: 0 }
+    cd.count += 1; cd.impacto += p.impacto; disc.set(d, cd)
+    const fn = p.pavimento || '—'
+    const cf = pav.get(fn) ?? { nome: fn, count: 0, impacto: 0, ordem: floorNum(fn) }
+    cf.count += 1; cf.impacto += p.impacto; pav.set(fn, cf)
+    gap += Math.max(0, (p.pct_esperado ?? 0) - (p.pct_real ?? 0))
+  }
+  const pkgs = [...pkg.values()].map((v) => ({ ...v, label: curto(v.nome) }))
+  return {
+    topPkg: [...pkgs].sort((a, b) => b.impacto - a.impacto).slice(0, 7),
+    topPkgCnt: [...pkgs].sort((a, b) => b.pav - a.pav).slice(0, 7),
+    topDisc: [...disc.values()].sort((a, b) => b.count - a.count).slice(0, 8),
+    porPav: [...pav.values()].sort((a, b) => a.ordem - b.ordem)
+      .map((v) => ({ ...v, label: pavCurto(v.nome) })),
+    count: lista.length,
+    travados: lista.reduce((s, p) => s + p.impacto, 0),
+    pacotes: pkg.size, pavimentos: pav.size,
+    atrasoMedio: lista.length ? Math.round(gap / lista.length) : 0,
+  }
+}
+
 interface Grupo { servico: string; itens: Pendencia[]; maxImpacto: number }
 
 /** Agrupa as pendências por pacote (serviço); dentro, ordena por pavimento. */
@@ -63,6 +113,7 @@ export function Agente({ obra }: Props) {
   const [lista, setLista] = useState<Pendencia[] | null>(null)
   const [aba, setAba] = useState<Aba>('obra')
   const [floorSel, setFloorSel] = useState<string | null>(null)
+  const [discSel, setDiscSel] = useState<string | null>(null)
   const [sel, setSel] = useState<PendenciaDetalhe | null>(null)
   const [expandido, setExpandido] = useState<Set<string>>(new Set())
   const [erro, setErro] = useState<string | null>(null)
@@ -97,41 +148,19 @@ export function Agente({ obra }: Props) {
       const soFvs = (p.causa_raiz as CausaRaiz)?.provavel_so_fvs
       ;(soFvs ? fvs : obra).push(p)
     }
-
-    // Atrasos de obra: pacotes que mais travam (por impacto)
-    const pkg = new Map<string, { nome: string; impacto: number; pav: number }>()
-    for (const p of obra) {
-      const k = p.servico || p.wbs_code
-      const c = pkg.get(k) ?? { nome: k, impacto: 0, pav: 0 }
-      c.impacto += p.impacto; c.pav += 1; pkg.set(k, c)
-    }
-    const topPkg = [...pkg.values()]
-      .map((v) => ({ ...v, label: curto(v.nome) }))
-      .sort((a, b) => b.impacto - a.impacto).slice(0, 7)
-
-    // FVS pendentes: onde estão (por pavimento) e quanto impacto de cronograma somam
-    const pav = new Map<string, number>()
-    for (const p of fvs) {
-      const k = p.pavimento || '—'
-      pav.set(k, (pav.get(k) ?? 0) + 1)
-    }
-    const topPav = [...pav.entries()]
-      .map(([nome, qtd]) => ({ nome, label: pavCurto(nome), qtd }))
-      .sort((a, b) => b.qtd - a.qtd).slice(0, 12)
-
-    const travados = obra.reduce((s, p) => s + p.impacto, 0)
-    return { obra, fvs, topPkg, topPav, travados, pacotesFvs: new Set(fvs.map(p => p.servico)).size }
+    return { obra, fvs, aggObra: agregar(obra), aggFvs: agregar(fvs) }
   }, [lista])
 
   const ativa = aba === 'obra' ? dados?.obra : dados?.fvs
-  const visivel = floorSel && ativa ? ativa.filter((p) => p.pavimento === floorSel) : ativa
+  const agg = aba === 'obra' ? dados?.aggObra : dados?.aggFvs
+  const visivel = ativa?.filter((p) =>
+    (!floorSel || p.pavimento === floorSel) && (!discSel || disciplina(p.servico) === discSel))
 
-  // trocar de aba limpa o filtro de pavimento
-  useEffect(() => { setFloorSel(null) }, [aba])
+  // trocar de aba limpa os filtros
+  useEffect(() => { setFloorSel(null); setDiscSel(null) }, [aba])
 
   /** Clique numa barra do gráfico → expande o pacote na lista. */
   const focarPacote = (nome: string) => {
-    setAba('obra')
     setExpandido((s) => new Set(s).add(nome))
     document.getElementById('ag-lista-top')?.scrollIntoView({ behavior: 'smooth' })
   }
@@ -166,66 +195,101 @@ export function Agente({ obra }: Props) {
       </div>
 
       {/* dashboard da aba ativa */}
-      <div className="panel ag-chart ag-chart-full">
-        {aba === 'obra' ? (
-          <>
-            <div className="ag-chart-head">
-              <h3>Onde atacar primeiro</h3>
-              <small>pacotes que mais travam a obra — clique numa barra para abrir</small>
+      {!agg && <div className="skel" style={{ height: 320, marginBottom: 14 }} />}
+      {agg && (
+        <>
+          {/* stat tiles */}
+          <div className="ag-stats">
+            <div className="ag-stat">
+              <div className="ag-stat-v" style={{ color: aba === 'obra' ? 'var(--accent-ink)' : 'var(--ok)' }}>{agg.count}</div>
+              <div className="ag-stat-l">{aba === 'obra' ? 'atrasos de obra' : 'FVS pendentes'}</div>
             </div>
-            {dados ? (
-              <ResponsiveContainer width="100%" height={Math.max(180, dados.topPkg.length * 34)}>
-                <BarChart data={dados.topPkg} layout="vertical"
-                          margin={{ top: 4, right: 44, bottom: 0, left: 6 }} barCategoryGap={9}>
+            {aba === 'obra' && (
+              <div className="ag-stat"><div className="ag-stat-v">{agg.travados}</div>
+                <div className="ag-stat-l">serviços travados</div></div>
+            )}
+            <div className="ag-stat"><div className="ag-stat-v">{agg.pacotes}</div>
+              <div className="ag-stat-l">pacotes</div></div>
+            <div className="ag-stat"><div className="ag-stat-v">{agg.pavimentos}</div>
+              <div className="ag-stat-l">pavimentos</div></div>
+            <div className="ag-stat"><div className="ag-stat-v">{agg.atrasoMedio}<small> p.p.</small></div>
+              <div className="ag-stat-l">atraso médio</div></div>
+          </div>
+
+          {/* dois gráficos lado a lado */}
+          <div className="ag-charts">
+            <div className="panel ag-chart">
+              <div className="ag-chart-head">
+                <h3>{aba === 'obra' ? 'Onde atacar primeiro' : 'Pacotes com mais fichas'}</h3>
+                <small>{aba === 'obra' ? 'pacotes que mais travam — clique para abrir' : 'clique para abrir o pacote'}</small>
+              </div>
+              <ResponsiveContainer width="100%" height={Math.max(150, (aba === 'obra' ? agg.topPkg : agg.topPkgCnt).length * 30)}>
+                <BarChart data={aba === 'obra' ? agg.topPkg : agg.topPkgCnt} layout="vertical"
+                          margin={{ top: 2, right: 40, bottom: 0, left: 6 }} barCategoryGap={8}>
                   <XAxis type="number" hide />
-                  <YAxis type="category" dataKey="label" width={190} tickLine={false} axisLine={false}
-                         tick={{ fontSize: 12, fill: 'var(--ink-2)' }} />
-                  <Tooltip cursor={{ fill: 'var(--surface-2)' }}
-                           content={({ active, payload }) => active && payload?.length ? (
-                             <div className="ag-tip"><b>{payload[0].payload.nome}</b>
-                               <span>trava {payload[0].value} serviços · {payload[0].payload.pav} pav</span></div>) : null} />
-                  <Bar dataKey="impacto" fill="var(--accent)" radius={[0, 4, 4, 0]} cursor="pointer"
+                  <YAxis type="category" dataKey="label" width={138} tickLine={false} axisLine={false}
+                         tick={{ fontSize: 11, fill: 'var(--ink-2)' }} />
+                  <Tooltip cursor={{ fill: 'var(--surface-2)' }} content={({ active, payload }) => active && payload?.length ? (
+                    <div className="ag-tip"><b>{payload[0].payload.nome}</b>
+                      <span>{aba === 'obra' ? `trava ${payload[0].payload.impacto} · ` : ''}{payload[0].payload.pav} pav</span></div>) : null} />
+                  <Bar dataKey={aba === 'obra' ? 'impacto' : 'pav'} fill={aba === 'obra' ? 'var(--accent)' : 'var(--ok)'}
+                       radius={[0, 4, 4, 0]} cursor="pointer"
                        onClick={(d) => { const n = (d as { nome?: string })?.nome; if (n) focarPacote(n) }}>
-                    <LabelList dataKey="impacto" position="right"
-                               style={{ fill: 'var(--ink-2)', fontSize: 11.5, fontWeight: 700 }} />
+                    <LabelList dataKey={aba === 'obra' ? 'impacto' : 'pav'} position="right"
+                               style={{ fill: 'var(--ink-2)', fontSize: 11, fontWeight: 700 }} />
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
-            ) : <div className="skel" style={{ height: 240 }} />}
-          </>
-        ) : (
-          <>
-            <div className="ag-chart-head">
-              <h3>FVS pendentes por pavimento</h3>
-              <small>onde concentrar a equipe de qualidade para fechar as fichas</small>
             </div>
-            {dados ? (
-              <ResponsiveContainer width="100%" height={230}>
-                <BarChart data={dados.topPav} margin={{ top: 12, right: 10, bottom: 0, left: -20 }}
-                          barCategoryGap={6}>
-                  <XAxis dataKey="label" tickLine={false} axisLine={false}
-                         tick={{ fontSize: 11, fill: 'var(--muted)' }} />
-                  <YAxis tickLine={false} axisLine={false} allowDecimals={false}
-                         tick={{ fontSize: 10.5, fill: 'var(--faint)' }} />
-                  <Tooltip cursor={{ fill: 'var(--surface-2)' }}
-                           content={({ active, payload }) => active && payload?.length ? (
-                             <div className="ag-tip"><b>{payload[0].payload.nome}</b>
-                               <span>{payload[0].value} FVS pendentes</span></div>) : null} />
-                  <Bar dataKey="qtd" fill="var(--ok)" radius={[4, 4, 0, 0]} cursor="pointer"
-                       onClick={(d) => { const n = (d as { nome?: string })?.nome; if (n) setFloorSel(n) }}>
-                    <LabelList dataKey="qtd" position="top"
-                               style={{ fill: 'var(--muted)', fontSize: 10.5, fontWeight: 600 }} />
+
+            <div className="panel ag-chart">
+              <div className="ag-chart-head"><h3>Por disciplina</h3>
+                <small>qual trade está mais {aba === 'obra' ? 'atrasado' : 'pendente'} — clique para filtrar</small></div>
+              <ResponsiveContainer width="100%" height={Math.max(150, agg.topDisc.length * 30)}>
+                <BarChart data={agg.topDisc} layout="vertical" margin={{ top: 2, right: 34, bottom: 0, left: 6 }} barCategoryGap={7}>
+                  <XAxis type="number" hide />
+                  <YAxis type="category" dataKey="nome" width={70} tickLine={false} axisLine={false}
+                         tick={{ fontSize: 11.5, fill: 'var(--ink-2)' }} />
+                  <Tooltip cursor={{ fill: 'var(--surface-2)' }} content={({ active, payload }) => active && payload?.length ? (
+                    <div className="ag-tip"><b>{payload[0].payload.nome}</b><span>{payload[0].value} pendências</span></div>) : null} />
+                  <Bar dataKey="count" fill={aba === 'obra' ? 'var(--accent)' : 'var(--ok)'} radius={[0, 4, 4, 0]} cursor="pointer"
+                       onClick={(d) => { const n = (d as { nome?: string })?.nome; if (n) setDiscSel(n) }}>
+                    <LabelList dataKey="count" position="right" style={{ fill: 'var(--ink-2)', fontSize: 11, fontWeight: 700 }} />
                   </Bar>
                 </BarChart>
               </ResponsiveContainer>
-            ) : <div className="skel" style={{ height: 230 }} />}
-          </>
-        )}
-      </div>
+            </div>
+          </div>
+
+          {/* perfil da obra por pavimento */}
+          <div className="panel ag-chart ag-chart-full">
+            <div className="ag-chart-head"><h3>Perfil da obra por pavimento</h3>
+              <small>onde no prédio estão as pendências — clique num pavimento</small></div>
+            <ResponsiveContainer width="100%" height={200}>
+              <BarChart data={agg.porPav} margin={{ top: 12, right: 8, bottom: 0, left: -22 }} barCategoryGap={3}>
+                <XAxis dataKey="label" tickLine={false} axisLine={false} interval={0}
+                       tick={{ fontSize: 9.5, fill: 'var(--muted)' }} />
+                <YAxis tickLine={false} axisLine={false} allowDecimals={false} tick={{ fontSize: 10, fill: 'var(--faint)' }} />
+                <Tooltip cursor={{ fill: 'var(--surface-2)' }} content={({ active, payload }) => active && payload?.length ? (
+                  <div className="ag-tip"><b>{payload[0].payload.nome}</b><span>{payload[0].value} pendências</span></div>) : null} />
+                <Bar dataKey="count" fill={aba === 'obra' ? 'var(--accent)' : 'var(--ok)'} radius={[3, 3, 0, 0]} cursor="pointer"
+                     onClick={(d) => { const n = (d as { nome?: string })?.nome; if (n) setFloorSel(n) }}>
+                  <LabelList dataKey="count" position="top" style={{ fill: 'var(--muted)', fontSize: 9.5, fontWeight: 600 }} />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </>
+      )}
 
       {/* barra de ações: filtro ativo + exportar */}
       <div className="ag-actions">
         <div className="ag-actions-l">
+          {discSel && (
+            <button className="ag-clear" onClick={() => setDiscSel(null)}>
+              disciplina: {discSel} <span>×</span>
+            </button>
+          )}
           {floorSel && (
             <button className="ag-clear" onClick={() => setFloorSel(null)}>
               {pavCurto(floorSel)} — {floorSel} <span>×</span>
