@@ -626,3 +626,23 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .ag-legend span{display:inline-flex;align-items:center;gap:6px;}
 .ag-legend i{width:9px;height:9px;border-radius:3px;flex:none;}
 @media (max-width:900px){ .ag-charts{grid-template-columns:1fr;} .ag-kpis{grid-template-columns:repeat(2,1fr);} }
+
+/* Agente — abas (obra × FVS) */
+.ag-tabs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;}
+.ag-tab{display:flex;align-items:center;gap:14px;text-align:left;background:var(--surface);
+  border:1px solid var(--hairline);border-radius:var(--radius);padding:15px 18px;cursor:pointer;
+  transition:border-color .15s,box-shadow .15s,transform .12s;}
+.ag-tab:hover{transform:translateY(-1px);}
+.ag-tab.on{box-shadow:var(--shadow);}
+.ag-tab.on.obra{border-color:var(--accent);}
+.ag-tab.on.fvs{border-color:var(--ok);}
+.ag-tab-n{font-size:30px;font-weight:700;line-height:1;color:var(--faint);flex:none;min-width:42px;
+  font-variant-numeric:tabular-nums;}
+.ag-tab.on.obra .ag-tab-n{color:var(--accent-ink);}
+.ag-tab.on.fvs .ag-tab-n{color:var(--ok);}
+.ag-tab-txt{display:flex;flex-direction:column;gap:2px;}
+.ag-tab-t{font-size:14.5px;font-weight:600;color:var(--ink);}
+.ag-tab-d{font-size:11.5px;color:var(--faint);}
+.ag-chart-full{padding:16px 18px 14px;margin-bottom:14px;}
+.ag-bar span.ok{background:var(--ok);}
+@media (max-width:640px){ .ag-tabs{grid-template-columns:1fr;} }
