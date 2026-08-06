@@ -594,3 +594,14 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .brand{justify-content:center;padding:6px 6px 14px;}
 .brand-logo{width:100%;max-width:176px;border-radius:14px;display:block;
   box-shadow:0 4px 18px rgba(0,0,0,.35);}
+
+/* Marca R21 discreta no rodapé da barra lateral */
+.foot{display:flex;justify-content:center;padding:12px 0 4px;margin-top:4px;
+  border-top:1px solid var(--hairline);}
+.foot-logo{height:19px;width:auto;opacity:.5;transition:opacity .15s;}
+.foot-logo:hover{opacity:.8;}
+/* No modo escuro o "R21" é escuro — clareia mantendo o vermelho */
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .foot-logo{filter:invert(1) hue-rotate(180deg);}
+}
+:root[data-theme="dark"] .foot-logo{filter:invert(1) hue-rotate(180deg);}

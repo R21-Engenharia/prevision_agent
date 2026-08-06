@@ -114,6 +114,9 @@ export function Shell({
             </button>
           )}
         </div>
+        <div className="foot">
+          <img className="foot-logo" src="/r21.png" alt="R21" />
+        </div>
       </aside>
 
       <main>
