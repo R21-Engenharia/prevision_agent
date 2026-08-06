@@ -1,0 +1,40 @@
+name: Agente — gerar pendências
+
+# Coleta o grafo de dependências do Prevision e (re)gera as Pendências
+# Inteligentes no Supabase. Roda sozinho todo dia e pode ser disparado à mão.
+on:
+  schedule:
+    # 09:30 UTC = 06:30 BRT — depois do Prevision (09:00) e do InMeta (09:20)
+    - cron: "30 9 * * 1-5"
+  workflow_dispatch:
+
+jobs:
+  pendencias:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Instalar dependências
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Coletar grafo de dependências (Prevision)
+        env:
+          PREVISION_TOKEN: ${{ secrets.PREVISION_TOKEN }}
+        run: python scripts/collect_dependencies.py
+
+      - name: Gerar/atualizar Pendências Inteligentes (Supabase)
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
+        run: python scripts/gerar_pendencias.py
