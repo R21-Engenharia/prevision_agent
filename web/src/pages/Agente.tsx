@@ -89,11 +89,12 @@ export function Agente({ obra }: Props) {
             <button key={p.id} className={sel?.id === p.id ? 'ag-item sel' : 'ag-item'}
                     onClick={() => abrir(p.id)}>
               <div className="ag-item-top">
-                <span className="ag-wbs">{p.wbs_code}</span>
+                <span className="ag-servico">{p.servico || p.wbs_code}</span>
                 <span className="ag-cat" style={{ color: CAT_COR[p.categoria] }}>
                   {CATEGORIA_LABEL[p.categoria]}
                 </span>
               </div>
+              <div className="ag-item-wbs">{p.wbs_code}{p.pavimento && ` · ${p.pavimento}º pav`}</div>
               <div className="ag-item-mid">
                 {p.pct_real != null && (
                   <span className="ag-pct">{p.pct_real.toFixed(0)}%
@@ -140,8 +141,10 @@ function Detalhe({ p, obra, onResponder }: {
     <div className="ag-conv">
       <div className="ag-conv-head">
         <div>
-          <h3>{p.wbs_code} · {CATEGORIA_LABEL[p.categoria]}</h3>
+          <h3>{p.servico || p.wbs_code}</h3>
           <div className="ag-conv-sub">
+            {p.wbs_code} · {CATEGORIA_LABEL[p.categoria]}
+            {p.pavimento && ` · ${p.pavimento}º pav`}<br />
             {p.pct_real != null && `${p.pct_real.toFixed(0)}% de ${(p.pct_esperado ?? 0).toFixed(0)}% esperado`}
             {p.impacto > 0 && ` · trava ${p.impacto} serviço(s)`}
             {pred && ` · aguardando ${pred}`}

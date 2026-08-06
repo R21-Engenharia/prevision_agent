@@ -44,6 +44,7 @@ FLOOR_Q = ('{ me(id:479){ project(id:%d){ floorsPage(first:1%s){ '
 ACT_Q = ('{ me(id:479){ project(id:%d){ floorsPage(first:1%s){ edges{ node{ '
          'activitiesPage(first:10%s){ pageInfo{hasNextPage endCursor} edges{ node{ '
          'id wbsCode percentageCompleted expectedPercentageCompleted startAt '
+         'service{ name } '
          'predecessorsPage(first:8){ edges{ node{ timeOperation delay predecessor{ id }}}}'
          '}}}}}}}}}')
 
@@ -86,7 +87,8 @@ def coletar(pid: int) -> None:
             for e in ap["edges"]:
                 a = e["node"]; aid = a["id"]
                 acts[aid] = {"wbs": a["wbsCode"], "pct": a.get("percentageCompleted"),
-                             "exp": a.get("expectedPercentageCompleted"), "start": a.get("startAt")}
+                             "exp": a.get("expectedPercentageCompleted"), "start": a.get("startAt"),
+                             "servico": (a.get("service") or {}).get("name", "")}
                 es = [(p["node"]["predecessor"]["id"], p["node"]["timeOperation"], p["node"]["delay"])
                       for p in a["predecessorsPage"]["edges"] if p["node"].get("predecessor")]
                 if es:

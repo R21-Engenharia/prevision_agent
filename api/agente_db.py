@@ -57,7 +57,7 @@ async def _patch(path: str, params: dict, body: dict) -> None:
 
 async def listar(obra: str, status: str | None, categoria: str | None) -> list[dict]:
     p = {"obra": f"eq.{obra}", "order": "severidade.desc,impacto.desc",
-         "select": "id,wbs_code,categoria,severidade,impacto,pct_real,pct_esperado,"
+         "select": "id,wbs_code,servico,categoria,severidade,impacto,pct_real,pct_esperado,"
                    "status,pavimento,causa_raiz,responsavel_nome,detectada_em"}
     if status:
         p["status"] = f"eq.{status}"

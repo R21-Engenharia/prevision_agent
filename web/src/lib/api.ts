@@ -375,6 +375,7 @@ export type CategoriaPendencia =
 export interface Pendencia {
   id: number
   wbs_code: string
+  servico: string
   categoria: CategoriaPendencia
   severidade: number
   impacto: number

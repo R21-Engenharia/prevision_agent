@@ -127,7 +127,7 @@ def analisar(dados: dict, obra: str, regras: dict | None = None) -> list[Pendenc
             severidade=r.get("atraso_proprio", {}).get("severidade", 5),
             pct_real=_num(a.get("pct")), pct_esperado=_num(a.get("exp")),
             impacto=raio_impacto(aid),
-            servico="", pavimento=_pavimento_de(wbs),
+            servico=a.get("servico", ""), pavimento=_pavimento_de(wbs),
             causa_raiz={"frente_liberada": True},
         ))
 
@@ -140,7 +140,7 @@ def analisar(dados: dict, obra: str, regras: dict | None = None) -> list[Pendenc
             categoria="fora_sequencia",
             severidade=r.get("fora_sequencia", {}).get("severidade", 4),
             pct_real=real, pct_esperado=_num(a.get("exp")),
-            impacto=0, servico="", pavimento=_pavimento_de(wbs),
+            impacto=0, servico=a.get("servico", ""), pavimento=_pavimento_de(wbs),
             causa_raiz={"predecessor_wbs": pred_wbs, "pred_pct": pred_pct},
         ))
 
