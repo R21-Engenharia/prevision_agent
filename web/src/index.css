@@ -589,3 +589,8 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .ag-tag-fvs{display:inline-block;margin-top:6px;font-size:10.5px;font-weight:600;color:var(--ok);
   background:var(--ok-soft);border-radius:6px;padding:1px 7px;}
 .ag-jobs{margin-top:5px;font-size:11px;color:var(--faint);line-height:1.35;}
+
+/* Logo R21 na barra lateral */
+.brand{justify-content:center;padding:6px 6px 14px;}
+.brand-logo{width:100%;max-width:176px;border-radius:14px;display:block;
+  box-shadow:0 4px 18px rgba(0,0,0,.35);}

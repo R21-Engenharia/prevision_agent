@@ -68,11 +68,7 @@ export function Shell({
     <div className="app">
       <aside className="rail">
         <div className="brand">
-          <div className="mark">R</div>
-          <div className="wm">
-            FVS Dashboard
-            <small>r21.eng / qualidade</small>
-          </div>
+          <img className="brand-logo" src="/logo.png" alt="R21 — Agente do Planejamento" />
         </div>
 
         <div className="cmd">
