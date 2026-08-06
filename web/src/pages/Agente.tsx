@@ -15,6 +15,12 @@ const curto = (s: string) => {
   return (p.length > 1 ? p[1] : p[0]).trim()
 }
 
+/** Rótulo curto do pavimento: "20º PV - TIPO" → "20º". */
+const pavCurto = (n: string) => {
+  const m = n.match(/^\d+\s*º/)
+  return m ? m[0].replace(/\s/g, '') : n.split(/[-|]/)[0].trim()
+}
+
 interface Grupo { servico: string; itens: Pendencia[]; maxImpacto: number }
 
 /** Agrupa as pendências por pacote (serviço); dentro, ordena por pavimento. */
@@ -48,6 +54,7 @@ type Aba = 'obra' | 'fvs'
 export function Agente({ obra }: Props) {
   const [lista, setLista] = useState<Pendencia[] | null>(null)
   const [aba, setAba] = useState<Aba>('obra')
+  const [floorSel, setFloorSel] = useState<string | null>(null)
   const [sel, setSel] = useState<PendenciaDetalhe | null>(null)
   const [expandido, setExpandido] = useState<Set<string>>(new Set())
   const [erro, setErro] = useState<string | null>(null)
@@ -101,14 +108,18 @@ export function Agente({ obra }: Props) {
       pav.set(k, (pav.get(k) ?? 0) + 1)
     }
     const topPav = [...pav.entries()]
-      .map(([nome, qtd]) => ({ nome, label: `${nome}º`, qtd }))
-      .sort((a, b) => b.qtd - a.qtd).slice(0, 10)
+      .map(([nome, qtd]) => ({ nome, label: pavCurto(nome), qtd }))
+      .sort((a, b) => b.qtd - a.qtd).slice(0, 12)
 
     const travados = obra.reduce((s, p) => s + p.impacto, 0)
     return { obra, fvs, topPkg, topPav, travados, pacotesFvs: new Set(fvs.map(p => p.servico)).size }
   }, [lista])
 
   const ativa = aba === 'obra' ? dados?.obra : dados?.fvs
+  const visivel = floorSel && ativa ? ativa.filter((p) => p.pavimento === floorSel) : ativa
+
+  // trocar de aba limpa o filtro de pavimento
+  useEffect(() => { setFloorSel(null) }, [aba])
 
   /** Clique numa barra do gráfico → expande o pacote na lista. */
   const focarPacote = (nome: string) => {
@@ -190,9 +201,10 @@ export function Agente({ obra }: Props) {
                          tick={{ fontSize: 10.5, fill: 'var(--faint)' }} />
                   <Tooltip cursor={{ fill: 'var(--surface-2)' }}
                            content={({ active, payload }) => active && payload?.length ? (
-                             <div className="ag-tip"><b>{payload[0].payload.nome}º pavimento</b>
+                             <div className="ag-tip"><b>{payload[0].payload.nome}</b>
                                <span>{payload[0].value} FVS pendentes</span></div>) : null} />
-                  <Bar dataKey="qtd" fill="var(--ok)" radius={[4, 4, 0, 0]}>
+                  <Bar dataKey="qtd" fill="var(--ok)" radius={[4, 4, 0, 0]} cursor="pointer"
+                       onClick={(d) => { const n = (d as { nome?: string })?.nome; if (n) setFloorSel(n) }}>
                     <LabelList dataKey="qtd" position="top"
                                style={{ fill: 'var(--muted)', fontSize: 10.5, fontWeight: 600 }} />
                   </Bar>
@@ -203,16 +215,35 @@ export function Agente({ obra }: Props) {
         )}
       </div>
 
+      {/* barra de ações: filtro ativo + exportar */}
+      <div className="ag-actions">
+        <div className="ag-actions-l">
+          {floorSel && (
+            <button className="ag-clear" onClick={() => setFloorSel(null)}>
+              {pavCurto(floorSel)} — {floorSel} <span>×</span>
+            </button>
+          )}
+        </div>
+        <button className="btn ag-export"
+                onClick={() => { void api.exportarPendencias(obra, aba, floorSel).catch((e) => setErro((e as Error).message)) }}>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+          </svg>
+          Exportar relatório
+        </button>
+      </div>
+
       <div className="ag-grid" id="ag-lista-top">
         {/* lista agrupada por pacote */}
         <div className="panel ag-lista">
-          {!ativa && <div className="skel" style={{ height: 240 }} />}
-          {ativa?.length === 0 && (
+          {!visivel && <div className="skel" style={{ height: 240 }} />}
+          {visivel?.length === 0 && (
             <div className="empty">
-              {aba === 'obra' ? 'Nenhum atraso de obra. 🎉' : 'Nenhuma FVS pendente. 🎉'}
+              {floorSel ? 'Nada neste pavimento.'
+                : aba === 'obra' ? 'Nenhum atraso de obra. 🎉' : 'Nenhuma FVS pendente. 🎉'}
             </div>
           )}
-          {ativa && agrupar(ativa).map((g) => {
+          {visivel && agrupar(visivel).map((g) => {
             const aberto = expandido.has(g.servico)
             return (
               <div key={g.servico} className="ag-pkg">
@@ -232,9 +263,7 @@ export function Agente({ obra }: Props) {
                                 className={sel?.id === p.id ? 'ag-flr sel' : 'ag-flr'}
                                 onClick={() => abrir(p.id)}>
                           <div className="ag-flr-top">
-                            <span className="ag-flr-pav">
-                              {p.pavimento ? `${p.pavimento}º pav` : p.wbs_code}
-                            </span>
+                            <span className="ag-flr-pav">{p.pavimento || p.wbs_code}</span>
                             <span className="ag-flr-pct">{(p.pct_real ?? 0).toFixed(0)}%</span>
                           </div>
                           <div className="ag-bar">
@@ -294,7 +323,7 @@ function Detalhe({ p, obra, onResponder }: {
           <h3>{p.servico || p.wbs_code}</h3>
           <div className="ag-conv-sub">
             {p.wbs_code} · {CATEGORIA_LABEL[p.categoria]}
-            {p.pavimento && ` · ${p.pavimento}º pav`}<br />
+            {p.pavimento && ` · ${p.pavimento}`}<br />
             {p.pct_real != null && `${p.pct_real.toFixed(0)}% de ${(p.pct_esperado ?? 0).toFixed(0)}% esperado`}
             {p.impacto > 0 && ` · trava ${p.impacto} serviço(s)`}
             {pred && ` · aguardando ${pred}`}

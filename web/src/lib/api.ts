@@ -420,6 +420,11 @@ export const CATEGORIA_LABEL: Record<CategoriaPendencia, string> = {
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
   refresh: postRefresh,
+  exportarPendencias: (obra: string, tipo: 'obra' | 'fvs', pavimento?: string | null) => {
+    const p = new URLSearchParams({ obra, tipo })
+    if (pavimento) p.set('pavimento', pavimento)
+    return baixar(`/api/export/pendencias?${p.toString()}`, `agente_${tipo}.xlsx`)
+  },
   agenteDashboard: (obra: string) =>
     get<AgenteDashboard>(`/api/agente/dashboard?obra=${encodeURIComponent(obra)}`),
   pendencias: (obra: string, status?: string, categoria?: string) => {

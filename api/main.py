@@ -24,6 +24,7 @@ if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
 import datetime
+import io
 import os
 import unicodedata
 from urllib.parse import quote
@@ -272,6 +273,31 @@ async def obter_pendencia(
 ):
     _check_obra(obra)
     return await agente_db.detalhe(pendencia_id, obra)
+
+
+@app.get("/api/export/pendencias")
+async def export_pendencias(
+    obra: str = Query(...),
+    tipo: str = Query(default="obra"),          # obra | fvs
+    pavimento: str = Query(default=None),
+    _u: str = Depends(usuario_atual),
+):
+    _check_obra(obra)
+    from api.report_agente import build_pendencias_report
+    rows = await agente_db.listar(obra, None, None)
+    quer_fvs = tipo == "fvs"
+    filtradas = [
+        r for r in rows
+        if bool((r.get("causa_raiz") or {}).get("provavel_so_fvs")) == quer_fvs
+        and (not pavimento or r.get("pavimento") == pavimento)
+    ]
+    xlsx = build_pendencias_report(obra, tipo, filtradas)
+    nome = f"agente_{tipo}_{obra.split()[0].lower()}.xlsx"
+    return StreamingResponse(
+        io.BytesIO(xlsx),
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": f'attachment; filename="{nome}"'},
+    )
 
 
 @app.post("/api/pendencias/{pendencia_id}/responder")

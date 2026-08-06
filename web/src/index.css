@@ -646,3 +646,14 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .ag-chart-full{padding:16px 18px 14px;margin-bottom:14px;}
 .ag-bar span.ok{background:var(--ok);}
 @media (max-width:640px){ .ag-tabs{grid-template-columns:1fr;} }
+
+/* Agente — barra de ações (filtro + exportar) */
+.ag-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;min-height:34px;}
+.ag-actions-l{display:flex;gap:8px;flex-wrap:wrap;}
+.ag-clear{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;
+  background:var(--accent-soft);color:var(--accent-ink);border:1px solid transparent;
+  border-radius:999px;padding:5px 12px;cursor:pointer;}
+.ag-clear span{font-size:14px;opacity:.7;}
+.ag-clear:hover span{opacity:1;}
+.ag-export{background:var(--surface);border:1px solid var(--hairline-2);color:var(--ink);gap:8px;box-shadow:var(--shadow-sm);}
+.ag-export:hover{border-color:var(--muted);}

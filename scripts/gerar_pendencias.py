@@ -39,6 +39,19 @@ def _carregar_grafo(pid: int) -> dict | None:
     return json.loads(caminho.read_text(encoding="utf-8"))
 
 
+def _mapa_pavimento(pid: int) -> dict[str, str]:
+    """
+    activity_id -> nome REAL do pavimento (_floor_name), do cache de atividades.
+    O prefixo do WBS ("38.90") é a _floor_position (índice interno), não o andar.
+    """
+    caminho = _ROOT / "data" / "raw" / f"{pid}_activities_raw.json"
+    if not caminho.exists():
+        return {}
+    dados = json.loads(caminho.read_text(encoding="utf-8"))
+    return {a["id"]: a.get("_floor_name", "").strip()
+            for a in dados.get("activities_list", []) if a.get("_floor_name")}
+
+
 def _mapa_jobs(pid: int) -> dict[str, list]:
     """activity_id -> [jobs pendentes {name, pct}], do cache jobs_raw."""
     caminho = _ROOT / "data" / "raw" / f"{pid}_jobs_raw.json"
@@ -69,9 +82,13 @@ def gerar(obra: str) -> list:
         return []
     pend = analisar(dados, obra)
 
-    # Enriquecer: qual serviço específico (job) falta, e se é provável só FVS.
+    # Enriquecer: pavimento REAL, serviço específico (job) e flag "só FVS".
     jobs = _mapa_jobs(pid)
+    pav = _mapa_pavimento(pid)
     for p in pend:
+        nome_pav = pav.get(p.activity_id)
+        if nome_pav:
+            p.pavimento = nome_pav
         p.causa_raiz["jobs_pendentes"] = jobs.get(p.activity_id, [])
         p.causa_raiz["provavel_so_fvs"] = p.pct_real >= LIMIAR_PROVAVEL_FVS
     return pend
