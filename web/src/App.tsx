@@ -12,6 +12,7 @@ import { Login } from './pages/Login'
 // abre uma tela com grafico. Backlog e Pendentes, as mais usadas no dia a dia,
 // nem chegam a baixar essa parte.
 const VisaoGeral = lazy(() => import('./pages/VisaoGeral').then((m) => ({ default: m.VisaoGeral })))
+const Agente     = lazy(() => import('./pages/Agente').then((m) => ({ default: m.Agente })))
 const Backlog    = lazy(() => import('./pages/Backlog').then((m) => ({ default: m.Backlog })))
 const Pendentes  = lazy(() => import('./pages/Pendentes').then((m) => ({ default: m.Pendentes })))
 const Auditoria  = lazy(() => import('./pages/Auditoria').then((m) => ({ default: m.Auditoria })))
@@ -191,6 +192,7 @@ export default function App() {
         </div>
       )
     }
+    if (page === 'agente') return <Agente obra={obra} />
     if (page === 'visao-geral') return overview ? <VisaoGeral data={overview} /> : esqueleto
     if (page === 'backlog') return backlog ? <Backlog data={backlog} /> : esqueleto
     if (page === 'pendentes') return backlog ? <Pendentes data={backlog} /> : esqueleto

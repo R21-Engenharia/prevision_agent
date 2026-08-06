@@ -366,9 +366,82 @@ async function postRefresh(fonte: FonteRefresh): Promise<RespostaRefresh> {
   return res.json() as Promise<RespostaRefresh>
 }
 
+// ── Agente Inteligente ───────────────────────────────────────────────────────
+
+export type CategoriaPendencia =
+  | 'atraso_proprio' | 'atraso_herdado' | 'fora_sequencia'
+  | 'parada' | 'nc_critica' | 'aging'
+
+export interface Pendencia {
+  id: number
+  wbs_code: string
+  categoria: CategoriaPendencia
+  severidade: number
+  impacto: number
+  pct_real: number | null
+  pct_esperado: number | null
+  status: string
+  pavimento: string
+  causa_raiz: Record<string, unknown>
+  responsavel_nome: string
+  detectada_em: string
+}
+
+export interface PendenciaDetalhe extends Pendencia {
+  perguntas: Array<{ id: number; texto: string; ordem: number; origem: string }>
+  respostas: Array<{
+    id: number; pergunta_id: number | null; usuario_nome: string
+    texto: string; respondida_em: string
+  }>
+  historico: Array<{
+    evento: string; detalhe: Record<string, unknown>
+    usuario_email: string; ocorrido_em: string
+  }>
+}
+
+export interface AgenteDashboard {
+  obra: string
+  abertas: number
+  criticas: number
+  impacto_total: number
+  por_categoria: Record<string, number>
+}
+
+export const CATEGORIA_LABEL: Record<CategoriaPendencia, string> = {
+  atraso_proprio: 'Atraso próprio',
+  atraso_herdado: 'Atraso herdado',
+  fora_sequencia: 'Fora de sequência',
+  parada: 'Parado',
+  nc_critica: 'NC crítica',
+  aging: 'Envelhecida',
+}
+
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
   refresh: postRefresh,
+  agenteDashboard: (obra: string) =>
+    get<AgenteDashboard>(`/api/agente/dashboard?obra=${encodeURIComponent(obra)}`),
+  pendencias: (obra: string, status?: string, categoria?: string) => {
+    const p = new URLSearchParams({ obra })
+    if (status) p.set('status', status)
+    if (categoria) p.set('categoria', categoria)
+    return get<{ obra: string; pendencias: Pendencia[] }>(`/api/pendencias?${p.toString()}`)
+  },
+  pendencia: (id: number, obra: string) =>
+    get<PendenciaDetalhe>(`/api/pendencias/${id}?obra=${encodeURIComponent(obra)}`),
+  responder: async (id: number, obra: string, texto: string, perguntaId?: number) => {
+    const res = await fetch(`/api/pendencias/${id}/responder?obra=${encodeURIComponent(obra)}`, {
+      method: 'POST',
+      headers: { ...(await cabecalhos()), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ texto, pergunta_id: perguntaId ?? null }),
+    })
+    if (!res.ok) {
+      let d = `HTTP ${res.status}`
+      try { const b = await res.json(); if (b?.detail) d = b.detail } catch { /* */ }
+      throw new Error(d)
+    }
+    return res.json()
+  },
   overview: (obra: string) =>
     get<Overview>(`/api/overview?obra=${encodeURIComponent(obra)}`),
   backlog: (obra: string) =>

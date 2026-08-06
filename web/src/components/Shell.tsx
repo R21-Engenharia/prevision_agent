@@ -4,6 +4,7 @@ import { AtualizarMenu } from './AtualizarMenu'
 
 const PAGES = [
   { id: 'visao-geral', label: 'Visão geral', group: 'Operação', icon: 'grid' },
+  { id: 'agente', label: 'Agente Inteligente', group: 'Operação', icon: 'spark' },
   { id: 'backlog', label: 'Backlog FVS', group: 'Operação', icon: 'list' },
   { id: 'pendentes', label: 'Pendentes', group: 'Operação', icon: 'clock' },
   { id: 'exportar', label: 'Exportar', group: 'Operação', icon: 'down' },
@@ -20,6 +21,7 @@ const PATHS: Record<string, string> = {
   bars: 'M4 19V5m4 14v-8m4 8V9m4 10V7m4 12V11',
   trend: 'M3 15l4-4 3 3 7-7M21 7v4h-4',
   home: 'M4 21V8l8-5 8 5v13M9 21v-6h6v6',
+  spark: 'M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z',
 }
 
 function Icon({ name }: { name: string }) {

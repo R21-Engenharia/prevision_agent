@@ -29,7 +29,7 @@ import unicodedata
 from urllib.parse import quote
 
 import httpx
-from fastapi import Depends, FastAPI, HTTPException, Query
+from fastapi import Body, Depends, FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 
@@ -41,6 +41,7 @@ from fvs_dashboard.core.audit_engine import (
 from api.report import build_backlog_report
 from api.report_tempo import build_tempo_report
 from api.auth import usuario_atual, usuario_admin, descrever_modo
+from api import agente_db
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
@@ -244,6 +245,48 @@ async def refresh(fonte: str, _usuario: str = Depends(usuario_admin)):
             f"{_ETA_MIN.get(fonte, 30)} minutos."
         ),
     }
+
+
+# ── Agente Inteligente de Priorização ─────────────────────────────────────────
+
+@app.get("/api/agente/dashboard")
+async def agente_dashboard(obra: str = Query(...), _u: str = Depends(usuario_atual)):
+    _check_obra(obra)
+    return await agente_db.dashboard(obra)
+
+
+@app.get("/api/pendencias")
+async def listar_pendencias(
+    obra: str = Query(...),
+    status: str = Query(default=None),
+    categoria: str = Query(default=None),
+    _u: str = Depends(usuario_atual),
+):
+    _check_obra(obra)
+    return {"obra": obra, "pendencias": await agente_db.listar(obra, status, categoria)}
+
+
+@app.get("/api/pendencias/{pendencia_id}")
+async def obter_pendencia(
+    pendencia_id: int, obra: str = Query(...), _u: str = Depends(usuario_atual),
+):
+    _check_obra(obra)
+    return await agente_db.detalhe(pendencia_id, obra)
+
+
+@app.post("/api/pendencias/{pendencia_id}/responder")
+async def responder_pendencia(
+    pendencia_id: int,
+    obra: str = Query(...),
+    texto: str = Body(..., embed=True),
+    pergunta_id: int | None = Body(default=None, embed=True),
+    email: str = Depends(usuario_atual),
+):
+    _check_obra(obra)
+    if not texto.strip():
+        raise HTTPException(400, "Resposta vazia.")
+    nome = email.split("@", 1)[0]
+    return await agente_db.responder(pendencia_id, obra, email, nome, texto.strip(), pergunta_id)
 
 
 # ── Serie de evolucao ─────────────────────────────────────────────────────────
