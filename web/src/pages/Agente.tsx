@@ -1,4 +1,7 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import {
+  Bar, BarChart, Cell, LabelList, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis,
+} from 'recharts'
 import {
   api, CATEGORIA_LABEL,
   type AgenteDashboard, type CategoriaPendencia,
@@ -6,6 +9,12 @@ import {
 } from '../lib/api'
 
 interface Props { obra: string }
+
+/** Nome curto do pacote para o eixo: tira o prefixo "ALV | ". */
+const curto = (s: string) => {
+  const p = s.split('|')
+  return (p.length > 1 ? p[1] : p[0]).trim()
+}
 
 interface Grupo { servico: string; itens: Pendencia[]; maxImpacto: number }
 
@@ -67,6 +76,34 @@ export function Agente({ obra }: Props) {
     try { setSel(await api.pendencia(id, obra)) } catch (e) { setErro((e as Error).message) }
   }
 
+  // Agregações para a dash — calculadas da própria lista, sem chamada extra.
+  const analise = useMemo(() => {
+    if (!lista) return null
+    const pkg = new Map<string, { nome: string; impacto: number; pav: number }>()
+    let obra = 0, soFvs = 0
+    for (const p of lista) {
+      const k = p.servico || p.wbs_code
+      const cur = pkg.get(k) ?? { nome: k, impacto: 0, pav: 0 }
+      cur.impacto += p.impacto
+      cur.pav += 1
+      pkg.set(k, cur)
+      const cr = p.causa_raiz as { provavel_so_fvs?: boolean }
+      if (cr?.provavel_so_fvs) soFvs++; else obra++
+    }
+    const topPkg = [...pkg.values()]
+      .map((v) => ({ ...v, label: curto(v.nome) }))
+      .sort((a, b) => b.impacto - a.impacto)
+      .slice(0, 7)
+    return { topPkg, obra, soFvs, total: obra + soFvs }
+  }, [lista])
+
+  /** Clique numa barra do gráfico → expande o pacote na lista. */
+  const focarPacote = (nome: string) => {
+    setExpandido((s) => new Set(s).add(nome))
+    setCat('')
+    document.getElementById('ag-lista-top')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   if (erro) {
     return (
       <div className="errbox">
@@ -79,13 +116,83 @@ export function Agente({ obra }: Props) {
   return (
     <div className="ag">
       {/* KPIs */}
-      <div className="kpis">
+      <div className="kpis ag-kpis">
         <div className="kpi"><div className="lbl">Pendências abertas</div>
           <div className="val">{dash?.abertas ?? '—'}</div></div>
         <div className="kpi"><div className="lbl"><span className="tag red" />Críticas</div>
           <div className="val" style={{ color: 'var(--accent-ink)' }}>{dash?.criticas ?? '—'}</div></div>
-        <div className="kpi"><div className="lbl">Serviços travados (impacto)</div>
+        <div className="kpi"><div className="lbl">Serviços travados</div>
           <div className="val">{dash?.impacto_total ?? '—'}</div></div>
+        <div className="kpi"><div className="lbl">Provável só FVS</div>
+          <div className="val" style={{ color: 'var(--ok)' }}>{analise?.soFvs ?? '—'}</div></div>
+      </div>
+
+      {/* dashboard */}
+      <div className="ag-charts">
+        {/* ranking de impacto */}
+        <div className="panel ag-chart">
+          <div className="ag-chart-head">
+            <h3>Onde atacar primeiro</h3>
+            <small>pacotes que mais travam a obra — clique para abrir</small>
+          </div>
+          {analise ? (
+            <ResponsiveContainer width="100%" height={232}>
+              <BarChart data={analise.topPkg} layout="vertical"
+                        margin={{ top: 4, right: 36, bottom: 0, left: 6 }} barCategoryGap={7}>
+                <XAxis type="number" hide />
+                <YAxis type="category" dataKey="label" width={116} tickLine={false} axisLine={false}
+                       tick={{ fontSize: 11, fill: 'var(--muted)' }} />
+                <Tooltip cursor={{ fill: 'var(--surface-2)' }}
+                         content={({ active, payload }) => active && payload?.length ? (
+                           <div className="ag-tip">
+                             <b>{payload[0].payload.nome}</b>
+                             <span>trava {payload[0].value} serviços · {payload[0].payload.pav} pav</span>
+                           </div>) : null} />
+                <Bar dataKey="impacto" fill="var(--accent)" radius={[0, 4, 4, 0]} cursor="pointer"
+                     onClick={(d) => { const n = (d as { nome?: string })?.nome; if (n) focarPacote(n) }}>
+                  <LabelList dataKey="impacto" position="right"
+                             style={{ fill: 'var(--ink-2)', fontSize: 11, fontWeight: 600 }} />
+                </Bar>
+              </BarChart>
+            </ResponsiveContainer>
+          ) : <div className="skel" style={{ height: 232 }} />}
+        </div>
+
+        {/* atraso real × só FVS */}
+        <div className="panel ag-chart">
+          <div className="ag-chart-head">
+            <h3>Atraso real × só FVS</h3>
+            <small>quanto do "atraso" é só ficha pendente</small>
+          </div>
+          {analise ? (
+            <div className="ag-donut-wrap">
+              <ResponsiveContainer width="100%" height={200}>
+                <PieChart>
+                  <Pie data={[
+                    { name: 'Atraso de obra', value: analise.obra, cor: 'var(--accent)' },
+                    { name: 'Provável só FVS', value: analise.soFvs, cor: 'var(--ok)' },
+                  ]} dataKey="value" nameKey="name" innerRadius={60} outerRadius={84}
+                     paddingAngle={2} stroke="none">
+                    <Cell fill="var(--accent)" /><Cell fill="var(--ok)" />
+                  </Pie>
+                  <Tooltip content={({ active, payload }) => active && payload?.length ? (
+                    <div className="ag-tip"><b>{payload[0].name}</b>
+                      <span>{payload[0].value} pendências</span></div>) : null} />
+                </PieChart>
+              </ResponsiveContainer>
+              <div className="ag-donut-center">
+                <div className="ag-donut-pct">
+                  {analise.total ? Math.round((analise.soFvs / analise.total) * 100) : 0}%
+                </div>
+                <div className="ag-donut-sub">provável só FVS</div>
+              </div>
+            </div>
+          ) : <div className="skel" style={{ height: 200 }} />}
+          <div className="ag-legend">
+            <span><i style={{ background: 'var(--accent)' }} />Atraso de obra ({analise?.obra ?? '—'})</span>
+            <span><i style={{ background: 'var(--ok)' }} />Provável só FVS ({analise?.soFvs ?? '—'})</span>
+          </div>
+        </div>
       </div>
 
       {/* filtro por categoria */}
@@ -98,7 +205,7 @@ export function Agente({ obra }: Props) {
         ))}
       </div>
 
-      <div className="ag-grid">
+      <div className="ag-grid" id="ag-lista-top">
         {/* lista agrupada por pacote */}
         <div className="panel ag-lista">
           {!lista && <div className="skel" style={{ height: 240 }} />}
