@@ -193,7 +193,7 @@ export default function App() {
         </div>
       )
     }
-    if (page === 'agente') return <Agente obra={obra} />
+    if (page === 'agente') return <Agente obra={obra} admin={usuario?.papel === 'admin'} />
     if (page === 'visao-geral') return overview ? <VisaoGeral data={overview} /> : esqueleto
     if (page === 'backlog') return backlog ? <Backlog data={backlog} /> : esqueleto
     if (page === 'pendentes') return backlog ? <Pendentes data={backlog} /> : esqueleto

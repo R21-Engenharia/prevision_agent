@@ -707,3 +707,9 @@ table.data .trunc{display:block;max-width:100%;overflow:hidden;text-overflow:ell
 .assist-input input:focus{outline:none;border-color:var(--accent);}
 .assist-input button{background:var(--accent);border:none;color:#fff;border-radius:10px;padding:0 16px;font-size:13px;font-weight:600;cursor:pointer;}
 .assist-input button:disabled{opacity:.5;cursor:default;}
+
+/* Agente — ações à direita + status de envio */
+.ag-actions-r{display:flex;align-items:center;gap:8px;flex:none;}
+.ag-envio{font-size:12px;font-weight:600;padding:4px 10px;border-radius:999px;}
+.ag-envio.ok{color:var(--ok);background:var(--ok-soft);}
+.ag-envio.erro{color:var(--accent-ink);background:var(--accent-soft);}

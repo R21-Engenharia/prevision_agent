@@ -99,6 +99,18 @@ async def dashboard(obra: str) -> dict:
 
 # ── Escrita ──────────────────────────────────────────────────────────────────
 
+async def log_email(obra: str, dest: list[str], assunto: str, provider_id: str,
+                    status: str, erro: str = "") -> None:
+    """Registra o envio (ou tentativa) na tabela emails_enviados."""
+    try:
+        await _post("emails_enviados", {
+            "obra": obra, "tipo": "manual", "destinatarios": dest, "assunto": assunto,
+            "provider_id": provider_id, "status": status, "erro": erro[:400],
+        }, prefer="return=minimal")
+    except Exception:
+        pass
+
+
 async def log_ia(obra: str, email: str, r: dict) -> None:
     """Registra o uso de IA (tokens + custo) — não interrompe a resposta se falhar."""
     try:

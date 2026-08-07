@@ -436,6 +436,17 @@ export const api = {
     }
     return res.json() as Promise<{ resposta: string; modelo: string }>
   },
+  enviarRelatorio: async (obra: string) => {
+    const res = await fetch(`/api/agente/enviar-relatorio?obra=${encodeURIComponent(obra)}`, {
+      method: 'POST', headers: await cabecalhos(),
+    })
+    if (!res.ok) {
+      let d = `HTTP ${res.status}`
+      try { const b = await res.json(); if (b?.detail) d = b.detail } catch { /* */ }
+      throw new Error(d)
+    }
+    return res.json() as Promise<{ ok: boolean; destinatarios: string[] }>
+  },
   exportarPendencias: (obra: string, tipo: 'obra' | 'fvs', pavimento?: string | null) => {
     const p = new URLSearchParams({ obra, tipo })
     if (pavimento) p.set('pavimento', pavimento)

@@ -8,7 +8,7 @@ import {
 } from '../lib/api'
 import { AssistenteObra } from '../components/AssistenteObra'
 
-interface Props { obra: string }
+interface Props { obra: string; admin?: boolean }
 
 /** Nome curto do pacote para o eixo: tira o prefixo "ALV | ". */
 const curto = (s: string) => {
@@ -110,8 +110,10 @@ const pavCurtoTxt = (n: string) => {
 
 type Aba = 'obra' | 'fvs'
 
-export function Agente({ obra }: Props) {
+export function Agente({ obra, admin }: Props) {
   const [lista, setLista] = useState<Pendencia[] | null>(null)
+  const [enviando, setEnviando] = useState(false)
+  const [envioMsg, setEnvioMsg] = useState<string | null>(null)
   const [aba, setAba] = useState<Aba>('obra')
   const [floorSel, setFloorSel] = useState<string | null>(null)
   const [discSel, setDiscSel] = useState<string | null>(null)
@@ -164,6 +166,17 @@ export function Agente({ obra }: Props) {
   const focarPacote = (nome: string) => {
     setExpandido((s) => new Set(s).add(nome))
     document.getElementById('ag-lista-top')?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  async function enviarEmail() {
+    if (enviando) return
+    setEnviando(true); setEnvioMsg(null)
+    try {
+      const r = await api.enviarRelatorio(obra)
+      setEnvioMsg(`✓ Enviado para ${r.destinatarios.length} e-mail(s)`)
+    } catch (e) {
+      setEnvioMsg('✕ ' + (e as Error).message)
+    } finally { setEnviando(false) }
   }
 
   if (erro) {
@@ -298,14 +311,25 @@ export function Agente({ obra }: Props) {
               {pavCurto(floorSel)} — {floorSel} <span>×</span>
             </button>
           )}
+          {envioMsg && <span className={envioMsg.startsWith('✓') ? 'ag-envio ok' : 'ag-envio erro'}>{envioMsg}</span>}
         </div>
-        <button className="btn ag-export"
-                onClick={() => { void api.exportarPendencias(obra, aba, floorSel).catch((e) => setErro((e as Error).message)) }}>
-          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
-          </svg>
-          Exportar relatório
-        </button>
+        <div className="ag-actions-r">
+          {admin && (
+            <button className="btn ag-export" onClick={() => void enviarEmail()} disabled={enviando}>
+              <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M4 4h16v16H4zM4 6l8 6 8-6" />
+              </svg>
+              {enviando ? 'Enviando…' : 'Enviar por e-mail'}
+            </button>
+          )}
+          <button className="btn ag-export"
+                  onClick={() => { void api.exportarPendencias(obra, aba, floorSel).catch((e) => setErro((e as Error).message)) }}>
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 3v12m0 0l-4-4m4 4l4-4M4 21h16" />
+            </svg>
+            Exportar
+          </button>
+        </div>
       </div>
 
       <div className="ag-grid" id="ag-lista-top">

@@ -31,6 +31,7 @@ try:
 except ImportError:
     pass
 
+from agente.destinatarios import destinatarios
 from agente.email import destinatarios_padrao, enviar
 from agente.report_html import build_email_html
 from api.report_agente import build_pendencias_report
@@ -72,14 +73,16 @@ def log_email(obra: str, dest: list[str], assunto: str,
 
 
 def main() -> int:
-    dest = destinatarios_padrao()
-    if not dest:
-        print("ERRO: defina EMAIL_DESTINATARIOS (lista separada por vírgula).")
-        return 1
     alvos = [sys.argv[1]] if len(sys.argv) > 1 else OBRAS
 
     falhas = 0
     for obra in alvos:
+        # Roteamento por obra (engenharia da obra + gestores); EMAIL_DESTINATARIOS
+        # sobrescreve tudo, se definido.
+        dest = destinatarios_padrao() or destinatarios(obra)
+        if not dest:
+            print(f"{obra}: sem destinatários configurados — pulando.")
+            continue
         pend = fetch_pendencias(obra)
         if not pend:
             print(f"{obra}: sem pendências — nada a enviar.")

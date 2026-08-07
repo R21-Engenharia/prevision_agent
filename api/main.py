@@ -23,6 +23,7 @@ _ROOT = Path(__file__).resolve().parent.parent
 if str(_ROOT) not in sys.path:
     sys.path.insert(0, str(_ROOT))
 
+import asyncio
 import datetime
 import io
 import os
@@ -313,6 +314,40 @@ async def responder_pendencia(
         raise HTTPException(400, "Resposta vazia.")
     nome = email.split("@", 1)[0]
     return await agente_db.responder(pendencia_id, obra, email, nome, texto.strip(), pergunta_id)
+
+
+@app.post("/api/agente/enviar-relatorio")
+async def enviar_relatorio_agora(obra: str = Query(...), _u: str = Depends(usuario_admin)):
+    """Admin dispara o relatório da obra por e-mail (engenharia da obra + gestores)."""
+    _check_obra(obra)
+    from agente.destinatarios import destinatarios
+    from agente.email import enviar
+    from agente.report_html import build_email_html
+    from api.report_agente import build_pendencias_report
+
+    rows = await agente_db.listar(obra, None, None)
+    if not rows:
+        raise HTTPException(400, "Sem pendências abertas para enviar nesta obra.")
+    dest = destinatarios(obra)
+    if not dest:
+        raise HTTPException(400, "Nenhum destinatário configurado para esta obra.")
+
+    html, resumo = build_email_html(obra, rows)
+    obra_p = [p for p in rows if not (p.get("causa_raiz") or {}).get("provavel_so_fvs")]
+    fvs_p = [p for p in rows if (p.get("causa_raiz") or {}).get("provavel_so_fvs")]
+    anexos = [
+        ("atrasos_obra.xlsx", build_pendencias_report(obra, "obra", obra_p)),
+        ("fvs_pendentes.xlsx", build_pendencias_report(obra, "fvs", fvs_p)),
+    ]
+    assunto = (f"[R21] Pendências — {obra}: {resumo['atrasos']} atrasos de obra, "
+               f"{resumo['fvs']} FVS")
+    try:
+        res = await asyncio.to_thread(enviar, dest, assunto, html, anexos)
+    except Exception as exc:                       # noqa: BLE001
+        await agente_db.log_email(obra, dest, assunto, "", "falhou", str(exc))
+        raise HTTPException(502, f"Falha ao enviar: {exc}") from exc
+    await agente_db.log_email(obra, dest, assunto, str(res.get("id", "")), "enviado")
+    return {"ok": True, "destinatarios": dest, "resumo": resumo}
 
 
 @app.post("/api/agente/chat")
