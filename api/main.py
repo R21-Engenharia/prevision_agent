@@ -41,7 +41,7 @@ from fvs_dashboard.core.audit_engine import (
 )
 from api.report import build_backlog_report
 from api.report_tempo import build_tempo_report
-from api.auth import usuario_atual, usuario_admin, descrever_modo
+from api.auth import usuario_atual, usuario_admin, usuario_e_obra, descrever_modo
 from api import agente_db
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
@@ -142,7 +142,7 @@ def obras():
 
 @app.get("/api/status")
 def status(obra: str = Query(default=None),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     o = obra or list(OBRAS.keys())[0]
     _check_obra(o)
@@ -251,7 +251,7 @@ async def refresh(fonte: str, _usuario: str = Depends(usuario_admin)):
 # ── Agente Inteligente de Priorização ─────────────────────────────────────────
 
 @app.get("/api/agente/dashboard")
-async def agente_dashboard(obra: str = Query(...), _u: str = Depends(usuario_atual)):
+async def agente_dashboard(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
     _check_obra(obra)
     return await agente_db.dashboard(obra)
 
@@ -261,7 +261,7 @@ async def listar_pendencias(
     obra: str = Query(...),
     status: str = Query(default=None),
     categoria: str = Query(default=None),
-    _u: str = Depends(usuario_atual),
+    _u: str = Depends(usuario_e_obra),
 ):
     _check_obra(obra)
     return {"obra": obra, "pendencias": await agente_db.listar(obra, status, categoria)}
@@ -269,7 +269,7 @@ async def listar_pendencias(
 
 @app.get("/api/pendencias/{pendencia_id}")
 async def obter_pendencia(
-    pendencia_id: int, obra: str = Query(...), _u: str = Depends(usuario_atual),
+    pendencia_id: int, obra: str = Query(...), _u: str = Depends(usuario_e_obra),
 ):
     _check_obra(obra)
     return await agente_db.detalhe(pendencia_id, obra)
@@ -280,7 +280,7 @@ async def export_pendencias(
     obra: str = Query(...),
     tipo: str = Query(default="obra"),          # obra | fvs
     pavimento: str = Query(default=None),
-    _u: str = Depends(usuario_atual),
+    _u: str = Depends(usuario_e_obra),
 ):
     _check_obra(obra)
     from api.report_agente import build_pendencias_report
@@ -306,7 +306,7 @@ async def responder_pendencia(
     obra: str = Query(...),
     texto: str = Body(..., embed=True),
     pergunta_id: int | None = Body(default=None, embed=True),
-    email: str = Depends(usuario_atual),
+    email: str = Depends(usuario_e_obra),
 ):
     _check_obra(obra)
     if not texto.strip():
@@ -380,7 +380,7 @@ def _idade_caches(obra: str) -> dict[str, float | None]:
 
 @app.get("/api/overview")
 def overview(obra: str = Query(...),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     _check_obra(obra)
     try:
@@ -524,7 +524,7 @@ def filtrar_rows(
 
 @app.get("/api/backlog")
 def backlog(obra: str = Query(...), limit: int = Query(default=5000, le=20000),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """
     Todas as FVS de pacotes liberados + facetas para os filtros.
@@ -733,7 +733,7 @@ def auditoria(
     periodo: str = Query(default="Tudo"),
     de: str = Query(default=""),            # ISO, usado com periodo=Personalizado
     ate: str = Query(default=""),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """Indicadores gerenciais historicos (mesma base das exportacoes)."""
     mi, mi_todas, snap, hist, kpis, inicio, fim, filtro_obra = _dados_auditoria(
@@ -847,7 +847,7 @@ def decoracao(
     obra: str = Query(default=""),          # "" = todas
     disciplina: str = Query(default=""),
     status: str = Query(default=""),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """Cronograma de acabamento: KPIs, Gantt por pavimento e alertas."""
     from fvs_dashboard.core.decoracao_engine import (
@@ -1001,7 +1001,7 @@ def _normalizar_tempo(valor: str) -> str:
 
 
 @app.get("/api/tempo")
-def tempo(_usuario: str = Depends(usuario_atual)):
+def tempo(_usuario: str = Depends(usuario_e_obra)):
     """
     Condicao do tempo consolidada — visao unica, nao por obra.
 
@@ -1106,7 +1106,7 @@ def export_auditoria(
     de: str = Query(default=""),
     ate: str = Query(default=""),
     formato: str = Query(default="excel", pattern="^(excel|pdf)$"),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """Exporta a auditoria (Excel gerencial ou PDF executivo) do mesmo recorte da tela."""
     from fvs_dashboard.core.audit_exporter import export_audit_excel, export_audit_pdf
@@ -1146,7 +1146,7 @@ def export_fvs(
     obra: str = Query(...),
     formato: str = Query(default="excel", pattern="^(excel|pdf)$"),
     incluir_finalizadas: bool = Query(default=True),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """Relatorio operacional de FVS — mesmos arquivos entregues pelo Streamlit."""
     from fvs_dashboard.core.exporter import export_excel, export_pdf
@@ -1187,7 +1187,7 @@ def export_tempo(
     p2_de: str = Query(default=""),
     p2_ate: str = Query(default=""),
     meses: int = Query(default=3, ge=0, le=12),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """
     Excel da Condicao do Tempo no padrao das reunioes.
@@ -1225,7 +1225,7 @@ def export_backlog(
     modelo: str = Query(default=""),
     pavimento: str = Query(default=""),
     busca: str = Query(default=""),
-    _usuario: str = Depends(usuario_atual),
+    _usuario: str = Depends(usuario_e_obra),
 ):
     """Excel do backlog com os mesmos filtros da tela."""
     _check_obra(obra)

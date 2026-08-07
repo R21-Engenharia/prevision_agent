@@ -5,7 +5,7 @@ import {
   type Decoracao as DecoracaoData,
   type Overview, type Periodo, type Tempo as TempoData,
 } from './lib/api'
-import { authConfigurada, resolverUsuario, supabase, type Usuario } from './lib/supabase'
+import { authConfigurada, obrasPermitidas, resolverUsuario, supabase, type Usuario } from './lib/supabase'
 import { Shell } from './components/Shell'
 import { Login } from './pages/Login'
 // Telas carregadas sob demanda: o recharts (~400 KB) so entra quando o usuario
@@ -31,7 +31,7 @@ function initialTheme(): Theme {
 const PRECISA_BACKLOG = new Set(['backlog', 'pendentes'])
 
 /** Usuário fictício quando a autenticação não está configurada (dev local). */
-const USUARIO_DEV: Usuario = { email: 'dev@local', nome: 'Desenvolvimento', papel: 'admin' }
+const USUARIO_DEV: Usuario = { email: 'dev@local', nome: 'Desenvolvimento', papel: 'admin', obras: null }
 
 export default function App() {
   const [theme, setTheme] = useState<Theme>(initialTheme)
@@ -107,8 +107,9 @@ export default function App() {
     if (!usuario) return
     api.obras()
       .then((r) => {
-        setObras(r.obras)
-        setObra((atual) => atual || r.obras[0] || '')
+        const permitidas = obrasPermitidas(usuario, r.obras)
+        setObras(permitidas)
+        setObra((atual) => (permitidas.includes(atual) ? atual : permitidas[0]) || '')
       })
       .catch((e: Error) => {
         setErro(e.message)

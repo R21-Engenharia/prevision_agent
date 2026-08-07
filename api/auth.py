@@ -16,7 +16,7 @@ import os
 import time
 
 import httpx
-from fastapi import Header, HTTPException
+from fastapi import Header, HTTPException, Query
 
 _SUPABASE_URL = os.getenv("SUPABASE_URL", "").rstrip("/")
 _SUPABASE_KEY = os.getenv("SUPABASE_KEY", "")
@@ -92,29 +92,40 @@ async def usuario_atual(authorization: str | None = Header(default=None)) -> str
     return email
 
 
-async def _papel_do_usuario(email: str, token: str) -> str:
+async def _perfil_do_usuario(email: str, token: str) -> tuple[str, list | None]:
     """
-    Le o papel (role) do e-mail na tabela authorized_emails.
+    Le (papel, obras) do e-mail na tabela authorized_emails.
 
-    Usa o proprio token do usuario no Authorization para respeitar o RLS —
-    e a mesma consulta que o frontend faz. Na duvida, devolve "viewer" (nega
-    o privilegio) em vez de assumir admin.
+    Usa o proprio token do usuario no Authorization para respeitar o RLS.
+    Na duvida, devolve ("viewer", []) — nega privilegio E acesso a obras
+    (fail-closed): sem conseguir ler o perfil, o usuario nao ve obra nenhuma.
+    obras = None significa "todas" (padrao de admin / usuario sem restricao).
     """
     try:
         async with httpx.AsyncClient(timeout=10) as cli:
             r = await cli.get(
                 f"{_SUPABASE_URL}/rest/v1/authorized_emails",
-                params={"email": f"eq.{email}", "select": "role"},
+                params={"email": f"eq.{email}", "select": "role,obras"},
                 headers={"Authorization": f"Bearer {token}", "apikey": _SUPABASE_KEY},
             )
         if r.status_code != 200:
-            return "viewer"
+            return ("viewer", [])
         linhas = r.json() or []
     except Exception:
-        return "viewer"
-    if linhas and str(linhas[0].get("role", "")).lower() == "admin":
-        return "admin"
-    return "viewer"
+        return ("viewer", [])
+    if not linhas:
+        return ("viewer", [])
+    row = linhas[0]
+    papel = "admin" if str(row.get("role", "")).lower() == "admin" else "viewer"
+    obras = row.get("obras")
+    return (papel, obras if isinstance(obras, list) else None)
+
+
+def _obra_permitida(papel: str, obras: list | None, obra: str) -> bool:
+    """Admin ou obras=None (sem restricao) veem tudo; senao, so as listadas."""
+    if papel == "admin" or obras is None:
+        return True
+    return obra in obras
 
 
 async def usuario_admin(authorization: str | None = Header(default=None)) -> str:
@@ -125,10 +136,29 @@ async def usuario_admin(authorization: str | None = Header(default=None)) -> str
     if _DEV_SEM_AUTH:
         return "dev@local"
 
-    # Valida o token e obtem o e-mail (levanta 401/503 quando for o caso).
     email = await usuario_atual(authorization)
     token = authorization.split(" ", 1)[1].strip()  # ja validado acima
-
-    if await _papel_do_usuario(email, token) != "admin":
+    papel, _obras = await _perfil_do_usuario(email, token)
+    if papel != "admin":
         raise HTTPException(403, "Acao restrita a administradores.")
+    return email
+
+
+async def usuario_e_obra(
+    obra: str | None = Query(default=None),
+    authorization: str | None = Header(default=None),
+) -> str:
+    """
+    Valida o token E o acesso a obra pedida (isolamento multi-tenant).
+    Viewer so acessa a(s) sua(s) obra(s); admin ve tudo. 403 caso contrario.
+    Use em toda rota de dados que recebe `obra`.
+    """
+    if _DEV_SEM_AUTH:
+        return "dev@local"
+
+    email = await usuario_atual(authorization)
+    token = authorization.split(" ", 1)[1].strip()
+    papel, obras = await _perfil_do_usuario(email, token)
+    if obra and not _obra_permitida(papel, obras, obra):
+        raise HTTPException(403, "Voce nao tem acesso a esta obra.")
     return email

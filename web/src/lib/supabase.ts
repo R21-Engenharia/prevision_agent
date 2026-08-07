@@ -32,6 +32,15 @@ export interface Usuario {
   email: string
   nome: string
   papel: 'admin' | 'viewer'
+  /** Obras que o usuário pode ver. null = todas (admin ou sem restrição). */
+  obras: string[] | null
+}
+
+/** Obras que o usuário pode ver, dado o universo completo. */
+export function obrasPermitidas(u: Usuario, todas: string[]): string[] {
+  if (u.papel === 'admin' || !u.obras) return todas
+  const set = new Set(u.obras)
+  return todas.filter((o) => set.has(o))
 }
 
 /**
@@ -46,16 +55,18 @@ export async function resolverUsuario(
   const alvo = email.trim().toLowerCase()
 
   let papel: 'admin' | 'viewer' | null = null
+  let obras: string[] | null = null
   if (supabase) {
     try {
       const { data } = await supabase
         .from('authorized_emails')
-        .select('role, nome')
+        .select('role, nome, obras')
         .eq('email', alvo)
         .maybeSingle()
       if (data) {
         papel = data.role === 'admin' ? 'admin' : 'viewer'
         if (data.nome) nomeFallback = data.nome
+        obras = Array.isArray(data.obras) ? data.obras : null
       }
     } catch {
       // tabela indisponível — cai para a checagem por domínio
@@ -68,5 +79,5 @@ export async function resolverUsuario(
   }
 
   if (!papel) return null
-  return { email: alvo, nome: nomeFallback || alvo, papel }
+  return { email: alvo, nome: nomeFallback || alvo, papel, obras }
 }
