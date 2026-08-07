@@ -93,13 +93,24 @@ async def responder(obra: str, pendencias: list[dict], pergunta: str,
 
     client = AsyncAnthropic()
     mensagens = list(historico or []) + [{"role": "user", "content": pergunta}]
-    resp = await client.messages.create(
+    kwargs = dict(
         model=MODELO,
-        max_tokens=1024,
+        max_tokens=1500,
         system=_system(obra, montar_contexto(obra, pendencias)),
         messages=mensagens,
     )
-    texto = "".join(b.text for b in resp.content if getattr(b, "type", "") == "text")
+    # Chat de consulta = resposta direta. Desliga o "raciocínio" (quando o modelo
+    # suporta), que senão consome o orçamento de tokens e volta vazio.
+    try:
+        resp = await client.messages.create(thinking={"type": "disabled"}, **kwargs)
+    except Exception:
+        resp = await client.messages.create(**kwargs)  # modelo sem esse parâmetro
+
+    texto = "".join(b.text for b in resp.content
+                    if getattr(b, "type", "") == "text").strip()
+    if not texto:
+        texto = ("Não consegui gerar uma resposta agora (a IA retornou vazio). "
+                 "Tente reformular a pergunta.")
     ent, sai = resp.usage.input_tokens, resp.usage.output_tokens
     pin, pout = _PRECO.get(MODELO, (3.0, 15.0))
     custo = (ent * pin + sai * pout) / 1_000_000

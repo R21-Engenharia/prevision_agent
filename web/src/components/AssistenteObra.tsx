@@ -28,11 +28,11 @@ export function AssistenteObra({ obra }: { obra: string }) {
     if (!q || carregando) return
     setErro(null)
     setTexto('')
-    const novo = [...msgs, { role: 'user' as const, content: q }]
-    setMsgs(novo)
+    const anteriores = msgs.slice(-6)   // histórico SEM a pergunta atual
+    setMsgs([...msgs, { role: 'user' as const, content: q }])
     setCarregando(true)
     try {
-      const r = await api.chatAgente(obra, q, novo.slice(-6))
+      const r = await api.chatAgente(obra, q, anteriores)
       setMsgs((m) => [...m, { role: 'assistant', content: r.resposta }])
     } catch (e) {
       setErro((e as Error).message)
