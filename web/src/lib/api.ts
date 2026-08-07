@@ -420,6 +420,22 @@ export const CATEGORIA_LABEL: Record<CategoriaPendencia, string> = {
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
   refresh: postRefresh,
+  chatAgente: async (
+    obra: string, pergunta: string,
+    historico: Array<{ role: 'user' | 'assistant'; content: string }>,
+  ) => {
+    const res = await fetch(`/api/agente/chat?obra=${encodeURIComponent(obra)}`, {
+      method: 'POST',
+      headers: { ...(await cabecalhos()), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pergunta, historico }),
+    })
+    if (!res.ok) {
+      let d = `HTTP ${res.status}`
+      try { const b = await res.json(); if (b?.detail) d = b.detail } catch { /* */ }
+      throw new Error(d)
+    }
+    return res.json() as Promise<{ resposta: string; modelo: string }>
+  },
   exportarPendencias: (obra: string, tipo: 'obra' | 'fvs', pavimento?: string | null) => {
     const p = new URLSearchParams({ obra, tipo })
     if (pavimento) p.set('pavimento', pavimento)

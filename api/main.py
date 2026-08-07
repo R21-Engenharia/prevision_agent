@@ -315,6 +315,29 @@ async def responder_pendencia(
     return await agente_db.responder(pendencia_id, obra, email, nome, texto.strip(), pergunta_id)
 
 
+@app.post("/api/agente/chat")
+async def agente_chat(
+    obra: str = Query(...),
+    pergunta: str = Body(..., embed=True),
+    historico: list = Body(default=None, embed=True),
+    email: str = Depends(usuario_e_obra),
+):
+    """Assistente da obra — responde com base nas pendências da obra (scoped)."""
+    _check_obra(obra)
+    if not (pergunta or "").strip():
+        raise HTTPException(400, "Pergunta vazia.")
+    from agente import chat as _chat
+    rows = await agente_db.listar(obra, None, None)
+    try:
+        r = await _chat.responder(obra, rows, pergunta.strip(), historico)
+    except RuntimeError as exc:
+        raise HTTPException(503, str(exc)) from exc
+    except Exception as exc:                       # noqa: BLE001
+        raise HTTPException(502, f"Falha na IA: {exc}") from exc
+    await agente_db.log_ia(obra, email, r)
+    return {"resposta": r["resposta"], "modelo": r["modelo"]}
+
+
 # ── Serie de evolucao ─────────────────────────────────────────────────────────
 
 # Dias distintos de snapshot necessarios para o historico real substituir o proxy.

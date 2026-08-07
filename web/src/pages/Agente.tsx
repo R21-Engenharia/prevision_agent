@@ -6,6 +6,7 @@ import {
   api, CATEGORIA_LABEL,
   type Pendencia, type PendenciaDetalhe,
 } from '../lib/api'
+import { AssistenteObra } from '../components/AssistenteObra'
 
 interface Props { obra: string }
 
@@ -176,6 +177,8 @@ export function Agente({ obra }: Props) {
 
   return (
     <div className="ag">
+      <AssistenteObra obra={obra} />
+
       {/* seletor de visão — separa obra de ficha */}
       <div className="ag-tabs">
         <button className={aba === 'obra' ? 'ag-tab on obra' : 'ag-tab'} onClick={() => setAba('obra')}>

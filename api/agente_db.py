@@ -99,6 +99,19 @@ async def dashboard(obra: str) -> dict:
 
 # ── Escrita ──────────────────────────────────────────────────────────────────
 
+async def log_ia(obra: str, email: str, r: dict) -> None:
+    """Registra o uso de IA (tokens + custo) — não interrompe a resposta se falhar."""
+    try:
+        await _post("ia_logs", {
+            "obra": obra, "tipo": "chat", "usuario_email": email,
+            "modelo": r.get("modelo", ""), "tokens_entrada": r.get("tokens_entrada", 0),
+            "tokens_saida": r.get("tokens_saida", 0), "custo_usd": r.get("custo_usd", 0),
+            "sucesso": True,
+        }, prefer="return=minimal")
+    except Exception:
+        pass
+
+
 async def responder(pendencia_id: int, obra: str, email: str, nome: str,
                     texto: str, pergunta_id: int | None) -> dict:
     ped = await _get("pendencias", {"id": f"eq.{pendencia_id}", "obra": f"eq.{obra}", "limit": "1"})
