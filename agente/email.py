@@ -58,5 +58,12 @@ def enviar(
         headers={"Authorization": f"Bearer {key}", "Content-Type": "application/json"},
         timeout=30,
     )
-    r.raise_for_status()
+    if r.status_code >= 400:
+        # Surface a mensagem do Resend (explica o 403: domínio não verificado,
+        # modo teste só para o próprio e-mail, etc.), não o erro genérico.
+        try:
+            msg = (r.json() or {}).get("message") or r.text
+        except Exception:
+            msg = r.text
+        raise RuntimeError(f"Resend HTTP {r.status_code}: {msg}")
     return r.json()
