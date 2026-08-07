@@ -1,9 +1,9 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-08-06T11:45:15.557760",
-  "total": 2931,
-  "total_with_jobs": 2391,
+  "collected_at": "2026-08-07T10:19:37.550625",
+  "total": 2919,
+  "total_with_jobs": 2393,
   "activities_list": [
     {
       "id": "9712182",
@@ -3310,6 +3310,26 @@
       "hasJobs": false,
       "percentageCompleted": 0.0,
       "jobs": [],
+      "_floor_name": "01º MZ COMUM",
+      "_floor_id": "380196"
+    },
+    {
+      "id": "48842808",
+      "wbsCode": "43.31",
+      "hasJobs": true,
+      "percentageCompleted": 0.0,
+      "jobs": [
+        {
+          "id": "31896897",
+          "name": "EXECUÇÃO BOX",
+          "percentageCompleted": 0.0
+        },
+        {
+          "id": "31896898",
+          "name": "CONFERÊNCIA FINAL",
+          "percentageCompleted": 0.0
+        }
+      ],
       "_floor_name": "01º MZ COMUM",
       "_floor_id": "380196"
     },
@@ -15273,15 +15293,6 @@
       "_floor_id": "380206"
     },
     {
-      "id": "36662348",
-      "wbsCode": "35.91",
-      "hasJobs": false,
-      "percentageCompleted": 0.0,
-      "jobs": [],
-      "_floor_name": "09º PV - TIPO",
-      "_floor_id": "380206"
-    },
-    {
       "id": "36662376",
       "wbsCode": "35.125",
       "hasJobs": true,
@@ -16852,15 +16863,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "10º PV - TIPO",
-      "_floor_id": "380207"
-    },
-    {
-      "id": "36662349",
-      "wbsCode": "34.91",
-      "hasJobs": false,
-      "percentageCompleted": 0.0,
-      "jobs": [],
       "_floor_name": "10º PV - TIPO",
       "_floor_id": "380207"
     },
@@ -18451,15 +18453,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "11º PV - TIPO",
-      "_floor_id": "380208"
-    },
-    {
-      "id": "36662350",
-      "wbsCode": "33.91",
-      "hasJobs": false,
-      "percentageCompleted": 0.0,
-      "jobs": [],
       "_floor_name": "11º PV - TIPO",
       "_floor_id": "380208"
     },
@@ -20061,15 +20054,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "12º PV - TIPO",
-      "_floor_id": "380209"
-    },
-    {
-      "id": "36662351",
-      "wbsCode": "32.91",
-      "hasJobs": false,
-      "percentageCompleted": 0.0,
-      "jobs": [],
       "_floor_name": "12º PV - TIPO",
       "_floor_id": "380209"
     },
@@ -21695,15 +21679,6 @@
       "_floor_id": "380210"
     },
     {
-      "id": "36662352",
-      "wbsCode": "31.91",
-      "hasJobs": false,
-      "percentageCompleted": 0.0,
-      "jobs": [],
-      "_floor_name": "13º PV - TIPO",
-      "_floor_id": "380210"
-    },
-    {
       "id": "36662380",
       "wbsCode": "31.125",
       "hasJobs": true,
@@ -23317,15 +23292,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "14º PV - TIPO",
-      "_floor_id": "380211"
-    },
-    {
-      "id": "36662353",
-      "wbsCode": "30.91",
-      "hasJobs": false,
-      "percentageCompleted": 0.0,
-      "jobs": [],
       "_floor_name": "14º PV - TIPO",
       "_floor_id": "380211"
     },
@@ -25010,15 +24976,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "15º PV - TIPO",
-      "_floor_id": "380212"
-    },
-    {
-      "id": "36662354",
-      "wbsCode": "29.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
       "_floor_name": "15º PV - TIPO",
       "_floor_id": "380212"
     },
@@ -26713,15 +26670,6 @@
       "_floor_id": "380213"
     },
     {
-      "id": "36662355",
-      "wbsCode": "28.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
-      "_floor_name": "16º PV - TIPO",
-      "_floor_id": "380213"
-    },
-    {
       "id": "36662383",
       "wbsCode": "28.125",
       "hasJobs": true,
@@ -28408,15 +28356,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "17º PV - TIPO",
-      "_floor_id": "380214"
-    },
-    {
-      "id": "36662356",
-      "wbsCode": "27.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
       "_floor_name": "17º PV - TIPO",
       "_floor_id": "380214"
     },
@@ -30173,15 +30112,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "18º PV - TIPO",
-      "_floor_id": "380215"
-    },
-    {
-      "id": "36662357",
-      "wbsCode": "26.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
       "_floor_name": "18º PV - TIPO",
       "_floor_id": "380215"
     },
@@ -31962,15 +31892,6 @@
       "_floor_id": "380216"
     },
     {
-      "id": "36662358",
-      "wbsCode": "25.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
-      "_floor_name": "19º PV - TIPO",
-      "_floor_id": "380216"
-    },
-    {
       "id": "36662386",
       "wbsCode": "25.125",
       "hasJobs": true,
@@ -33739,15 +33660,6 @@
           "percentageCompleted": 0.0
         }
       ],
-      "_floor_name": "20º PV - TIPO",
-      "_floor_id": "380217"
-    },
-    {
-      "id": "36662359",
-      "wbsCode": "24.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
       "_floor_name": "20º PV - TIPO",
       "_floor_id": "380217"
     },
@@ -35545,15 +35457,6 @@
       "_floor_id": "380218"
     },
     {
-      "id": "36662360",
-      "wbsCode": "23.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
-      "_floor_name": "21º PV - TIPO",
-      "_floor_id": "380218"
-    },
-    {
       "id": "36662388",
       "wbsCode": "23.125",
       "hasJobs": true,
@@ -37326,15 +37229,6 @@
       "_floor_id": "380219"
     },
     {
-      "id": "36662361",
-      "wbsCode": "22.91",
-      "hasJobs": false,
-      "percentageCompleted": null,
-      "jobs": [],
-      "_floor_name": "22º PV - TIPO",
-      "_floor_id": "380219"
-    },
-    {
       "id": "36662389",
       "wbsCode": "22.125",
       "hasJobs": true,
@@ -37402,6 +37296,26 @@
         },
         {
           "id": "14902143",
+          "name": "CONFERÊNCIA FINAL",
+          "percentageCompleted": 0.0
+        }
+      ],
+      "_floor_name": "22º PV - TIPO",
+      "_floor_id": "380219"
+    },
+    {
+      "id": "37004314",
+      "wbsCode": "22.89",
+      "hasJobs": true,
+      "percentageCompleted": null,
+      "jobs": [
+        {
+          "id": "15035507",
+          "name": "EXECUÇÃO NICHOS",
+          "percentageCompleted": 0.0
+        },
+        {
+          "id": "15035508",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
