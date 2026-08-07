@@ -25,6 +25,12 @@ jobs:
         env:
           SUPABASE_URL:        ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY:        ${{ secrets.SUPABASE_KEY }}
+          # SMTP (caixa própria, sem DNS) — recomendado
+          SMTP_HOST:           ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:           ${{ secrets.SMTP_PORT }}
+          SMTP_USER:           ${{ secrets.SMTP_USER }}
+          SMTP_PASS:           ${{ secrets.SMTP_PASS }}
+          # Resend (alternativa) — precisa domínio verificado
           RESEND_API_KEY:      ${{ secrets.RESEND_API_KEY }}
           EMAIL_REMETENTE:     ${{ secrets.EMAIL_REMETENTE }}
           EMAIL_DESTINATARIOS: ${{ secrets.EMAIL_DESTINATARIOS }}
