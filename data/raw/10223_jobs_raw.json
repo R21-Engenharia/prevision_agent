@@ -1,7 +1,7 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-08-07T10:19:37.550625",
+  "collected_at": "2026-08-10T10:42:47.069260",
   "total": 2919,
   "total_with_jobs": 2393,
   "activities_list": [
@@ -1736,22 +1736,22 @@
       "id": "46562874",
       "wbsCode": "44.95",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "31159610",
           "name": "PREP. BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "31159611",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "31159612",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "01º PV - TÉRREO COMUM",
@@ -11158,7 +11158,7 @@
       "id": "29049750",
       "wbsCode": "37.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_id": "380204"
@@ -11915,7 +11915,7 @@
       "id": "36662346",
       "wbsCode": "37.91",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_id": "380204"
@@ -13010,7 +13010,7 @@
       "id": "29049751",
       "wbsCode": "36.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_id": "380205"
@@ -14613,7 +14613,7 @@
       "id": "29049752",
       "wbsCode": "35.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "09º PV - TIPO",
       "_floor_id": "380206"
@@ -16187,7 +16187,7 @@
       "id": "29049753",
       "wbsCode": "34.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "10º PV - TIPO",
       "_floor_id": "380207"
@@ -17777,7 +17777,7 @@
       "id": "29049754",
       "wbsCode": "33.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "11º PV - TIPO",
       "_floor_id": "380208"
@@ -19378,7 +19378,7 @@
       "id": "29049755",
       "wbsCode": "32.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "12º PV - TIPO",
       "_floor_id": "380209"
@@ -20999,7 +20999,7 @@
       "id": "29049756",
       "wbsCode": "31.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "13º PV - TIPO",
       "_floor_id": "380210"
@@ -22616,7 +22616,7 @@
       "id": "29049757",
       "wbsCode": "30.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "14º PV - TIPO",
       "_floor_id": "380211"
@@ -23742,27 +23742,27 @@
       "id": "11714160",
       "wbsCode": "29.110",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10850149",
           "name": "PREPARAÇÃO DA BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850150",
           "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850151",
           "name": "TESTE DE ESTANQUEIDADE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850152",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "15º PV - TIPO",
@@ -24186,17 +24186,17 @@
       "id": "21684924",
       "wbsCode": "29.121",
       "hasJobs": true,
-      "percentageCompleted": 12.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10844701",
           "name": "EXECUÇÃO DA PAGINAÇÃO",
-          "percentageCompleted": 20.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844702",
           "name": "ASSENT. PAREDE",
-          "percentageCompleted": 20.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844703",
@@ -24300,7 +24300,7 @@
       "id": "29049758",
       "wbsCode": "29.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "15º PV - TIPO",
       "_floor_id": "380212"
@@ -25426,17 +25426,17 @@
       "id": "11714161",
       "wbsCode": "28.110",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10850165",
           "name": "PREPARAÇÃO DA BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850166",
           "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850167",
@@ -25700,17 +25700,17 @@
       "id": "12751011",
       "wbsCode": "28.131",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 20.0,
       "jobs": [
         {
           "id": "11014114",
           "name": "ISOLAMENTO E SELADOR",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014115",
           "name": "1ª DEMÃO DE MASSA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014116",
@@ -25995,7 +25995,7 @@
       "id": "29049759",
       "wbsCode": "28.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "16º PV - TIPO",
       "_floor_id": "380213"
@@ -27116,12 +27116,12 @@
       "id": "11714162",
       "wbsCode": "27.110",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 20.0,
       "jobs": [
         {
           "id": "10850153",
           "name": "PREPARAÇÃO DA BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850154",
@@ -27685,7 +27685,7 @@
       "id": "29049760",
       "wbsCode": "27.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "17º PV - TIPO",
       "_floor_id": "380214"
@@ -29071,12 +29071,12 @@
       "id": "12751013",
       "wbsCode": "26.131",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 5.0,
       "jobs": [
         {
           "id": "11014102",
           "name": "ISOLAMENTO E SELADOR",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11014103",
@@ -30603,17 +30603,17 @@
       "id": "11714197",
       "wbsCode": "25.127",
       "hasJobs": true,
-      "percentageCompleted": 56.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10933262",
           "name": "EXECUÇÃO DO GESSO",
-          "percentageCompleted": 70.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10933263",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "19º PV - TIPO",
@@ -32375,12 +32375,12 @@
       "id": "11714198",
       "wbsCode": "24.127",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 8.0,
       "jobs": [
         {
           "id": "10933236",
           "name": "EXECUÇÃO DO GESSO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 10.0
         },
         {
           "id": "10933237",
@@ -34068,12 +34068,12 @@
       "id": "11714062",
       "wbsCode": "23.99",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 32.0,
       "jobs": [
         {
           "id": "10663013",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 40.0
         },
         {
           "id": "10663014",
@@ -35200,22 +35200,22 @@
       "id": "30773477",
       "wbsCode": "23.98",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 48.0,
       "jobs": [
         {
           "id": "11255873",
           "name": "MANTA ACÚSTICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "11255874",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "11255875",
           "name": "CHUMB. TUBULAÇÕES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "11255876",
@@ -38107,12 +38107,12 @@
       "id": "12751450",
       "wbsCode": "21.141",
       "hasJobs": true,
-      "percentageCompleted": 18.0,
+      "percentageCompleted": 36.0,
       "jobs": [
         {
           "id": "10766820",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "10766821",
@@ -38620,12 +38620,12 @@
       "id": "30111541",
       "wbsCode": "21.90",
       "hasJobs": true,
-      "percentageCompleted": 6.0,
+      "percentageCompleted": 36.0,
       "jobs": [
         {
           "id": "10933927",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 10.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "10933928",
@@ -38860,12 +38860,12 @@
       "id": "31662416",
       "wbsCode": "21.70",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "12786907",
           "name": "EXECUÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "12786908",
@@ -38905,7 +38905,7 @@
       "id": "33177686",
       "wbsCode": "21.92",
       "hasJobs": true,
-      "percentageCompleted": 62.5,
+      "percentageCompleted": 70.0,
       "jobs": [
         {
           "id": "13490551",
@@ -38935,7 +38935,7 @@
         {
           "id": "13490556",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "13490557",
@@ -39900,12 +39900,12 @@
       "id": "12751451",
       "wbsCode": "20.141",
       "hasJobs": true,
-      "percentageCompleted": 18.0,
+      "percentageCompleted": 36.0,
       "jobs": [
         {
           "id": "10766837",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "10766838",
@@ -45259,12 +45259,12 @@
       "id": "12751405",
       "wbsCode": "17.88",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [
         {
           "id": "10662899",
           "name": "CHAPISCO ROLADO EST",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10662900",
@@ -45592,12 +45592,12 @@
       "id": "29407841",
       "wbsCode": "17.27",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10658580",
           "name": "ENCUNHAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658581",
@@ -46523,7 +46523,7 @@
       "id": "11713862",
       "wbsCode": "16.38",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "10726015",
@@ -46558,7 +46558,7 @@
         {
           "id": "12324419",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "28º PV - TIPO",
@@ -47730,12 +47730,12 @@
       "id": "30555863",
       "wbsCode": "16.40",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11151066",
           "name": "DETECTOR DE FUMAÇA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11151067",
@@ -53910,12 +53910,12 @@
       "id": "11730774",
       "wbsCode": "12.81",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "10727698",
           "name": "COIFA DA COZINHA (PVC)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10727699",
@@ -54493,17 +54493,17 @@
       "id": "13044886",
       "wbsCode": "12.76",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10777425",
           "name": "DISTRIBUIÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10777426",
           "name": "TESTE PRESSURIZAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10777427",
@@ -55196,12 +55196,12 @@
       "id": "30517792",
       "wbsCode": "12.85",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 33.333,
       "jobs": [
         {
           "id": "11142285",
           "name": "COIFA CHURRASQUEIRA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11142286",
@@ -58569,17 +58569,17 @@
       "id": "11732806",
       "wbsCode": "03.106",
       "hasJobs": true,
-      "percentageCompleted": 28.421,
+      "percentageCompleted": 34.103,
       "jobs": [
         {
           "id": "10934085",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 35.0
         },
         {
           "id": "10934086",
           "name": "REQUADROS",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 35.0
         },
         {
           "id": "10934087",
@@ -58614,7 +58614,7 @@
       "id": "11732995",
       "wbsCode": "03.159",
       "hasJobs": false,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [],
       "_floor_name": "TORRE LATERAL DIREITA | RUA 3122",
       "_floor_id": "382439"
@@ -59130,7 +59130,7 @@
       "id": "12745967",
       "wbsCode": "56.02",
       "hasJobs": false,
-      "percentageCompleted": 79.074,
+      "percentageCompleted": 79.63,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59139,7 +59139,7 @@
       "id": "32473097",
       "wbsCode": "56.166",
       "hasJobs": false,
-      "percentageCompleted": 78.332,
+      "percentageCompleted": 78.907,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59148,7 +59148,7 @@
       "id": "34369827",
       "wbsCode": "56.171",
       "hasJobs": false,
-      "percentageCompleted": 76.773,
+      "percentageCompleted": 77.39,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59157,7 +59157,7 @@
       "id": "34371035",
       "wbsCode": "56.172",
       "hasJobs": false,
-      "percentageCompleted": 77.49,
+      "percentageCompleted": 78.088,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59193,7 +59193,7 @@
       "id": "33323221",
       "wbsCode": "57.11",
       "hasJobs": false,
-      "percentageCompleted": 84.913,
+      "percentageCompleted": 85.661,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -59211,7 +59211,7 @@
       "id": "34001635",
       "wbsCode": "57.170",
       "hasJobs": false,
-      "percentageCompleted": 82.843,
+      "percentageCompleted": 84.314,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -59229,7 +59229,7 @@
       "id": "34190953",
       "wbsCode": "57.07",
       "hasJobs": false,
-      "percentageCompleted": 29.595,
+      "percentageCompleted": 31.464,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"

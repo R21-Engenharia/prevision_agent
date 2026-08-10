@@ -100,7 +100,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-03-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -112,7 +112,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-03-16 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -124,7 +124,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-03-23 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -136,7 +136,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-03-31 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -148,7 +148,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 77
+        "totalCount": 76
       },
       "endAt": "2027-04-07 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -160,7 +160,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-04-14 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -172,7 +172,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-04-22 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -184,7 +184,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-04-29 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -196,7 +196,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-05-06 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -208,7 +208,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-05-13 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -220,7 +220,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 77
+        "totalCount": 76
       },
       "endAt": "2027-05-20 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -232,7 +232,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-05-28 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -244,7 +244,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-06-04 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -256,7 +256,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-06-11 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -268,7 +268,7 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
       "endAt": "2027-06-18 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
@@ -38731,11 +38731,11 @@
       "position": 53
     },
     {
-      "color": "#BE0503",
+      "color": "#587832",
       "hasQualityAssociations": false,
       "hasQualityModelsAssociations": false,
       "id": "3310838",
-      "name": "ALV | SHAFT (HALL)",
+      "name": "DRY | SHAFT (HALL)",
       "position": 34
     },
     {

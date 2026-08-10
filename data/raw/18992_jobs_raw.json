@@ -1,9 +1,9 @@
 {
   "project_id": 18992,
   "project_name": "HOLMES RESIDENCE",
-  "collected_at": "2026-08-07T10:28:54.797677",
-  "total": 2226,
-  "total_with_jobs": 1886,
+  "collected_at": "2026-08-10T10:53:35.201472",
+  "total": 2211,
+  "total_with_jobs": 1871,
   "activities_list": [
     {
       "id": "16181801",
@@ -369,7 +369,7 @@
       "id": "29061324",
       "wbsCode": "44.49",
       "hasJobs": false,
-      "percentageCompleted": null,
+      "percentageCompleted": 60.0,
       "jobs": [],
       "_floor_name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
       "_floor_id": "648037"
@@ -4262,24 +4262,24 @@
           "percentageCompleted": 100.0
         },
         {
-          "id": "10779421",
-          "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
-        },
-        {
           "id": "11271669",
           "name": "INFRA PREVENTIVO",
           "percentageCompleted": 100.0
         },
         {
-          "id": "10779422",
-          "name": "CONFERÊNCIA FINAL",
+          "id": "10779421",
+          "name": "CAIXAS E QUADROS",
           "percentageCompleted": 0.0
         },
         {
           "id": "11271670",
           "name": "CAIXINHAS 4X2 E 4X4",
           "percentageCompleted": 100.0
+        },
+        {
+          "id": "10779422",
+          "name": "CONFERÊNCIA FINAL",
+          "percentageCompleted": 0.0
         }
       ],
       "_floor_name": "04º PV - G3",
@@ -5489,13 +5489,13 @@
           "percentageCompleted": 100.0
         },
         {
-          "id": "10779431",
-          "name": "CAIXAS E QUADROS",
+          "id": "11271673",
+          "name": "INFRA PREVENTIVO",
           "percentageCompleted": 100.0
         },
         {
-          "id": "11271673",
-          "name": "INFRA PREVENTIVO",
+          "id": "10779431",
+          "name": "CAIXAS E QUADROS",
           "percentageCompleted": 100.0
         },
         {
@@ -6613,17 +6613,17 @@
       "id": "16182570",
       "wbsCode": "29.91",
       "hasJobs": true,
-      "percentageCompleted": 54.68,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10780830",
           "name": "INFRAESTRUTURA",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780831",
           "name": "TESTE PRESSURIZAÇÃO",
-          "percentageCompleted": 33.4
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780832",
@@ -7036,13 +7036,13 @@
           "percentageCompleted": 0.0
         },
         {
-          "id": "12964230",
-          "name": "TELAS GALVANIZADAS",
+          "id": "9844672",
+          "name": "APLICAÇÃO DO CHAPISCO",
           "percentageCompleted": 0.0
         },
         {
-          "id": "9844672",
-          "name": "APLICAÇÃO DO CHAPISCO",
+          "id": "12964230",
+          "name": "TELAS GALVANIZADAS",
           "percentageCompleted": 0.0
         },
         {
@@ -7260,13 +7260,13 @@
           "percentageCompleted": 0.0
         },
         {
-          "id": "11271677",
-          "name": "INFRA PREVENTIVO",
+          "id": "10779426",
+          "name": "CAIXAS E QUADROS",
           "percentageCompleted": 0.0
         },
         {
-          "id": "10779426",
-          "name": "CAIXAS E QUADROS",
+          "id": "11271677",
+          "name": "INFRA PREVENTIVO",
           "percentageCompleted": 0.0
         },
         {
@@ -7322,17 +7322,17 @@
       "id": "16183251",
       "wbsCode": "29.88",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10844616",
           "name": "DISTRIBUIÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844617",
           "name": "TESTE PRESSURIZAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844618",
@@ -8335,12 +8335,12 @@
       "id": "33612765",
       "wbsCode": "29.62",
       "hasJobs": true,
-      "percentageCompleted": 28.0,
+      "percentageCompleted": 35.0,
       "jobs": [
         {
           "id": "13641854",
           "name": "PRUMADAS",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13641855",
@@ -8350,7 +8350,7 @@
         {
           "id": "13641856",
           "name": "AÉREOS",
-          "percentageCompleted": 60.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13641857",
@@ -9292,13 +9292,13 @@
           "percentageCompleted": 0.0
         },
         {
-          "id": "9844667",
-          "name": "APLICAÇÃO DO CHAPISCO",
+          "id": "12964235",
+          "name": "TELAS GALVANIZADAS",
           "percentageCompleted": 0.0
         },
         {
-          "id": "12964235",
-          "name": "TELAS GALVANIZADAS",
+          "id": "9844667",
+          "name": "APLICAÇÃO DO CHAPISCO",
           "percentageCompleted": 0.0
         },
         {
@@ -9319,12 +9319,12 @@
       "id": "16183023",
       "wbsCode": "28.157",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10780872",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780873",
@@ -12263,12 +12263,12 @@
       "id": "36703885",
       "wbsCode": "27.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922713",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922714",
@@ -12537,26 +12537,6 @@
       "_floor_id": "648047"
     },
     {
-      "id": "48848800",
-      "wbsCode": "27.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897050",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897051",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "08º PV - TIPO",
-      "_floor_id": "648047"
-    },
-    {
       "id": "16181809",
       "wbsCode": "26.26",
       "hasJobs": true,
@@ -12809,12 +12789,12 @@
       "id": "16182150",
       "wbsCode": "26.113",
       "hasJobs": true,
-      "percentageCompleted": 48.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11255756",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 60.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255757",
@@ -13860,22 +13840,22 @@
       "id": "30792092",
       "wbsCode": "26.108",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11262319",
           "name": "MANTA ACÚSTICA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11262320",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11262321",
           "name": "CHUMB. TUBULAÇÕES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11262322",
@@ -14010,7 +13990,7 @@
       "id": "33219017",
       "wbsCode": "26.102",
       "hasJobs": true,
-      "percentageCompleted": 12.5,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "13490735",
@@ -14035,7 +14015,7 @@
         {
           "id": "13490739",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490740",
@@ -14060,12 +14040,12 @@
       "id": "36703886",
       "wbsCode": "26.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922716",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922717",
@@ -14200,7 +14180,7 @@
       "id": "37045452",
       "wbsCode": "26.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063003",
@@ -14312,40 +14292,20 @@
       "id": "46693167",
       "wbsCode": "26.110",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "31195206",
           "name": "PREP. BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "31195207",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "31195208",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "09º PV - TIPO",
-      "_floor_id": "648048"
-    },
-    {
-      "id": "48848801",
-      "wbsCode": "26.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897052",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897053",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -14651,7 +14611,7 @@
       "id": "16182204",
       "wbsCode": "25.54",
       "hasJobs": true,
-      "percentageCompleted": 90.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10779679",
@@ -14666,7 +14626,7 @@
         {
           "id": "10779681",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "10º PV - TIPO",
@@ -15224,7 +15184,7 @@
       "id": "25138438",
       "wbsCode": "25.176",
       "hasJobs": true,
-      "percentageCompleted": 60.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10820619",
@@ -15234,7 +15194,7 @@
         {
           "id": "10820620",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "10º PV - TIPO",
@@ -15572,7 +15532,7 @@
       "id": "30631682",
       "wbsCode": "25.98",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 83.333,
       "jobs": [
         {
           "id": "11198693",
@@ -15587,7 +15547,7 @@
         {
           "id": "11198695",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "10º PV - TIPO",
@@ -15657,12 +15617,12 @@
       "id": "30792093",
       "wbsCode": "25.108",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [
         {
           "id": "11262323",
           "name": "MANTA ACÚSTICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11262324",
@@ -15857,12 +15817,12 @@
       "id": "36703887",
       "wbsCode": "25.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922719",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922720",
@@ -15882,7 +15842,7 @@
       "id": "36704898",
       "wbsCode": "25.34",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922781",
@@ -15997,7 +15957,7 @@
       "id": "37045453",
       "wbsCode": "25.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063005",
@@ -16123,26 +16083,6 @@
         },
         {
           "id": "31195211",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "10º PV - TIPO",
-      "_floor_id": "648049"
-    },
-    {
-      "id": "48848802",
-      "wbsCode": "25.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897054",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897055",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -16448,7 +16388,7 @@
       "id": "16182205",
       "wbsCode": "24.54",
       "hasJobs": true,
-      "percentageCompleted": 24.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10779688",
@@ -16463,7 +16403,7 @@
         {
           "id": "10779690",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         }
       ],
       "_floor_name": "11º PV - TIPO",
@@ -17369,7 +17309,7 @@
       "id": "30631683",
       "wbsCode": "24.98",
       "hasJobs": true,
-      "percentageCompleted": 83.333,
+      "percentageCompleted": 91.667,
       "jobs": [
         {
           "id": "11198696",
@@ -17384,7 +17324,7 @@
         {
           "id": "11198698",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 75.0
         }
       ],
       "_floor_name": "11º PV - TIPO",
@@ -17604,7 +17544,7 @@
       "id": "33219019",
       "wbsCode": "24.102",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "13490623",
@@ -17624,12 +17564,12 @@
         {
           "id": "13490626",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490627",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490628",
@@ -17654,12 +17594,12 @@
       "id": "36703888",
       "wbsCode": "24.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922722",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922723",
@@ -17794,7 +17734,7 @@
       "id": "37045454",
       "wbsCode": "24.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063007",
@@ -17920,26 +17860,6 @@
         },
         {
           "id": "31195214",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "11º PV - TIPO",
-      "_floor_id": "648050"
-    },
-    {
-      "id": "48848803",
-      "wbsCode": "24.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897056",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897057",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -18200,7 +18120,7 @@
       "id": "16182153",
       "wbsCode": "23.113",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11255770",
@@ -19451,12 +19371,12 @@
       "id": "36703889",
       "wbsCode": "23.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922725",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922726",
@@ -19591,7 +19511,7 @@
       "id": "37045455",
       "wbsCode": "23.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063009",
@@ -19737,26 +19657,6 @@
         },
         {
           "id": "31489270",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "12º PV - TIPO",
-      "_floor_id": "648051"
-    },
-    {
-      "id": "48848804",
-      "wbsCode": "23.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897058",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897059",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -20062,7 +19962,7 @@
       "id": "16182207",
       "wbsCode": "22.54",
       "hasJobs": true,
-      "percentageCompleted": 24.0,
+      "percentageCompleted": 34.0,
       "jobs": [
         {
           "id": "10779715",
@@ -20077,7 +19977,7 @@
         {
           "id": "10779717",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "13º PV - TIPO",
@@ -20983,7 +20883,7 @@
       "id": "30631685",
       "wbsCode": "22.98",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 83.333,
       "jobs": [
         {
           "id": "11198702",
@@ -20998,7 +20898,7 @@
         {
           "id": "11198704",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "13º PV - TIPO",
@@ -21068,7 +20968,7 @@
       "id": "30792096",
       "wbsCode": "22.108",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11262335",
@@ -21218,42 +21118,42 @@
       "id": "33219021",
       "wbsCode": "22.102",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 87.5,
       "jobs": [
         {
           "id": "13490639",
           "name": "CHAPISCO ROLADO EST",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490640",
           "name": "CHUMB. INSTALAÇÕES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490641",
           "name": "TELAS GALVANIZADAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490642",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490643",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490644",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490645",
           "name": "REQUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490646",
@@ -21268,12 +21168,12 @@
       "id": "36703890",
       "wbsCode": "22.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922728",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922729",
@@ -21408,7 +21308,7 @@
       "id": "37045456",
       "wbsCode": "22.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063011",
@@ -21534,26 +21434,6 @@
         },
         {
           "id": "31195220",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "13º PV - TIPO",
-      "_floor_id": "648052"
-    },
-    {
-      "id": "48848805",
-      "wbsCode": "22.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897060",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897061",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -22780,7 +22660,7 @@
       "id": "30631686",
       "wbsCode": "21.98",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 83.333,
       "jobs": [
         {
           "id": "11198705",
@@ -22795,7 +22675,7 @@
         {
           "id": "11198707",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "14º PV - TIPO",
@@ -23015,7 +22895,7 @@
       "id": "33219022",
       "wbsCode": "21.102",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "13490743",
@@ -23035,12 +22915,12 @@
         {
           "id": "13490746",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490747",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490748",
@@ -23065,12 +22945,12 @@
       "id": "36703891",
       "wbsCode": "21.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922731",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922732",
@@ -23205,7 +23085,7 @@
       "id": "37045457",
       "wbsCode": "21.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063013",
@@ -23331,26 +23211,6 @@
         },
         {
           "id": "31195223",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "14º PV - TIPO",
-      "_floor_id": "648053"
-    },
-    {
-      "id": "48848806",
-      "wbsCode": "21.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897062",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897063",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -24577,7 +24437,7 @@
       "id": "30631687",
       "wbsCode": "20.98",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 83.333,
       "jobs": [
         {
           "id": "11198708",
@@ -24592,7 +24452,7 @@
         {
           "id": "11198710",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "15º PV - TIPO",
@@ -24767,7 +24627,7 @@
       "id": "33219002",
       "wbsCode": "20.50",
       "hasJobs": true,
-      "percentageCompleted": 85.714,
+      "percentageCompleted": 98.571,
       "jobs": [
         {
           "id": "13490838",
@@ -24802,7 +24662,7 @@
         {
           "id": "13490844",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "15º PV - TIPO",
@@ -24812,7 +24672,7 @@
       "id": "33219023",
       "wbsCode": "20.102",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "13490687",
@@ -24832,12 +24692,12 @@
         {
           "id": "13490690",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490691",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490692",
@@ -24862,22 +24722,22 @@
       "id": "36703892",
       "wbsCode": "20.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "14922734",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922735",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922736",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "15º PV - TIPO",
@@ -25002,7 +24862,7 @@
       "id": "37045458",
       "wbsCode": "20.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063015",
@@ -25128,26 +24988,6 @@
         },
         {
           "id": "31195226",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "15º PV - TIPO",
-      "_floor_id": "648054"
-    },
-    {
-      "id": "48848807",
-      "wbsCode": "20.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897064",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897065",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -25383,17 +25223,17 @@
       "id": "16182131",
       "wbsCode": "19.105",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "8227823",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255650",
           "name": "REQUADROS",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255651",
@@ -26564,7 +26404,7 @@
       "id": "33219003",
       "wbsCode": "19.50",
       "hasJobs": true,
-      "percentageCompleted": 84.286,
+      "percentageCompleted": 97.143,
       "jobs": [
         {
           "id": "13490810",
@@ -26599,7 +26439,7 @@
         {
           "id": "13490816",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "16º PV - TIPO",
@@ -26609,7 +26449,7 @@
       "id": "33219024",
       "wbsCode": "19.102",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "13490695",
@@ -26629,12 +26469,12 @@
         {
           "id": "13490698",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490699",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490700",
@@ -26659,22 +26499,22 @@
       "id": "36703893",
       "wbsCode": "19.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "14922737",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922738",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922739",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "16º PV - TIPO",
@@ -26799,7 +26639,7 @@
       "id": "37045459",
       "wbsCode": "19.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063017",
@@ -26925,26 +26765,6 @@
         },
         {
           "id": "31195229",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "16º PV - TIPO",
-      "_floor_id": "648055"
-    },
-    {
-      "id": "48848808",
-      "wbsCode": "19.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897066",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897067",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -28361,42 +28181,42 @@
       "id": "33219004",
       "wbsCode": "18.50",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "13490859",
           "name": "RASGO CANALETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490860",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490861",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490862",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490863",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490864",
           "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490865",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "17º PV - TIPO",
@@ -28406,7 +28226,7 @@
       "id": "33219025",
       "wbsCode": "18.102",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 25.0,
       "jobs": [
         {
           "id": "13490671",
@@ -28426,12 +28246,12 @@
         {
           "id": "13490674",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490675",
           "name": "APLICAÇÃO DO CHAPISCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490676",
@@ -28456,22 +28276,22 @@
       "id": "36703894",
       "wbsCode": "18.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "14922740",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922741",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922742",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "17º PV - TIPO",
@@ -28596,7 +28416,7 @@
       "id": "37045460",
       "wbsCode": "18.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063019",
@@ -28688,7 +28508,7 @@
       "id": "45128508",
       "wbsCode": "18.45",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "29190487",
@@ -28722,26 +28542,6 @@
         },
         {
           "id": "31195232",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "17º PV - TIPO",
-      "_floor_id": "648056"
-    },
-    {
-      "id": "48848809",
-      "wbsCode": "18.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897068",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897069",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -29445,12 +29245,12 @@
       "id": "16182962",
       "wbsCode": "17.100",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "9844645",
           "name": "CHAPISCO ROLADO EST",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "9844646",
@@ -29465,7 +29265,7 @@
         {
           "id": "9844648",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "9844649",
@@ -30158,42 +29958,42 @@
       "id": "33219005",
       "wbsCode": "17.50",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "13490803",
           "name": "RASGO CANALETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490804",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490805",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490806",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490807",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490808",
           "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490809",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "18º PV - TIPO",
@@ -30203,7 +30003,7 @@
       "id": "33219026",
       "wbsCode": "17.102",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "13490727",
@@ -30253,22 +30053,22 @@
       "id": "36703895",
       "wbsCode": "17.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "14922743",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922744",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922745",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "18º PV - TIPO",
@@ -30393,7 +30193,7 @@
       "id": "37045461",
       "wbsCode": "17.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063021",
@@ -30547,26 +30347,6 @@
       "_floor_id": "648057"
     },
     {
-      "id": "48848810",
-      "wbsCode": "17.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897070",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897071",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "18º PV - TIPO",
-      "_floor_id": "648057"
-    },
-    {
       "id": "16181819",
       "wbsCode": "16.26",
       "hasJobs": true,
@@ -30634,7 +30414,7 @@
       "id": "16181994",
       "wbsCode": "16.62",
       "hasJobs": true,
-      "percentageCompleted": 20.0,
+      "percentageCompleted": 54.0,
       "jobs": [
         {
           "id": "10779278",
@@ -30644,12 +30424,12 @@
         {
           "id": "10779279",
           "name": "PAREDES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10779280",
           "name": "AÉREOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 20.0
         },
         {
           "id": "10779281",
@@ -30674,7 +30454,7 @@
       "id": "16182021",
       "wbsCode": "16.51",
       "hasJobs": true,
-      "percentageCompleted": 70.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10779537",
@@ -30684,22 +30464,22 @@
         {
           "id": "10779538",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10779539",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10779540",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10779541",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11253236",
@@ -31275,13 +31055,13 @@
           "percentageCompleted": 0.0
         },
         {
-          "id": "11271858",
-          "name": "TELAS GALVANIZADAS",
+          "id": "9844652",
+          "name": "APLICAÇÃO DO CHAPISCO",
           "percentageCompleted": 0.0
         },
         {
-          "id": "9844652",
-          "name": "APLICAÇÃO DO CHAPISCO",
+          "id": "11271858",
+          "name": "TELAS GALVANIZADAS",
           "percentageCompleted": 0.0
         },
         {
@@ -31975,42 +31755,42 @@
       "id": "33219006",
       "wbsCode": "16.50",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "13490796",
           "name": "RASGO CANALETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490797",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490798",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490799",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490800",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490801",
           "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13490802",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "19º PV - TIPO",
@@ -32020,7 +31800,7 @@
       "id": "33219027",
       "wbsCode": "16.102",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "13490719",
@@ -32070,22 +31850,22 @@
       "id": "36703896",
       "wbsCode": "16.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "14922746",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922747",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "14922748",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "19º PV - TIPO",
@@ -32210,7 +31990,7 @@
       "id": "37045462",
       "wbsCode": "16.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063023",
@@ -32336,26 +32116,6 @@
         },
         {
           "id": "31195238",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "19º PV - TIPO",
-      "_floor_id": "648058"
-    },
-    {
-      "id": "48848811",
-      "wbsCode": "16.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897072",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897073",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -33442,12 +33202,12 @@
       "id": "29798774",
       "wbsCode": "15.95",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "10790401",
           "name": "DUTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10790402",
@@ -33772,42 +33532,42 @@
       "id": "33219007",
       "wbsCode": "15.50",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 70.0,
       "jobs": [
         {
           "id": "13490887",
           "name": "RASGO CANALETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490888",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490889",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490890",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490891",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490892",
           "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490893",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         }
       ],
       "_floor_name": "20º PV - TIPO",
@@ -33817,7 +33577,7 @@
       "id": "33219028",
       "wbsCode": "15.102",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "13490655",
@@ -33867,22 +33627,22 @@
       "id": "36703897",
       "wbsCode": "15.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 70.0,
       "jobs": [
         {
           "id": "14922749",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "14922750",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "14922751",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         }
       ],
       "_floor_name": "20º PV - TIPO",
@@ -34007,7 +33767,7 @@
       "id": "37045463",
       "wbsCode": "15.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063025",
@@ -34133,26 +33893,6 @@
         },
         {
           "id": "31195241",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "20º PV - TIPO",
-      "_floor_id": "648059"
-    },
-    {
-      "id": "48848812",
-      "wbsCode": "15.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897074",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897075",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -34433,7 +34173,7 @@
       "id": "16182188",
       "wbsCode": "14.88",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10790161",
@@ -34896,7 +34636,7 @@
       "id": "16182989",
       "wbsCode": "14.157",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10780862",
@@ -35319,12 +35059,12 @@
       "id": "29979135",
       "wbsCode": "14.65",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10866531",
           "name": "PAREDE TÉCNICA (HALL)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10866532",
@@ -35569,42 +35309,42 @@
       "id": "33219008",
       "wbsCode": "14.50",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 70.0,
       "jobs": [
         {
           "id": "13490894",
           "name": "RASGO CANALETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490895",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490896",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490897",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490898",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490899",
           "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "13490900",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         }
       ],
       "_floor_name": "21º PV - TIPO",
@@ -35664,22 +35404,22 @@
       "id": "36703898",
       "wbsCode": "14.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 70.0,
       "jobs": [
         {
           "id": "14922752",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "14922753",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         },
         {
           "id": "14922754",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 70.0
         }
       ],
       "_floor_name": "21º PV - TIPO",
@@ -35930,26 +35670,6 @@
         },
         {
           "id": "31195244",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "21º PV - TIPO",
-      "_floor_id": "648060"
-    },
-    {
-      "id": "48848813",
-      "wbsCode": "14.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897076",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897077",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -36926,7 +36646,7 @@
       "id": "29066564",
       "wbsCode": "13.33",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10714105",
@@ -36951,17 +36671,17 @@
       "id": "29772483",
       "wbsCode": "13.41",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "10780491",
           "name": "CONCRETO BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780492",
           "name": "BOCA ATÉ COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780493",
@@ -37116,12 +36836,12 @@
       "id": "29979136",
       "wbsCode": "13.65",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10866533",
           "name": "PAREDE TÉCNICA (HALL)",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10866534",
@@ -37316,17 +37036,17 @@
       "id": "31913352",
       "wbsCode": "13.36",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 72.0,
       "jobs": [
         {
           "id": "12903630",
           "name": "PRIMEIRA FIADA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "12903631",
           "name": "ATÉ ÚLTIMA FIADA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "12903632",
@@ -37461,12 +37181,12 @@
       "id": "36703899",
       "wbsCode": "13.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922755",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922756",
@@ -37735,26 +37455,6 @@
       "_floor_id": "648061"
     },
     {
-      "id": "48848814",
-      "wbsCode": "13.38",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "31897078",
-          "name": "EXECUÇÃO SHAFT",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "31897079",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "22º PV - TIPO",
-      "_floor_id": "648061"
-    },
-    {
       "id": "16181833",
       "wbsCode": "12.26",
       "hasJobs": true,
@@ -37822,7 +37522,7 @@
       "id": "16182092",
       "wbsCode": "12.86",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10819057",
@@ -37847,7 +37547,7 @@
       "id": "16182567",
       "wbsCode": "12.62",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10778408",
@@ -38317,7 +38017,7 @@
       "id": "16182784",
       "wbsCode": "12.72",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10819063",
@@ -38364,13 +38064,13 @@
           "percentageCompleted": 0.0
         },
         {
-          "id": "12964240",
-          "name": "TELAS GALVANIZADAS",
+          "id": "9844721",
+          "name": "APLICAÇÃO DO CHAPISCO",
           "percentageCompleted": 0.0
         },
         {
-          "id": "9844721",
-          "name": "APLICAÇÃO DO CHAPISCO",
+          "id": "12964240",
+          "name": "TELAS GALVANIZADAS",
           "percentageCompleted": 0.0
         },
         {
@@ -39642,12 +39342,12 @@
       "id": "36703900",
       "wbsCode": "12.53",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922758",
           "name": "TUBULAÇÃO",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 0.0
         },
         {
           "id": "14922759",
@@ -40229,7 +39929,7 @@
       "id": "16181921",
       "wbsCode": "11.39",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10714055",
@@ -40761,7 +40461,7 @@
       "id": "29056546",
       "wbsCode": "11.37",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10714030",
@@ -40776,7 +40476,7 @@
         {
           "id": "10714032",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "CMQ1 | PLATIBANDA",
@@ -40811,7 +40511,7 @@
       "id": "29056606",
       "wbsCode": "11.35",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 98.0,
       "jobs": [
         {
           "id": "10714036",
@@ -40826,7 +40526,7 @@
         {
           "id": "10714038",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 90.0
         }
       ],
       "_floor_name": "CMQ1 | PLATIBANDA",
@@ -41816,7 +41516,7 @@
       "id": "29056607",
       "wbsCode": "10.35",
       "hasJobs": true,
-      "percentageCompleted": 74.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10714039",
@@ -41826,7 +41526,7 @@
         {
           "id": "10714040",
           "name": "EXECUÇÃO DA ALVENARIA",
-          "percentageCompleted": 90.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10714041",
@@ -42144,7 +41844,7 @@
       "id": "36995630",
       "wbsCode": "10.51",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15034261",
@@ -42307,7 +42007,7 @@
       "id": "19198687",
       "wbsCode": "09.71",
       "hasJobs": false,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [],
       "_floor_name": "RESERVATÓRIO",
       "_floor_id": "648074"
@@ -42525,12 +42225,12 @@
       "id": "16181928",
       "wbsCode": "05.118",
       "hasJobs": true,
-      "percentageCompleted": 60.0,
+      "percentageCompleted": 67.5,
       "jobs": [
         {
           "id": "13768848",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "13768849",
@@ -42570,7 +42270,7 @@
       "id": "16182737",
       "wbsCode": "05.155",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11270214",
@@ -43654,17 +43354,17 @@
       "id": "16181930",
       "wbsCode": "07.118",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 70.0,
       "jobs": [
         {
           "id": "13768842",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 80.0
         },
         {
           "id": "13768843",
           "name": "REQUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 80.0
         },
         {
           "id": "13768844",
@@ -43814,7 +43514,7 @@
       "id": "16182751",
       "wbsCode": "45.07",
       "hasJobs": false,
-      "percentageCompleted": 75.303,
+      "percentageCompleted": 75.854,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43823,7 +43523,7 @@
       "id": "32673789",
       "wbsCode": "45.188",
       "hasJobs": false,
-      "percentageCompleted": 78.606,
+      "percentageCompleted": 79.083,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43832,7 +43532,7 @@
       "id": "34433808",
       "wbsCode": "45.194",
       "hasJobs": false,
-      "percentageCompleted": 63.871,
+      "percentageCompleted": 64.677,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43841,7 +43541,7 @@
       "id": "34500718",
       "wbsCode": "45.195",
       "hasJobs": false,
-      "percentageCompleted": 71.059,
+      "percentageCompleted": 71.705,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43850,7 +43550,7 @@
       "id": "34500776",
       "wbsCode": "45.196",
       "hasJobs": false,
-      "percentageCompleted": 69.933,
+      "percentageCompleted": 70.604,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43868,7 +43568,7 @@
       "id": "47073198",
       "wbsCode": "45.242",
       "hasJobs": false,
-      "percentageCompleted": 16.418,
+      "percentageCompleted": 18.284,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43877,7 +43577,7 @@
       "id": "16183048",
       "wbsCode": "45.08",
       "hasJobs": false,
-      "percentageCompleted": 17.949,
+      "percentageCompleted": 19.78,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "648084"
@@ -43940,7 +43640,7 @@
       "id": "43234292",
       "wbsCode": "45.10",
       "hasJobs": false,
-      "percentageCompleted": 83.148,
+      "percentageCompleted": 84.074,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "648084"
@@ -44242,7 +43942,7 @@
       "id": "43233911",
       "wbsCode": "41.25",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "27705215",
