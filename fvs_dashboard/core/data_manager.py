@@ -39,6 +39,8 @@ OBRAS: dict[str, dict[str, Any]] = {
     "Cape Town Residence": {
         "prevision_id": 10223,
         "inmeta_id":    "670d181e19927c97d4f22713",
+        "sienge_building_id": 23,   # "Cape Town - Custo de Obra"
+        "sienge_sheet_id":    2,    # "Custos Diretos"
         "jobs_cache":   DATA_RAW / "10223_jobs_raw.json",
         "qa_cache":     DATA_RAW / "10223_qa_raw.json",
         "insp_key":     "cape_town",
@@ -46,6 +48,8 @@ OBRAS: dict[str, dict[str, Any]] = {
     "Holmes Residence": {
         "prevision_id": 18992,
         "inmeta_id":    "670d2af985fc5d73377dd7b0",
+        "sienge_building_id": 13,   # "Holmes - Custo de Obra"
+        "sienge_sheet_id":    2,    # "Custos Diretos"
         "jobs_cache":   DATA_RAW / "18992_jobs_raw.json",
         "qa_cache":     DATA_RAW / "18992_qa_raw.json",
         "insp_key":     "holmes",

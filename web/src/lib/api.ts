@@ -417,8 +417,102 @@ export const CATEGORIA_LABEL: Record<CategoriaPendencia, string> = {
   aging: 'Envelhecida',
 }
 
+// ── RUP real de mão de obra (Camada 1) ───────────────────────────────────────
+
+export interface RupFvs {
+  obra: string
+  fvs_codigo: string
+  fvs_nome: string
+  hh_total: number
+  dias_trabalhados: number
+  efetivo_medio_dia: number
+  n_pavimentos: number
+  pavimentos: string[]
+  hh_por_funcao: Record<string, number>
+  pct_compartilhado: number
+  // Denominador — nulos até o Sienge entrar:
+  unidade: string | null
+  qtd_executada: number | null
+  eap_referencia: string | null
+  rup_real: number | null
+}
+
+export interface Rup {
+  obra: string
+  resumo: {
+    fvs: number; hh_total: number; com_rup: number
+    aguardando_sienge: number; depara_confirmados: number
+  }
+  fvs: RupFvs[]
+}
+
+export interface EapServico {
+  descricao: string
+  unidade: string | null
+  qtd_executada: number
+  qtd_orcada: number
+  refs: string[]
+  mao_de_obra: boolean
+  n_linhas: number
+  score: number
+  disciplinas: string[]
+  rup_previa: number | null
+}
+
+export interface DeparaItem {
+  fvs_codigo: string
+  fvs_nome: string
+  hh_total: number
+  status: 'pendente' | 'confirmado'
+  confirmado: {
+    eap_descricao: string | null; unidade: string | null
+    qtd_executada: number | null; rup_real: number | null
+  } | null
+  confianca: 'alta' | 'escolher' | 'baixa' | 'sem_candidato'
+  sugestoes: EapServico[]
+}
+
+export type RupStatus = 'dentro' | 'acima' | 'abaixo' | 'sem_rup' | 'sem_ref'
+
+export interface RupBanda { min: number; max: number; med: number | null; pacotes: string[] }
+
+export interface RupPacote {
+  pacote: string; hh: number; producao: number; unidade: string | null
+  rup: number | null; qtd_orcada: number; n_lotes: number; status: RupStatus
+}
+
+export interface RupCelula {
+  celula: string; hh: number; producao: number; unidade: string | null
+  rup: number | null; unidades_mistas: boolean; banda: RupBanda | null
+  status: RupStatus; pacotes: RupPacote[]
+}
+
+export interface RupHierarquia {
+  obra: string
+  resumo: { celulas: number; com_rup: number; dentro_faixa: number; fonte_hh: string }
+  celulas: RupCelula[]
+}
+
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
+  rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
+  rupHierarquia: (obra: string) =>
+    get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}`),
+  rupDepara: (obra: string) =>
+    get<{ obra: string; itens: DeparaItem[] }>(`/api/rup/depara?obra=${encodeURIComponent(obra)}`),
+  rupConfirmarDepara: async (obra: string, fvsCodigo: string, grupo: EapServico) => {
+    const res = await fetch(`/api/rup/depara/confirmar?obra=${encodeURIComponent(obra)}`, {
+      method: 'POST',
+      headers: { ...(await cabecalhos()), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fvs_codigo: fvsCodigo, eap: grupo }),
+    })
+    if (!res.ok) {
+      let d = `HTTP ${res.status}`
+      try { const b = await res.json(); if (b?.detail) d = b.detail } catch { /* */ }
+      throw new Error(d)
+    }
+    return res.json() as Promise<{ ok: boolean; fvs_codigo: string }>
+  },
   refresh: postRefresh,
   chatAgente: async (
     obra: string, pergunta: string,

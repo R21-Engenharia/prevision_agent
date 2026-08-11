@@ -1,0 +1,237 @@
+{
+ "fonte": "Parceiro de planejamento — banco de produtividade COMUM (não exclusivo de obra)",
+ "pacotes": [
+  {
+   "pacote": "ALVENARIA (TIJOLO CERÂMICO)",
+   "min": 0.51,
+   "med": 0.64,
+   "max": 0.74,
+   "consideracoes": "Vãos, contratações, espessura, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "ALVENARIA (BLOCO VEDAÇÃO)",
+   "min": 0.51,
+   "med": 0.71,
+   "max": 0.98,
+   "consideracoes": "Vãos, contratações, espessura, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "ALVENARIA (BLOCO ESTRUTURAL)",
+   "min": 0.51,
+   "med": 0.71,
+   "max": 0.98,
+   "consideracoes": "Vãos, contratações, espessura, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "ALVENARIA (SICAL)",
+   "min": 0.3,
+   "med": 0.38,
+   "max": 0.6,
+   "consideracoes": "Vãos, contratações, espessura, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "ALVENARIA (MACIÇO)",
+   "min": 0.9,
+   "med": 1.52,
+   "max": 2.6,
+   "consideracoes": "Vãos, contratações, espessura, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "DRYWALL",
+   "min": 0.3,
+   "med": 0.6,
+   "max": 1.2,
+   "consideracoes": "Vãos, interferências, isolamento, transporte, chapas",
+   "unidade": null
+  },
+  {
+   "pacote": "COBERTURA (ESTRUTURA + TELHA)",
+   "min": 0.5,
+   "med": 0.7,
+   "max": 1.5,
+   "consideracoes": "Estrutura, águas, tipo e tamanho de telhas",
+   "unidade": null
+  },
+  {
+   "pacote": "CONTRAPISO",
+   "min": 0.13,
+   "med": 0.53,
+   "max": 0.8,
+   "consideracoes": "Argamassa (bombeamento), Tamanho ambiente, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "GESSO (REVESTIMENTO)",
+   "min": 0.2,
+   "med": 0.5,
+   "max": 0.8,
+   "consideracoes": "Vãos, contratações, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "CERÂMICA (PAREDE)",
+   "min": 0.2,
+   "med": 0.35,
+   "max": 1.18,
+   "consideracoes": "Qualidade parede, tamanho placa, sem interferências, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "CERÂMICA (PISO)",
+   "min": 0.25,
+   "med": 0.4,
+   "max": 1.36,
+   "consideracoes": "Qualidade piso, tamanho placa, sem interferências, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "REJUNTE (PAREDE)",
+   "min": 0.12,
+   "med": 0.2,
+   "max": 0.27,
+   "consideracoes": "Tamanho placa, gestão",
+   "unidade": null
+  },
+  {
+   "pacote": "REJUNTE (PISO)",
+   "min": 0.09,
+   "med": 0.25,
+   "max": 0.39,
+   "consideracoes": "Tamanho placa, gestão, sem rodapé",
+   "unidade": null
+  },
+  {
+   "pacote": "PASTILHA (FACHADA COM REJUNTE)",
+   "min": 0.5,
+   "med": 0.62,
+   "max": 0.87,
+   "consideracoes": "Tamanho placa, recortes, tempo (seco), gestão",
+   "unidade": null
+  },
+  {
+   "pacote": "REVESTIMENTO ARGAMASSADO (INTERNO)",
+   "min": 0.4,
+   "med": 0.57,
+   "max": 0.98,
+   "consideracoes": "Espessura, sarrafeado, jateamento, pano, qualidade parede, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "REVESTIMENTO ARGAMASSADO (EXTERNO)",
+   "min": 0.4,
+   "med": 0.79,
+   "max": 2.6,
+   "consideracoes": "Espessura, sarrafeado, jateamento, pano, qualidade parede, tempo (seco), gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "HIDRO - PRUMADA (PVC)",
+   "min": 0.59,
+   "med": 0.85,
+   "max": 1.11,
+   "consideracoes": "Shaft, Diâmetros (menores), fixação prévia",
+   "unidade": null
+  },
+  {
+   "pacote": "HIDRO - DISTRIBUIÇÃO (PVC)",
+   "min": 0.18,
+   "med": 0.25,
+   "max": 0.33,
+   "consideracoes": "Espaço, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "HIDRO - RAMAIS PAREDES (PVC)",
+   "min": 0.35,
+   "med": 0.5,
+   "max": 0.65,
+   "consideracoes": "Rasgo, poucas conexões, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "PRUMADA (CPVC) - HIDRO",
+   "min": 0.61,
+   "med": 0.88,
+   "max": 1.14,
+   "consideracoes": "Shaft, Diâmetros (menores), fixação prévia",
+   "unidade": null
+  },
+  {
+   "pacote": "DISTRIBUIÇÃO (CPVC) - HIDRO",
+   "min": 0.22,
+   "med": 0.3,
+   "max": 0.4,
+   "consideracoes": "Espaço, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "RAMAIS PAREDES (CPVC) - HIDRO",
+   "min": 0.33,
+   "med": 0.48,
+   "max": 0.62,
+   "consideracoes": "Rasgo, poucas conexões, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "PLUVIAL (PVC) - PRUMADA",
+   "min": 0.73,
+   "med": 0.97,
+   "max": 1.2,
+   "consideracoes": "Shaft, Diâmetros (menores), fixação prévia",
+   "unidade": null
+  },
+  {
+   "pacote": "PLUVIAL (PVC) - RAMAIS",
+   "min": 0.56,
+   "med": 0.91,
+   "max": 1.17,
+   "consideracoes": "Rasgo, poucas conexões, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "ESGOTO (PVC) - PRUMADA",
+   "min": 0.18,
+   "med": 0.25,
+   "max": 0.33,
+   "consideracoes": "Espaço, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "ESGOTO (PVC) - RAMAIS",
+   "min": 0.35,
+   "med": 0.5,
+   "max": 0.65,
+   "consideracoes": "Rasgo, poucas conexões, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "MASSA CORRIDA",
+   "min": 0.25,
+   "med": 0.35,
+   "max": 0.5,
+   "consideracoes": "Vão, qualidade reboco, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "PINTURA INTERNA",
+   "min": 0.2,
+   "med": 0.3,
+   "max": 0.4,
+   "consideracoes": "Vão, qualidade reboco, gestão, transporte",
+   "unidade": null
+  },
+  {
+   "pacote": "PINTURA EXTERNA",
+   "min": 0.3,
+   "med": 0.4,
+   "max": 0.5,
+   "consideracoes": "Vão, qualidade reboco, gestão, transporte",
+   "unidade": null
+  }
+ ]
+}

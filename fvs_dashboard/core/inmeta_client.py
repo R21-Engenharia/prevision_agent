@@ -106,6 +106,30 @@ class InMetaClient:
 
         return [r_ for r_ in registros if self._e_da_obra(r_, alvo_id)]
 
+    def fetch_diario_detalhe(self, inspecao_id: str) -> dict:
+        """
+        Detalhe preenchido de um RDO (as respostas, nao so o cabecalho).
+
+        Endpoint: GET /api/inspecoes/{id}?modulo=DIARIO_OBRA
+        ATENCAO: o parametro modulo e OBRIGATORIO — sem ele a API responde
+        400 "Modulo nao informado".
+
+        Retorna o objeto `content`, cujo campo `itens` traz, entre outros:
+          - "Equipe envolvida"    -> respostaColaboradores (nome + cargo do dia)
+          - "Servicos controlados"-> respostaBaseDados: uma linha por servico,
+             com colunas Servico (link FVS), Local(is) e Equipe (colaboradores).
+        E a base do modulo de RUP real (Hh por FVS = efetivo x 8,8h).
+        """
+        r = httpx.get(
+            f"{self.base_url}/api/inspecoes/{inspecao_id}",
+            headers=self._headers,
+            params={"modulo": "DIARIO_OBRA"},
+            timeout=30,
+        )
+        r.raise_for_status()
+        data = r.json()
+        return data.get("content", data) if isinstance(data, dict) else {}
+
     @staticmethod
     def _e_da_obra(rdo: dict, alvo_id: str) -> bool:
         """True se o RDO pertence ao alvo informado."""

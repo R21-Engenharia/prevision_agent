@@ -44,6 +44,7 @@ from api.report import build_backlog_report
 from api.report_tempo import build_tempo_report
 from api.auth import usuario_atual, usuario_admin, usuario_e_obra, descrever_modo
 from api import agente_db
+from api import rup_db
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
@@ -255,6 +256,44 @@ async def refresh(fonte: str, _usuario: str = Depends(usuario_admin)):
 async def agente_dashboard(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
     _check_obra(obra)
     return await agente_db.dashboard(obra)
+
+
+@app.get("/api/rup/camada1")
+async def rup_camada1(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
+    """RUP real — Camada 1 (Hh por FVS). Denominador/RUP nulos até o Sienge."""
+    _check_obra(obra)
+    linhas = await rup_db.camada1(obra)
+    return {"obra": obra, "resumo": rup_db.resumo(linhas), "fvs": linhas}
+
+
+@app.get("/api/rup/depara")
+async def rup_depara(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
+    """De-para FVS→EAP: vínculo confirmado + candidatos sugeridos por FVS."""
+    _check_obra(obra)
+    return {"obra": obra, "itens": await rup_db.depara(obra)}
+
+
+@app.get("/api/rup/hierarquia")
+async def rup_hierarquia(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
+    """Produtividade hierárquica: Célula → Pacote, com RUP e faixa do parceiro."""
+    _check_obra(obra)
+    return await rup_db.hierarquia(obra)
+
+
+@app.post("/api/rup/depara/confirmar")
+async def rup_depara_confirmar(
+    obra: str = Query(...),
+    payload: dict = Body(...),
+    _u: str = Depends(usuario_admin),
+):
+    """Confirma o vínculo FVS→EAP escolhido (admin). payload: {fvs_codigo, eap}."""
+    _check_obra(obra)
+    fvs = (payload or {}).get("fvs_codigo")
+    eap = (payload or {}).get("eap")
+    if not (fvs and isinstance(eap, dict)):
+        raise HTTPException(422, "Informe fvs_codigo e eap.")
+    await rup_db.confirmar(obra, fvs, eap)
+    return {"ok": True, "fvs_codigo": fvs, "eap_referencia": eap.get("referencia_sienge")}
 
 
 @app.get("/api/pendencias")
