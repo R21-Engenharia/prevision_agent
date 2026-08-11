@@ -4,6 +4,8 @@ import { api, type RupCelula, type RupHierarquia, type RupStatus } from '../lib/
 const fmt = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 0 })
 const fmt2 = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 2 })
 const cap = (s: string) => s.charAt(0).toUpperCase() + s.slice(1)
+const reais = (n: number) =>
+  n > 0 ? `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}` : '—'
 
 const STATUS: Record<RupStatus, { rotulo: string; cls: string }> = {
   dentro:  { rotulo: 'dentro da faixa', cls: 'st-ok' },
@@ -66,6 +68,7 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
               <th className="rgt">HH</th>
               <th className="rgt">Produção</th>
               <th className="rgt">RUP real</th>
+              <th className="rgt">R$ em risco</th>
               <th>Faixa do parceiro</th>
               <th>Situação</th>
             </tr>
@@ -87,6 +90,7 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
                     <td className="rgt"><span className="num mut">{fmt(c.hh)}</span></td>
                     <td className="rgt"><span className="num mut">{c.producao ? `${fmt(c.producao)} ${c.unidade}` : '—'}</span></td>
                     <td className="rgt"><b className="num">{c.rup != null ? fmt2(c.rup) : '—'}</b></td>
+                    <td className="rgt"><span className="num" style={{ color: 'var(--accent-ink)' }}>{reais(c.valor_risco)}</span></td>
                     <td><Faixa rup={c.rup} banda={c.banda} status={c.status} /></td>
                     <td><span className={`hr-badge ${st.cls}`}>{st.rotulo}</span></td>
                   </tr>
@@ -96,6 +100,7 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
                       <td className="rgt"><span className="num mut">{fmt(p.hh)}</span></td>
                       <td className="rgt"><span className="num mut">{p.producao ? `${fmt(p.producao)} ${p.unidade}` : '—'}</span></td>
                       <td className="rgt"><span className="num">{p.rup != null ? fmt2(p.rup) : '—'}</span></td>
+                      <td className="rgt"><span className="num mut">{reais(p.valor_risco)}</span></td>
                       <td colSpan={2}>
                         {p.rup == null && p.producao > 0 && <span className="mut" style={{ fontSize: 12 }}>HH não atribuído a este pacote — confirme na Amarração</span>}
                       </td>

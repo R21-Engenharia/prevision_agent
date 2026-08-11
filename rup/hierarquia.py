@@ -61,7 +61,8 @@ def producao_por_pacote(eap: list[dict], apenas_mo: bool = True) -> dict[tuple[s
     fisica = {"m2", "m3", "m", "kg", "un", "pto", "pt", "unid"}
     out: dict[tuple[str, str], dict] = defaultdict(lambda: {
         "celula": "", "pacote": "", "unidade": None,
-        "qtd_executada": 0.0, "qtd_orcada": 0.0, "lotes": {}})
+        "qtd_executada": 0.0, "qtd_orcada": 0.0, "lotes": {},
+        "valor_risco": 0.0, "preco": 0.0})
     for e in eap:
         if apenas_mo and not e.get("mao_de_obra"):
             continue
@@ -76,6 +77,8 @@ def producao_por_pacote(eap: list[dict], apenas_mo: bool = True) -> dict[tuple[s
         qo = e.get("qtd_orcada") or 0.0
         g["qtd_executada"] += qe
         g["qtd_orcada"] += qo
+        g["valor_risco"] += e.get("valor_em_risco") or 0.0
+        g["preco"] += e.get("preco_total") or 0.0
         lote = _lote_de_wbs(e.get("wbs_sienge"))
         g["lotes"][lote] = g["lotes"].get(lote, 0.0) + qe
     return out
@@ -103,7 +106,8 @@ def montar(
     # une as chaves dos dois lados
     chaves = set(producao) | set(fvs_hh_por_pacote)
     celulas: dict[str, dict] = defaultdict(lambda: {
-        "celula": "", "hh": 0.0, "producao": 0.0, "unidade": None, "pacotes": []})
+        "celula": "", "hh": 0.0, "producao": 0.0, "unidade": None, "pacotes": [],
+        "valor_risco": 0.0, "preco": 0.0})
 
     for chave in chaves:
         cel, pac = chave
@@ -118,11 +122,15 @@ def montar(
             "rup": _rup(hh, qexec),
             "qtd_orcada": round(prod.get("qtd_orcada", 0.0), 2),
             "n_lotes": len(prod.get("lotes", {})),
+            "valor_risco": round(prod.get("valor_risco", 0.0)),
+            "preco": round(prod.get("preco", 0.0)),
         }
         c = celulas[cel]
         c["celula"] = cel
         c["hh"] += hh
         c["producao"] += qexec
+        c["valor_risco"] += prod.get("valor_risco", 0.0)
+        c["preco"] += prod.get("preco", 0.0)
         c["unidade"] = pacote["unidade"] or c["unidade"]
         c["pacotes"].append(pacote)
 
@@ -138,6 +146,8 @@ def montar(
                 prod_por_un[p["unidade"]] += p["producao"]
                 hh_por_un[p["unidade"]] += p["hh"] or 0
         c["hh"] = round(c["hh"], 1)
+        c["valor_risco"] = round(c["valor_risco"])
+        c["preco"] = round(c["preco"])
         if prod_por_un:
             un_dom = max(prod_por_un, key=prod_por_un.get)
             c["unidade"] = un_dom

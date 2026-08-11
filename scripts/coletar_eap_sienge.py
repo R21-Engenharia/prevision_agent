@@ -122,8 +122,13 @@ def main() -> int:
                 e["wbs_sienge"] = si.get("wbsCode")
                 e["qtd_executada"] = (round(q * e["pct_realizado"], 3)
                                       if isinstance(q, (int, float)) else None)
+                # Preço do serviço (Sienge) → valor financeiro em risco no atraso:
+                preco = si.get("totalPrice") or 0
+                e["preco_total"] = preco
+                e["valor_em_risco"] = round(preco * (1 - e["pct_realizado"]), 2) if preco else 0
             else:
                 e["qtd_orcada"] = e["unidade_sienge"] = e["wbs_sienge"] = e["qtd_executada"] = None
+                e["preco_total"] = e["valor_em_risco"] = 0
 
         out = DATA / f"eap_{pid}.json"
         out.write_text(json.dumps({

@@ -479,12 +479,13 @@ export interface RupBanda { min: number; max: number; med: number | null; pacote
 export interface RupPacote {
   pacote: string; hh: number; producao: number; unidade: string | null
   rup: number | null; qtd_orcada: number; n_lotes: number; status: RupStatus
+  valor_risco: number; preco: number
 }
 
 export interface RupCelula {
   celula: string; hh: number; producao: number; unidade: string | null
   rup: number | null; unidades_mistas: boolean; banda: RupBanda | null
-  status: RupStatus; pacotes: RupPacote[]
+  status: RupStatus; pacotes: RupPacote[]; valor_risco: number; preco: number
 }
 
 export interface RupHierarquia {
