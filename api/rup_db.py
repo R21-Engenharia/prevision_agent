@@ -175,7 +175,7 @@ def _serie_mensal(obra: str) -> dict[str, dict]:
     return json.loads(f.read_text(encoding="utf-8")).get("celulas", {})
 
 
-async def hierarquia(obra: str, janela: str = "obra") -> dict:
+async def hierarquia(obra: str, janela: str = "obra", so_monitorados: bool = True) -> dict:
     """
     Árvore Célula → Pacote com RUP consolidada (HH total ÷ produção total) e a
     faixa de referência do parceiro por célula. HH vem do de-para (confirmado
@@ -210,6 +210,10 @@ async def hierarquia(obra: str, janela: str = "obra") -> dict:
         hh_pac[(cel, pac)] += l.get("hh_total") or 0
 
     arvore = montar(hh_pac, prod)
+
+    if so_monitorados:
+        from rup.hierarquia import CELULAS_MONITORADAS
+        arvore = [c for c in arvore if c["celula"] in CELULAS_MONITORADAS]
 
     # Janela de tempo: recalcula a RUP de cada célula só com os meses da janela.
     if janela and janela != "obra":

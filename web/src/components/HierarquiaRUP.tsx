@@ -57,11 +57,12 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
   const [erro, setErro] = useState<string | null>(null)
   const [aberta, setAberta] = useState<string | null>(null)
   const [janela, setJanela] = useState<RupJanela>('obra')
+  const [soMonit, setSoMonit] = useState(true)
 
   useEffect(() => {
     setData(null); setErro(null); setAberta(null)
-    api.rupHierarquia(obra, janela).then(setData).catch((e: Error) => setErro(e.message))
-  }, [obra, janela])
+    api.rupHierarquia(obra, janela, soMonit).then(setData).catch((e: Error) => setErro(e.message))
+  }, [obra, janela, soMonit])
 
   const seletor = (
     <div className="hr-janelas">
@@ -71,6 +72,10 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
           {j.rot}
         </button>
       ))}
+      <label className="hr-monit">
+        <input type="checkbox" checked={soMonit} onChange={(e) => setSoMonit(e.target.checked)} />
+        Só serviços monitorados
+      </label>
     </div>
   )
 

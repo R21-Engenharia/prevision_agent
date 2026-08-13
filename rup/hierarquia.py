@@ -26,6 +26,13 @@ from collections import defaultdict
 
 _RE_CEL_PAC = re.compile(r"^\s*MOE\s*-\s*([^/]+?)\s*/\s*(.+)$", re.IGNORECASE)
 
+# Serviços que importam pra análise de produtividade (os monitorados). Esconde o
+# ruído (climatização, elétrica, elevador, refratário, esquadria...). Ajustável.
+CELULAS_MONITORADAS = frozenset({
+    "alvenaria", "reboco", "chapisco", "contrapiso", "ceramico", "forma",
+    "armadura", "concretagem", "desforma", "pintura", "gesso", "hidro",
+})
+
 
 def celula_de(texto: str) -> str:
     """

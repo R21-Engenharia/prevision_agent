@@ -501,8 +501,8 @@ export interface RupHierarquia {
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
-  rupHierarquia: (obra: string, janela: RupJanela = 'obra') =>
-    get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}&janela=${janela}`),
+  rupHierarquia: (obra: string, janela: RupJanela = 'obra', soMonitorados = true) =>
+    get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}&janela=${janela}&so_monitorados=${soMonitorados}`),
   rupDepara: (obra: string) =>
     get<{ obra: string; itens: DeparaItem[] }>(`/api/rup/depara?obra=${encodeURIComponent(obra)}`),
   rupConfirmarDepara: async (obra: string, fvsCodigo: string, grupo: EapServico) => {
