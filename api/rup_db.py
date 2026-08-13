@@ -260,7 +260,7 @@ async def confirmar(obra: str, fvs_codigo: str, grupo: dict) -> None:
     refs = grupo.get("refs") or []
     base = f"{_URL}/rest/v1"
     headers = {"apikey": _KEY, "Authorization": f"Bearer {_KEY}",
-               "Content-Type": "application/json"}
+               "Content-Type": "application/json", "Prefer": "return=representation"}
     body = {
         "eap_descricao": grupo.get("descricao"),
         "eap_referencia": ",".join(str(r) for r in refs),
@@ -268,7 +268,15 @@ async def confirmar(obra: str, fvs_codigo: str, grupo: dict) -> None:
         "depara_status": "confirmado",
     }
     params = {"obra": f"eq.{obra}", "fvs_codigo": f"eq.{fvs_codigo}"}
-    async with httpx.AsyncClient(timeout=15) as cli:
-        r = await cli.patch(f"{base}/rup_hh_fvs", params=params, json=body, headers=headers)
+    try:
+        async with httpx.AsyncClient(timeout=20) as cli:
+            r = await cli.patch(f"{base}/rup_hh_fvs", params=params, json=body, headers=headers)
+    except Exception as exc:  # noqa: BLE001 — nunca deixa virar 502 cru
+        raise HTTPException(502, f"Erro de conexão com o banco ao confirmar: {exc}")
     if r.status_code >= 400:
-        raise HTTPException(502, f"Falha ao confirmar de-para ({r.status_code}).")
+        raise HTTPException(502, f"Banco recusou a confirmação ({r.status_code}): {r.text[:140]}")
+    linhas = r.json() if r.text else []
+    if not linhas:
+        raise HTTPException(409, "A tabela rup_hh_fvs ainda não tem esta FVS — é preciso "
+                                 "rodar o coletor (coletar_rdo_efetivo.py --supabase) para "
+                                 "popular a base antes de confirmar.")
