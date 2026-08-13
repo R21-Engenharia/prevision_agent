@@ -809,3 +809,37 @@ tr.rup-det td{background:var(--surface-2);padding:14px !important;}
 .hr-var-pior{color:var(--accent-ink);}
 .hr-monit{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);
   cursor:pointer;margin-left:auto;}
+
+/* Inteligência de Custos */
+.ct-tend{font-size:12px;font-weight:700;white-space:nowrap;}
+.ct-alta{color:var(--accent-ink);}
+.ct-baixa{color:var(--ok);}
+.ct-cls{display:inline-block;min-width:20px;font-size:11px;font-weight:800;text-align:center;
+  padding:1px 7px;border-radius:5px;}
+.ct-a{color:#fff;background:var(--accent);}
+.ct-b{color:#9a6a00;background:#f6e6c4;}
+.ct-c{color:var(--muted);background:var(--surface-2);}
+.ct-un{font-size:11px;}
+.ct-alertas{display:flex;flex-direction:column;gap:7px;}
+.ct-alerta{display:flex;align-items:center;gap:11px;padding:9px 12px;border-radius:9px;
+  background:var(--surface-2);border:1px solid var(--hairline);}
+.ct-alerta-alto{background:var(--accent-soft);border-color:transparent;}
+.ct-dot{flex:none;font-size:11px;}
+.ct-prio{flex:none;font-size:10.5px;font-weight:800;padding:2px 7px;border-radius:5px;color:#fff;}
+.ct-P1{background:var(--accent);}
+.ct-P2{background:#d9812a;}
+.ct-P3{background:#9a6a00;}
+.ct-P4{background:var(--muted);}
+.ct-alerta-txt{flex:1;min-width:0;font-size:13px;}
+.ct-janelas{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+.ct-jan{background:var(--surface-2);border:1px solid var(--hairline);border-radius:10px;padding:12px 14px;}
+.ct-jan-rot{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
+.ct-jan-val{font-size:20px;font-weight:700;margin-top:6px;}
+@media (max-width:820px){.ct-janelas{grid-template-columns:repeat(2,1fr);}}
+.ct-grupos{display:flex;flex-direction:column;gap:10px;}
+.ct-grp-top{display:flex;align-items:center;gap:10px;font-size:13px;}
+.ct-grp-nome{font-weight:600;}
+.ct-grp-val{margin-left:auto;font-weight:700;}
+.ct-grp-pct{font-size:11.5px;min-width:40px;text-align:right;}
+.ct-grp-bar{margin-top:5px;height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden;}
+.ct-grp-bar span{display:block;height:100%;background:var(--accent);border-radius:4px;}

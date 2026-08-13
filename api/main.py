@@ -45,6 +45,7 @@ from api.report_tempo import build_tempo_report
 from api.auth import usuario_atual, usuario_admin, usuario_e_obra, descrever_modo
 from api import agente_db
 from api import rup_db
+from api import custos_db
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
@@ -271,6 +272,21 @@ async def rup_depara(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
     """De-para FVS→EAP: vínculo confirmado + candidatos sugeridos por FVS."""
     _check_obra(obra)
     return {"obra": obra, "itens": await rup_db.depara(obra)}
+
+
+@app.get("/api/custos/material")
+async def custos_material(obra: str = Query(...), top: int = Query(default=40),
+                          _u: str = Depends(usuario_e_obra)):
+    """Inteligência de custos — material: ABC por realizado + tendência de preço + alertas."""
+    _check_obra(obra)
+    return custos_db.material(obra, top)
+
+
+@app.get("/api/custos/desembolso")
+async def custos_desembolso(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
+    """Inteligência de custos — previsão de desembolso comprometido por janela."""
+    _check_obra(obra)
+    return custos_db.desembolso(obra)
 
 
 @app.get("/api/rup/hierarquia")

@@ -498,8 +498,51 @@ export interface RupHierarquia {
   celulas: RupCelula[]
 }
 
+// ── Inteligência de Custos — material (Fase 1) ───────────────────────────────
+
+export interface CustoPreco {
+  primeiro: number; ultimo: number; min: number; max: number
+  medio: number; medio_ponderado: number
+}
+export interface CustoTendencia {
+  variacao_pct: number | null; direcao: 'alta' | 'baixa' | 'estavel' | 'sem_historico'
+  acelerando: boolean; n_compras: number; pu_recente?: number; pu_base?: number
+}
+export interface CustoItem {
+  resource_id: number; descricao: string; unidade: string | null
+  total_qtd: number; total_valor: number; n_compras: number
+  classe: 'A' | 'B' | 'C'; pct: number; pct_acum: number
+  preco: CustoPreco; tendencia: CustoTendencia; fornecedores: number
+}
+export interface CustoAlerta {
+  tipo: string; nivel: 'alto' | 'medio'; resource_id: number; descricao: string
+  variacao_pct: number | null; classe: string; valor: number; texto: string
+  prioridade: 'P1' | 'P2' | 'P3' | 'P4'
+}
+export interface CustoGrupo {
+  grupo: string; total_valor: number; pct: number; pct_acum: number
+  classe: 'A' | 'B' | 'C'; n_insumos: number
+}
+export interface CustoMaterial {
+  obra: string; disponivel: boolean; mensagem?: string
+  total_comprado?: number; n_insumos?: number
+  abc_resumo?: { A: number; B: number; C: number }
+  grupos?: CustoGrupo[]; itens?: CustoItem[]; alertas?: CustoAlerta[]
+}
+
+export interface CustoDesembolso {
+  obra: string; disponivel: boolean; mensagem?: string
+  total_a_pagar?: number; vencidas?: number; n_parcelas?: number
+  janelas?: Record<string, number>
+  top_fornecedores_30d?: { fornecedor_id: number; valor: number }[]
+}
+
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
+  custosMaterial: (obra: string) =>
+    get<CustoMaterial>(`/api/custos/material?obra=${encodeURIComponent(obra)}`),
+  custosDesembolso: (obra: string) =>
+    get<CustoDesembolso>(`/api/custos/desembolso?obra=${encodeURIComponent(obra)}`),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
   rupHierarquia: (obra: string, janela: RupJanela = 'obra', soMonitorados = true) =>
     get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}&janela=${janela}&so_monitorados=${soMonitorados}`),
