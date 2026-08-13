@@ -1,5 +1,25 @@
 import { Fragment, useEffect, useState } from 'react'
-import { api, type RupCelula, type RupHierarquia, type RupStatus } from '../lib/api'
+import { api, type RupCelula, type RupHierarquia, type RupJanela, type RupStatus } from '../lib/api'
+
+const JANELAS: { id: RupJanela; rot: string }[] = [
+  { id: 'mes_atual', rot: 'Mês atual' },
+  { id: 'mes_anterior', rot: 'Mês anterior' },
+  { id: '6m', rot: '6 meses' },
+  { id: '12m', rot: '12 meses' },
+  { id: 'obra', rot: 'Obra inteira' },
+]
+
+/** Variação da RUP vs janela anterior (RUP menor = melhor → seta pra baixo é bom). */
+function Variacao({ c }: { c: RupCelula }) {
+  if (c.variacao_pct == null) return null
+  const piorou = (c.variacao_abs ?? 0) > 0
+  return (
+    <span className={`hr-var ${piorou ? 'hr-var-pior' : 'hr-var-melhor'}`}
+          title={`RUP anterior ${c.rup_anterior} → variação ${c.variacao_abs}`}>
+      {piorou ? '▲' : '▼'} {Math.abs(c.variacao_pct).toLocaleString('pt-BR', { maximumFractionDigits: 0 })}%
+    </span>
+  )
+}
 
 const fmt = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 0 })
 const fmt2 = (n: number) => n.toLocaleString('pt-BR', { maximumFractionDigits: 2 })
@@ -36,17 +56,31 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
   const [data, setData] = useState<RupHierarquia | null>(null)
   const [erro, setErro] = useState<string | null>(null)
   const [aberta, setAberta] = useState<string | null>(null)
+  const [janela, setJanela] = useState<RupJanela>('obra')
 
   useEffect(() => {
     setData(null); setErro(null); setAberta(null)
-    api.rupHierarquia(obra).then(setData).catch((e: Error) => setErro(e.message))
-  }, [obra])
+    api.rupHierarquia(obra, janela).then(setData).catch((e: Error) => setErro(e.message))
+  }, [obra, janela])
 
-  if (erro) return <div className="errbox"><b>Não foi possível carregar a produtividade</b>{erro}</div>
-  if (!data) return <div className="skel" style={{ height: 460 }} />
+  const seletor = (
+    <div className="hr-janelas">
+      <span className="hr-jan-lbl">Janela:</span>
+      {JANELAS.map((j) => (
+        <button key={j.id} className={janela === j.id ? 'on' : ''} onClick={() => setJanela(j.id)}>
+          {j.rot}
+        </button>
+      ))}
+    </div>
+  )
+
+  if (erro) return <div style={{ display: 'grid', gap: 13 }}>{seletor}<div className="errbox"><b>Não foi possível carregar a produtividade</b>{erro}</div></div>
+  if (!data) return <div style={{ display: 'grid', gap: 13 }}>{seletor}<div className="skel" style={{ height: 460 }} /></div>
 
   const r = data.resumo
   return (
+    <div style={{ display: 'grid', gap: 13 }}>
+    {seletor}
     <div className="panel">
       <div className="phead">
         <div>
@@ -89,7 +123,7 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
                     </td>
                     <td className="rgt"><span className="num mut">{fmt(c.hh)}</span></td>
                     <td className="rgt"><span className="num mut">{c.producao ? `${fmt(c.producao)} ${c.unidade}` : '—'}</span></td>
-                    <td className="rgt"><b className="num">{c.rup != null ? fmt2(c.rup) : '—'}</b></td>
+                    <td className="rgt"><b className="num">{c.rup != null ? fmt2(c.rup) : '—'}</b> <Variacao c={c} /></td>
                     <td className="rgt"><span className="num" style={{ color: 'var(--accent-ink)' }}>{reais(c.valor_risco)}</span></td>
                     <td><Faixa rup={c.rup} banda={c.banda} status={c.status} /></td>
                     <td><span className={`hr-badge ${st.cls}`}>{st.rotulo}</span></td>
@@ -112,6 +146,7 @@ export function HierarquiaRUP({ obra }: { obra: string }) {
           </tbody>
         </table>
       </div>
+    </div>
     </div>
   )
 }

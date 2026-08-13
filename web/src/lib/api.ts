@@ -486,10 +486,14 @@ export interface RupCelula {
   celula: string; hh: number; producao: number; unidade: string | null
   rup: number | null; unidades_mistas: boolean; banda: RupBanda | null
   status: RupStatus; pacotes: RupPacote[]; valor_risco: number; preco: number
+  rup_anterior?: number | null; variacao_abs?: number | null
+  variacao_pct?: number | null; tendencia?: 'melhorou' | 'piorou' | 'estavel' | null
 }
 
+export type RupJanela = 'mes_atual' | 'mes_anterior' | '6m' | '12m' | 'obra'
+
 export interface RupHierarquia {
-  obra: string
+  obra: string; janela: RupJanela
   resumo: { celulas: number; com_rup: number; dentro_faixa: number; fonte_hh: string }
   celulas: RupCelula[]
 }
@@ -497,8 +501,8 @@ export interface RupHierarquia {
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
-  rupHierarquia: (obra: string) =>
-    get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}`),
+  rupHierarquia: (obra: string, janela: RupJanela = 'obra') =>
+    get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}&janela=${janela}`),
   rupDepara: (obra: string) =>
     get<{ obra: string; itens: DeparaItem[] }>(`/api/rup/depara?obra=${encodeURIComponent(obra)}`),
   rupConfirmarDepara: async (obra: string, fvsCodigo: string, grupo: EapServico) => {

@@ -166,11 +166,24 @@ async def depara(obra: str) -> list[dict]:
     return saida
 
 
-async def hierarquia(obra: str) -> dict:
+def _serie_mensal(obra: str) -> dict[str, dict]:
+    """célula → {mês: {hh, producao}} — série mensal p/ análise por janela."""
+    pid = _pid_da_obra(obra)
+    f = _RAIZ / "data" / f"rup_mensal_{pid}.json" if pid else None
+    if not f or not f.exists():
+        return {}
+    return json.loads(f.read_text(encoding="utf-8")).get("celulas", {})
+
+
+async def hierarquia(obra: str, janela: str = "obra") -> dict:
     """
     Árvore Célula → Pacote com RUP consolidada (HH total ÷ produção total) e a
     faixa de referência do parceiro por célula. HH vem do de-para (confirmado
     quando houver, senão a melhor sugestão do matcher — marcado em `fonte_hh`).
+
+    `janela` (mes_atual|mes_anterior|6m|12m|obra): quando ≠ obra, a RUP de cada
+    célula é RECALCULADA só com os meses da janela (série mensal), com variação
+    vs a janela anterior. A produção acumulada e o R$ em risco continuam do total.
     """
     import re as _re
     from collections import defaultdict
@@ -197,6 +210,21 @@ async def hierarquia(obra: str) -> dict:
         hh_pac[(cel, pac)] += l.get("hh_total") or 0
 
     arvore = montar(hh_pac, prod)
+
+    # Janela de tempo: recalcula a RUP de cada célula só com os meses da janela.
+    if janela and janela != "obra":
+        from rup import janela as _jan
+        serie = _serie_mensal(obra)
+        for c in arvore:
+            jc = _jan.com_variacao(serie.get(c["celula"], {}), janela)
+            c["rup"] = jc["rup"]
+            c["hh"] = jc["hh"]
+            c["producao"] = jc["producao"]
+            c["rup_anterior"] = jc["rup_anterior"]
+            c["variacao_abs"] = jc["variacao_abs"]
+            c["variacao_pct"] = jc["variacao_pct"]
+            c["tendencia"] = jc["tendencia"]
+
     bandas = referencia.bandas_por_disciplina()
     for c in arvore:
         b = bandas.get(c["celula"])
@@ -204,11 +232,12 @@ async def hierarquia(obra: str) -> dict:
         c["status"] = referencia.status(c.get("rup"), b)
         for p in c["pacotes"]:
             p["status"] = referencia.status(p.get("rup"), b)
+    arvore.sort(key=lambda c: -(c["hh"] or 0))
 
     dentro = sum(1 for c in arvore if c["status"] == "dentro")
     com_rup = sum(1 for c in arvore if c.get("rup") is not None)
     return {
-        "obra": obra,
+        "obra": obra, "janela": janela,
         "resumo": {"celulas": len(arvore), "com_rup": com_rup, "dentro_faixa": dentro,
                    "fonte_hh": "confirmado" if algum_confirmado else "sugerido"},
         "celulas": arvore,

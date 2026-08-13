@@ -274,10 +274,14 @@ async def rup_depara(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
 
 
 @app.get("/api/rup/hierarquia")
-async def rup_hierarquia(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
-    """Produtividade hierárquica: Célula → Pacote, com RUP e faixa do parceiro."""
+async def rup_hierarquia(obra: str = Query(...), janela: str = Query(default="obra"),
+                         _u: str = Depends(usuario_e_obra)):
+    """Produtividade hierárquica: Célula → Pacote, com RUP e faixa do parceiro.
+
+    `janela`: mes_atual | mes_anterior | 6m | 12m | obra (recalcula a RUP por período).
+    """
     _check_obra(obra)
-    return await rup_db.hierarquia(obra)
+    return await rup_db.hierarquia(obra, janela)
 
 
 @app.post("/api/rup/depara/confirmar")
