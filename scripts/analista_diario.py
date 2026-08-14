@@ -40,6 +40,8 @@ from agente.email import destinatarios_padrao, enviar
 from api.custos_db import desembolso, material
 
 OBRAS = ["Cape Town Residence", "Holmes Residence"]
+# Diário é o painel pessoal do gestor — vai só p/ ele. EMAIL_DESTINATARIOS sobrescreve.
+DESTINO_PADRAO = ["elrik@r21empreendimentos.com"]
 
 SYSTEM = (
     "Você é o Analista de Dados da R21 Engenharia (planejamento e orçamento de obras). "
@@ -157,8 +159,7 @@ def main() -> int:
         print(corpo)
         return 0
 
-    from agente.destinatarios import GESTORES
-    dest = destinatarios_padrao() or GESTORES   # fallback: gestores (inclui você)
+    dest = destinatarios_padrao() or DESTINO_PADRAO
     if not dest:
         print("Sem destinatários — relatório salvo em arquivo, e-mail não enviado.")
         return 0
