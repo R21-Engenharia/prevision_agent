@@ -174,6 +174,7 @@ export function Custos({ obra }: { obra: string }) {
               <th>Insumo</th>
               <th className="rgt">Classe</th>
               <th className="rgt">Comprado</th>
+              <th className="rgt">Quantidade</th>
               <th className="rgt">1ª compra</th>
               <th className="rgt">Médio</th>
               <th className="rgt">Último</th>
@@ -186,6 +187,7 @@ export function Custos({ obra }: { obra: string }) {
                     <span className="ct-un mut"> · {i.unidade}</span></td>
                   <td className="rgt"><span className={`ct-cls ${CLS[i.classe]}`}>{i.classe}</span></td>
                   <td className="rgt"><b className="num">{rs(i.total_valor)}</b></td>
+                  <td className="rgt"><span className="num mut">{i.total_qtd.toLocaleString('pt-BR', { maximumFractionDigits: 1 })} {i.unidade}</span></td>
                   <td className="rgt"><PrecoMes valor={i.tendencia.primeira ?? i.preco.primeiro} mes={i.tendencia.primeira_mes} /></td>
                   <td className="rgt"><span className="num mut">{rs2(i.tendencia.medio ?? i.preco.medio_ponderado)}</span></td>
                   <td className="rgt"><PrecoMes valor={i.tendencia.ultimo ?? i.preco.ultimo} mes={i.tendencia.ultimo_mes} forte /></td>

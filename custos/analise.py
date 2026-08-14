@@ -110,7 +110,8 @@ def _recompute_janela(insumo: dict, meses: set[str]) -> dict | None:
         return None
     sq = sum(h["qtd"] for h in janela)
     return {**insumo,  # preserva historico + preco completos (referência)
-            "total_qtd_janela": round(sq, 3),
+            "total_qtd": round(sq, 3),          # quantidade DA JANELA (consistente c/ valor)
+            "total_qtd_hist": insumo.get("total_qtd"),
             "total_valor": round(sum(h["pu"] * h["qtd"] for h in janela), 2),
             "n_compras_janela": len(janela)}
 
