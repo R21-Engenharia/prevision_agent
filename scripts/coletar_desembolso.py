@@ -117,6 +117,7 @@ def coletar(pid: int, desde: str, ate: str) -> list[dict]:
         for p in _installments(sng, b["id"]):
             parcelas.append({
                 "bill_id": b["id"], "fornecedor_id": b.get("creditorId"),
+                "doc_tipo": (b.get("documentIdentificationId") or "").strip(),
                 "data_venc": (p.get("dueDate") or "")[:10],
                 "valor": float(p.get("amount") or 0),
                 "situacao": p.get("situation"),

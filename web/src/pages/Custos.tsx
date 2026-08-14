@@ -12,16 +12,21 @@ const JANELAS: { id: RupJanela; rot: string }[] = [
 
 const JAN_ROT: Record<string, string> = { '7d': '7 dias', '15d': '15 dias', '30d': '30 dias', '60d': '60 dias', '90d': '90 dias' }
 
+/** Slug ASCII estável p/ classe CSS (tira acento, parênteses, barra, espaço). */
+const catSlug = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '')
+
 /** Painel executivo de previsão de desembolso (parcelas com vencimento real). */
 function Desembolso({ obra }: { obra: string }) {
   const [d, setD] = useState<CustoDesembolso | null>(null)
   useEffect(() => { setD(null); api.custosDesembolso(obra).then(setD).catch(() => setD(null)) }, [obra])
   if (!d || !d.disponivel) return null
   const brl = (n: number) => `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`
+  const cats = d.por_categoria ?? []
   return (
     <div className="panel">
       <div className="phead"><div><h2>Previsão de desembolso (comprometido)</h2>
-        <div className="ph-sub">Parcelas a pagar com vencimento real no Sienge. Total a pagar {brl(d.total_a_pagar ?? 0)}
+        <div className="ph-sub">Caixa <b>total</b> da obra — todas as parcelas a pagar com vencimento real no Sienge
+          (contrato, material, imposto), não só os insumos da ABC. Total a pagar {brl(d.total_a_pagar ?? 0)}
           {(d.vencidas ?? 0) > 0 && <> · <b style={{ color: 'var(--accent-ink)' }}>{brl(d.vencidas ?? 0)} vencidas</b></>}.</div></div></div>
       <div className="ct-janelas">
         {Object.entries(d.janelas ?? {}).map(([k, v]) => (
@@ -31,6 +36,23 @@ function Desembolso({ obra }: { obra: string }) {
           </div>
         ))}
       </div>
+      {cats.length > 0 && (
+        <div className="ct-catbrk">
+          <div className="ct-catbrk-hd">Por natureza do desembolso <span className="mut">· total a pagar · (próximos 30d)</span></div>
+          <div className="ct-catbrk-nota">A maior fatia é <b>provisão/contrato</b> — medições de empreiteiro ainda sem nota fiscal. Só o que já tem nota é separado em material/serviço.</div>
+          {cats.map((c) => (
+            <div className={`ct-cat ct-cat-${catSlug(c.categoria)}`} key={c.categoria}>
+              <div className="ct-cat-top">
+                <span className="ct-cat-nome">{c.categoria}</span>
+                <span className="num ct-cat-val">{brl(c.total)}</span>
+                <span className="mut ct-cat-pct">{c.pct}%</span>
+                <span className="num mut ct-cat-30">({brl(c.d30)} em 30d)</span>
+              </div>
+              <div className="ct-cat-bar"><span style={{ width: `${Math.min(100, c.pct)}%` }} /></div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   )
 }

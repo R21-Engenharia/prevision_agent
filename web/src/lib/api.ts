@@ -538,6 +538,7 @@ export interface CustoDesembolso {
   obra: string; disponivel: boolean; mensagem?: string
   total_a_pagar?: number; vencidas?: number; n_parcelas?: number
   janelas?: Record<string, number>
+  por_categoria?: { categoria: string; total: number; d30: number; pct: number }[]
   top_fornecedores_30d?: { fornecedor_id: number; valor: number }[]
 }
 
