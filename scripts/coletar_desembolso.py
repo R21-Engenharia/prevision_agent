@@ -81,12 +81,18 @@ def _bills(sng: SiengeClient, cc: int, desde: str, ate: str) -> list[dict]:
 def _installments(sng: SiengeClient, bill_id) -> list[dict]:
     f = CACHE / f"{bill_id}.json"
     if f.exists():
-        return json.loads(f.read_text(encoding="utf-8"))
+        try:
+            return json.loads(f.read_text(encoding="utf-8"))
+        except (json.JSONDecodeError, OSError):
+            pass  # cache vazio/corrompido (Drive) — re-busca abaixo
     for tent in range(4):
         try:
             body = sng.get_json(f"bills/{bill_id}/installments")
             res = body.get("results", []) if isinstance(body, dict) else []
-            f.write_text(json.dumps(res, ensure_ascii=False), encoding="utf-8")
+            try:
+                f.write_text(json.dumps(res, ensure_ascii=False), encoding="utf-8")
+            except OSError:
+                pass  # Google Drive às vezes recusa a escrita (Errno 22) — segue sem cachear
             return res
         except httpx.HTTPStatusError as e:
             if e.response.status_code >= 500:

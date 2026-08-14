@@ -9,15 +9,22 @@ janelas respondem "quanto vou desembolsar nos próximos 7/15/30/60/90 dias".
 """
 from __future__ import annotations
 
+import unicodedata
 from datetime import date, timedelta
 
 JANELAS = (7, 15, 30, 60, 90)
 
 
 def _pago(situacao: str | None) -> bool:
-    # "A pagar" contém "paga" (de paGAR); casa palavra inteira p/ não confundir.
-    palavras = (situacao or "").lower().replace("(", " ").replace(")", " ").split()
-    return any(p in {"paga", "pago", "pagas", "quitada", "quitado"} for p in palavras)
+    """
+    True só quando a parcela está QUITADA. Cuidado com as armadilhas do português:
+    "Não paga" e "A pagar" contêm "paga"/"pagar" mas NÃO estão pagas. Só conta como
+    pago "Totalmente paga"/"quitada" (Parcialmente paga ainda tem saldo → a pagar).
+    """
+    s = unicodedata.normalize("NFKD", (situacao or "").lower()).encode("ascii", "ignore").decode()
+    if "nao" in s.split():          # "não paga" → não pago
+        return False
+    return "totalmente pag" in s or "quitad" in s
 
 
 def previsao(dados: dict, hoje: date | None = None) -> dict:
