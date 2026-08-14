@@ -1,11 +1,11 @@
-name: Analista de Dados diário
+name: Analista de Dados semanal
 
 # Roda os motores de custo, a IA redige o diagnóstico e envia por e-mail.
-# Todo dia útil às 8h BRT (11:00 UTC). Reaproveita a esteira de e-mail existente
+# Toda SEGUNDA às 8h BRT (11:00 UTC). Reaproveita a esteira de e-mail existente
 # (SMTP_*/RESEND) e a mesma ANTHROPIC_API_KEY do chat do agente.
 on:
   schedule:
-    - cron: "0 11 * * 1-5"   # 11:00 UTC = 08:00 BRT, seg a sex
+    - cron: "0 11 * * 1"   # 11:00 UTC = 08:00 BRT, segunda-feira
   workflow_dispatch:
 
 jobs:
