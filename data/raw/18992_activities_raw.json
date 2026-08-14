@@ -1,7 +1,7 @@
 {
   "project_id": 18992,
   "project_name": "HOLMES RESIDENCE",
-  "collected_at": "2026-08-13T10:04:49.712811",
+  "collected_at": "2026-08-14T10:05:13.427205",
   "floors_total": 48,
   "activities_total": 2214,
   "activities_list": [
@@ -2514,7 +2514,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2650.0,
+      "budgetCost": 1500.0,
       "endAt": "2026-08-21 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648038",
@@ -3680,7 +3680,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-08-28 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648041",
@@ -3790,7 +3790,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 13780.0,
+      "budgetCost": 7116.0,
       "endAt": "2026-10-09 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648041",
@@ -4802,7 +4802,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-04 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648042",
@@ -4912,7 +4912,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 13780.0,
+      "budgetCost": 7116.0,
       "endAt": "2026-10-26 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648042",
@@ -5946,7 +5946,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-14 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648043",
@@ -6056,7 +6056,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 13780.0,
+      "budgetCost": 7116.0,
       "endAt": "2026-10-19 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648043",
@@ -7178,7 +7178,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-21 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648044",
@@ -7288,7 +7288,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 31005.0,
+      "budgetCost": 16011.0,
       "endAt": "2026-11-03 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648044",
@@ -8982,7 +8982,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-28 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648045",
@@ -11248,7 +11248,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-10-05 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648046",
@@ -12854,7 +12854,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-04-24 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648047",
@@ -14504,7 +14504,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-05-04 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648048",
@@ -16154,7 +16154,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-05-11 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648049",
@@ -17804,7 +17804,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-05-18 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648050",
@@ -19454,7 +19454,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-05-25 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648051",
@@ -21126,7 +21126,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-06-01 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648052",
@@ -22776,7 +22776,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-06-09 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648053",
@@ -24426,7 +24426,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-06-16 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648054",
@@ -26076,7 +26076,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-06-30 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648055",
@@ -27726,7 +27726,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-07-14 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648056",
@@ -29376,7 +29376,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-07-28 23:59:59 UTC",
       "expectedPercentageCompleted": 100.0,
       "floorId": "648057",
@@ -31048,7 +31048,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-08-11 23:59:59 UTC",
       "expectedPercentageCompleted": 60.0,
       "floorId": "648058",
@@ -32698,7 +32698,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-08-25 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648059",
@@ -34348,7 +34348,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-09 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648060",
@@ -35998,7 +35998,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-23 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648061",
@@ -38022,7 +38022,7 @@
       "_floor_has_quality": true
     },
     {
-      "budgetCost": 2652.8069454542647,
+      "budgetCost": 1502.8069454542647,
       "endAt": "2026-09-04 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "648071",
