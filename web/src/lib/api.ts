@@ -505,12 +505,15 @@ export interface CustoPreco {
   medio: number; medio_ponderado: number
 }
 export interface CustoTendencia {
-  variacao_pct: number | null; direcao: 'alta' | 'baixa' | 'estavel' | 'sem_historico'
-  acelerando: boolean; n_compras: number; pu_recente?: number; pu_base?: number
+  variacao_pct: number | null
+  variacao_primeira_pct?: number
+  direcao: 'alta' | 'baixa' | 'estavel' | 'sem_historico' | 'compra_unica'
+  acelerando?: boolean; n_compras: number
+  primeira?: number; medio?: number; ultimo?: number
 }
 export interface CustoItem {
   resource_id: number; descricao: string; unidade: string | null
-  total_qtd: number; total_valor: number; n_compras: number
+  total_qtd: number; total_valor: number; n_compras: number; n_compras_hist?: number
   classe: 'A' | 'B' | 'C'; pct: number; pct_acum: number
   preco: CustoPreco; tendencia: CustoTendencia; fornecedores: number
 }

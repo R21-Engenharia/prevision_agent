@@ -41,34 +41,41 @@ def curva_abc(insumos: list[dict]) -> list[dict]:
     return out
 
 
-def tendencia_preco(insumo: dict, k: int = 3) -> dict:
+def tendencia_preco(insumo: dict) -> dict:
     """
-    Tendência do PU: média das últimas k compras vs a base (compras anteriores).
-    Devolve variação %, direção (alta/estavel/baixa) e se está acelerando (a
-    última compra ainda acima da média recente). Robustez: precisa de histórico.
+    Tendência do preço comparando o ÚLTIMO preço contra a REFERÊNCIA HISTÓRICA do
+    insumo — a primeira compra e a média (mediana) histórica. Assim, mesmo que o
+    insumo tenha sido comprado uma única vez na janela, a variação é medida contra
+    o histórico completo dele (não contra si mesmo). `historico` deve ser o
+    histórico COMPLETO, nunca o recortado pela janela.
     """
     hist = insumo.get("historico") or []
-    if len(hist) < 2:
-        return {"variacao_pct": None, "direcao": "sem_historico",
-                "acelerando": False, "n_compras": len(hist)}
-    pus_raw = [h["pu"] for h in hist]  # já ordenado por data no coletor
-    # Filtra outlier de preço: o mesmo insumo às vezes é comprado em unidade
-    # diferente (kg × barra), o que deixa o unitPrice incomparável. Mantém só
-    # compras dentro de [mediana/3, mediana×3] — remove a unidade trocada.
+    pus_raw = [h["pu"] for h in hist]  # ordenado por data no coletor
+    # Filtra outlier: o mesmo insumo às vezes é comprado em unidade diferente
+    # (kg × barra) → unitPrice incomparável. Mantém [mediana/3, mediana×3].
+    if not pus_raw:
+        return {"variacao_pct": None, "direcao": "sem_historico", "n_compras": 0}
     m = median(pus_raw)
     pus = [p for p in pus_raw if m / 3 <= p <= m * 3] or pus_raw
     if len(pus) < 2:
-        return {"variacao_pct": None, "direcao": "sem_historico",
-                "acelerando": False, "n_compras": len(hist)}
-    # MEDIANA (não média) — robusta a outlier residual.
-    med_rec = median(pus[-k:])
-    med_base = median(pus[:-k] or pus[:-1])
-    var = 100 * (med_rec - med_base) / med_base if med_base else 0.0
-    direcao = "alta" if var > 3 else "baixa" if var < -3 else "estavel"
-    acelerando = pus[-1] >= med_rec and direcao == "alta"
-    return {"variacao_pct": round(var, 1), "direcao": direcao,
-            "acelerando": acelerando, "n_compras": len(hist),
-            "pu_recente": round(med_rec, 2), "pu_base": round(med_base, 2)}
+        return {"variacao_pct": None, "direcao": "compra_unica", "n_compras": len(pus),
+                "ultimo": round(pus[-1], 2), "primeira": round(pus[0], 2),
+                "medio": round(pus[0], 2)}
+    primeira = pus[0]
+    medio = median(pus)          # referência histórica robusta
+    ultimo = pus[-1]
+    var_medio = 100 * (ultimo - medio) / medio if medio else 0.0
+    var_prim = 100 * (ultimo - primeira) / primeira if primeira else 0.0
+    direcao = "alta" if var_medio > 3 else "baixa" if var_medio < -3 else "estavel"
+    return {
+        "variacao_pct": round(var_medio, 1),           # último vs média histórica
+        "variacao_primeira_pct": round(var_prim, 1),   # último vs 1ª compra
+        "direcao": direcao,
+        "acelerando": ultimo >= medio and direcao == "alta",
+        "n_compras": len(hist),
+        "primeira": round(primeira, 2), "medio": round(medio, 2),
+        "ultimo": round(ultimo, 2),
+    }
 
 
 def abc_por_grupo(insumos: list[dict]) -> list[dict]:
@@ -89,22 +96,19 @@ def abc_por_grupo(insumos: list[dict]) -> list[dict]:
 
 def _recompute_janela(insumo: dict, meses: set[str]) -> dict | None:
     """
-    Recorta um insumo para os meses da janela: mantém só as compras do período e
-    recalcula valor/quantidade/preço a partir delas. None se não comprou na janela.
+    Recorta um insumo para os meses da janela SÓ no gasto (valor/qtd/nº compras),
+    para a ABC refletir a atividade recente. Mantém o `historico` e o `preco`
+    COMPLETOS — a variação de preço é sempre contra a referência histórica, nunca
+    contra a própria janela. None se o insumo não teve compra na janela.
     """
-    hist = [h for h in (insumo.get("historico") or []) if (h.get("data") or "")[:7] in meses]
-    if not hist:
+    janela = [h for h in (insumo.get("historico") or []) if (h.get("data") or "")[:7] in meses]
+    if not janela:
         return None
-    pus = [h["pu"] for h in hist]
-    sq = sum(h["qtd"] for h in hist)
-    mp = sum(h["pu"] * h["qtd"] for h in hist) / sq if sq else 0
-    return {**insumo,
-            "total_qtd": round(sq, 3),
-            "total_valor": round(sum(h["pu"] * h["qtd"] for h in hist), 2),
-            "n_compras": len(hist),
-            "preco": {"primeiro": pus[0], "ultimo": pus[-1], "min": min(pus), "max": max(pus),
-                      "medio": round(sum(pus) / len(pus), 4), "medio_ponderado": round(mp, 4)},
-            "historico": hist}
+    sq = sum(h["qtd"] for h in janela)
+    return {**insumo,  # preserva historico + preco completos (referência)
+            "total_qtd_janela": round(sq, 3),
+            "total_valor": round(sum(h["pu"] * h["qtd"] for h in janela), 2),
+            "n_compras_janela": len(janela)}
 
 
 def analisar(compras: dict, top: int = 40, janela: str = "obra",
@@ -133,7 +137,10 @@ def analisar(compras: dict, top: int = 40, janela: str = "obra",
         item = {
             "resource_id": i.get("resource_id"), "descricao": i.get("descricao"),
             "unidade": i.get("unidade"), "total_qtd": i.get("total_qtd"),
-            "total_valor": i.get("total_valor"), "n_compras": i.get("n_compras"),
+            "total_valor": i.get("total_valor"),
+            # nº de compras na janela (se filtrado) e no histórico todo
+            "n_compras": i.get("n_compras_janela", i.get("n_compras")),
+            "n_compras_hist": i.get("n_compras"),
             "classe": i["classe"], "pct": i["pct"], "pct_acum": i["pct_acum"],
             "preco": i.get("preco"), "tendencia": tend,
             "fornecedores": len(i.get("fornecedores") or []),
@@ -150,9 +157,10 @@ def analisar(compras: dict, top: int = 40, janela: str = "obra",
                 "prioridade": ("P1" if i["classe"] == "A" and tend["acelerando"]
                                else "P2" if i["classe"] == "A"
                                else "P3" if tend["acelerando"] else "P4"),
-                "texto": (f"{i.get('descricao')}: preço {tend['variacao_pct']:+.1f}% "
-                          f"nas últimas compras (R$ {tend['pu_base']:.2f} → "
-                          f"R$ {tend['pu_recente']:.2f})"),
+                "texto": (f"{i.get('descricao')}: último R$ {tend['ultimo']:.2f} — "
+                          f"{tend['variacao_pct']:+.1f}% vs média (R$ {tend['medio']:.2f}), "
+                          f"{tend['variacao_primeira_pct']:+.1f}% vs 1ª compra "
+                          f"(R$ {tend['primeira']:.2f})"),
             })
     alertas.sort(key=lambda a: (a["prioridade"], -(a.get("valor") or 0)))
     return {

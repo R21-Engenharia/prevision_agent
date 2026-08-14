@@ -52,13 +52,17 @@ function Kpi({ label, valor, sufixo, prefixo, sub, tom }: {
   )
 }
 
-/** Seta de tendência de preço (alta = pior, sobe vermelho; baixa = melhor, verde). */
+/** Tendência: último preço vs média histórica (▲ pior/vermelho, ▼ melhor/verde).
+ *  Tooltip traz último, média e 1ª compra — a referência é sempre o histórico. */
 function Tend({ t }: { t: CustoItem['tendencia'] }) {
-  if (t.variacao_pct == null || t.direcao === 'estavel') return <span className="mut">estável</span>
+  if (t.variacao_pct == null) return <span className="mut">—</span>
+  const dica = `último R$ ${t.ultimo} · média R$ ${t.medio} · 1ª compra R$ ${t.primeira} · vs 1ª ${t.variacao_primeira_pct}% · ${t.n_compras} compras`
+  if (t.direcao === 'estavel') return <span className="mut" title={dica}>estável</span>
   const alta = t.direcao === 'alta'
   return (
-    <span className={`ct-tend ${alta ? 'ct-alta' : 'ct-baixa'}`} title={`${t.pu_base} → ${t.pu_recente} (${t.n_compras} compras)`}>
+    <span className={`ct-tend ${alta ? 'ct-alta' : 'ct-baixa'}`} title={dica}>
       {alta ? '▲' : '▼'} {Math.abs(t.variacao_pct)}%{t.acelerando ? ' ⚡' : ''}
+      {t.variacao_primeira_pct != null && <span className="ct-vs1 mut"> ({t.variacao_primeira_pct > 0 ? '+' : ''}{t.variacao_primeira_pct}% vs 1ª)</span>}
     </span>
   )
 }
@@ -159,8 +163,8 @@ export function Custos({ obra }: { obra: string }) {
           <table className="data">
             <thead><tr>
               <th>Insumo</th><th className="rgt">Classe</th><th className="rgt">Comprado</th>
-              <th className="rgt">% acum</th><th className="rgt">Preço médio</th>
-              <th className="rgt">Compras</th><th>Tendência</th>
+              <th className="rgt">% acum</th><th className="rgt">Último / médio</th>
+              <th className="rgt">Compras</th><th>Tendência (vs média)</th>
             </tr></thead>
             <tbody>
               {itens.map((i) => (
@@ -169,8 +173,8 @@ export function Custos({ obra }: { obra: string }) {
                     <span className="ct-un mut"> · {i.unidade}</span></td>
                   <td className="rgt"><span className={`ct-cls ${CLS[i.classe]}`}>{i.classe}</span></td>
                   <td className="rgt"><b className="num">{rs(i.total_valor)}</b></td>
-                  <td className="rgt"><span className="num mut">{i.pct_acum}%</span></td>
-                  <td className="rgt"><span className="num">{rs2(i.preco.medio_ponderado)}</span></td>
+                  <td className="rgt"><span className="num">{rs2(i.tendencia.ultimo ?? i.preco.ultimo)}</span>
+                    <span className="num mut" style={{ fontSize: 11 }}> / {rs2(i.tendencia.medio ?? i.preco.medio_ponderado)}</span></td>
                   <td className="rgt"><span className="num mut">{i.n_compras}</span></td>
                   <td><Tend t={i.tendencia} /></td>
                 </tr>
