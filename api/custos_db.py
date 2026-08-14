@@ -29,15 +29,15 @@ def _compras_da_obra(obra: str) -> dict:
     return json.loads(f.read_text(encoding="utf-8"))
 
 
-def material(obra: str, top: int = 40) -> dict:
-    """Análise de custo de material: ABC + tendência de preço + alertas."""
+def material(obra: str, top: int = 40, janela: str = "obra") -> dict:
+    """Análise de custo de material: ABC + tendência de preço + alertas (por janela)."""
     from custos.analise import analisar
     compras = _compras_da_obra(obra)
     if not compras:
         return {"obra": obra, "disponivel": False,
                 "mensagem": "Compras ainda não coletadas para esta obra."}
-    r = analisar(compras, top=top)
-    return {"obra": obra, "disponivel": True, **r}
+    r = analisar(compras, top=top, janela=janela)
+    return {"obra": obra, "disponivel": True, "janela": janela, **r}
 
 
 def desembolso(obra: str) -> dict:

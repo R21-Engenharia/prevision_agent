@@ -87,12 +87,41 @@ def abc_por_grupo(insumos: list[dict]) -> list[dict]:
     return curva_abc(list(g.values()))
 
 
-def analisar(compras: dict, top: int = 40) -> dict:
+def _recompute_janela(insumo: dict, meses: set[str]) -> dict | None:
+    """
+    Recorta um insumo para os meses da janela: mantém só as compras do período e
+    recalcula valor/quantidade/preço a partir delas. None se não comprou na janela.
+    """
+    hist = [h for h in (insumo.get("historico") or []) if (h.get("data") or "")[:7] in meses]
+    if not hist:
+        return None
+    pus = [h["pu"] for h in hist]
+    sq = sum(h["qtd"] for h in hist)
+    mp = sum(h["pu"] * h["qtd"] for h in hist) / sq if sq else 0
+    return {**insumo,
+            "total_qtd": round(sq, 3),
+            "total_valor": round(sum(h["pu"] * h["qtd"] for h in hist), 2),
+            "n_compras": len(hist),
+            "preco": {"primeiro": pus[0], "ultimo": pus[-1], "min": min(pus), "max": max(pus),
+                      "medio": round(sum(pus) / len(pus), 4), "medio_ponderado": round(mp, 4)},
+            "historico": hist}
+
+
+def analisar(compras: dict, top: int = 40, janela: str = "obra",
+             hoje=None) -> dict:
     """
     Análise completa de material: ABC (insumo e grupo) + tendência + alertas.
     `compras` = conteúdo de compras_{pid}.json (chave "insumos").
+    `janela` (mes_atual|mes_anterior|6m|12m|obra): recorta as COMPRAS ao período,
+    recalculando ABC e alertas só com o que foi comprado na janela.
     """
     insumos = list((compras.get("insumos") or {}).values())
+    if janela and janela != "obra":
+        from rup.janela import meses as _meses
+        sel, _ = _meses(janela, hoje)
+        if sel is not None:
+            ms = set(sel)
+            insumos = [ri for ri in (_recompute_janela(i, ms) for i in insumos) if ri]
     abc = curva_abc(insumos)
     grupos = abc_por_grupo(insumos)
     total = sum(i.get("total_valor") or 0 for i in insumos)

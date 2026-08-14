@@ -39,6 +39,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 from rup.sienge_client import SiengeClient
 
 DATA = _ROOT / "data"
+CACHE = DATA / "raw" / "bill_installments"
 # obra (prevision_id) -> centro de custo do Sienge (= id do "Custo de Obra")
 CENTROS = {10223: [23], 18992: [13]}
 OBRA_NOME = {10223: "Cape Town Residence", 18992: "Holmes Residence"}
@@ -78,10 +79,15 @@ def _bills(sng: SiengeClient, cc: int, desde: str, ate: str) -> list[dict]:
 
 
 def _installments(sng: SiengeClient, bill_id) -> list[dict]:
+    f = CACHE / f"{bill_id}.json"
+    if f.exists():
+        return json.loads(f.read_text(encoding="utf-8"))
     for tent in range(4):
         try:
             body = sng.get_json(f"bills/{bill_id}/installments")
-            return body.get("results", []) if isinstance(body, dict) else []
+            res = body.get("results", []) if isinstance(body, dict) else []
+            f.write_text(json.dumps(res, ensure_ascii=False), encoding="utf-8")
+            return res
         except httpx.HTTPStatusError as e:
             if e.response.status_code >= 500:
                 time.sleep(1.5 * (tent + 1)); continue
@@ -122,6 +128,7 @@ def main() -> int:
     # filtro de bills é por EMISSÃO → não faz sentido ir além de hoje
     ap.add_argument("--ate", default=date.today().isoformat())
     args = ap.parse_args()
+    CACHE.mkdir(parents=True, exist_ok=True)
     for pid, ccs in CENTROS.items():
         print(f"\n{OBRA_NOME[pid]} (centros {ccs})")
         parcelas = coletar(pid, args.desde, args.ate)

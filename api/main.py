@@ -276,10 +276,11 @@ async def rup_depara(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
 
 @app.get("/api/custos/material")
 async def custos_material(obra: str = Query(...), top: int = Query(default=40),
+                          janela: str = Query(default="obra"),
                           _u: str = Depends(usuario_e_obra)):
-    """Inteligência de custos — material: ABC por realizado + tendência de preço + alertas."""
+    """Inteligência de custos — material: ABC + tendência + alertas, por janela de tempo."""
     _check_obra(obra)
-    return custos_db.material(obra, top)
+    return custos_db.material(obra, top, janela)
 
 
 @app.get("/api/custos/desembolso")

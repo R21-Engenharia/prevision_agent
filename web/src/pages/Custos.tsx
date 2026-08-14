@@ -1,6 +1,14 @@
-import { useEffect, useState } from 'react'
-import { api, type CustoDesembolso, type CustoItem, type CustoMaterial } from '../lib/api'
+import { type ReactNode, useEffect, useState } from 'react'
+import { api, type CustoDesembolso, type CustoItem, type CustoMaterial, type RupJanela } from '../lib/api'
 import { CountUp } from '../components/CountUp'
+
+const JANELAS: { id: RupJanela; rot: string }[] = [
+  { id: 'mes_atual', rot: 'Mês atual' },
+  { id: 'mes_anterior', rot: 'Mês anterior' },
+  { id: '6m', rot: '6 meses' },
+  { id: '12m', rot: '12 meses' },
+  { id: 'obra', rot: 'Obra inteira' },
+]
 
 const JAN_ROT: Record<string, string> = { '7d': '7 dias', '15d': '15 dias', '30d': '30 dias', '60d': '60 dias', '90d': '90 dias' }
 
@@ -60,17 +68,30 @@ const CLS: Record<string, string> = { A: 'ct-a', B: 'ct-b', C: 'ct-c' }
 export function Custos({ obra }: { obra: string }) {
   const [data, setData] = useState<CustoMaterial | null>(null)
   const [erro, setErro] = useState<string | null>(null)
+  const [janela, setJanela] = useState<RupJanela>('obra')
 
   useEffect(() => {
     setData(null); setErro(null)
-    api.custosMaterial(obra).then(setData).catch((e: Error) => setErro(e.message))
-  }, [obra])
+    api.custosMaterial(obra, janela).then(setData).catch((e: Error) => setErro(e.message))
+  }, [obra, janela])
 
-  if (erro) return <div className="errbox"><b>Não foi possível carregar os custos</b>{erro}</div>
-  if (!data) return <div className="skel" style={{ height: 460 }} />
+  const seletor = (
+    <div className="hr-janelas">
+      <span className="hr-jan-lbl">Período das compras:</span>
+      {JANELAS.map((j) => (
+        <button key={j.id} className={janela === j.id ? 'on' : ''} onClick={() => setJanela(j.id)}>{j.rot}</button>
+      ))}
+    </div>
+  )
+  const envolver = (conteudo: ReactNode) => (
+    <div style={{ display: 'grid', gap: 13 }}>{seletor}{conteudo}</div>
+  )
+
+  if (erro) return envolver(<div className="errbox"><b>Não foi possível carregar os custos</b>{erro}</div>)
+  if (!data) return envolver(<div className="skel" style={{ height: 460 }} />)
 
   if (!data.disponivel) {
-    return (
+    return envolver(
       <div className="panel">
         <div className="phead"><div><h2>Inteligência de custos — material</h2>
           <div className="ph-sub">{data.mensagem}</div></div></div>
@@ -82,10 +103,12 @@ export function Custos({ obra }: { obra: string }) {
   const itens = data.itens ?? []
   const alertas = data.alertas ?? []
   const abc = data.abc_resumo ?? { A: 0, B: 0, C: 0 }
+  const janelaObra = (data.janela ?? 'obra') === 'obra'
 
   return (
     <div style={{ display: 'grid', gap: 13 }}>
-      <Desembolso obra={obra} />
+      {seletor}
+      {janelaObra && <Desembolso obra={obra} />}
       <div className="kpis" style={{ gridTemplateColumns: 'repeat(4,1fr)' }}>
         <Kpi label="TOTAL COMPRADO" valor={data.total_comprado ?? 0} prefixo="R$ " sub="material (pedidos de compra)" />
         <Kpi label="INSUMOS" valor={data.n_insumos ?? 0} sub={`${abc.A} classe A · ${abc.B} B`} />

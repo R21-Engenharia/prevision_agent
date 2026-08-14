@@ -524,7 +524,7 @@ export interface CustoGrupo {
   classe: 'A' | 'B' | 'C'; n_insumos: number
 }
 export interface CustoMaterial {
-  obra: string; disponivel: boolean; mensagem?: string
+  obra: string; disponivel: boolean; mensagem?: string; janela?: RupJanela
   total_comprado?: number; n_insumos?: number
   abc_resumo?: { A: number; B: number; C: number }
   grupos?: CustoGrupo[]; itens?: CustoItem[]; alertas?: CustoAlerta[]
@@ -539,8 +539,8 @@ export interface CustoDesembolso {
 
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
-  custosMaterial: (obra: string) =>
-    get<CustoMaterial>(`/api/custos/material?obra=${encodeURIComponent(obra)}`),
+  custosMaterial: (obra: string, janela: RupJanela = 'obra') =>
+    get<CustoMaterial>(`/api/custos/material?obra=${encodeURIComponent(obra)}&janela=${janela}`),
   custosDesembolso: (obra: string) =>
     get<CustoDesembolso>(`/api/custos/desembolso?obra=${encodeURIComponent(obra)}`),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
