@@ -165,8 +165,8 @@ export function Custos({ obra }: { obra: string }) {
             <tbody>
               {itens.map((i) => (
                 <tr key={i.resource_id}>
-                  <td><span className="trunc" title={i.descricao}>{i.descricao}</span>
-                    <span className="ct-un mut"> {i.unidade}</span></td>
+                  <td className="ct-desc-td"><span className="ct-desc">{i.descricao}</span>
+                    <span className="ct-un mut"> · {i.unidade}</span></td>
                   <td className="rgt"><span className={`ct-cls ${CLS[i.classe]}`}>{i.classe}</span></td>
                   <td className="rgt"><b className="num">{rs(i.total_valor)}</b></td>
                   <td className="rgt"><span className="num mut">{i.pct_acum}%</span></td>
