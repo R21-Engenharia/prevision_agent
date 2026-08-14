@@ -37,6 +37,17 @@ function Desembolso({ obra }: { obra: string }) {
 
 const rs = (n: number) => `R$ ${n.toLocaleString('pt-BR', { maximumFractionDigits: 0 })}`
 const rs2 = (n: number) => `R$ ${n.toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`
+const mesFmt = (ym?: string) => (ym && ym.length === 7 ? `${ym.slice(5)}/${ym.slice(0, 4)}` : '')
+
+/** Preço + mês da compra embaixo (referência temporal). */
+function PrecoMes({ valor, mes, forte }: { valor: number; mes?: string; forte?: boolean }) {
+  return (
+    <div className="ct-pm">
+      {forte ? <b className="num">{rs2(valor)}</b> : <span className="num mut">{rs2(valor)}</span>}
+      {mes && <div className="ct-pm-mes">{mesFmt(mes)}</div>}
+    </div>
+  )
+}
 
 function Kpi({ label, valor, sufixo, prefixo, sub, tom }: {
   label: string; valor: number; sufixo?: string; prefixo?: string; sub?: string; tom?: 'alerta'
@@ -175,9 +186,9 @@ export function Custos({ obra }: { obra: string }) {
                     <span className="ct-un mut"> · {i.unidade}</span></td>
                   <td className="rgt"><span className={`ct-cls ${CLS[i.classe]}`}>{i.classe}</span></td>
                   <td className="rgt"><b className="num">{rs(i.total_valor)}</b></td>
-                  <td className="rgt"><span className="num mut">{rs2(i.tendencia.primeira ?? i.preco.primeiro)}</span></td>
+                  <td className="rgt"><PrecoMes valor={i.tendencia.primeira ?? i.preco.primeiro} mes={i.tendencia.primeira_mes} /></td>
                   <td className="rgt"><span className="num mut">{rs2(i.tendencia.medio ?? i.preco.medio_ponderado)}</span></td>
-                  <td className="rgt"><b className="num">{rs2(i.tendencia.ultimo ?? i.preco.ultimo)}</b></td>
+                  <td className="rgt"><PrecoMes valor={i.tendencia.ultimo ?? i.preco.ultimo} mes={i.tendencia.ultimo_mes} forte /></td>
                   <td className="rgt"><Tend t={i.tendencia} /></td>
                 </tr>
               ))}

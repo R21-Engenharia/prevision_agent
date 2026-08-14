@@ -50,20 +50,23 @@ def tendencia_preco(insumo: dict) -> dict:
     histórico COMPLETO, nunca o recortado pela janela.
     """
     hist = insumo.get("historico") or []
-    pus_raw = [h["pu"] for h in hist]  # ordenado por data no coletor
+    # pares (mês, preço), ordenados por data — guarda a data p/ referência temporal
+    pares_raw = [((h.get("data") or "")[:7], h["pu"]) for h in hist]
+    if not pares_raw:
+        return {"variacao_pct": None, "direcao": "sem_historico", "n_compras": 0}
     # Filtra outlier: o mesmo insumo às vezes é comprado em unidade diferente
     # (kg × barra) → unitPrice incomparável. Mantém [mediana/3, mediana×3].
-    if not pus_raw:
-        return {"variacao_pct": None, "direcao": "sem_historico", "n_compras": 0}
-    m = median(pus_raw)
-    pus = [p for p in pus_raw if m / 3 <= p <= m * 3] or pus_raw
+    m = median(p for _, p in pares_raw)
+    pares = [(d, p) for d, p in pares_raw if m / 3 <= p <= m * 3] or pares_raw
+    pus = [p for _, p in pares]
     if len(pus) < 2:
         return {"variacao_pct": None, "direcao": "compra_unica", "n_compras": len(pus),
                 "ultimo": round(pus[-1], 2), "primeira": round(pus[0], 2),
-                "medio": round(pus[0], 2)}
-    primeira = pus[0]
+                "medio": round(pus[0], 2), "primeira_mes": pares[0][0],
+                "ultimo_mes": pares[-1][0]}
+    primeira, primeira_mes = pus[0], pares[0][0]
     medio = median(pus)          # referência histórica robusta
-    ultimo = pus[-1]
+    ultimo, ultimo_mes = pus[-1], pares[-1][0]
     var_medio = 100 * (ultimo - medio) / medio if medio else 0.0
     var_prim = 100 * (ultimo - primeira) / primeira if primeira else 0.0
     direcao = "alta" if var_medio > 3 else "baixa" if var_medio < -3 else "estavel"
@@ -75,6 +78,7 @@ def tendencia_preco(insumo: dict) -> dict:
         "n_compras": len(hist),
         "primeira": round(primeira, 2), "medio": round(medio, 2),
         "ultimo": round(ultimo, 2),
+        "primeira_mes": primeira_mes, "ultimo_mes": ultimo_mes,
     }
 
 

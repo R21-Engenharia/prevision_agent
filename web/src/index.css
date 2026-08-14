@@ -815,6 +815,8 @@ tr.rup-det td{background:var(--surface-2);padding:14px !important;}
 .ct-alta{color:var(--accent-ink);}
 .ct-baixa{color:var(--ok);}
 .ct-vs1{font-size:10.5px;font-weight:500;}
+.ct-pm{line-height:1.2;}
+.ct-pm-mes{font-size:10px;color:var(--muted);font-family:var(--mono);margin-top:1px;}
 .ct-cls{display:inline-block;min-width:20px;font-size:11px;font-weight:800;text-align:center;
   padding:1px 7px;border-radius:5px;}
 .ct-a{color:#fff;background:var(--accent);}

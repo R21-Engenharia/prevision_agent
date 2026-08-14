@@ -510,6 +510,7 @@ export interface CustoTendencia {
   direcao: 'alta' | 'baixa' | 'estavel' | 'sem_historico' | 'compra_unica'
   acelerando?: boolean; n_compras: number
   primeira?: number; medio?: number; ultimo?: number
+  primeira_mes?: string; ultimo_mes?: string
 }
 export interface CustoItem {
   resource_id: number; descricao: string; unidade: string | null
