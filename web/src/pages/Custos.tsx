@@ -52,17 +52,15 @@ function Kpi({ label, valor, sufixo, prefixo, sub, tom }: {
   )
 }
 
-/** Tendência: último preço vs média histórica (▲ pior/vermelho, ▼ melhor/verde).
- *  Tooltip traz último, média e 1ª compra — a referência é sempre o histórico. */
+/** Variação do último preço vs média histórica (▲ pior/vermelho, ▼ melhor/verde). */
 function Tend({ t }: { t: CustoItem['tendencia'] }) {
   if (t.variacao_pct == null) return <span className="mut">—</span>
-  const dica = `último R$ ${t.ultimo} · média R$ ${t.medio} · 1ª compra R$ ${t.primeira} · vs 1ª ${t.variacao_primeira_pct}% · ${t.n_compras} compras`
-  if (t.direcao === 'estavel') return <span className="mut" title={dica}>estável</span>
+  if (t.direcao === 'estavel') return <span className="mut">estável</span>
   const alta = t.direcao === 'alta'
   return (
-    <span className={`ct-tend ${alta ? 'ct-alta' : 'ct-baixa'}`} title={dica}>
+    <span className={`ct-tend ${alta ? 'ct-alta' : 'ct-baixa'}`}
+          title={`${t.n_compras} compras · vs 1ª compra ${t.variacao_primeira_pct}%`}>
       {alta ? '▲' : '▼'} {Math.abs(t.variacao_pct)}%{t.acelerando ? ' ⚡' : ''}
-      {t.variacao_primeira_pct != null && <span className="ct-vs1 mut"> ({t.variacao_primeira_pct > 0 ? '+' : ''}{t.variacao_primeira_pct}% vs 1ª)</span>}
     </span>
   )
 }
@@ -162,9 +160,13 @@ export function Custos({ obra }: { obra: string }) {
         <div className="tablewrap">
           <table className="data">
             <thead><tr>
-              <th>Insumo</th><th className="rgt">Classe</th><th className="rgt">Comprado</th>
-              <th className="rgt">% acum</th><th className="rgt">Último / médio</th>
-              <th className="rgt">Compras</th><th>Tendência (vs média)</th>
+              <th>Insumo</th>
+              <th className="rgt">Classe</th>
+              <th className="rgt">Comprado</th>
+              <th className="rgt">1ª compra</th>
+              <th className="rgt">Médio</th>
+              <th className="rgt">Último</th>
+              <th className="rgt">Variação</th>
             </tr></thead>
             <tbody>
               {itens.map((i) => (
@@ -173,10 +175,10 @@ export function Custos({ obra }: { obra: string }) {
                     <span className="ct-un mut"> · {i.unidade}</span></td>
                   <td className="rgt"><span className={`ct-cls ${CLS[i.classe]}`}>{i.classe}</span></td>
                   <td className="rgt"><b className="num">{rs(i.total_valor)}</b></td>
-                  <td className="rgt"><span className="num">{rs2(i.tendencia.ultimo ?? i.preco.ultimo)}</span>
-                    <span className="num mut" style={{ fontSize: 11 }}> / {rs2(i.tendencia.medio ?? i.preco.medio_ponderado)}</span></td>
-                  <td className="rgt"><span className="num mut">{i.n_compras}</span></td>
-                  <td><Tend t={i.tendencia} /></td>
+                  <td className="rgt"><span className="num mut">{rs2(i.tendencia.primeira ?? i.preco.primeiro)}</span></td>
+                  <td className="rgt"><span className="num mut">{rs2(i.tendencia.medio ?? i.preco.medio_ponderado)}</span></td>
+                  <td className="rgt"><b className="num">{rs2(i.tendencia.ultimo ?? i.preco.ultimo)}</b></td>
+                  <td className="rgt"><Tend t={i.tendencia} /></td>
                 </tr>
               ))}
             </tbody>
