@@ -46,6 +46,7 @@ from api.auth import usuario_atual, usuario_admin, usuario_e_obra, descrever_mod
 from api import agente_db
 from api import rup_db
 from api import custos_db
+from api import estoque_db
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
@@ -288,6 +289,15 @@ async def custos_desembolso(obra: str = Query(...), _u: str = Depends(usuario_e_
     """Inteligência de custos — previsão de desembolso comprometido por janela."""
     _check_obra(obra)
     return custos_db.desembolso(obra)
+
+
+@app.get("/api/estoque/material")
+async def estoque_material(obra: str = Query(...), top: int = Query(default=40),
+                           janela_dias: int = Query(default=90),
+                           _u: str = Depends(usuario_e_obra)):
+    """Estoque — estado por insumo: saldo, consumo, cobertura, ruptura e capital parado."""
+    _check_obra(obra)
+    return estoque_db.material(obra, top, janela_dias)
 
 
 @app.get("/api/rup/hierarquia")

@@ -542,12 +542,33 @@ export interface CustoDesembolso {
   top_fornecedores_30d?: { fornecedor_id: number; valor: number }[]
 }
 
+export type EstoqueStatus = 'ruptura' | 'critico' | 'baixo' | 'ok' | 'parado'
+export interface EstoqueItem {
+  resource_id: string; descricao: string; unidade: string
+  saldo: number; consumo_dia: number; consumo_janela: number
+  cobertura_dias: number | null; data_ruptura: string | null
+  valor_saldo: number; custo_unit: number; impacto_dia: number
+  status: EstoqueStatus; prioridade?: 'P1' | 'P2' | 'P3'
+  ultimo_consumo: string; dias_sem_consumo: number | null
+  unidade_inconsistente: boolean
+}
+export interface EstoqueMaterial {
+  obra: string; disponivel: boolean; mensagem?: string
+  coletado_em?: string; janela_dias?: number; n_insumos?: number
+  valor_em_estoque?: number; valor_parado?: number
+  resumo_status?: Record<EstoqueStatus, number>
+  alertas?: EstoqueItem[]; parados?: EstoqueItem[]
+  unidades_inconsistentes?: number
+}
+
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
   custosMaterial: (obra: string, janela: RupJanela = 'obra') =>
     get<CustoMaterial>(`/api/custos/material?obra=${encodeURIComponent(obra)}&janela=${janela}`),
   custosDesembolso: (obra: string) =>
     get<CustoDesembolso>(`/api/custos/desembolso?obra=${encodeURIComponent(obra)}`),
+  estoqueMaterial: (obra: string, janelaDias = 90) =>
+    get<EstoqueMaterial>(`/api/estoque/material?obra=${encodeURIComponent(obra)}&janela_dias=${janelaDias}`),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
   rupHierarquia: (obra: string, janela: RupJanela = 'obra', soMonitorados = true) =>
     get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}&janela=${janela}&so_monitorados=${soMonitorados}`),

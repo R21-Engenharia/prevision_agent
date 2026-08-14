@@ -13,6 +13,7 @@ const PAGES = [
   { id: 'decoracao', label: 'Decoração', group: 'Cronograma', icon: 'home' },
   { id: 'rup', label: 'Mão de obra (RUP)', group: 'Produtividade', icon: 'gauge' },
   { id: 'custos', label: 'Inteligência de custos', group: 'Custos', icon: 'money' },
+  { id: 'estoque', label: 'Estoque', group: 'Estoque', icon: 'box' },
 ] as const
 
 const PATHS: Record<string, string> = {
@@ -26,6 +27,7 @@ const PATHS: Record<string, string> = {
   spark: 'M12 3l2.2 5.8L20 11l-5.8 2.2L12 19l-2.2-5.8L4 11l5.8-2.2z',
   gauge: 'M5 18a8 8 0 1114 0M12 14l4-4',
   money: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6',
+  box: 'M21 8l-9-5-9 5v8l9 5 9-5zM3 8l9 5 9-5M12 13v10',
 }
 
 function Icon({ name }: { name: string }) {
@@ -65,7 +67,7 @@ export function Shell({
   page, onNavigate, obras, obra, onObraChange, onRefresh,
   refreshing, syncLabel, theme, onToggleTheme, usuario, onSair, authAtiva, children,
 }: ShellProps) {
-  const groups = ['Operação', 'Cronograma', 'Produtividade', 'Custos']
+  const groups = ['Operação', 'Cronograma', 'Produtividade', 'Custos', 'Estoque']
   const current = PAGES.find((p) => p.id === page)
 
   return (

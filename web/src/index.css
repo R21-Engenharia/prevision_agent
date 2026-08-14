@@ -850,6 +850,15 @@ tr.rup-det td{background:var(--surface-2);padding:14px !important;}
 .ct-grp-bar span{display:block;height:100%;background:var(--accent);border-radius:4px;}
 
 /* quebra do desembolso por natureza (Serviço/Material/Imposto/...) */
+/* Estoque */
+.es-prio{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:700;padding:2px 7px;border-radius:5px;}
+.es-ruptura{background:rgba(180,60,50,.14);color:var(--accent-ink);}
+.es-critico{background:rgba(200,130,40,.16);color:#a06414;}
+.es-baixo{background:var(--surface-2);color:var(--muted);}
+.es-cob{font-variant-numeric:tabular-nums;font-weight:600;}
+.es-cob.es-rup{color:var(--accent-ink);}
+.es-cob.es-crit{color:#a06414;}
+
 .ct-catbrk{margin-top:14px;display:flex;flex-direction:column;gap:9px;}
 .ct-catbrk-hd{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);}
 .ct-catbrk-nota{font-size:11.5px;color:var(--muted);margin-bottom:4px;line-height:1.5;}

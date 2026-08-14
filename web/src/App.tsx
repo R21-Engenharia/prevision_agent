@@ -21,6 +21,7 @@ const Decoracao  = lazy(() => import('./pages/Decoracao').then((m) => ({ default
 const Exportar   = lazy(() => import('./pages/Exportar').then((m) => ({ default: m.Exportar })))
 const MaoDeObra  = lazy(() => import('./pages/MaoDeObra').then((m) => ({ default: m.MaoDeObra })))
 const Custos     = lazy(() => import('./pages/Custos').then((m) => ({ default: m.Custos })))
+const Estoque    = lazy(() => import('./pages/Estoque').then((m) => ({ default: m.Estoque })))
 
 type Theme = 'light' | 'dark'
 
@@ -198,6 +199,7 @@ export default function App() {
     if (page === 'agente') return <Agente obra={obra} admin={usuario?.papel === 'admin'} />
     if (page === 'rup') return <MaoDeObra obra={obra} admin={usuario?.papel === 'admin'} />
     if (page === 'custos') return <Custos obra={obra} />
+    if (page === 'estoque') return <Estoque obra={obra} />
     if (page === 'visao-geral') return overview ? <VisaoGeral data={overview} /> : esqueleto
     if (page === 'backlog') return backlog ? <Backlog data={backlog} /> : esqueleto
     if (page === 'pendentes') return backlog ? <Pendentes data={backlog} /> : esqueleto
