@@ -563,8 +563,8 @@ export interface EstoqueMaterial {
 export interface EstoqueInsumo { resource_id: string; descricao: string; unidade: string; saldo: number }
 export interface EstoqueMovResultado {
   ok: boolean; sienge_status: number; sienge_movement_id: string | null
-  saldo_anterior?: number; saldo_estimado?: number; descricao?: string; unidade?: string
-  movement_date?: string; auditoria?: { ok: boolean; id?: number; motivo?: string }
+  movement_date?: string; n_itens?: number; estornou?: number
+  itens?: { descricao: string; quantidade: number; unidade: string; auditoria?: { ok: boolean; id?: number; motivo?: string } }[]
 }
 export interface EstoqueMovimento {
   id: number; criado_em: string; usuario: string; operacao: 'baixa' | 'entrada' | 'estorno'
@@ -607,10 +607,10 @@ export const api = {
   estoqueMovimentos: (obra: string) =>
     get<{ disponivel: boolean; movimentos: EstoqueMovimento[] }>(
       `/api/estoque/movimentos?obra=${encodeURIComponent(obra)}`),
-  estoqueBaixa: (obra: string, resource_id: string, quantidade: number) =>
-    postJson<EstoqueMovResultado>(`/api/estoque/baixa?obra=${encodeURIComponent(obra)}`, { resource_id, quantidade }),
-  estoqueEntrada: (obra: string, resource_id: string, quantidade: number) =>
-    postJson<EstoqueMovResultado>(`/api/estoque/entrada?obra=${encodeURIComponent(obra)}`, { resource_id, quantidade }),
+  estoqueBaixa: (obra: string, itens: { resource_id: string; quantidade: number }[]) =>
+    postJson<EstoqueMovResultado>(`/api/estoque/baixa?obra=${encodeURIComponent(obra)}`, { itens }),
+  estoqueEntrada: (obra: string, itens: { resource_id: string; quantidade: number }[]) =>
+    postJson<EstoqueMovResultado>(`/api/estoque/entrada?obra=${encodeURIComponent(obra)}`, { itens }),
   estoqueEstorno: (auditoria_id: number) =>
     postJson<EstoqueMovResultado>(`/api/estoque/estorno`, { auditoria_id }),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),

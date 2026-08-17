@@ -312,19 +312,19 @@ async def estoque_insumos(obra: str = Query(...), q: str = Query(default=""),
 @app.post("/api/estoque/baixa")
 async def estoque_baixa(obra: str = Query(...), payload: dict = Body(...),
                         usuario: str = Depends(usuario_admin)):
-    """Baixa (consumo) de um insumo — grava movimento OUTPUT no Sienge. Admin."""
+    """Baixa (consumo) de um ou VÁRIOS insumos num movimento OUTPUT no Sienge. Admin.
+    payload: {itens: [{resource_id, quantidade}]}."""
     _check_obra(obra)
-    return await estoque_write.baixa(obra, payload.get("resource_id"),
-                                     payload.get("quantidade"), usuario)
+    return await estoque_write.baixa(obra, payload.get("itens") or [], usuario)
 
 
 @app.post("/api/estoque/entrada")
 async def estoque_entrada(obra: str = Query(...), payload: dict = Body(...),
                           usuario: str = Depends(usuario_admin)):
-    """Entrada manual de um insumo — grava movimento INPUT no Sienge. Admin."""
+    """Entrada manual de um ou VÁRIOS insumos num movimento INPUT no Sienge. Admin.
+    payload: {itens: [{resource_id, quantidade}]}."""
     _check_obra(obra)
-    return await estoque_write.entrada(obra, payload.get("resource_id"),
-                                       payload.get("quantidade"), usuario)
+    return await estoque_write.entrada(obra, payload.get("itens") or [], usuario)
 
 
 @app.post("/api/estoque/estorno")

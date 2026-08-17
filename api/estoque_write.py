@@ -93,15 +93,12 @@ async def _marcar_estornado(auditoria_id: int) -> None:
 
 
 # ── gravação no Sienge ────────────────────────────────────────────────────────
-def _post_sienge(cc: int, tipo_id: int, doc: str, resource_id: int,
-                 quantidade: float, unidade: str, dia: str) -> httpx.Response:
+def _post_sienge(cc: int, tipo_id: int, doc: str, items: list[dict],
+                 dia: str) -> httpx.Response:
+    """Uma movimentação no Sienge com uma ou VÁRIAS linhas (items)."""
     sng = SiengeClient()
-    payload = {
-        "costCenterId": cc, "movementTypeId": tipo_id, "documentId": doc,
-        "movementDate": dia,
-        "items": [{"resourceId": int(resource_id), "quantity": float(quantidade),
-                   "unitOfMeasure": unidade}],
-    }
+    payload = {"costCenterId": cc, "movementTypeId": tipo_id, "documentId": doc,
+               "movementDate": dia, "items": items}
     return sng.post("stock-movements", json=payload)
 
 
@@ -120,72 +117,80 @@ def _extrair_id(r: httpx.Response) -> str | None:
     return None
 
 
-async def _gravar(obra: str, operacao: str, tipo_id: int, doc: str,
-                  resource_id: str, quantidade: float, usuario: str,
-                  descricao: str, unidade: str, estorno_de: int | None = None) -> dict:
+async def _gravar_multi(obra: str, operacao: str, tipo_id: int, doc: str,
+                        validados: list[dict], usuario: str,
+                        estorno_de: int | None = None) -> dict:
+    """Uma movimentação no Sienge com N linhas; audita uma linha por item."""
     cfg = OBRAS[obra]
     dia = date.today().isoformat()
+    items_payload = [{"resourceId": int(v["resource_id"]),
+                      "quantity": float(v["quantidade"]),
+                      "unitOfMeasure": v["unidade"]} for v in validados]
     r = await asyncio.to_thread(_post_sienge, cfg["cc"], tipo_id, doc,
-                                resource_id, quantidade, unidade, dia)
+                                items_payload, dia)
     ok = 200 <= r.status_code < 300
-    mov_id = _extrair_id(r) if ok else None
     try:
         corpo = r.json()
     except Exception:  # noqa: BLE001
         corpo = {"texto": r.text[:400]}
-
-    registro = {
-        "usuario": usuario, "obra": obra, "resource_id": str(resource_id),
-        "descricao": descricao, "operacao": operacao, "movement_type_id": tipo_id,
-        "quantidade": quantidade, "unidade": unidade, "document_id": doc,
-        "movement_date": dia, "sienge_status": r.status_code,
-        "sienge_movement_id": mov_id, "sienge_resposta": corpo,
-        "estorno_de": estorno_de,
-    }
-    aud = await _auditar(registro)
-
     if not ok:
-        # devolve o erro exato do Sienge para o usuário entender e corrigir
+        # nada foi gravado — devolve o erro exato do Sienge para o usuário corrigir
         raise HTTPException(status_code=422, detail={
             "mensagem": "O Sienge recusou a movimentação.",
-            "sienge_status": r.status_code, "sienge_resposta": corpo,
-            "auditoria": aud})
-    return {"ok": True, "sienge_status": r.status_code,
-            "sienge_movement_id": mov_id, "auditoria": aud, "movement_date": dia}
+            "sienge_status": r.status_code, "sienge_resposta": corpo})
+
+    mov_id = _extrair_id(r)
+    itens_out = []
+    for v in validados:
+        aud = await _auditar({
+            "usuario": usuario, "obra": obra, "resource_id": str(v["resource_id"]),
+            "descricao": v.get("descricao"), "operacao": operacao,
+            "movement_type_id": tipo_id, "quantidade": v["quantidade"],
+            "unidade": v.get("unidade"), "document_id": doc, "movement_date": dia,
+            "sienge_status": r.status_code, "sienge_movement_id": mov_id,
+            "sienge_resposta": corpo, "estorno_de": estorno_de})
+        itens_out.append({"descricao": v.get("descricao"), "quantidade": v["quantidade"],
+                          "unidade": v.get("unidade"), "auditoria": aud})
+    return {"ok": True, "sienge_status": r.status_code, "sienge_movement_id": mov_id,
+            "movement_date": dia, "itens": itens_out}
 
 
 # ── operações públicas (chamadas pelas rotas admin) ───────────────────────────
-async def baixa(obra: str, resource_id: str, quantidade: float, usuario: str) -> dict:
-    return await _mov(obra, "baixa", resource_id, quantidade, usuario)
+async def baixa(obra: str, itens: list[dict], usuario: str) -> dict:
+    return await _mov_multi(obra, "baixa", itens, usuario)
 
 
-async def entrada(obra: str, resource_id: str, quantidade: float, usuario: str) -> dict:
-    return await _mov(obra, "entrada", resource_id, quantidade, usuario)
+async def entrada(obra: str, itens: list[dict], usuario: str) -> dict:
+    return await _mov_multi(obra, "entrada", itens, usuario)
 
 
-async def _mov(obra: str, operacao: str, resource_id: str,
-               quantidade: float, usuario: str) -> dict:
+async def _mov_multi(obra: str, operacao: str, itens: list[dict],
+                     usuario: str) -> dict:
     if obra not in OBRAS:
         raise HTTPException(400, "Obra desconhecida.")
-    if not quantidade or float(quantidade) <= 0:
-        raise HTTPException(400, "Quantidade deve ser maior que zero.")
-    insumo = _insumo(OBRAS[obra]["pid"], resource_id)
-    if not insumo:
-        raise HTTPException(404, "Insumo não encontrado no estoque desta obra.")
-    saldo = float(insumo.get("saldo") or 0)
-    if operacao == "baixa" and float(quantidade) > saldo + 1e-6:
-        raise HTTPException(400, {
-            "mensagem": f"Baixa ({quantidade}) maior que o saldo em estoque ({saldo} "
-                        f"{insumo.get('unidade_base')}). Verifique a quantidade.",
-            "saldo": saldo})
+    if not itens:
+        raise HTTPException(400, "Nenhum insumo na lista.")
+    pid = OBRAS[obra]["pid"]
+    validados = []
+    for it in itens:
+        rid = it.get("resource_id")
+        q = float(it.get("quantidade") or 0)
+        insumo = _insumo(pid, rid)
+        if not insumo:
+            raise HTTPException(404, f"Insumo {rid} não encontrado no estoque.")
+        if q <= 0:
+            raise HTTPException(400, f"Quantidade inválida para {insumo.get('descricao')}.")
+        saldo = float(insumo.get("saldo") or 0)
+        if operacao == "baixa" and q > saldo + 1e-6:
+            raise HTTPException(400, {
+                "mensagem": f"{insumo.get('descricao')}: baixa ({q}) maior que o saldo "
+                            f"({saldo} {insumo.get('unidade_base')})."})
+        validados.append({"resource_id": rid, "quantidade": q,
+                          "descricao": insumo.get("descricao"),
+                          "unidade": insumo.get("unidade_base")})
     tipo_id, doc = OP[operacao]
-    r = await _gravar(obra, operacao, tipo_id, doc, resource_id, float(quantidade),
-                      usuario, insumo.get("descricao"), insumo.get("unidade_base"))
-    delta = -float(quantidade) if operacao == "baixa" else float(quantidade)
-    r["saldo_anterior"] = round(saldo, 3)
-    r["saldo_estimado"] = round(saldo + delta, 3)
-    r["descricao"] = insumo.get("descricao")
-    r["unidade"] = insumo.get("unidade_base")
+    r = await _gravar_multi(obra, operacao, tipo_id, doc, validados, usuario)
+    r["n_itens"] = len(validados)
     return r
 
 
@@ -203,12 +208,12 @@ async def estornar(auditoria_id: int, usuario: str) -> dict:
     if tipo_orig not in TIPO_ESTORNO:
         raise HTTPException(400, f"Tipo {tipo_orig} não tem estorno definido.")
     tipo_id, doc = TIPO_ESTORNO[tipo_orig]
-    r = await _gravar(orig["obra"], "estorno", tipo_id, doc, orig["resource_id"],
-                      float(orig["quantidade"]), usuario, orig.get("descricao"),
-                      orig.get("unidade"), estorno_de=auditoria_id)
+    validados = [{"resource_id": orig["resource_id"], "quantidade": float(orig["quantidade"]),
+                  "descricao": orig.get("descricao"), "unidade": orig.get("unidade")}]
+    r = await _gravar_multi(orig["obra"], "estorno", tipo_id, doc, validados,
+                            usuario, estorno_de=auditoria_id)
     await _marcar_estornado(auditoria_id)
     r["estornou"] = auditoria_id
-    r["descricao"] = orig.get("descricao")
     return r
 
 

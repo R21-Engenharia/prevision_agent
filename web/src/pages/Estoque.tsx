@@ -34,13 +34,16 @@ function Cobertura({ i }: { i: EstoqueItem }) {
   return <span className={`es-cob ${cls}`}>{i.cobertura_dias} dias</span>
 }
 
-/** Painel de escrita (admin): baixa/entrada com busca do insumo e confirmação. */
+type ItemCarrinho = { resource_id: string; descricao: string; unidade: string; saldo: number; qtd: number }
+
+/** Painel de escrita (admin): monta uma LISTA de insumos e movimenta todos de uma vez. */
 function Movimentar({ obra, onDone }: { obra: string; onDone: () => void }) {
   const [op, setOp] = useState<'baixa' | 'entrada'>('baixa')
   const [q, setQ] = useState('')
   const [opcoes, setOpcoes] = useState<EstoqueInsumo[]>([])
   const [sel, setSel] = useState<EstoqueInsumo | null>(null)
   const [qtd, setQtd] = useState('')
+  const [cesta, setCesta] = useState<ItemCarrinho[]>([])
   const [confirmar, setConfirmar] = useState(false)
   const [busy, setBusy] = useState(false)
   const [msg, setMsg] = useState<{ tipo: 'ok' | 'erro'; txt: string } | null>(null)
@@ -56,24 +59,30 @@ function Movimentar({ obra, onDone }: { obra: string; onDone: () => void }) {
 
   const saldo = sel?.saldo ?? 0
   const n = parseFloat((qtd || '').replace(',', '.')) || 0
-  const apos = op === 'baixa' ? saldo - n : saldo + n
-  const excede = op === 'baixa' && n > saldo
+  const jaNaCesta = sel ? cesta.some((c) => c.resource_id === sel.resource_id) : false
+  const excede = op === 'baixa' && !!sel && n > saldo
+  const podeAdd = !!sel && n > 0 && !excede && !jaNaCesta
 
-  function limpar() { setSel(null); setQ(''); setQtd(''); setOpcoes([]); setConfirmar(false) }
+  function adicionar() {
+    if (!sel || !podeAdd) return
+    setCesta((c) => [...c, { resource_id: sel.resource_id, descricao: sel.descricao, unidade: sel.unidade, saldo, qtd: n }])
+    setSel(null); setQ(''); setQtd(''); setOpcoes([]); setConfirmar(false)
+  }
+  function remover(rid: string) { setCesta((c) => c.filter((x) => x.resource_id !== rid)); setConfirmar(false) }
+  function limparTudo() { setCesta([]); setSel(null); setQ(''); setQtd(''); setOpcoes([]); setConfirmar(false) }
 
   async function submeter() {
-    if (!sel || n <= 0) return
+    if (cesta.length === 0) return
     setBusy(true); setMsg(null)
     try {
       const fn = op === 'baixa' ? api.estoqueBaixa : api.estoqueEntrada
-      const r = await fn(obra, sel.resource_id, n)
+      const r = await fn(obra, cesta.map((c) => ({ resource_id: c.resource_id, quantidade: c.qtd })))
       setMsg({
         tipo: 'ok',
-        txt: `${op === 'baixa' ? 'Baixa' : 'Entrada'} de ${qt(n, sel.unidade)} — ${sel.descricao} — gravada no Sienge`
-          + `${r.sienge_movement_id ? ` (mov ${r.sienge_movement_id})` : ''}.`
-          + `${r.auditoria && !r.auditoria.ok ? ' ⚠ Auditoria não gravou: ' + (r.auditoria.motivo ?? '') : ''}`,
+        txt: `${op === 'baixa' ? 'Baixa' : 'Entrada'} de ${r.n_itens ?? cesta.length} insumo(s) gravada no Sienge`
+          + `${r.sienge_movement_id ? ` (mov ${r.sienge_movement_id})` : ''}.`,
       })
-      limpar(); onDone()
+      limparTudo(); onDone()
     } catch (e) { setMsg({ tipo: 'erro', txt: (e as Error).message }) }
     finally { setBusy(false) }
   }
@@ -81,13 +90,14 @@ function Movimentar({ obra, onDone }: { obra: string; onDone: () => void }) {
   return (
     <div className="panel">
       <div className="phead"><div><h2>Movimentar estoque</h2>
-        <div className="ph-sub">Grava direto no Sienge. <b>Baixa</b> = consumo (saída) · <b>Entrada</b> = ajuste
-          manual de entrada. Toda movimentação fica auditada.</div></div></div>
+        <div className="ph-sub">Monte uma lista e movimente vários insumos de uma vez (um único movimento no
+          Sienge). <b>Baixa</b> = consumo · <b>Entrada</b> = ajuste manual. Tudo auditado.</div></div></div>
 
       <div className="es-mov">
         <div className="es-op">
-          <button className={op === 'baixa' ? 'on' : ''} onClick={() => { setOp('baixa'); setConfirmar(false) }}>Baixa (consumo)</button>
-          <button className={op === 'entrada' ? 'on' : ''} onClick={() => { setOp('entrada'); setConfirmar(false) }}>Entrada</button>
+          <button className={op === 'baixa' ? 'on' : ''} onClick={() => { setOp('baixa'); setConfirmar(false) }} disabled={cesta.length > 0}>Baixa (consumo)</button>
+          <button className={op === 'entrada' ? 'on' : ''} onClick={() => { setOp('entrada'); setConfirmar(false) }} disabled={cesta.length > 0}>Entrada</button>
+          {cesta.length > 0 && <span className="mut" style={{ fontSize: 12, alignSelf: 'center' }}>tipo travado enquanto houver itens na lista</span>}
         </div>
 
         {!sel ? (
@@ -96,12 +106,15 @@ function Movimentar({ obra, onDone }: { obra: string; onDone: () => void }) {
                    onChange={(e) => setQ(e.target.value)} />
             {opcoes.length > 0 && (
               <div className="es-opcoes">
-                {opcoes.map((o) => (
-                  <button key={o.resource_id} onClick={() => { setSel(o); setConfirmar(false) }}>
-                    <span className="es-op-desc">{o.descricao}</span>
-                    <span className="mut num">saldo {qt(o.saldo, o.unidade)}</span>
-                  </button>
-                ))}
+                {opcoes.map((o) => {
+                  const dentro = cesta.some((c) => c.resource_id === o.resource_id)
+                  return (
+                    <button key={o.resource_id} disabled={dentro} onClick={() => setSel(o)}>
+                      <span className="es-op-desc">{o.descricao}{dentro && <span className="mut"> · já na lista</span>}</span>
+                      <span className="mut num">saldo {qt(o.saldo, o.unidade)}</span>
+                    </button>
+                  )
+                })}
               </div>
             )}
           </div>
@@ -109,32 +122,47 @@ function Movimentar({ obra, onDone }: { obra: string; onDone: () => void }) {
           <div className="es-form">
             <div className="es-sel">
               <div><b>{sel.descricao}</b><div className="mut num">saldo atual {qt(saldo, sel.unidade)}</div></div>
-              <button className="es-troca" onClick={limpar}>trocar</button>
+              <button className="es-troca" onClick={() => { setSel(null); setQ(''); setQtd(''); setOpcoes([]) }}>trocar</button>
             </div>
             <div className="es-qtd">
               <label>Quantidade ({sel.unidade})
                 <input type="text" inputMode="decimal" value={qtd} autoFocus
-                       onChange={(e) => { setQtd(e.target.value); setConfirmar(false) }} placeholder="0" />
+                       onChange={(e) => setQtd(e.target.value)} placeholder="0"
+                       onKeyDown={(e) => { if (e.key === 'Enter') adicionar() }} />
               </label>
               {n > 0 && (
                 <div className={`es-apos ${excede ? 'es-apos-erro' : ''}`}>
-                  saldo {qt(saldo, sel.unidade)} → <b>{qt(apos, sel.unidade)}</b> após a {op}
+                  saldo {qt(saldo, sel.unidade)} → <b>{qt(op === 'baixa' ? saldo - n : saldo + n, sel.unidade)}</b> após a {op}
                   {excede && <span className="es-warn"> — baixa maior que o saldo</span>}
                 </div>
               )}
             </div>
+            <button className="es-btn" disabled={!podeAdd} onClick={adicionar}>+ Adicionar à lista</button>
+          </div>
+        )}
+
+        {cesta.length > 0 && (
+          <div className="es-cesta">
+            <div className="es-cesta-hd">{cesta.length} insumo(s) para dar {op}</div>
+            {cesta.map((c) => (
+              <div className="es-cesta-item" key={c.resource_id}>
+                <span className="es-ci-desc">{c.descricao}</span>
+                <span className="num">{qt(c.qtd, c.unidade)}</span>
+                <span className="mut num es-ci-apos">{qt(c.saldo, c.unidade)} → {qt(op === 'baixa' ? c.saldo - c.qtd : c.saldo + c.qtd, c.unidade)}</span>
+                <button className="es-ci-x" onClick={() => remover(c.resource_id)} title="remover">✕</button>
+              </div>
+            ))}
             {!confirmar ? (
-              <button className="es-btn" disabled={n <= 0 || excede} onClick={() => setConfirmar(true)}>
-                Revisar {op}
-              </button>
+              <div className="es-conf-bts">
+                <button className="es-cancel" onClick={limparTudo}>Limpar lista</button>
+                <button className="es-btn" onClick={() => setConfirmar(true)}>Revisar {op} de {cesta.length} item(ns)</button>
+              </div>
             ) : (
               <div className="es-confirmar">
-                <span>Confirmar {op} de <b>{qt(n, sel.unidade)}</b> no Sienge?</span>
+                <span>Confirmar <b>{op}</b> de <b>{cesta.length} insumo(s)</b> no Sienge, num único movimento?</span>
                 <div className="es-conf-bts">
-                  <button className="es-cancel" onClick={() => setConfirmar(false)} disabled={busy}>Cancelar</button>
-                  <button className="es-btn" onClick={submeter} disabled={busy}>
-                    {busy ? 'Gravando…' : `Confirmar ${op}`}
-                  </button>
+                  <button className="es-cancel" onClick={() => setConfirmar(false)} disabled={busy}>Voltar</button>
+                  <button className="es-btn" onClick={submeter} disabled={busy}>{busy ? 'Gravando…' : `Confirmar ${op}`}</button>
                 </div>
               </div>
             )}
