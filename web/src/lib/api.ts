@@ -560,6 +560,38 @@ export interface EstoqueMaterial {
   alertas?: EstoqueItem[]; parados?: EstoqueItem[]
   unidades_inconsistentes?: number
 }
+export interface EstoqueInsumo { resource_id: string; descricao: string; unidade: string; saldo: number }
+export interface EstoqueMovResultado {
+  ok: boolean; sienge_status: number; sienge_movement_id: string | null
+  saldo_anterior?: number; saldo_estimado?: number; descricao?: string; unidade?: string
+  movement_date?: string; auditoria?: { ok: boolean; id?: number; motivo?: string }
+}
+export interface EstoqueMovimento {
+  id: number; criado_em: string; usuario: string; operacao: 'baixa' | 'entrada' | 'estorno'
+  descricao: string; quantidade: number; unidade: string
+  sienge_status: number; sienge_movement_id: string | null
+  estornado: boolean; estorno_de: number | null
+}
+
+/** POST com corpo JSON; erros do backend (detail string OU objeto {mensagem}) viram Error legível. */
+async function postJson<T>(url: string, body: unknown): Promise<T> {
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: { ...(await cabecalhos()), 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  })
+  if (!res.ok) {
+    let d = `HTTP ${res.status}`
+    try {
+      const b = await res.json()
+      if (typeof b?.detail === 'string') d = b.detail
+      else if (b?.detail?.mensagem) d = b.detail.mensagem
+      else if (b?.detail) d = JSON.stringify(b.detail)
+    } catch { /* */ }
+    throw new Error(d)
+  }
+  return res.json() as Promise<T>
+}
 
 export const api = {
   obras: () => get<{ obras: string[] }>('/api/obras'),
@@ -569,6 +601,18 @@ export const api = {
     get<CustoDesembolso>(`/api/custos/desembolso?obra=${encodeURIComponent(obra)}`),
   estoqueMaterial: (obra: string, janelaDias = 90) =>
     get<EstoqueMaterial>(`/api/estoque/material?obra=${encodeURIComponent(obra)}&janela_dias=${janelaDias}`),
+  estoqueInsumos: (obra: string, q = '') =>
+    get<{ obra: string; disponivel: boolean; itens: EstoqueInsumo[] }>(
+      `/api/estoque/insumos?obra=${encodeURIComponent(obra)}&q=${encodeURIComponent(q)}`),
+  estoqueMovimentos: (obra: string) =>
+    get<{ disponivel: boolean; movimentos: EstoqueMovimento[] }>(
+      `/api/estoque/movimentos?obra=${encodeURIComponent(obra)}`),
+  estoqueBaixa: (obra: string, resource_id: string, quantidade: number) =>
+    postJson<EstoqueMovResultado>(`/api/estoque/baixa?obra=${encodeURIComponent(obra)}`, { resource_id, quantidade }),
+  estoqueEntrada: (obra: string, resource_id: string, quantidade: number) =>
+    postJson<EstoqueMovResultado>(`/api/estoque/entrada?obra=${encodeURIComponent(obra)}`, { resource_id, quantidade }),
+  estoqueEstorno: (auditoria_id: number) =>
+    postJson<EstoqueMovResultado>(`/api/estoque/estorno`, { auditoria_id }),
   rup: (obra: string) => get<Rup>(`/api/rup/camada1?obra=${encodeURIComponent(obra)}`),
   rupHierarquia: (obra: string, janela: RupJanela = 'obra', soMonitorados = true) =>
     get<RupHierarquia>(`/api/rup/hierarquia?obra=${encodeURIComponent(obra)}&janela=${janela}&so_monitorados=${soMonitorados}`),

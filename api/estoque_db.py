@@ -30,3 +30,21 @@ def material(obra: str, top: int = 40, janela_dias: int = 90) -> dict:
     dados = json.loads(f.read_text(encoding="utf-8"))
     r = analisar(dados, janela_dias=janela_dias, top=top)
     return {"obra": obra, "disponivel": True, **r}
+
+
+def buscar(obra: str, q: str = "", limite: int = 20) -> dict:
+    """Busca insumos por descrição (para a UI escolher o que movimentar)."""
+    pid = _pid_da_obra(obra)
+    f = _RAIZ / "data" / f"estoque_{pid}.json" if pid else None
+    if not f or not f.exists():
+        return {"obra": obra, "disponivel": False, "itens": []}
+    insumos = (json.loads(f.read_text(encoding="utf-8")).get("insumos") or {}).values()
+    termo = (q or "").strip().lower()
+    achados = [
+        {"resource_id": d.get("resource_id"), "descricao": d.get("descricao"),
+         "unidade": d.get("unidade_base"), "saldo": d.get("saldo")}
+        for d in insumos
+        if not termo or termo in (d.get("descricao") or "").lower()
+    ]
+    achados.sort(key=lambda i: -(i.get("saldo") or 0))
+    return {"obra": obra, "disponivel": True, "itens": achados[:limite]}

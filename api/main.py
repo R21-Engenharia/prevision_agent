@@ -47,6 +47,7 @@ from api import agente_db
 from api import rup_db
 from api import custos_db
 from api import estoque_db
+from api import estoque_write
 
 app = FastAPI(title="FVS API — R21", version="1.0.0")
 
@@ -298,6 +299,48 @@ async def estoque_material(obra: str = Query(...), top: int = Query(default=40),
     """Estoque — estado por insumo: saldo, consumo, cobertura, ruptura e capital parado."""
     _check_obra(obra)
     return estoque_db.material(obra, top, janela_dias)
+
+
+@app.get("/api/estoque/insumos")
+async def estoque_insumos(obra: str = Query(...), q: str = Query(default=""),
+                          _u: str = Depends(usuario_e_obra)):
+    """Busca insumos por descrição (para escolher o que movimentar)."""
+    _check_obra(obra)
+    return estoque_db.buscar(obra, q)
+
+
+@app.post("/api/estoque/baixa")
+async def estoque_baixa(obra: str = Query(...), payload: dict = Body(...),
+                        usuario: str = Depends(usuario_admin)):
+    """Baixa (consumo) de um insumo — grava movimento OUTPUT no Sienge. Admin."""
+    _check_obra(obra)
+    return await estoque_write.baixa(obra, payload.get("resource_id"),
+                                     payload.get("quantidade"), usuario)
+
+
+@app.post("/api/estoque/entrada")
+async def estoque_entrada(obra: str = Query(...), payload: dict = Body(...),
+                          usuario: str = Depends(usuario_admin)):
+    """Entrada manual de um insumo — grava movimento INPUT no Sienge. Admin."""
+    _check_obra(obra)
+    return await estoque_write.entrada(obra, payload.get("resource_id"),
+                                       payload.get("quantidade"), usuario)
+
+
+@app.post("/api/estoque/estorno")
+async def estoque_estorno(payload: dict = Body(...),
+                          usuario: str = Depends(usuario_admin)):
+    """Estorna um movimento (compensatório na direção oposta). Admin.
+    payload: {auditoria_id}."""
+    return await estoque_write.estornar(payload.get("auditoria_id"), usuario)
+
+
+@app.get("/api/estoque/movimentos")
+async def estoque_movimentos(obra: str = Query(...),
+                             _u: str = Depends(usuario_e_obra)):
+    """Histórico de movimentações manuais (baixa/entrada/estorno) da obra."""
+    _check_obra(obra)
+    return await estoque_write.historico(obra)
 
 
 @app.get("/api/rup/hierarquia")

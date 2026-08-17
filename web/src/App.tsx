@@ -199,7 +199,7 @@ export default function App() {
     if (page === 'agente') return <Agente obra={obra} admin={usuario?.papel === 'admin'} />
     if (page === 'rup') return <MaoDeObra obra={obra} admin={usuario?.papel === 'admin'} />
     if (page === 'custos') return <Custos obra={obra} />
-    if (page === 'estoque') return <Estoque obra={obra} />
+    if (page === 'estoque') return <Estoque obra={obra} admin={usuario?.papel === 'admin'} />
     if (page === 'visao-geral') return overview ? <VisaoGeral data={overview} /> : esqueleto
     if (page === 'backlog') return backlog ? <Backlog data={backlog} /> : esqueleto
     if (page === 'pendentes') return backlog ? <Pendentes data={backlog} /> : esqueleto

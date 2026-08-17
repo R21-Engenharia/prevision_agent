@@ -59,6 +59,17 @@ class SiengeClient:
         r.raise_for_status()
         return r.json()
 
+    # ── POST genérico (ESCRITA — usar com cautela, grava no ERP) ──────────────
+    def post(self, path: str, json: dict | None = None,
+             timeout: float = 60) -> httpx.Response:
+        """POST cru (devolve a Response para o chamador inspecionar status/corpo).
+        Escreve no Sienge de produção — sempre validar e confirmar antes."""
+        self._check()
+        url = f"{self.base}/{path.lstrip('/')}"
+        return httpx.post(url, json=json, auth=(self.usuario, self.senha),
+                          headers={"Accept": "application/json",
+                                   "Content-Type": "application/json"}, timeout=timeout)
+
     def fetch_orcamento_items(self, building_id: int, sheet_id: int) -> list[dict]:
         """
         Todos os itens da planilha de orçamento (paginado, limit=200).
