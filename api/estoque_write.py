@@ -94,11 +94,14 @@ async def _marcar_estornado(auditoria_id: int) -> None:
 
 # ── gravação no Sienge ────────────────────────────────────────────────────────
 def _post_sienge(cc: int, tipo_id: int, doc: str, items: list[dict],
-                 dia: str) -> httpx.Response:
-    """Uma movimentação no Sienge com uma ou VÁRIAS linhas (items)."""
+                 dia: str, notes: str | None = None) -> httpx.Response:
+    """Uma movimentação no Sienge com uma ou VÁRIAS linhas (items).
+    `notes` carimba a autoria no próprio movimento (o Sienge aceita esse campo)."""
     sng = SiengeClient()
     payload = {"costCenterId": cc, "movementTypeId": tipo_id, "documentId": doc,
                "movementDate": dia, "items": items}
+    if notes:
+        payload["notes"] = notes[:200]
     return sng.post("stock-movements", json=payload)
 
 
@@ -126,8 +129,11 @@ async def _gravar_multi(obra: str, operacao: str, tipo_id: int, doc: str,
     items_payload = [{"resourceId": int(v["resource_id"]),
                       "quantity": float(v["quantidade"]),
                       "unitOfMeasure": v["unidade"]} for v in validados]
+    # carimba a autoria no próprio movimento do Sienge (a API é feita pelo usuário
+    # de integração, então esta é a forma de registrar QUEM operou pelo app)
+    notes = f"Via app R21 ({operacao}) por {usuario}"
     r = await asyncio.to_thread(_post_sienge, cfg["cc"], tipo_id, doc,
-                                items_payload, dia)
+                                items_payload, dia, notes)
     ok = 200 <= r.status_code < 300
     try:
         corpo = r.json()
