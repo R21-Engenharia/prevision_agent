@@ -301,6 +301,13 @@ async def estoque_material(obra: str = Query(...), top: int = Query(default=40),
     return estoque_db.material(obra, top, janela_dias)
 
 
+@app.get("/api/estoque/catalogo")
+async def estoque_catalogo(obra: str = Query(...), _u: str = Depends(usuario_e_obra)):
+    """Catálogo por insumo (grupo + macro-grupo, saldo, consumo) para operar o almoxarifado."""
+    _check_obra(obra)
+    return estoque_db.catalogo(obra)
+
+
 @app.get("/api/estoque/insumos")
 async def estoque_insumos(obra: str = Query(...), q: str = Query(default=""),
                           _u: str = Depends(usuario_e_obra)):

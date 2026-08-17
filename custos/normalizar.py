@@ -56,3 +56,32 @@ def grupo_de(descricao: str) -> str:
         if any(f" {c.strip()}" in n or c in n for c in chaves):
             return grupo
     return "Outros"
+
+
+# MACRO-GRUPO por finalidade — agrupa os grupos econômicos em famílias que o
+# almoxarife usa para operar ("materiais hidráulicos", "elétrica"...). Camada por
+# cima do grupo, sem tocar no dado original.
+_MACRO: dict[str, str] = {
+    "Concreto": "Estrutura", "Aço/Armadura": "Estrutura", "Cimento/Cal": "Estrutura",
+    "Areia/Brita/Agregado": "Estrutura", "Madeira/Forma": "Estrutura",
+    "Bloco/Tijolo": "Alvenaria/Argamassa", "Argamassa": "Alvenaria/Argamassa",
+    "Tubo/Conexão hidráulica": "Hidráulica", "Louças/Metais": "Hidráulica",
+    "Cabo/Fio elétrico": "Elétrica", "Eletroduto/Elétrica": "Elétrica",
+    "Cerâmica/Porcelanato": "Revestimento/Acabamento", "Gesso/Drywall": "Revestimento/Acabamento",
+    "Tinta/Pintura": "Revestimento/Acabamento",
+    "Impermeabilizante": "Impermeabilização", "Impermeab./Aditivo": "Impermeabilização",
+    "Esquadria/Vidro": "Esquadrias",
+    "Fixação/Ferragem": "Fixação/Química", "Vedação/Química": "Fixação/Química",
+    "EPI/Segurança": "EPI/Ferramentas", "Ferramenta/Consumível": "EPI/Ferramentas",
+    "Outros": "Outros",
+}
+
+# ordem de exibição dos macro-grupos
+MACRO_ORDEM = ["Estrutura", "Alvenaria/Argamassa", "Hidráulica", "Elétrica",
+               "Revestimento/Acabamento", "Impermeabilização", "Esquadrias",
+               "Fixação/Química", "EPI/Ferramentas", "Outros"]
+
+
+def macro_de(grupo: str) -> str:
+    """Macro-grupo (finalidade) de um grupo econômico."""
+    return _MACRO.get(grupo, "Outros")

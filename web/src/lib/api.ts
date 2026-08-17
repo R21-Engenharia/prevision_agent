@@ -561,6 +561,15 @@ export interface EstoqueMaterial {
   unidades_inconsistentes?: number
 }
 export interface EstoqueInsumo { resource_id: string; descricao: string; unidade: string; saldo: number }
+export interface EstoqueCatalogoItem {
+  resource_id: string; descricao: string; grupo: string; macro: string
+  saldo: number; unidade: string; consumo_dia: number
+}
+export interface EstoqueCatalogo {
+  obra: string; disponivel: boolean
+  itens: EstoqueCatalogoItem[]
+  macros: { macro: string; grupos: string[]; n: number }[]
+}
 export interface EstoqueMovResultado {
   ok: boolean; sienge_status: number; sienge_movement_id: string | null
   movement_date?: string; n_itens?: number; estornou?: number
@@ -601,6 +610,8 @@ export const api = {
     get<CustoDesembolso>(`/api/custos/desembolso?obra=${encodeURIComponent(obra)}`),
   estoqueMaterial: (obra: string, janelaDias = 90) =>
     get<EstoqueMaterial>(`/api/estoque/material?obra=${encodeURIComponent(obra)}&janela_dias=${janelaDias}`),
+  estoqueCatalogo: (obra: string) =>
+    get<EstoqueCatalogo>(`/api/estoque/catalogo?obra=${encodeURIComponent(obra)}`),
   estoqueInsumos: (obra: string, q = '') =>
     get<{ obra: string; disponivel: boolean; itens: EstoqueInsumo[] }>(
       `/api/estoque/insumos?obra=${encodeURIComponent(obra)}&q=${encodeURIComponent(q)}`),

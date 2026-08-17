@@ -238,7 +238,133 @@ function Historico({ obra, refreshKey, onDone }: { obra: string; refreshKey: num
   )
 }
 
+/** Operar almoxarifado: filtra por macro-grupo/grupo e dá baixa direto na linha. */
+function OperarAlmoxarifado({ obra, onDone }: { obra: string; onDone: () => void }) {
+  const [cat, setCat] = useState<import('../lib/api').EstoqueCatalogo | null>(null)
+  const [op, setOp] = useState<'baixa' | 'entrada'>('baixa')
+  const [macro, setMacro] = useState('')
+  const [grupo, setGrupo] = useState('')
+  const [busca, setBusca] = useState('')
+  const [qtds, setQtds] = useState<Record<string, string>>({})
+  const [confirmar, setConfirmar] = useState(false)
+  const [busy, setBusy] = useState(false)
+  const [msg, setMsg] = useState<{ tipo: 'ok' | 'erro'; txt: string } | null>(null)
+
+  function carregar() { api.estoqueCatalogo(obra).then(setCat).catch(() => setCat(null)) }
+  useEffect(() => { setCat(null); carregar() /* eslint-disable-next-line */ }, [obra])
+
+  if (!cat) return <div className="skel" style={{ height: 320 }} />
+  if (!cat.disponivel) return <div className="empty">Estoque ainda não coletado para esta obra.</div>
+
+  const grupos = macro ? (cat.macros.find((m) => m.macro === macro)?.grupos ?? []) : []
+  const termo = busca.trim().toLowerCase()
+  const linhas = macro
+    ? cat.itens.filter((i) => i.macro === macro && (!grupo || i.grupo === grupo)
+        && (!termo || (i.descricao || '').toLowerCase().includes(termo)))
+    : []
+
+  const itemDe = (rid: string) => cat.itens.find((i) => i.resource_id === rid)
+  const preenchidos = Object.entries(qtds)
+    .map(([rid, v]) => ({ rid, n: parseFloat((v || '').replace(',', '.')) || 0 }))
+    .filter((x) => x.n > 0)
+  const excede = (rid: string, n: number) => {
+    const it = itemDe(rid); return op === 'baixa' && !!it && n > (it.saldo ?? 0)
+  }
+  const temExcesso = preenchidos.some((p) => excede(p.rid, p.n))
+
+  function setQ(rid: string, v: string) { setQtds((s) => ({ ...s, [rid]: v })); setConfirmar(false) }
+
+  async function submeter() {
+    if (preenchidos.length === 0) return
+    setBusy(true); setMsg(null)
+    try {
+      const fn = op === 'baixa' ? api.estoqueBaixa : api.estoqueEntrada
+      const r = await fn(obra, preenchidos.map((p) => ({ resource_id: p.rid, quantidade: p.n })))
+      setMsg({ tipo: 'ok', txt: `${op === 'baixa' ? 'Baixa' : 'Entrada'} de ${r.n_itens ?? preenchidos.length} insumo(s) gravada no Sienge${r.sienge_movement_id ? ` (mov ${r.sienge_movement_id})` : ''}.` })
+      setQtds({}); setConfirmar(false); carregar(); onDone()
+    } catch (e) { setMsg({ tipo: 'erro', txt: (e as Error).message }) }
+    finally { setBusy(false) }
+  }
+
+  return (
+    <div className="panel">
+      <div className="phead"><div><h2>Operar almoxarifado</h2>
+        <div className="ph-sub">Filtre por finalidade, digite a quantidade nas linhas que vai movimentar e
+          dê baixa de todas de uma vez. <b>Baixa</b> = consumo · <b>Entrada</b> = ajuste.</div></div></div>
+
+      <div className="es-op" style={{ marginBottom: 12 }}>
+        <button className={op === 'baixa' ? 'on' : ''} onClick={() => setOp('baixa')} disabled={preenchidos.length > 0}>Baixa (consumo)</button>
+        <button className={op === 'entrada' ? 'on' : ''} onClick={() => setOp('entrada')} disabled={preenchidos.length > 0}>Entrada</button>
+      </div>
+
+      <div className="es-filtros">
+        <select value={macro} onChange={(e) => { setMacro(e.target.value); setGrupo('') }}>
+          <option value="">Escolha o macro-grupo…</option>
+          {cat.macros.map((m) => <option key={m.macro} value={m.macro}>{m.macro} ({m.n})</option>)}
+        </select>
+        <select value={grupo} onChange={(e) => setGrupo(e.target.value)} disabled={!macro}>
+          <option value="">Todos os grupos</option>
+          {grupos.map((g) => <option key={g} value={g}>{g}</option>)}
+        </select>
+        <input placeholder="Filtrar por descrição…" value={busca} onChange={(e) => setBusca(e.target.value)} disabled={!macro} />
+      </div>
+
+      {!macro ? (
+        <div className="empty">Escolha um macro-grupo (ex.: Hidráulica) para listar os insumos.</div>
+      ) : (
+        <div className="tablewrap" style={{ maxHeight: 520, overflowY: 'auto' }}>
+          <table className="data">
+            <thead><tr>
+              <th>Insumo</th><th>Grupo</th><th className="rgt">Saldo</th>
+              <th className="rgt">{op === 'baixa' ? 'Baixar' : 'Entrar'}</th>
+            </tr></thead>
+            <tbody>
+              {linhas.map((i) => {
+                const v = qtds[i.resource_id] ?? ''
+                const n = parseFloat(v.replace(',', '.')) || 0
+                const err = excede(i.resource_id, n)
+                return (
+                  <tr key={i.resource_id} className={n > 0 ? 'es-linha-on' : ''}>
+                    <td className="ct-desc-td"><span className="ct-desc">{i.descricao}</span></td>
+                    <td className="mut" style={{ fontSize: 12 }}>{i.grupo}</td>
+                    <td className="rgt num">{qt(i.saldo, i.unidade)}</td>
+                    <td className="rgt">
+                      <input className={`es-linha-qtd ${err ? 'es-inp-err' : ''}`} type="text" inputMode="decimal"
+                             value={v} onChange={(e) => setQ(i.resource_id, e.target.value)} placeholder="0" />
+                      <span className="mut es-un-inp"> {i.unidade}</span>
+                    </td>
+                  </tr>
+                )
+              })}
+              {linhas.length === 0 && <tr><td colSpan={4} className="mut" style={{ padding: 16 }}>Nenhum insumo neste filtro.</td></tr>}
+            </tbody>
+          </table>
+        </div>
+      )}
+
+      {preenchidos.length > 0 && (
+        <div className="es-rodape">
+          <span><b>{preenchidos.length}</b> insumo(s) para dar {op}{temExcesso && <span className="es-warn"> · alguma baixa maior que o saldo</span>}</span>
+          {!confirmar ? (
+            <div className="es-conf-bts">
+              <button className="es-cancel" onClick={() => setQtds({})}>Limpar</button>
+              <button className="es-btn" disabled={temExcesso} onClick={() => setConfirmar(true)}>Revisar {op}</button>
+            </div>
+          ) : (
+            <div className="es-conf-bts">
+              <button className="es-cancel" onClick={() => setConfirmar(false)} disabled={busy}>Voltar</button>
+              <button className="es-btn" onClick={submeter} disabled={busy || temExcesso}>{busy ? 'Gravando…' : `Confirmar ${op} de ${preenchidos.length}`}</button>
+            </div>
+          )}
+        </div>
+      )}
+      {msg && <div className={`es-msg es-msg-${msg.tipo}`} style={{ marginTop: 12 }}>{msg.txt}</div>}
+    </div>
+  )
+}
+
 export function Estoque({ obra, admin }: { obra: string; admin?: boolean }) {
+  const [aba, setAba] = useState<'painel' | 'operar'>('painel')
   const [data, setData] = useState<EstoqueMaterial | null>(null)
   const [erro, setErro] = useState<string | null>(null)
   const [refreshKey, setRefreshKey] = useState(0)
@@ -250,8 +376,19 @@ export function Estoque({ obra, admin }: { obra: string; admin?: boolean }) {
 
   const recarregar = () => setRefreshKey((k) => k + 1)
 
-  if (erro) return <div className="errbox"><b>Não foi possível carregar o estoque</b>{erro}</div>
-  if (!data) return <div className="skel" style={{ height: 460 }} />
+  const abas = admin ? (
+    <div className="es-abas">
+      <button className={aba === 'painel' ? 'on' : ''} onClick={() => setAba('painel')}>Painel</button>
+      <button className={aba === 'operar' ? 'on' : ''} onClick={() => setAba('operar')}>Operar almoxarifado</button>
+    </div>
+  ) : null
+
+  if (admin && aba === 'operar') {
+    return <div style={{ display: 'grid', gap: 13 }}>{abas}<OperarAlmoxarifado obra={obra} onDone={recarregar} /></div>
+  }
+
+  if (erro) return <div style={{ display: 'grid', gap: 13 }}>{abas}<div className="errbox"><b>Não foi possível carregar o estoque</b>{erro}</div></div>
+  if (!data) return <div style={{ display: 'grid', gap: 13 }}>{abas}<div className="skel" style={{ height: 460 }} /></div>
   if (!data.disponivel) {
     return (
       <div className="panel">
@@ -269,6 +406,7 @@ export function Estoque({ obra, admin }: { obra: string; admin?: boolean }) {
 
   return (
     <div style={{ display: 'grid', gap: 13 }}>
+      {abas}
       <div className="kpis" style={{ gridTemplateColumns: 'repeat(4,1fr)' }}>
         <Kpi label="INSUMOS EM ESTOQUE" valor={data.n_insumos ?? 0} sub={`${st.ok} saudáveis`} />
         <Kpi label="VALOR EM ESTOQUE" valor={data.valor_em_estoque ?? 0} prefixo="R$ " sub="capital em material" />
