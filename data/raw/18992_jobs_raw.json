@@ -1,7 +1,7 @@
 {
   "project_id": 18992,
   "project_name": "HOLMES RESIDENCE",
-  "collected_at": "2026-08-19T10:04:48.369173",
+  "collected_at": "2026-08-21T10:08:17.925907",
   "total": 2214,
   "total_with_jobs": 1874,
   "activities_list": [
@@ -505,7 +505,7 @@
       "id": "30765907",
       "wbsCode": "44.67",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11265588",
@@ -1772,7 +1772,7 @@
       "id": "36703878",
       "wbsCode": "33.54",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922692",
@@ -5874,7 +5874,7 @@
       "id": "19187864",
       "wbsCode": "30.107",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 85.0,
       "jobs": [
         {
           "id": "11271403",
@@ -5884,7 +5884,7 @@
         {
           "id": "11271404",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 25.0
         }
       ],
       "_floor_name": "05º PV - G4",
@@ -6713,7 +6713,7 @@
       "id": "16182570",
       "wbsCode": "29.92",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 88.0,
       "jobs": [
         {
           "id": "10780830",
@@ -6728,7 +6728,7 @@
         {
           "id": "10780832",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 40.0
         }
       ],
       "_floor_name": "06º PV - LAZER",
@@ -7422,7 +7422,7 @@
       "id": "16183251",
       "wbsCode": "29.89",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10844616",
@@ -7437,7 +7437,7 @@
         {
           "id": "10844618",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "06º PV - LAZER",
@@ -7892,7 +7892,7 @@
       "id": "29056567",
       "wbsCode": "29.37",
       "hasJobs": true,
-      "percentageCompleted": 68.0,
+      "percentageCompleted": 95.0,
       "jobs": [
         {
           "id": "10714130",
@@ -7902,12 +7902,12 @@
         {
           "id": "10714131",
           "name": "ATÉ ÚLTIMA FIADA",
-          "percentageCompleted": 80.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10714132",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 75.0
         }
       ],
       "_floor_name": "06º PV - LAZER",
@@ -9419,7 +9419,7 @@
       "id": "16183023",
       "wbsCode": "28.158",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10780872",
@@ -9429,7 +9429,7 @@
         {
           "id": "10780873",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "07º PV - TIPO DIF.",
@@ -9678,7 +9678,7 @@
       "id": "16183252",
       "wbsCode": "28.89",
       "hasJobs": true,
-      "percentageCompleted": 60.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10780884",
@@ -9688,12 +9688,12 @@
         {
           "id": "10780885",
           "name": "TESTE PRESSURIZAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780886",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "07º PV - TIPO DIF.",
@@ -10505,42 +10505,42 @@
       "id": "33218994",
       "wbsCode": "28.51",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "13490824",
           "name": "RASGO CANALETAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490825",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490826",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490827",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490828",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490829",
           "name": "CAIXAS E QUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490830",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "07º PV - TIPO DIF.",
@@ -12058,7 +12058,7 @@
       "id": "30631680",
       "wbsCode": "27.99",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 83.333,
       "jobs": [
         {
           "id": "11198687",
@@ -12073,7 +12073,7 @@
         {
           "id": "11198689",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "08º PV - TIPO",
@@ -13835,7 +13835,7 @@
       "id": "30631681",
       "wbsCode": "26.99",
       "hasJobs": true,
-      "percentageCompleted": 66.667,
+      "percentageCompleted": 83.333,
       "jobs": [
         {
           "id": "11198690",
@@ -13850,7 +13850,7 @@
         {
           "id": "11198692",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "09º PV - TIPO",
@@ -14646,7 +14646,7 @@
       "id": "16182151",
       "wbsCode": "25.114",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 84.0,
       "jobs": [
         {
           "id": "11255748",
@@ -14656,7 +14656,7 @@
         {
           "id": "11255749",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 20.0
         }
       ],
       "_floor_name": "10º PV - TIPO",
@@ -17794,17 +17794,17 @@
       "id": "37004253",
       "wbsCode": "24.105",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "15035437",
           "name": "EXECUÇÃO NICHO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "15035438",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "11º PV - TIPO",
@@ -18245,7 +18245,7 @@
       "id": "16182206",
       "wbsCode": "23.55",
       "hasJobs": true,
-      "percentageCompleted": 24.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10779682",
@@ -18260,7 +18260,7 @@
         {
           "id": "10779684",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         }
       ],
       "_floor_name": "12º PV - TIPO",
@@ -18867,7 +18867,7 @@
       "id": "29056430",
       "wbsCode": "23.88",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11265558",
@@ -19571,17 +19571,17 @@
       "id": "37004254",
       "wbsCode": "23.105",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "15035439",
           "name": "EXECUÇÃO NICHO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "15035440",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "12º PV - TIPO",
@@ -21368,7 +21368,7 @@
       "id": "37004255",
       "wbsCode": "22.105",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15035441",
@@ -21774,7 +21774,7 @@
       "id": "16182155",
       "wbsCode": "21.114",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11255772",
@@ -21819,7 +21819,7 @@
       "id": "16182208",
       "wbsCode": "21.55",
       "hasJobs": true,
-      "percentageCompleted": 24.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10779700",
@@ -21834,7 +21834,7 @@
         {
           "id": "10779702",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         }
       ],
       "_floor_name": "14º PV - TIPO",
@@ -22490,7 +22490,7 @@
       "id": "29066556",
       "wbsCode": "21.34",
       "hasJobs": true,
-      "percentageCompleted": 80.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10714090",
@@ -22505,7 +22505,7 @@
         {
           "id": "10714092",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "14º PV - TIPO",
@@ -22805,7 +22805,7 @@
       "id": "30755299",
       "wbsCode": "21.45",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11250137",
@@ -23596,7 +23596,7 @@
       "id": "16182209",
       "wbsCode": "20.55",
       "hasJobs": true,
-      "percentageCompleted": 24.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10779694",
@@ -23611,7 +23611,7 @@
         {
           "id": "10779696",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         }
       ],
       "_floor_name": "15º PV - TIPO",
@@ -24602,7 +24602,7 @@
       "id": "30792098",
       "wbsCode": "20.109",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11262343",
@@ -25373,7 +25373,7 @@
       "id": "16182210",
       "wbsCode": "19.55",
       "hasJobs": true,
-      "percentageCompleted": 24.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10779673",
@@ -25388,7 +25388,7 @@
         {
           "id": "10779675",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         }
       ],
       "_floor_name": "16º PV - TIPO",
@@ -27150,22 +27150,22 @@
       "id": "16182211",
       "wbsCode": "18.55",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10779685",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10779686",
           "name": "GUIAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10779687",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         }
       ],
       "_floor_name": "17º PV - TIPO",
@@ -27846,7 +27846,7 @@
       "id": "29772478",
       "wbsCode": "18.42",
       "hasJobs": true,
-      "percentageCompleted": 90.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10780466",
@@ -27871,7 +27871,7 @@
         {
           "id": "10780470",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "17º PV - TIPO",
@@ -30365,7 +30365,7 @@
       "id": "45128509",
       "wbsCode": "17.46",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "29190489",
@@ -30579,22 +30579,22 @@
       "id": "16182047",
       "wbsCode": "16.92",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10780782",
           "name": "INFRAESTRUTURA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780783",
           "name": "TESTE PRESSURIZAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10780784",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "19º PV - TIPO",
@@ -33732,7 +33732,7 @@
       "id": "36704908",
       "wbsCode": "15.35",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14922801",
@@ -35624,7 +35624,7 @@
       "id": "37045464",
       "wbsCode": "14.107",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15063027",
@@ -37692,7 +37692,7 @@
       "id": "16182572",
       "wbsCode": "12.40",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10714004",
@@ -37837,7 +37837,7 @@
       "id": "16182608",
       "wbsCode": "12.94",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10818741",
@@ -38360,7 +38360,7 @@
       "id": "16183151",
       "wbsCode": "12.41",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10714061",
@@ -40014,7 +40014,7 @@
       "id": "16182147",
       "wbsCode": "11.106",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "8228672",
@@ -40940,7 +40940,7 @@
       "id": "32139349",
       "wbsCode": "11.107",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "12969137",
@@ -41303,7 +41303,7 @@
       "id": "16183041",
       "wbsCode": "10.158",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10780878",
@@ -43574,7 +43574,7 @@
       "id": "16182751",
       "wbsCode": "45.07",
       "hasJobs": false,
-      "percentageCompleted": 76.406,
+      "percentageCompleted": 76.847,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43583,7 +43583,7 @@
       "id": "32673789",
       "wbsCode": "45.189",
       "hasJobs": false,
-      "percentageCompleted": 79.561,
+      "percentageCompleted": 79.943,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43592,7 +43592,7 @@
       "id": "34433808",
       "wbsCode": "45.195",
       "hasJobs": false,
-      "percentageCompleted": 65.484,
+      "percentageCompleted": 66.129,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43601,7 +43601,7 @@
       "id": "34500718",
       "wbsCode": "45.196",
       "hasJobs": false,
-      "percentageCompleted": 72.351,
+      "percentageCompleted": 72.868,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43610,7 +43610,7 @@
       "id": "34500776",
       "wbsCode": "45.197",
       "hasJobs": false,
-      "percentageCompleted": 71.275,
+      "percentageCompleted": 71.812,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43628,7 +43628,7 @@
       "id": "47073198",
       "wbsCode": "45.243",
       "hasJobs": false,
-      "percentageCompleted": 20.149,
+      "percentageCompleted": 21.642,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -43637,7 +43637,7 @@
       "id": "16183048",
       "wbsCode": "45.08",
       "hasJobs": false,
-      "percentageCompleted": 19.78,
+      "percentageCompleted": 23.077,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "648084"
@@ -43700,7 +43700,7 @@
       "id": "43234292",
       "wbsCode": "45.10",
       "hasJobs": false,
-      "percentageCompleted": 85.0,
+      "percentageCompleted": 85.741,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "648084"
