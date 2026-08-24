@@ -1,7 +1,7 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-08-21T09:57:27.985470",
+  "collected_at": "2026-08-24T10:06:48.756095",
   "total": 2918,
   "total_with_jobs": 2392,
   "activities_list": [
@@ -14826,7 +14826,7 @@
       "id": "30098856",
       "wbsCode": "35.156",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10933205",
@@ -17484,17 +17484,17 @@
       "id": "12751006",
       "wbsCode": "33.132",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 20.0,
       "jobs": [
         {
           "id": "11014126",
           "name": "ISOLAMENTO E SELADOR",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014127",
           "name": "1ª DEMÃO DE MASSA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014128",
@@ -25680,7 +25680,7 @@
       "id": "12751011",
       "wbsCode": "28.132",
       "hasJobs": true,
-      "percentageCompleted": 20.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11014114",
@@ -25695,17 +25695,17 @@
         {
           "id": "11014116",
           "name": "2ª DEMÃO DE MASSA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014117",
           "name": "LIXAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014118",
           "name": "1ª DEMÃO DE TINTA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014119",
@@ -27171,17 +27171,17 @@
       "id": "11714322",
       "wbsCode": "27.122",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 24.0,
       "jobs": [
         {
           "id": "10844719",
           "name": "EXECUÇÃO DA PAGINAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10844720",
           "name": "ASSENTAMENTO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 30.0
         },
         {
           "id": "10844721",
@@ -27540,17 +27540,17 @@
       "id": "21684926",
       "wbsCode": "27.122",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10844650",
           "name": "EXECUÇÃO DA PAGINAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10844651",
           "name": "ASSENT. PAREDE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10844652",
@@ -28777,22 +28777,22 @@
       "id": "11714163",
       "wbsCode": "26.111",
       "hasJobs": true,
-      "percentageCompleted": 50.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "10850161",
           "name": "PREPARAÇÃO DA BASE",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850162",
           "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850163",
           "name": "TESTE DE ESTANQUEIDADE",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850164",
@@ -29221,17 +29221,17 @@
       "id": "21684927",
       "wbsCode": "26.122",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "10844686",
           "name": "EXECUÇÃO DA PAGINAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844687",
           "name": "ASSENT. PAREDE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "10844688",
@@ -30483,12 +30483,12 @@
       "id": "11714060",
       "wbsCode": "25.100",
       "hasJobs": true,
-      "percentageCompleted": 50.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "10662999",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10663000",
@@ -30827,17 +30827,17 @@
       "id": "12751014",
       "wbsCode": "25.132",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [
         {
           "id": "11014162",
           "name": "ISOLAMENTO E SELADOR",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11014163",
           "name": "1ª DEMÃO DE MASSA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "11014164",
@@ -31615,22 +31615,22 @@
       "id": "30773475",
       "wbsCode": "25.99",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11255865",
           "name": "MANTA ACÚSTICA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255866",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255867",
           "name": "CHUMB. TUBULAÇÕES",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255868",
@@ -32355,12 +32355,12 @@
       "id": "11714198",
       "wbsCode": "24.128",
       "hasJobs": true,
-      "percentageCompleted": 50.0,
+      "percentageCompleted": 82.0,
       "jobs": [
         {
           "id": "10933236",
           "name": "EXECUÇÃO DO GESSO",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 90.0
         },
         {
           "id": "10933237",
@@ -37658,17 +37658,17 @@
       "id": "11714133",
       "wbsCode": "21.42",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10756027",
           "name": "FIAÇÃO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10756028",
           "name": "GUIAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10756029",
@@ -38087,12 +38087,12 @@
       "id": "12751450",
       "wbsCode": "21.142",
       "hasJobs": true,
-      "percentageCompleted": 36.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10766820",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 60.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10766821",
@@ -38600,17 +38600,17 @@
       "id": "30111541",
       "wbsCode": "21.91",
       "hasJobs": true,
-      "percentageCompleted": 36.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10933927",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 60.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10933928",
           "name": "REQUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10933929",
@@ -38885,7 +38885,7 @@
       "id": "33177686",
       "wbsCode": "21.93",
       "hasJobs": true,
-      "percentageCompleted": 70.0,
+      "percentageCompleted": 82.5,
       "jobs": [
         {
           "id": "13490551",
@@ -38920,7 +38920,7 @@
         {
           "id": "13490557",
           "name": "REQUADROS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "13490558",
@@ -39880,12 +39880,12 @@
       "id": "12751451",
       "wbsCode": "20.142",
       "hasJobs": true,
-      "percentageCompleted": 36.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10766837",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 60.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10766838",
@@ -40138,7 +40138,7 @@
       "id": "29407775",
       "wbsCode": "20.29",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10658471",
@@ -40153,7 +40153,7 @@
         {
           "id": "10658473",
           "name": "ACIMA DA COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658474",
@@ -40393,12 +40393,12 @@
       "id": "30111542",
       "wbsCode": "20.91",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 24.0,
       "jobs": [
         {
           "id": "10933930",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 40.0
         },
         {
           "id": "10933931",
@@ -41931,7 +41931,7 @@
       "id": "29407776",
       "wbsCode": "19.29",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10658475",
@@ -41946,7 +41946,7 @@
         {
           "id": "10658477",
           "name": "ACIMA DA COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658478",
@@ -43744,7 +43744,7 @@
       "id": "29407777",
       "wbsCode": "18.29",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10658479",
@@ -43759,7 +43759,7 @@
         {
           "id": "10658481",
           "name": "ACIMA DA COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658482",
@@ -45537,7 +45537,7 @@
       "id": "29407778",
       "wbsCode": "17.29",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10658483",
@@ -45552,7 +45552,7 @@
         {
           "id": "10658485",
           "name": "ACIMA DA COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658486",
@@ -46463,7 +46463,7 @@
       "id": "11713795",
       "wbsCode": "16.55",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 50.0,
       "jobs": [
         {
           "id": "10663289",
@@ -46473,7 +46473,7 @@
         {
           "id": "10663290",
           "name": "PAREDES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10663291",
@@ -46483,7 +46483,7 @@
         {
           "id": "10663292",
           "name": "CONEXÃO DRENOS AC",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10663293",
@@ -47330,7 +47330,7 @@
       "id": "29407779",
       "wbsCode": "16.29",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10658487",
@@ -47345,7 +47345,7 @@
         {
           "id": "10658489",
           "name": "ACIMA DA COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658490",
@@ -48256,7 +48256,7 @@
       "id": "11713796",
       "wbsCode": "15.55",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "10663297",
@@ -48266,7 +48266,7 @@
         {
           "id": "10663298",
           "name": "PAREDES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10663299",
@@ -48276,7 +48276,7 @@
         {
           "id": "10663300",
           "name": "CONEXÃO DRENOS AC",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10663301",
@@ -53571,12 +53571,12 @@
       "id": "46564863",
       "wbsCode": "13.227",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "31160274",
           "name": "EXECUÇÃO SISTEMA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "31160275",
@@ -53680,7 +53680,7 @@
       "id": "11716759",
       "wbsCode": "12.55",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [
         {
           "id": "10727662",
@@ -53695,7 +53695,7 @@
         {
           "id": "10727664",
           "name": "AÉREOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10727665",
@@ -58882,7 +58882,7 @@
       "id": "47895835",
       "wbsCode": "01.105",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "TORRE LATERAL ESQUERDA | RUA 3130",
       "_floor_id": "382441"
