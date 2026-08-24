@@ -12,8 +12,10 @@ const PAGES = [
   { id: 'tempo', label: 'Condição do tempo', group: 'Cronograma', icon: 'trend' },
   { id: 'decoracao', label: 'Decoração', group: 'Cronograma', icon: 'home' },
   { id: 'rup', label: 'Mão de obra (RUP)', group: 'Produtividade', icon: 'gauge' },
-  { id: 'custos', label: 'Inteligência de custos', group: 'Custos', icon: 'money' },
-  { id: 'estoque', label: 'Estoque', group: 'Estoque', icon: 'box' },
+  // 'custos' e 'estoque' escondidos do menu (migrados para o app novo). Código e
+  // endpoints preservados; o Analista de Dados segue usando custos_db normalmente.
+  // { id: 'custos', label: 'Inteligência de custos', group: 'Custos', icon: 'money' },
+  // { id: 'estoque', label: 'Estoque', group: 'Estoque', icon: 'box' },
 ] as const
 
 const PATHS: Record<string, string> = {
@@ -67,7 +69,7 @@ export function Shell({
   page, onNavigate, obras, obra, onObraChange, onRefresh,
   refreshing, syncLabel, theme, onToggleTheme, usuario, onSair, authAtiva, children,
 }: ShellProps) {
-  const groups = ['Operação', 'Cronograma', 'Produtividade', 'Custos', 'Estoque']
+  const groups = ['Operação', 'Cronograma', 'Produtividade']
   const current = PAGES.find((p) => p.id === page)
 
   return (
