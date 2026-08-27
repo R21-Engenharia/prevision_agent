@@ -1,7 +1,7 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-08-26T10:04:29.036009",
+  "collected_at": "2026-08-27T19:56:21.875168",
   "total": 2918,
   "total_with_jobs": 2392,
   "activities_list": [
@@ -5802,7 +5802,7 @@
       "id": "11730605",
       "wbsCode": "39.91",
       "hasJobs": true,
-      "percentageCompleted": 75.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11119169",
@@ -5817,7 +5817,7 @@
         {
           "id": "11119171",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 20.0
         }
       ],
       "_floor_name": "05º PV - G4 | LAZER",
@@ -7601,7 +7601,7 @@
       "id": "36662402",
       "wbsCode": "39.121",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14901978",
@@ -11705,7 +11705,7 @@
       "id": "31669716",
       "wbsCode": "37.86",
       "hasJobs": true,
-      "percentageCompleted": 83.333,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "12788044",
@@ -11720,7 +11720,7 @@
         {
           "id": "12788046",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "07º PV - TIPO DIF. 02",
@@ -17643,7 +17643,7 @@
       "id": "21684920",
       "wbsCode": "33.122",
       "hasJobs": true,
-      "percentageCompleted": 88.0,
+      "percentageCompleted": 90.0,
       "jobs": [
         {
           "id": "10844653",
@@ -17663,7 +17663,7 @@
         {
           "id": "29496883",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 40.0
+          "percentageCompleted": 50.0
         }
       ],
       "_floor_name": "11º PV - TIPO",
@@ -21682,7 +21682,7 @@
       "id": "36662410",
       "wbsCode": "31.121",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14902010",
@@ -30079,7 +30079,7 @@
       "id": "36662328",
       "wbsCode": "26.30",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14901892",
@@ -35515,7 +35515,7 @@
       "id": "37004313",
       "wbsCode": "23.90",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15035505",
@@ -36952,7 +36952,7 @@
       "id": "30773478",
       "wbsCode": "22.99",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11255877",
@@ -44239,7 +44239,7 @@
       "id": "31662419",
       "wbsCode": "18.71",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "12786913",
@@ -44284,7 +44284,7 @@
       "id": "33177689",
       "wbsCode": "18.93",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "13490599",
@@ -56397,7 +56397,7 @@
       "id": "24200738",
       "wbsCode": "11.62",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11272431",
@@ -56427,7 +56427,7 @@
       "id": "24212192",
       "wbsCode": "11.68",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11272476",
@@ -56766,7 +56766,7 @@
       "id": "30807058",
       "wbsCode": "11.70",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11272632",
@@ -57099,7 +57099,7 @@
       "id": "11714502",
       "wbsCode": "10.46",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10777449",
@@ -57527,7 +57527,7 @@
       "id": "29679759",
       "wbsCode": "10.45",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10758867",
@@ -57692,7 +57692,7 @@
       "id": "31660872",
       "wbsCode": "10.69",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "12786707",
@@ -59110,7 +59110,7 @@
       "id": "12745967",
       "wbsCode": "56.02",
       "hasJobs": false,
-      "percentageCompleted": 80.093,
+      "percentageCompleted": 80.926,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59119,7 +59119,7 @@
       "id": "32473097",
       "wbsCode": "56.167",
       "hasJobs": false,
-      "percentageCompleted": 79.386,
+      "percentageCompleted": 80.249,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59128,7 +59128,7 @@
       "id": "34369827",
       "wbsCode": "56.172",
       "hasJobs": false,
-      "percentageCompleted": 77.903,
+      "percentageCompleted": 78.828,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59137,7 +59137,7 @@
       "id": "34371035",
       "wbsCode": "56.173",
       "hasJobs": false,
-      "percentageCompleted": 78.586,
+      "percentageCompleted": 79.482,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -59173,7 +59173,7 @@
       "id": "33323221",
       "wbsCode": "57.11",
       "hasJobs": false,
-      "percentageCompleted": 86.284,
+      "percentageCompleted": 87.406,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -59191,7 +59191,7 @@
       "id": "34001635",
       "wbsCode": "57.171",
       "hasJobs": false,
-      "percentageCompleted": 85.539,
+      "percentageCompleted": 87.745,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -59209,7 +59209,7 @@
       "id": "34190953",
       "wbsCode": "57.07",
       "hasJobs": false,
-      "percentageCompleted": 33.022,
+      "percentageCompleted": 35.826,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
