@@ -1,7 +1,7 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-09-02T13:44:21.427645",
+  "collected_at": "2026-09-03T13:45:59.958771",
   "total": 2918,
   "total_with_jobs": 2392,
   "activities_list": [
@@ -540,7 +540,7 @@
       "id": "46671568",
       "wbsCode": "55.229",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
       "_floor_id": "380191"
@@ -1781,7 +1781,7 @@
       "id": "46683267",
       "wbsCode": "44.201",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1790,7 +1790,7 @@
       "id": "47867505",
       "wbsCode": "44.228",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1799,7 +1799,7 @@
       "id": "47867561",
       "wbsCode": "44.175",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1808,7 +1808,7 @@
       "id": "47918698",
       "wbsCode": "44.181",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1817,7 +1817,7 @@
       "id": "47918807",
       "wbsCode": "44.193",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1826,7 +1826,7 @@
       "id": "47918824",
       "wbsCode": "44.185",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1835,7 +1835,7 @@
       "id": "47918836",
       "wbsCode": "44.182",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1844,7 +1844,7 @@
       "id": "47918882",
       "wbsCode": "44.189",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1853,7 +1853,7 @@
       "id": "47918893",
       "wbsCode": "44.230",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º PV - TÉRREO COMUM",
       "_floor_id": "380193"
@@ -1862,7 +1862,7 @@
       "id": "49048814",
       "wbsCode": "44.32",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31967639",
@@ -3292,7 +3292,7 @@
       "id": "47867507",
       "wbsCode": "43.228",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º MZ COMUM",
       "_floor_id": "380196"
@@ -3301,7 +3301,7 @@
       "id": "47867566",
       "wbsCode": "43.175",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º MZ COMUM",
       "_floor_id": "380196"
@@ -3310,7 +3310,7 @@
       "id": "47918710",
       "wbsCode": "43.181",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º MZ COMUM",
       "_floor_id": "380196"
@@ -3319,7 +3319,7 @@
       "id": "47918856",
       "wbsCode": "43.182",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º MZ COMUM",
       "_floor_id": "380196"
@@ -3328,7 +3328,7 @@
       "id": "47918899",
       "wbsCode": "43.188",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "01º MZ COMUM",
       "_floor_id": "380196"
@@ -3337,7 +3337,7 @@
       "id": "48842808",
       "wbsCode": "43.31",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31896897",
@@ -4088,7 +4088,7 @@
       "id": "48011011",
       "wbsCode": "42.136",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31593013",
@@ -4113,7 +4113,7 @@
       "id": "48642519",
       "wbsCode": "42.137",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31821182",
@@ -4842,7 +4842,7 @@
       "id": "48011709",
       "wbsCode": "41.103",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31593459",
@@ -4872,7 +4872,7 @@
       "id": "48642520",
       "wbsCode": "41.137",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31821185",
@@ -5592,7 +5592,7 @@
       "id": "48011012",
       "wbsCode": "40.136",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31593016",
@@ -5617,7 +5617,7 @@
       "id": "48642521",
       "wbsCode": "40.137",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31821188",
@@ -7773,7 +7773,7 @@
       "id": "46665003",
       "wbsCode": "39.228",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "05º PV - G4 | LAZER",
       "_floor_id": "380200"
@@ -7782,7 +7782,7 @@
       "id": "46683268",
       "wbsCode": "39.201",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "05º PV - G4 | LAZER",
       "_floor_id": "380200"
@@ -7791,7 +7791,7 @@
       "id": "46683493",
       "wbsCode": "39.183",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "05º PV - G4 | LAZER",
       "_floor_id": "380200"
@@ -7800,7 +7800,7 @@
       "id": "46690296",
       "wbsCode": "39.164",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "05º PV - G4 | LAZER",
       "_floor_id": "380200"
@@ -7809,7 +7809,7 @@
       "id": "47918880",
       "wbsCode": "39.189",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "05º PV - G4 | LAZER",
       "_floor_id": "380200"
@@ -7818,7 +7818,7 @@
       "id": "47918891",
       "wbsCode": "39.230",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "05º PV - G4 | LAZER",
       "_floor_id": "380200"
@@ -7827,7 +7827,7 @@
       "id": "48642522",
       "wbsCode": "39.137",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31821191",
@@ -10010,7 +10010,7 @@
       "id": "46665022",
       "wbsCode": "38.228",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10019,7 +10019,7 @@
       "id": "46667364",
       "wbsCode": "38.195",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10028,7 +10028,7 @@
       "id": "46675179",
       "wbsCode": "38.191",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31185735",
@@ -10048,7 +10048,7 @@
       "id": "46683269",
       "wbsCode": "38.201",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10057,7 +10057,7 @@
       "id": "46683494",
       "wbsCode": "38.183",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10066,7 +10066,7 @@
       "id": "46690297",
       "wbsCode": "38.164",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10075,7 +10075,7 @@
       "id": "47555806",
       "wbsCode": "38.190",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31452004",
@@ -10095,7 +10095,7 @@
       "id": "47918876",
       "wbsCode": "38.176",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10104,7 +10104,7 @@
       "id": "47918878",
       "wbsCode": "38.189",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -10113,7 +10113,7 @@
       "id": "47918890",
       "wbsCode": "38.230",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
       "_floor_id": "380203"
@@ -55839,7 +55839,7 @@
       "id": "46665031",
       "wbsCode": "12.228",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
       "_floor_id": "380229"
@@ -55848,7 +55848,7 @@
       "id": "46683270",
       "wbsCode": "12.201",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
       "_floor_id": "380229"
@@ -55857,7 +55857,7 @@
       "id": "46683495",
       "wbsCode": "12.183",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
       "_floor_id": "380229"
@@ -55866,7 +55866,7 @@
       "id": "46690298",
       "wbsCode": "12.164",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
       "_floor_id": "380229"
@@ -55875,7 +55875,7 @@
       "id": "47918883",
       "wbsCode": "12.189",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
       "_floor_id": "380229"
@@ -56896,7 +56896,7 @@
       "id": "47478324",
       "wbsCode": "11.73",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "CMQ1 | PLATIBANDA",
       "_floor_id": "380231"
@@ -58092,7 +58092,7 @@
       "id": "47895394",
       "wbsCode": "09.141",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "RESERVATÓRIO",
       "_floor_id": "380233"
@@ -58250,7 +58250,7 @@
       "id": "47478742",
       "wbsCode": "05.155",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31438491",
@@ -58403,7 +58403,7 @@
       "id": "47478739",
       "wbsCode": "08.155",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31438485",
@@ -58540,7 +58540,7 @@
       "id": "47478420",
       "wbsCode": "04.159",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [],
       "_floor_name": "TORRE FRONTAL",
       "_floor_id": "382438"
@@ -58857,7 +58857,7 @@
       "id": "47892173",
       "wbsCode": "01.107",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31563714",
@@ -59090,7 +59090,7 @@
       "id": "47478740",
       "wbsCode": "07.155",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": null,
       "jobs": [
         {
           "id": "31438487",
