@@ -10,19 +10,19 @@
       "hasQualityLocalsAssociations": true,
       "id": "380191",
       "name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
-      "position": 55,
+      "position": 81,
       "startAt": "2022-10-03 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
-        "totalCount": 64
+        "totalCount": 63
       },
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-07-06 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "380193",
       "name": "01º PV - TÉRREO COMUM",
-      "position": 44,
+      "position": 70,
       "startAt": "2023-07-20 00:00:00 UTC",
       "tag": null
     },
@@ -34,19 +34,19 @@
       "hasQualityLocalsAssociations": true,
       "id": "380195",
       "name": "01º PVTO - SALA 6",
-      "position": 45,
+      "position": 71,
       "startAt": "2024-04-08 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
-        "totalCount": 58
+        "totalCount": 57
       },
-      "endAt": "2027-06-22 23:59:59 UTC",
+      "endAt": "2027-07-22 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "380196",
       "name": "01º MZ COMUM",
-      "position": 43,
+      "position": 69,
       "startAt": "2023-08-14 00:00:00 UTC",
       "tag": null
     },
@@ -58,7 +58,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "380197",
       "name": "02º PV - EST. PÚBLICO",
-      "position": 42,
+      "position": 68,
       "startAt": "2023-10-03 00:00:00 UTC",
       "tag": null
     },
@@ -70,7 +70,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "380198",
       "name": "03º PV - G2",
-      "position": 41,
+      "position": 67,
       "startAt": "2023-11-28 00:00:00 UTC",
       "tag": null
     },
@@ -82,8 +82,332 @@
       "hasQualityLocalsAssociations": true,
       "id": "380199",
       "name": "04º PV - G3",
-      "position": 40,
+      "position": 66,
       "startAt": "2024-01-02 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 105
+      },
+      "endAt": "2027-07-28 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380200",
+      "name": "05º PV - G4 | LAZER",
+      "position": 65,
+      "startAt": "2024-02-13 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 108
+      },
+      "endAt": "2027-07-16 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380203",
+      "name": "06º PV - TIPO DIF. 01 | LAZER",
+      "position": 64,
+      "startAt": "2024-03-26 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 85
+      },
+      "endAt": "2027-07-08 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380204",
+      "name": "07º PV - TIPO DIF. 02",
+      "position": 63,
+      "startAt": "2024-06-14 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 81
+      },
+      "endAt": "2027-06-24 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380205",
+      "name": "08º PV - TIPO DIF. 03",
+      "position": 62,
+      "startAt": "2024-09-02 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-02-26 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380206",
+      "name": "09º PV - TIPO",
+      "position": 61,
+      "startAt": "2024-09-24 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-03-05 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380207",
+      "name": "10º PV - TIPO",
+      "position": 60,
+      "startAt": "2024-10-14 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-03-12 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380208",
+      "name": "11º PV - TIPO",
+      "position": 59,
+      "startAt": "2024-10-31 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 73
+      },
+      "endAt": "2027-03-19 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380209",
+      "name": "12º PV - TIPO",
+      "position": 58,
+      "startAt": "2024-11-14 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-03-29 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380210",
+      "name": "13º PV - TIPO",
+      "position": 57,
+      "startAt": "2024-11-29 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-04-05 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380211",
+      "name": "14º PV - TIPO",
+      "position": 56,
+      "startAt": "2024-12-20 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-04-12 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380212",
+      "name": "15º PV - TIPO",
+      "position": 55,
+      "startAt": "2025-01-23 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-04-19 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380213",
+      "name": "16º PV - TIPO",
+      "position": 54,
+      "startAt": "2025-02-06 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 72
+      },
+      "endAt": "2027-04-27 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380214",
+      "name": "17º PV - TIPO",
+      "position": 53,
+      "startAt": "2025-02-21 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 75
+      },
+      "endAt": "2027-05-04 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380215",
+      "name": "18º PV - TIPO",
+      "position": 52,
+      "startAt": "2025-03-11 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-05-11 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380216",
+      "name": "19º PV - TIPO",
+      "position": 51,
+      "startAt": "2025-03-28 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-05-18 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380217",
+      "name": "20º PV - TIPO",
+      "position": 50,
+      "startAt": "2025-04-17 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-05-25 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380218",
+      "name": "21º PV - TIPO",
+      "position": 49,
+      "startAt": "2025-05-06 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-06-02 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380219",
+      "name": "22º PV - TIPO",
+      "position": 48,
+      "startAt": "2025-05-23 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-06-09 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380220",
+      "name": "23º PV - TIPO",
+      "position": 47,
+      "startAt": "2025-06-18 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-06-16 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380221",
+      "name": "24º PV - TIPO",
+      "position": 46,
+      "startAt": "2025-07-15 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 75
+      },
+      "endAt": "2027-06-23 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380222",
+      "name": "25º PV - TIPO",
+      "position": 45,
+      "startAt": "2025-07-31 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-06-30 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380223",
+      "name": "26º PV - TIPO",
+      "position": 44,
+      "startAt": "2025-08-14 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-07-07 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380224",
+      "name": "27º PV - TIPO",
+      "position": 43,
+      "startAt": "2025-09-01 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-07-14 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380225",
+      "name": "28º PV - TIPO",
+      "position": 42,
+      "startAt": "2025-09-17 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-07-22 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380226",
+      "name": "29º PV - TIPO",
+      "position": 41,
+      "startAt": "2025-10-02 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 74
+      },
+      "endAt": "2027-07-29 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380227",
+      "name": "30º PV - TIPO",
+      "position": 40,
+      "startAt": "2025-10-16 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 75
+      },
+      "endAt": "2027-06-17 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "380228",
+      "name": "31º PV - TIPO",
+      "position": 39,
+      "startAt": "2025-10-31 00:00:00 UTC",
       "tag": null
     },
     {
@@ -92,333 +416,9 @@
       },
       "endAt": "2027-06-29 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
-      "id": "380200",
-      "name": "05º PV - G4 | LAZER",
-      "position": 39,
-      "startAt": "2024-02-13 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 110
-      },
-      "endAt": "2027-06-18 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380203",
-      "name": "06º PV - TIPO DIF. 01 | LAZER",
-      "position": 38,
-      "startAt": "2024-03-26 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 87
-      },
-      "endAt": "2027-03-29 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380204",
-      "name": "07º PV - TIPO DIF. 02",
-      "position": 37,
-      "startAt": "2024-06-14 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 83
-      },
-      "endAt": "2027-03-09 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380205",
-      "name": "08º PV - TIPO DIF. 03",
-      "position": 36,
-      "startAt": "2024-09-02 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-01-07 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380206",
-      "name": "09º PV - TIPO",
-      "position": 35,
-      "startAt": "2024-09-24 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-01-14 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380207",
-      "name": "10º PV - TIPO",
-      "position": 34,
-      "startAt": "2024-10-14 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-01-21 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380208",
-      "name": "11º PV - TIPO",
-      "position": 33,
-      "startAt": "2024-10-31 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 75
-      },
-      "endAt": "2027-01-28 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380209",
-      "name": "12º PV - TIPO",
-      "position": 32,
-      "startAt": "2024-11-14 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-02-04 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380210",
-      "name": "13º PV - TIPO",
-      "position": 31,
-      "startAt": "2024-11-29 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-02-11 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380211",
-      "name": "14º PV - TIPO",
-      "position": 30,
-      "startAt": "2024-12-20 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-02-18 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380212",
-      "name": "15º PV - TIPO",
-      "position": 29,
-      "startAt": "2025-01-23 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-02-25 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380213",
-      "name": "16º PV - TIPO",
-      "position": 28,
-      "startAt": "2025-02-06 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 74
-      },
-      "endAt": "2027-03-04 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380214",
-      "name": "17º PV - TIPO",
-      "position": 27,
-      "startAt": "2025-02-21 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 77
-      },
-      "endAt": "2027-03-11 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380215",
-      "name": "18º PV - TIPO",
-      "position": 26,
-      "startAt": "2025-03-11 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-03-18 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380216",
-      "name": "19º PV - TIPO",
-      "position": 25,
-      "startAt": "2025-03-28 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-03-25 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380217",
-      "name": "20º PV - TIPO",
-      "position": 24,
-      "startAt": "2025-04-17 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-04-02 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380218",
-      "name": "21º PV - TIPO",
-      "position": 23,
-      "startAt": "2025-05-06 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-04-09 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380219",
-      "name": "22º PV - TIPO",
-      "position": 22,
-      "startAt": "2025-05-23 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-04-16 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380220",
-      "name": "23º PV - TIPO",
-      "position": 21,
-      "startAt": "2025-06-18 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-04-26 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380221",
-      "name": "24º PV - TIPO",
-      "position": 20,
-      "startAt": "2025-07-15 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 77
-      },
-      "endAt": "2027-05-03 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380222",
-      "name": "25º PV - TIPO",
-      "position": 19,
-      "startAt": "2025-07-31 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-05-10 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380223",
-      "name": "26º PV - TIPO",
-      "position": 18,
-      "startAt": "2025-08-14 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-05-17 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380224",
-      "name": "27º PV - TIPO",
-      "position": 17,
-      "startAt": "2025-09-01 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-05-24 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380225",
-      "name": "28º PV - TIPO",
-      "position": 16,
-      "startAt": "2025-09-17 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-06-01 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380226",
-      "name": "29º PV - TIPO",
-      "position": 15,
-      "startAt": "2025-10-02 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 76
-      },
-      "endAt": "2027-06-08 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380227",
-      "name": "30º PV - TIPO",
-      "position": 14,
-      "startAt": "2025-10-16 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 77
-      },
-      "endAt": "2027-06-17 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "380228",
-      "name": "31º PV - TIPO",
-      "position": 13,
-      "startAt": "2025-10-31 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 108
-      },
-      "endAt": "2027-06-25 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
       "id": "380229",
       "name": "32º PV - TIPO DIF. 04 | LAZER",
-      "position": 12,
+      "position": 38,
       "startAt": "2025-11-14 00:00:00 UTC",
       "tag": null
     },
@@ -426,11 +426,11 @@
       "activitiesPage": {
         "totalCount": 43
       },
-      "endAt": "2026-12-23 23:59:59 UTC",
+      "endAt": "2027-01-28 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "380231",
       "name": "CMQ1 | PLATIBANDA",
-      "position": 11,
+      "position": 37,
       "startAt": "2025-12-10 00:00:00 UTC",
       "tag": null
     },
@@ -442,7 +442,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "380232",
       "name": "CMQ2 | BARRILETE",
-      "position": 10,
+      "position": 36,
       "startAt": "2026-01-20 00:00:00 UTC",
       "tag": null
     },
@@ -454,7 +454,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "380233",
       "name": "RESERVATÓRIO",
-      "position": 9,
+      "position": 35,
       "startAt": "2026-02-10 00:00:00 UTC",
       "tag": null
     },
@@ -466,7 +466,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "382302",
       "name": "EMBASAMENTO LATERAL ESQUERDA",
-      "position": 5,
+      "position": 31,
       "startAt": "2025-04-30 00:00:00 UTC",
       "tag": null
     },
@@ -478,56 +478,8 @@
       "hasQualityLocalsAssociations": true,
       "id": "382303",
       "name": "EMBASAMENTO FRONTAL",
-      "position": 8,
+      "position": 34,
       "startAt": "2025-03-03 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 7
-      },
-      "endAt": "2027-05-28 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "382438",
-      "name": "TORRE FRONTAL",
-      "position": 4,
-      "startAt": "2026-05-07 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 6
-      },
-      "endAt": "2027-05-31 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "382439",
-      "name": "TORRE LATERAL DIREITA | RUA 3122",
-      "position": 3,
-      "startAt": "2026-07-06 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 5
-      },
-      "endAt": "2027-06-07 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "382440",
-      "name": "TORRE FUNDOS",
-      "position": 2,
-      "startAt": "2026-08-31 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 6
-      },
-      "endAt": "2027-06-14 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "382441",
-      "name": "TORRE LATERAL ESQUERDA | RUA 3130",
-      "position": 1,
-      "startAt": "2026-07-06 00:00:00 UTC",
       "tag": null
     },
     {
@@ -538,7 +490,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "391302",
       "name": "EMBASAMENTO FUNDOS",
-      "position": 6,
+      "position": 32,
       "startAt": "2024-10-14 00:00:00 UTC",
       "tag": null
     },
@@ -550,7 +502,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "391303",
       "name": "EMBASAMENTO LATERAL DIREITA",
-      "position": 7,
+      "position": 33,
       "startAt": "2024-12-02 00:00:00 UTC",
       "tag": null
     },
@@ -562,19 +514,19 @@
       "hasQualityLocalsAssociations": false,
       "id": "507285",
       "name": "MENSAIS",
-      "position": 56,
+      "position": 82,
       "startAt": "2023-02-22 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
-        "totalCount": 8
+        "totalCount": 9
       },
       "endAt": "2027-06-30 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "507286",
       "name": "EQUIPAMENTOS",
-      "position": 57,
+      "position": 83,
       "startAt": "2023-10-17 00:00:00 UTC",
       "tag": null
     },
@@ -586,7 +538,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "763116",
       "name": "01º PVTO - SALA 1",
-      "position": 50,
+      "position": 76,
       "startAt": "2026-10-26 00:00:00 UTC",
       "tag": null
     },
@@ -598,7 +550,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "914435",
       "name": "ESCADARIA",
-      "position": 51,
+      "position": 77,
       "startAt": "2025-04-07 00:00:00 UTC",
       "tag": null
     },
@@ -610,7 +562,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1053769",
       "name": "PÓS GRUA",
-      "position": 52,
+      "position": 78,
       "startAt": "2026-05-13 00:00:00 UTC",
       "tag": null
     },
@@ -622,7 +574,7 @@
       "hasQualityLocalsAssociations": false,
       "id": "1053773",
       "name": "PÓS - HABITE-SE",
-      "position": 54,
+      "position": 80,
       "startAt": null,
       "tag": null
     },
@@ -634,7 +586,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1088093",
       "name": "01º PVTO - SALA 2",
-      "position": 49,
+      "position": 75,
       "startAt": "2026-10-26 00:00:00 UTC",
       "tag": null
     },
@@ -646,7 +598,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1088094",
       "name": "01º PVTO - SALA 3",
-      "position": 48,
+      "position": 74,
       "startAt": "2026-10-26 00:00:00 UTC",
       "tag": null
     },
@@ -658,7 +610,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1088095",
       "name": "01º PVTO  -  SALA 4",
-      "position": 47,
+      "position": 73,
       "startAt": "2026-10-26 00:00:00 UTC",
       "tag": null
     },
@@ -670,7 +622,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1224667",
       "name": "01º PVTO - SALA 5",
-      "position": 46,
+      "position": 72,
       "startAt": "2026-10-26 00:00:00 UTC",
       "tag": null
     },
@@ -678,12 +630,372 @@
       "activitiesPage": {
         "totalCount": 11
       },
-      "endAt": "2027-07-05 23:59:59 UTC",
+      "endAt": "2027-05-25 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "1393502",
       "name": "PÓS CREMALHEIRA",
-      "position": 53,
-      "startAt": "2027-02-24 00:00:00 UTC",
+      "position": 79,
+      "startAt": "2027-02-08 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-11-24 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669525",
+      "name": "NF30 | FUNDOS",
+      "position": 30,
+      "startAt": "2026-09-28 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-02-05 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669526",
+      "name": "NF01 | ESQUERDA",
+      "position": 1,
+      "startAt": "2026-09-14 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-01-22 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669527",
+      "name": "NF02 | ESQUERDA",
+      "position": 2,
+      "startAt": "2026-08-28 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-01-08 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669528",
+      "name": "NF03 | ESQUERDA",
+      "position": 3,
+      "startAt": "2026-08-14 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-12-16 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669529",
+      "name": "NF04 | ESQUERDA",
+      "position": 4,
+      "startAt": "2026-07-31 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-12-02 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669530",
+      "name": "NF05 | FRONTAL",
+      "position": 5,
+      "startAt": "2026-07-17 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-11-18 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669531",
+      "name": "NF06 | FRONTAL",
+      "position": 6,
+      "startAt": "2026-07-03 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-11-04 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669532",
+      "name": "NF07 | FRONTAL",
+      "position": 7,
+      "startAt": "2026-06-19 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 5
+      },
+      "endAt": "2027-06-30 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669533",
+      "name": "NF08 | FRONTAL",
+      "position": 8,
+      "startAt": "2026-06-05 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-10-05 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669534",
+      "name": "NF09 | FRONTAL",
+      "position": 9,
+      "startAt": "2026-05-21 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 5
+      },
+      "endAt": "2027-05-18 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669535",
+      "name": "NF10 | CREMALHEIRA",
+      "position": 10,
+      "startAt": "2027-03-08 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-09-21 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669536",
+      "name": "NF11 | FRONTAL",
+      "position": 11,
+      "startAt": "2026-05-07 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-10-05 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669537",
+      "name": "NF12 | DIREITA",
+      "position": 12,
+      "startAt": "2026-05-21 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-10-20 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669538",
+      "name": "NF13 | DIREITA",
+      "position": 13,
+      "startAt": "2026-06-05 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-07-21 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669539",
+      "name": "NF14 | DIREITA",
+      "position": 14,
+      "startAt": "2027-05-25 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-07-06 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669540",
+      "name": "NF15 | DIREITA",
+      "position": 15,
+      "startAt": "2027-05-11 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-06-22 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669541",
+      "name": "NF16 | FUNDOS",
+      "position": 16,
+      "startAt": "2027-04-27 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-06-08 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669542",
+      "name": "NF17 | FUNDOS",
+      "position": 17,
+      "startAt": "2027-04-12 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-05-24 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669543",
+      "name": "NF18 | FUNDOS",
+      "position": 18,
+      "startAt": "2027-03-29 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-05-10 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669544",
+      "name": "NF19 | FUNDOS",
+      "position": 19,
+      "startAt": "2027-03-12 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-04-26 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669545",
+      "name": "NF20 | FUNDOS",
+      "position": 20,
+      "startAt": "2027-02-26 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-04-09 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669546",
+      "name": "NF21 | FUNDOS",
+      "position": 21,
+      "startAt": "2027-02-12 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-03-25 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669547",
+      "name": "NF22 | FUNDOS",
+      "position": 22,
+      "startAt": "2027-01-29 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-03-11 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669548",
+      "name": "NF23 | FUNDOS",
+      "position": 23,
+      "startAt": "2027-01-15 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-02-25 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669549",
+      "name": "NF24 | FUNDOS",
+      "position": 24,
+      "startAt": "2026-12-23 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-02-11 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669550",
+      "name": "NF25 | FUNDOS",
+      "position": 25,
+      "startAt": "2026-12-09 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-01-28 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669551",
+      "name": "NF26 | FUNDOS",
+      "position": 26,
+      "startAt": "2026-11-25 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-01-14 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669552",
+      "name": "NF27 | FUNDOS",
+      "position": 27,
+      "startAt": "2026-11-11 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-12-22 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669553",
+      "name": "NF28 | FUNDOS",
+      "position": 28,
+      "startAt": "2026-10-27 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2026-12-08 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1669554",
+      "name": "NF29 | FUNDOS",
+      "position": 29,
+      "startAt": "2026-10-13 00:00:00 UTC",
       "tag": null
     }
   ],
@@ -64630,7 +64942,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238318",
       "name": "MOV | MOVIMENTAÇÕES DE TERRA | DRENAGENS",
-      "position": 12
+      "position": 13
     },
     {
       "color": "#07293F",
@@ -64638,7 +64950,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238320",
       "name": "FUND | ESTACAS",
-      "position": 13
+      "position": 14
     },
     {
       "color": "#07293F",
@@ -64646,7 +64958,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238324",
       "name": "FUND | BLOCOS",
-      "position": 14
+      "position": 15
     },
     {
       "color": "#07293F",
@@ -64654,7 +64966,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238328",
       "name": "FUND | ARRANQUES - VIGAS BALDRAME",
-      "position": 15
+      "position": 16
     },
     {
       "color": "#000000",
@@ -64662,7 +64974,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238329",
       "name": "EST | SUPRAESTRUTURA (PISO)",
-      "position": 19
+      "position": 20
     },
     {
       "color": "#B12726",
@@ -64670,7 +64982,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238331",
       "name": "ALV | ALVENARIA (COMPLETO)",
-      "position": 23
+      "position": 24
     },
     {
       "color": "#B12726",
@@ -64678,7 +64990,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238332",
       "name": "ALV | SHAFTS",
-      "position": 26
+      "position": 27
     },
     {
       "color": "#B18706",
@@ -64686,7 +64998,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238335",
       "name": "ELE | ELETROD (LAJES)",
-      "position": 34
+      "position": 36
     },
     {
       "color": "#B18706",
@@ -64694,7 +65006,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238336",
       "name": "ELE | INFRA ELETRODUTOS",
-      "position": 39
+      "position": 41
     },
     {
       "color": "#B18706",
@@ -64702,7 +65014,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238339",
       "name": "ELE | QUADROS | DISJUNTORES",
-      "position": 44
+      "position": 46
     },
     {
       "color": "#B18706",
@@ -64710,7 +65022,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238340",
       "name": "ELE | ACABAMENTOS",
-      "position": 46
+      "position": 48
     },
     {
       "color": "#B18706",
@@ -64718,7 +65030,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238341",
       "name": "ELE | FIAÇÃO",
-      "position": 42
+      "position": 44
     },
     {
       "color": "#B18706",
@@ -64726,7 +65038,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238342",
       "name": "ELE | PRUMADAS GERAIS",
-      "position": 40
+      "position": 42
     },
     {
       "color": "#B18706",
@@ -64734,7 +65046,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238345",
       "name": "ELE | GERADOR",
-      "position": 47
+      "position": 49
     },
     {
       "color": "#2A5FEC",
@@ -64742,7 +65054,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238514",
       "name": "HID | INFRA HIDROSSANITÁRIO",
-      "position": 55
+      "position": 57
     },
     {
       "color": "#2A5FEC",
@@ -64750,7 +65062,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238516",
       "name": "HID | INST. HIDROSSANITÁRIAS",
-      "position": 58
+      "position": 60
     },
     {
       "color": "#2A5FEC",
@@ -64758,7 +65070,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238518",
       "name": "HID | VASOS SANITÁRIOS",
-      "position": 59
+      "position": 61
     },
     {
       "color": "#2A5FEC",
@@ -64766,7 +65078,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238519",
       "name": "HID | HIDRÔMETROS",
-      "position": 56
+      "position": 58
     },
     {
       "color": "#AB4646",
@@ -64774,7 +65086,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238695",
       "name": "PCI | SPDA ESTRUTURA",
-      "position": 74
+      "position": 76
     },
     {
       "color": "#E85F08",
@@ -64782,7 +65094,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238721",
       "name": "GLP | PRUMADAS",
-      "position": 76
+      "position": 78
     },
     {
       "color": "#E85F08",
@@ -64790,7 +65102,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238722",
       "name": "GLP | DISTRIBUIÇÃO",
-      "position": 77
+      "position": 79
     },
     {
       "color": "#E85F08",
@@ -64798,7 +65110,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238726",
       "name": "GLP | MEDIDORES",
-      "position": 78
+      "position": 80
     },
     {
       "color": "#E85F08",
@@ -64806,7 +65118,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238729",
       "name": "GLP | CENTRAL DE GÁS",
-      "position": 79
+      "position": 81
     },
     {
       "color": "#587832",
@@ -64814,7 +65126,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238732",
       "name": "ARC | INFRA CLIMATIZAÇÃO",
-      "position": 81
+      "position": 83
     },
     {
       "color": "#3D3D3D",
@@ -64822,7 +65134,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238734",
       "name": "REB | REBOCO INTERNO",
-      "position": 91
+      "position": 93
     },
     {
       "color": "#3D3D3D",
@@ -64830,7 +65142,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238735",
       "name": "REB | REBOCO EXTERNO EMBASAMENTO",
-      "position": 106
+      "position": 108
     },
     {
       "color": "#3D3D3D",
@@ -64838,7 +65150,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238737",
       "name": "PIS | CONTRAPISO INTERNO",
-      "position": 100
+      "position": 102
     },
     {
       "color": "#274702",
@@ -64846,7 +65158,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238742",
       "name": "IMP | INTERNA",
-      "position": 111
+      "position": 113
     },
     {
       "color": "#A76330",
@@ -64854,7 +65166,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238747",
       "name": "CER | REVEST CERÂMICOS PISOS INTERNOS",
-      "position": 122
+      "position": 124
     },
     {
       "color": "#5A4B66",
@@ -64862,7 +65174,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238754",
       "name": "GES | FORRO GESSO",
-      "position": 128
+      "position": 130
     },
     {
       "color": "#07293F",
@@ -64870,7 +65182,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238756",
       "name": "MONTAGEM ELEVADOR",
-      "position": 128
+      "position": 130
     },
     {
       "color": "#BE0503",
@@ -64878,7 +65190,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238757",
       "name": "PNT | PINTURA INTERNA - 2ª ETAPA",
-      "position": 133
+      "position": 135
     },
     {
       "color": "#BE0503",
@@ -64886,7 +65198,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238761",
       "name": "PNT | PINTURA INTERNA - 3ª ETAPA",
-      "position": 133
+      "position": 135
     },
     {
       "color": "#BE0503",
@@ -64894,7 +65206,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238766",
       "name": "PNT | PINTURA - ESCADARIA",
-      "position": 140
+      "position": 142
     },
     {
       "color": "#BE0503",
@@ -64902,7 +65214,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238768",
       "name": "PNT | PINTURA EXTERNA",
-      "position": 141
+      "position": 143
     },
     {
       "color": "#1D7A92",
@@ -64910,7 +65222,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238769",
       "name": "ESQ | ESQUADRIAS DE ALUMÍNIO",
-      "position": 143
+      "position": 145
     },
     {
       "color": "#1D7A92",
@@ -64918,7 +65230,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238771",
       "name": "ESQ | SERRALHERIAS",
-      "position": 153
+      "position": 155
     },
     {
       "color": "#7A4E2D",
@@ -64926,7 +65238,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238772",
       "name": "ESQ | CORRIMÃO (MADEIRA)",
-      "position": 158
+      "position": 160
     },
     {
       "color": "#7A4E2D",
@@ -64934,7 +65246,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238776",
       "name": "ESQ | PORTAS DE MADEIRA",
-      "position": 157
+      "position": 159
     },
     {
       "color": "#40505B",
@@ -64942,7 +65254,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238777",
       "name": "PAV | PASSEIOS EXTERNOS",
-      "position": 160
+      "position": 162
     },
     {
       "color": "#4A810B",
@@ -64950,7 +65262,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238779",
       "name": "PSG | PAISAGISMO | DEC",
-      "position": 164
+      "position": 166
     },
     {
       "color": "#285777",
@@ -64958,7 +65270,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1238784",
       "name": "LMP | LIMPEZA FINA",
-      "position": 165
+      "position": 167
     },
     {
       "color": "#4A810B",
@@ -64974,7 +65286,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1238873",
       "name": "DES | DESFORMA",
-      "position": 20
+      "position": 21
     },
     {
       "color": "#587832",
@@ -64982,7 +65294,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1240471",
       "name": "EX | INFRA EXAUSTÃO (PVC)",
-      "position": 82
+      "position": 84
     },
     {
       "color": "#BE0503",
@@ -64990,7 +65302,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1240535",
       "name": "PNT | PISOS - RESINA - 1ª ETAPA",
-      "position": 136
+      "position": 138
     },
     {
       "color": "#3D3D3D",
@@ -64998,7 +65310,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1240540",
       "name": "REB | REBOCO ESCADARIA - PARTE 2 (ACIMA DO 18ºPVTO)",
-      "position": 93
+      "position": 95
     },
     {
       "color": "#3D3D3D",
@@ -65006,7 +65318,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1240542",
       "name": "PIS | CONTRAPISO ESCADARIA",
-      "position": 101
+      "position": 103
     },
     {
       "color": "#3D3D3D",
@@ -65014,7 +65326,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1241827",
       "name": "PIS | ALISAMENTO CONCRETO",
-      "position": 102
+      "position": 104
     },
     {
       "color": "#3D3D3D",
@@ -65022,7 +65334,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1258510",
       "name": "REB | REBOCO EXTERNO (21º AO 31º PVTO)",
-      "position": 110
+      "position": 112
     },
     {
       "color": "#243A0B",
@@ -65030,7 +65342,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1260000",
       "name": "IMP | ESQUADRIAS (ATÉ 8º PVTO)",
-      "position": 119
+      "position": 121
     },
     {
       "color": "#055589",
@@ -65038,7 +65350,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1260109",
       "name": "PING | PEITORIS E PINGADEIRAS",
-      "position": 160
+      "position": 162
     },
     {
       "color": "#000000",
@@ -65046,7 +65358,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1357392",
       "name": "EST | PISO SOBRE SOLO",
-      "position": 16
+      "position": 17
     },
     {
       "color": "#B18706",
@@ -65054,7 +65366,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1357465",
       "name": "ELE | ENTERRADA - FUNDAÇÃO",
-      "position": 33
+      "position": 35
     },
     {
       "color": "#2A5FEC",
@@ -65062,7 +65374,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1357466",
       "name": "HID | ENTERRADA | FUNDAÇÃO",
-      "position": 52
+      "position": 54
     },
     {
       "color": "#AB4646",
@@ -65070,7 +65382,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1357467",
       "name": "PCI | ENTERRADA - FUNDAÇÃO",
-      "position": 66
+      "position": 68
     },
     {
       "color": "#E85F08",
@@ -65078,7 +65390,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1357468",
       "name": "GLP | ENTERRADA | FUNDAÇÃO",
-      "position": 75
+      "position": 77
     },
     {
       "color": "#3D3D3D",
@@ -65086,7 +65398,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1467269",
       "name": "REB | REBOCO EXTERNO (8º AO 31º PVTO)",
-      "position": 107
+      "position": 109
     },
     {
       "color": "#243A0B",
@@ -65094,7 +65406,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1467276",
       "name": "IMP | ESQUADRIAS (ACIMA DO 8º PVTO)",
-      "position": 120
+      "position": 122
     },
     {
       "color": "#274702",
@@ -65102,7 +65414,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1467297",
       "name": "IMP | POÇO ELEVADOR",
-      "position": 110
+      "position": 112
     },
     {
       "color": "#AB4646",
@@ -65110,7 +65422,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1467308",
       "name": "PCI | INST. PREVENTIVO",
-      "position": 74
+      "position": 76
     },
     {
       "color": "#574467",
@@ -65118,7 +65430,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1467312",
       "name": "PCF | PORTAS CORTA FOGO",
-      "position": 141
+      "position": 143
     },
     {
       "color": "#A76330",
@@ -65126,7 +65438,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1467347",
       "name": "CER | CERÂMICOS PISCINA",
-      "position": 125
+      "position": 127
     },
     {
       "color": "#017E9E",
@@ -65134,7 +65446,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1477270",
       "name": "PISC | INSTALAÇÃO PISCINA",
-      "position": 162
+      "position": 164
     },
     {
       "color": "#285777",
@@ -65142,7 +65454,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1569612",
       "name": "LMP | LIMPEZA FACHADAS",
-      "position": 165
+      "position": 167
     },
     {
       "color": "#BE0503",
@@ -65150,7 +65462,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1569613",
       "name": "PNT | PINTURA INTERNA - 1ª ETAPA",
-      "position": 132
+      "position": 134
     },
     {
       "color": "#4A810B",
@@ -65174,7 +65486,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570088",
       "name": "ESQ | PAGTO - ESQUADRIAS METÁLICAS E VIDRO",
-      "position": 148
+      "position": 150
     },
     {
       "color": "#C22CC2",
@@ -65182,7 +65494,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570089",
       "name": "CKL | CHECKLIST E RETOQUES",
-      "position": 166
+      "position": 168
     },
     {
       "color": "#1D7A92",
@@ -65190,7 +65502,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570091",
       "name": "ESQ | GUARDA-CORPOS",
-      "position": 147
+      "position": 149
     },
     {
       "color": "#C22CC2",
@@ -65214,7 +65526,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570095",
       "name": "DEC | DECORAÇÃO",
-      "position": 163
+      "position": 165
     },
     {
       "color": "#6806B5",
@@ -65222,7 +65534,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570096",
       "name": "COMP | CXS PASSAGEM E INSPEÇÃO",
-      "position": 162
+      "position": 164
     },
     {
       "color": "#274702",
@@ -65230,7 +65542,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570099",
       "name": "IMP | RESERVATÓRIO POTÁVEL",
-      "position": 117
+      "position": 119
     },
     {
       "color": "#274702",
@@ -65238,7 +65550,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570100",
       "name": "IMP | BALDRAMES",
-      "position": 109
+      "position": 111
     },
     {
       "color": "#274702",
@@ -65246,7 +65558,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570104",
       "name": "IMP | TERRAÇOS",
-      "position": 112
+      "position": 114
     },
     {
       "color": "#274702",
@@ -65254,7 +65566,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570105",
       "name": "IMP | FLOREIRAS",
-      "position": 113
+      "position": 115
     },
     {
       "color": "#274702",
@@ -65262,7 +65574,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570107",
       "name": "IMP | IMPERM. PISCINAS",
-      "position": 115
+      "position": 117
     },
     {
       "color": "#274702",
@@ -65270,7 +65582,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570108",
       "name": "IMP | CISTERNAS",
-      "position": 110
+      "position": 112
     },
     {
       "color": "#274702",
@@ -65278,7 +65590,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570110",
       "name": "IMP | GARAGENS",
-      "position": 116
+      "position": 118
     },
     {
       "color": "#3D3D3D",
@@ -65286,7 +65598,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570111",
       "name": "PIS | POLIMENTO PISO",
-      "position": 104
+      "position": 106
     },
     {
       "color": "#7A4E2D",
@@ -65294,7 +65606,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570112",
       "name": "ESQ | FACHADA EM MADEIRA",
-      "position": 159
+      "position": 161
     },
     {
       "color": "#1D7A92",
@@ -65302,7 +65614,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570113",
       "name": "ESQ | BRISES EM ALUMÍNIO",
-      "position": 146
+      "position": 148
     },
     {
       "color": "#1D7A92",
@@ -65310,7 +65622,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1570115",
       "name": "ESQ | PORTÕES",
-      "position": 154
+      "position": 156
     },
     {
       "color": "#AB4646",
@@ -65318,7 +65630,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570285",
       "name": "PCI | INFRA HIDRANTES",
-      "position": 63
+      "position": 65
     },
     {
       "color": "#3D3D3D",
@@ -65326,7 +65638,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570288",
       "name": "REB | CHAPISCO E PREPARAÇÃO (INTERNO)",
-      "position": 89
+      "position": 91
     },
     {
       "color": "#1D7A92",
@@ -65334,7 +65646,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570289",
       "name": "ESQ | CONTRAMARCOS - JANELAS",
-      "position": 142
+      "position": 144
     },
     {
       "color": "#A76330",
@@ -65342,7 +65654,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1570299",
       "name": "CER | REJUNTE INTERNO",
-      "position": 124
+      "position": 126
     },
     {
       "color": "#A76330",
@@ -65350,7 +65662,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1573200",
       "name": "CER | REVEST CERÂMICOS EXTERNOS",
-      "position": 126
+      "position": 128
     },
     {
       "color": "#3D3D3D",
@@ -65358,7 +65670,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1574598",
       "name": "PIS | PROTEÇÃO MECÂNICA",
-      "position": 108
+      "position": 110
     },
     {
       "color": "#3D3D3D",
@@ -65366,7 +65678,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1574599",
       "name": "REB | REBOCO EXTERNO - DIF E PAV. TÉC.",
-      "position": 105
+      "position": 107
     },
     {
       "color": "#B12726",
@@ -65374,7 +65686,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1574732",
       "name": "ALV | ENCUNHAMENTO",
-      "position": 27
+      "position": 28
     },
     {
       "color": "#B12726",
@@ -65382,7 +65694,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1588749",
       "name": "ALV | CHURRASQUEIRA",
-      "position": 29
+      "position": 31
     },
     {
       "color": "#3D3D3D",
@@ -65390,7 +65702,7 @@
       "hasQualityModelsAssociations": true,
       "id": "1599646",
       "name": "REB | TRAT. DE CONCRETO PARA A PINTURA",
-      "position": 95
+      "position": 97
     },
     {
       "color": "#274702",
@@ -65398,7 +65710,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1600159",
       "name": "IMP | RESERVATÓRIO PLUVIAL",
-      "position": 118
+      "position": 120
     },
     {
       "color": "#52331B",
@@ -65414,7 +65726,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1849228",
       "name": "EQP | GRUA (PARCELAS)",
-      "position": 12
+      "position": 13
     },
     {
       "color": "#52331B",
@@ -65422,7 +65734,7 @@
       "hasQualityModelsAssociations": false,
       "id": "1849230",
       "name": "EQP | MAQUINA CORTE E DOBRA",
-      "position": 13
+      "position": 14
     },
     {
       "color": "#B18706",
@@ -65430,7 +65742,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2261831",
       "name": "ELE | ENTRADA DE ENERGIA | SUBESTAÇÃO",
-      "position": 48
+      "position": 50
     },
     {
       "color": "#4A810B",
@@ -65446,7 +65758,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2337503",
       "name": "ESQ | VIDROS",
-      "position": 145
+      "position": 147
     },
     {
       "color": "#1D7A92",
@@ -65454,7 +65766,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2337509",
       "name": "ESQ | VISTAS / REGULAGENS",
-      "position": 144
+      "position": 146
     },
     {
       "color": "#A76330",
@@ -65462,7 +65774,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2340853",
       "name": "CER | REVEST CERÂMICOS PAREDES INTERNAS",
-      "position": 122
+      "position": 124
     },
     {
       "color": "#1D7A92",
@@ -65470,7 +65782,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361310",
       "name": "ESQ | PELE DE VIDRO",
-      "position": 152
+      "position": 154
     },
     {
       "color": "#1D7A92",
@@ -65478,7 +65790,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361328",
       "name": "ESQ | SALAS COMERCIAIS",
-      "position": 151
+      "position": 153
     },
     {
       "color": "#1D7A92",
@@ -65486,7 +65798,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361329",
       "name": "ESQ | TELA CORRUGADA",
-      "position": 150
+      "position": 152
     },
     {
       "color": "#1D7A92",
@@ -65494,7 +65806,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361344",
       "name": "ESQ | BOX DE PRAIA",
-      "position": 149
+      "position": 151
     },
     {
       "color": "#1D7A92",
@@ -65502,7 +65814,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2361345",
       "name": "ESQ | VIDRO HIDRANTES",
-      "position": 148
+      "position": 150
     },
     {
       "color": "#9D673F",
@@ -65510,7 +65822,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2368439",
       "name": "DEC | REVEST CERÂMICOS FACHADA TÉRREO",
-      "position": 126
+      "position": 128
     },
     {
       "color": "#AB4646",
@@ -65518,7 +65830,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2471061",
       "name": "PCI | ESCADA PRESSURIZADA",
-      "position": 67
+      "position": 69
     },
     {
       "color": "#AB4646",
@@ -65526,7 +65838,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2537267",
       "name": "PCI | SISTEMA DE DETECÇÃO E ALARME DE INCÊNDIO",
-      "position": 62
+      "position": 64
     },
     {
       "color": "#AB4646",
@@ -65534,7 +65846,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2537272",
       "name": "PCI | EXTINTORES",
-      "position": 68
+      "position": 70
     },
     {
       "color": "#AB4646",
@@ -65542,7 +65854,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2537273",
       "name": "PCI | HIDRANTES E MANGUEIRAS",
-      "position": 70
+      "position": 72
     },
     {
       "color": "#AB4646",
@@ -65550,7 +65862,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2537274",
       "name": "PCI | CENTRAL DE ALARME DE INCÊNDIO",
-      "position": 72
+      "position": 74
     },
     {
       "color": "#BD5200",
@@ -65558,7 +65870,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2537917",
       "name": "TEL | TELECOMUNICAÇÃO E CFTV",
-      "position": 49
+      "position": 51
     },
     {
       "color": "#BE0503",
@@ -65566,7 +65878,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2538544",
       "name": "PNT | GARAGENS - PAREDES E TETOS - 1ª ETAPA",
-      "position": 134
+      "position": 136
     },
     {
       "color": "#BE0503",
@@ -65574,7 +65886,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2538545",
       "name": "PNT | PISOS - RESINA - 2ª ETAPA",
-      "position": 136
+      "position": 138
     },
     {
       "color": "#BE0503",
@@ -65582,7 +65894,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2583956",
       "name": "PNT | PAVIMENTO TÉCNICO INT.",
-      "position": 139
+      "position": 141
     },
     {
       "color": "#1D7A92",
@@ -65590,7 +65902,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2723183",
       "name": "ESQ | CONTRAMARCOS - PORTAS",
-      "position": 141
+      "position": 143
     },
     {
       "color": "#587832",
@@ -65598,7 +65910,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2739504",
       "name": "EX | CHURRASQUEIRA - DUTOS",
-      "position": 85
+      "position": 87
     },
     {
       "color": "#C22CC2",
@@ -65614,7 +65926,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2799441",
       "name": "HID | BOMBAS - INFRA HIDRAULICA",
-      "position": 61
+      "position": 63
     },
     {
       "color": "#206D9F",
@@ -65622,7 +65934,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2874075",
       "name": "ELEV | PLATAFORMA ELEVATÓRIA",
-      "position": 130
+      "position": 132
     },
     {
       "color": "#BE0503",
@@ -65630,7 +65942,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2874319",
       "name": "PNT | GARAGENS - PAREDES E TETOS - 2ª ETAPA",
-      "position": 135
+      "position": 137
     },
     {
       "color": "#7A4E2D",
@@ -65638,7 +65950,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2876315",
       "name": "ESQ | BRISES EM MADEIRAS",
-      "position": 155
+      "position": 157
     },
     {
       "color": "#348248",
@@ -65646,7 +65958,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2876316",
       "name": "CAL | CALÇADA ESTAMPADA",
-      "position": 166
+      "position": 168
     },
     {
       "color": "#B12726",
@@ -65654,7 +65966,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2881312",
       "name": "ALV | PAREDE TÉCNICA (HALL)",
-      "position": 25
+      "position": 26
     },
     {
       "color": "#B12726",
@@ -65662,7 +65974,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2881313",
       "name": "ALV | ALVENARIA INT. - CERÂMICA",
-      "position": 21
+      "position": 22
     },
     {
       "color": "#B12726",
@@ -65670,7 +65982,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2881314",
       "name": "ALV | ALVENARIA SICAL",
-      "position": 24
+      "position": 25
     },
     {
       "color": "#B12726",
@@ -65678,7 +65990,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2882158",
       "name": "ALV | ALVENARIA EXT. - CERÂMICA",
-      "position": 22
+      "position": 23
     },
     {
       "color": "#587832",
@@ -65686,7 +65998,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2892222",
       "name": "ARC | TESTE | CLIMATIZAÇÃO",
-      "position": 80
+      "position": 82
     },
     {
       "color": "#E85F08",
@@ -65694,7 +66006,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2892225",
       "name": "GLP | TESTE",
-      "position": 74
+      "position": 76
     },
     {
       "color": "#2A5FEC",
@@ -65702,7 +66014,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2892308",
       "name": "HID | TESTES HID. GERAL",
-      "position": 50
+      "position": 52
     },
     {
       "color": "#B18706",
@@ -65710,7 +66022,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2892330",
       "name": "ELE | BARRAMENTO BLINDADO - DIST",
-      "position": 36
+      "position": 38
     },
     {
       "color": "#587832",
@@ -65718,7 +66030,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2920576",
       "name": "EX | AQUECEDORES",
-      "position": 83
+      "position": 85
     },
     {
       "color": "#B12726",
@@ -65726,7 +66038,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2922816",
       "name": "ALV | CHAMINÉ CHURRASQ.",
-      "position": 28
+      "position": 29
     },
     {
       "color": "#587832",
@@ -65734,7 +66046,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2922821",
       "name": "EX | CHAMINÉ",
-      "position": 84
+      "position": 86
     },
     {
       "color": "#B18706",
@@ -65742,7 +66054,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2923248",
       "name": "ELE | LUMINÁRIAS",
-      "position": 45
+      "position": 47
     },
     {
       "color": "#B18706",
@@ -65750,7 +66062,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2923485",
       "name": "ELE | MÓDULOS ELÉTRICOS",
-      "position": 43
+      "position": 45
     },
     {
       "color": "#2A5FEC",
@@ -65758,7 +66070,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2926960",
       "name": "HID | INST. PAREDE TÉCNICA (HALL)",
-      "position": 53
+      "position": 55
     },
     {
       "color": "#6806B5",
@@ -65766,7 +66078,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2933703",
       "name": "COMP | REFRATÁRIOS",
-      "position": 161
+      "position": 163
     },
     {
       "color": "#243A0B",
@@ -65774,7 +66086,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2934581",
       "name": "IMP | ÁREA TÉCNICA",
-      "position": 116
+      "position": 118
     },
     {
       "color": "#6806B5",
@@ -65782,7 +66094,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2943648",
       "name": "COMP | INSTALAÇÕES (PISO EXTERNO)",
-      "position": 160
+      "position": 162
     },
     {
       "color": "#7A4E2D",
@@ -65790,7 +66102,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2946451",
       "name": "ESQ | MEDIÇÃO PORTAS DE MADEIRA E RODAPÉ",
-      "position": 156
+      "position": 158
     },
     {
       "color": "#7A4E2D",
@@ -65798,7 +66110,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2946665",
       "name": "ESQ | RODAPÉS DE POLIESTIRENO",
-      "position": 156
+      "position": 158
     },
     {
       "color": "#A76330",
@@ -65806,7 +66118,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2946668",
       "name": "CER | REJUNTE EXTERNO",
-      "position": 123
+      "position": 125
     },
     {
       "color": "#3D3D3D",
@@ -65814,7 +66126,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2946764",
       "name": "REB | CHAPISCO E PREPARAÇÃO (EXTERNO)",
-      "position": 88
+      "position": 90
     },
     {
       "color": "#3D3D3D",
@@ -65822,7 +66134,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2946777",
       "name": "PIS | CONTRAPISO EXTERNO",
-      "position": 96
+      "position": 98
     },
     {
       "color": "#A76330",
@@ -65830,7 +66142,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2946781",
       "name": "CER | REJUNTE PISCINA",
-      "position": 122
+      "position": 124
     },
     {
       "color": "#274702",
@@ -65838,7 +66150,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2967051",
       "name": "EX | CHURRASQUEIRA - COIFAS",
-      "position": 86
+      "position": 88
     },
     {
       "color": "#B18706",
@@ -65846,7 +66158,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2970808",
       "name": "ELE | CALÇADA",
-      "position": 35
+      "position": 37
     },
     {
       "color": "#2A5FEC",
@@ -65854,7 +66166,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2970809",
       "name": "HID | CALÇADA",
-      "position": 57
+      "position": 59
     },
     {
       "color": "#2A5FEC",
@@ -65862,7 +66174,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2970913",
       "name": "HID | VÁLVULAS REDUTORAS DE PRESSÃO",
-      "position": 54
+      "position": 56
     },
     {
       "color": "#2A5FEC",
@@ -65870,7 +66182,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2970916",
       "name": "HID | BOMBAS - INSTALAÇÃO",
-      "position": 60
+      "position": 62
     },
     {
       "color": "#AB4646",
@@ -65878,7 +66190,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2970917",
       "name": "PCI | BOMBAS - INFRA SHP",
-      "position": 65
+      "position": 67
     },
     {
       "color": "#AB4646",
@@ -65886,7 +66198,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2970918",
       "name": "PCI | BOMBAS - INSTALAÇÃO",
-      "position": 64
+      "position": 66
     },
     {
       "color": "#AB4646",
@@ -65894,7 +66206,7 @@
       "hasQualityModelsAssociations": true,
       "id": "2971347",
       "name": "PCI | CABEAMENTO",
-      "position": 41
+      "position": 43
     },
     {
       "color": "#2A5FEC",
@@ -65902,7 +66214,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2984076",
       "name": "HID | RESERVATÓRIOS | BARRILETE",
-      "position": 51
+      "position": 53
     },
     {
       "color": "#3D3D3D",
@@ -65910,7 +66222,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2984078",
       "name": "REB | REGULARIZAÇÃO POÇO ELEVADOR",
-      "position": 87
+      "position": 89
     },
     {
       "color": "#3D3D3D",
@@ -65918,7 +66230,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2984451",
       "name": "PIS | PREPARAÇÃO CONTRAPISO INTERNO",
-      "position": 99
+      "position": 101
     },
     {
       "color": "#3D3D3D",
@@ -65926,7 +66238,7 @@
       "hasQualityModelsAssociations": false,
       "id": "2984829",
       "name": "PIS | PREPARAÇÃO CONTRAPISO EXTERNO",
-      "position": 98
+      "position": 100
     },
     {
       "color": "#AB4646",
@@ -65934,7 +66246,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3013075",
       "name": "PCI | SPDA CAPTOR",
-      "position": 73
+      "position": 75
     },
     {
       "color": "#AB4646",
@@ -65942,7 +66254,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3013092",
       "name": "PCI | ILUMINAÇÃO DE EMERGÊNCIA",
-      "position": 69
+      "position": 71
     },
     {
       "color": "#AB4646",
@@ -65950,7 +66262,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3013362",
       "name": "PCI | VENTILAÇÃO PERMANENTE",
-      "position": 71
+      "position": 73
     },
     {
       "color": "#4F2301",
@@ -65958,7 +66270,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3025927",
       "name": "EQP | CREMALHEIRA (PARCELAS)",
-      "position": 11
+      "position": 12
     },
     {
       "color": "#52331B",
@@ -65982,7 +66294,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3050116",
       "name": "DESPESAS DE GESTÃO | MENSAIS",
-      "position": 167
+      "position": 169
     },
     {
       "color": "#973841",
@@ -65990,7 +66302,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3056942",
       "name": "LEG | LEGALIZAÇÃO PRÉ OBRA",
-      "position": 168
+      "position": 170
     },
     {
       "color": "#274702",
@@ -65998,7 +66310,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3057067",
       "name": "OUT | OUTORGA ONEROSA",
-      "position": 168
+      "position": 170
     },
     {
       "color": "#B18706",
@@ -66006,7 +66318,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3102710",
       "name": "ELE | INST. PAREDE TÉCNICA (HALL)",
-      "position": 38
+      "position": 40
     },
     {
       "color": "#BE0503",
@@ -66014,7 +66326,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3102722",
       "name": "PNT | RETOQUE PINTURA EXT.",
-      "position": 169
+      "position": 171
     },
     {
       "color": "#3D3D3D",
@@ -66022,7 +66334,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3106717",
       "name": "REB | HALL E ANTECÂMARA",
-      "position": 93
+      "position": 95
     },
     {
       "color": "#193A92",
@@ -66030,7 +66342,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3156778",
       "name": "EPC | TELA FACHADEIRA - COMPRA",
-      "position": 170
+      "position": 172
     },
     {
       "color": "#193A92",
@@ -66038,7 +66350,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3156779",
       "name": "EPC | TELA FACHADEIRA - MANUTENÇÃO",
-      "position": 171
+      "position": 173
     },
     {
       "color": "#017E9E",
@@ -66046,7 +66358,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3186379",
       "name": "ADM | ADMINISTRAÇÃO GTR",
-      "position": 172
+      "position": 174
     },
     {
       "color": "#017E9E",
@@ -66054,7 +66366,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3186380",
       "name": "ADM | ADMINISTRAÇÃO A10",
-      "position": 173
+      "position": 175
     },
     {
       "color": "#574467",
@@ -66062,7 +66374,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3268570",
       "name": "GES | FORRO ÁREA TÉCNICA",
-      "position": 127
+      "position": 129
     },
     {
       "color": "#B18706",
@@ -66070,7 +66382,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3282237",
       "name": "ELE | PRUMADA (HALL)",
-      "position": 37
+      "position": 39
     },
     {
       "color": "#6E730E",
@@ -66078,7 +66390,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3307508",
       "name": "DRY | SHAFT (HALL)",
-      "position": 30
+      "position": 32
     },
     {
       "color": "#3D3D3D",
@@ -66086,7 +66398,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3307509",
       "name": "REB | REBOCO SHAFT (HALL)",
-      "position": 92
+      "position": 94
     },
     {
       "color": "#5A4B66",
@@ -66094,7 +66406,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3307511",
       "name": "GES | FORRO HALL",
-      "position": 126
+      "position": 128
     },
     {
       "color": "#A76330",
@@ -66102,7 +66414,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3307512",
       "name": "CER | REVEST HALL",
-      "position": 121
+      "position": 123
     },
     {
       "color": "#BE0503",
@@ -66110,7 +66422,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3307513",
       "name": "PNT | PINTURA HALL - 2ª ETAPA",
-      "position": 131
+      "position": 133
     },
     {
       "color": "#73772E",
@@ -66118,7 +66430,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320591",
       "name": "MOV | MED. MÓVEIS PLAN. | DEC",
-      "position": 174
+      "position": 176
     },
     {
       "color": "#73772E",
@@ -66126,7 +66438,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320592",
       "name": "MOV | INST. MÓVEIS PLAN. | DEC",
-      "position": 175
+      "position": 177
     },
     {
       "color": "#193A92",
@@ -66134,7 +66446,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320593",
       "name": "EST | ESTOFADOS",
-      "position": 176
+      "position": 178
     },
     {
       "color": "#73772E",
@@ -66142,7 +66454,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320594",
       "name": "MOV | DIVISÓRIAS WC | DEC",
-      "position": 177
+      "position": 179
     },
     {
       "color": "#6E730E",
@@ -66150,7 +66462,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320595",
       "name": "MOV | ESPELHOS | DEC",
-      "position": 179
+      "position": 181
     },
     {
       "color": "#6E730E",
@@ -66158,7 +66470,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320596",
       "name": "MOV | LEDS | DEC",
-      "position": 180
+      "position": 182
     },
     {
       "color": "#52801D",
@@ -66166,7 +66478,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320597",
       "name": "GRAN | PEDRAS E GRANITOS | DEC",
-      "position": 181
+      "position": 183
     },
     {
       "color": "#2A5FEC",
@@ -66174,7 +66486,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320598",
       "name": "HID | LOUÇAS E ACESSÓRIOS | DEC",
-      "position": 182
+      "position": 184
     },
     {
       "color": "#07293F",
@@ -66182,7 +66494,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320599",
       "name": "CHU | SISTEMA CHURRASQ. | DEC",
-      "position": 183
+      "position": 185
     },
     {
       "color": "#07293F",
@@ -66190,7 +66502,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320600",
       "name": "CHU | FORNO PIZZA",
-      "position": 184
+      "position": 186
     },
     {
       "color": "#018367",
@@ -66198,7 +66510,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320601",
       "name": "ELT | ELETROELETRÔNICOS | DEC",
-      "position": 185
+      "position": 187
     },
     {
       "color": "#018367",
@@ -66206,7 +66518,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320602",
       "name": "ELT | CHOPEIRA | DEC",
-      "position": 186
+      "position": 188
     },
     {
       "color": "#BD5200",
@@ -66214,7 +66526,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320603",
       "name": "COM | COMUNICAÇÃO VISUAL | DEC",
-      "position": 187
+      "position": 189
     },
     {
       "color": "#1D7A92",
@@ -66222,7 +66534,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320604",
       "name": "UTE | UTENSÍLIOS | DEC",
-      "position": 188
+      "position": 190
     },
     {
       "color": "#AF46AF",
@@ -66230,7 +66542,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320605",
       "name": "ORN | ORNAMENTOS",
-      "position": 189
+      "position": 191
     },
     {
       "color": "#B12726",
@@ -66238,7 +66550,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320607",
       "name": "ALV | ALV. DECORAÇÃO",
-      "position": 191
+      "position": 193
     },
     {
       "color": "#961046",
@@ -66246,7 +66558,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320608",
       "name": "PNT | PINTURAS DECORATIVAS | DEC",
-      "position": 192
+      "position": 194
     },
     {
       "color": "#A45D5C",
@@ -66254,7 +66566,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320609",
       "name": "MOV | MÓVEIS SOLTOS | DEC",
-      "position": 193
+      "position": 195
     },
     {
       "color": "#9D673F",
@@ -66262,7 +66574,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320610",
       "name": "CAD | EQUIP. ACADEMIA | DEC",
-      "position": 194
+      "position": 196
     },
     {
       "color": "#03A12A",
@@ -66270,7 +66582,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320611",
       "name": "JOG | EQUIP. RECREATIVOS | DEC",
-      "position": 195
+      "position": 197
     },
     {
       "color": "#52801D",
@@ -66278,7 +66590,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3320620",
       "name": "ARC | EQUIP. CLIMATIZAÇÃO | DEC",
-      "position": 201
+      "position": 203
     },
     {
       "color": "#BE0503",
@@ -66286,7 +66598,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3326205",
       "name": "PNT | PINTURA HALL - 1ª ETAPA",
-      "position": 129
+      "position": 131
     },
     {
       "color": "#28353D",
@@ -66294,7 +66606,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3327223",
       "name": "REB | NICHOS",
-      "position": 90
+      "position": 92
     },
     {
       "color": "#727800",
@@ -66302,7 +66614,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3327227",
       "name": "MOV | MÓVEIS HALL | DEC",
-      "position": 178
+      "position": 180
     },
     {
       "color": "#3D3D3D",
@@ -66310,7 +66622,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3329976",
       "name": "REB | REBOCO ESCADARIA - PARTE 1 (ATÉ O 18ºPVTO)",
-      "position": 94
+      "position": 96
     },
     {
       "color": "#274702",
@@ -66318,7 +66630,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3334169",
       "name": "IMP | PAVIMENTO TÉCNICO",
-      "position": 114
+      "position": 116
     },
     {
       "color": "#4F9002",
@@ -66326,7 +66638,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3334495",
       "name": "EX | CHAPÉU AQUECEDORES",
-      "position": 211
+      "position": 213
     },
     {
       "color": "#3D3D3D",
@@ -66334,7 +66646,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3338607",
       "name": "PIS | ÁREA TÉCNICA",
-      "position": 97
+      "position": 99
     },
     {
       "color": "#BE0503",
@@ -66342,7 +66654,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3338608",
       "name": "PNT | ÁREA TÉCNICA",
-      "position": 138
+      "position": 140
     },
     {
       "color": "#000000",
@@ -66350,7 +66662,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3447451",
       "name": "EST | SUPRAESTRUTURA (TETO)",
-      "position": 17
+      "position": 18
     },
     {
       "color": "#000000",
@@ -66358,7 +66670,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3482869",
       "name": "EST | SUPRAESTRUTURA (PÓS GRUA)",
-      "position": 18
+      "position": 19
     },
     {
       "color": "#540B8E",
@@ -66366,7 +66678,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3526936",
       "name": "MODIFICAÇÕES CLIENTES",
-      "position": 211
+      "position": 213
     },
     {
       "color": "#3D3D3D",
@@ -66374,7 +66686,7 @@
       "hasQualityModelsAssociations": true,
       "id": "3675021",
       "name": "PIS | HALL E ANTECÂMARA",
-      "position": 96
+      "position": 98
     },
     {
       "color": "#12862F",
@@ -66382,7 +66694,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3675076",
       "name": "PCI | BEP (SPDA)",
-      "position": 227
+      "position": 229
     },
     {
       "color": "#E66503",
@@ -66390,7 +66702,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3682351",
       "name": "ILU | ILUMINAÇÃO | DEC",
-      "position": 228
+      "position": 230
     },
     {
       "color": "#C50553",
@@ -66398,7 +66710,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3682632",
       "name": "DEC | ACOMPANHAMENTO DECORAÇÃO",
-      "position": 229
+      "position": 231
     },
     {
       "color": "#B12726",
@@ -66406,7 +66718,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3732523",
       "name": "ALV | QUIOSQUE (DRYWALL)",
-      "position": 190
+      "position": 192
     },
     {
       "color": "#961046",
@@ -66414,7 +66726,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3755394",
       "name": "PER | CORTINAS E PERSIANAS | DEC",
-      "position": 230
+      "position": 232
     },
     {
       "color": "#3D3D3D",
@@ -66422,7 +66734,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3764363",
       "name": "PIS | LAPIDAÇÃO PISO",
-      "position": 103
+      "position": 105
     },
     {
       "color": "#BE0503",
@@ -66430,7 +66742,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3806040",
       "name": "PNT | PISOS - DEMARCAÇÕES",
-      "position": 137
+      "position": 139
     },
     {
       "color": "#6E730E",
@@ -66438,7 +66750,7 @@
       "hasQualityModelsAssociations": false,
       "id": "3817747",
       "name": "DRY | BOX DE GARAGEM",
-      "position": 31
+      "position": 33
     },
     {
       "color": "#727800",
@@ -66446,7 +66758,23 @@
       "hasQualityModelsAssociations": false,
       "id": "3830817",
       "name": "DRY | ALVENARIA DRYWALL",
-      "position": 32
+      "position": 34
+    },
+    {
+      "color": "#52331B",
+      "hasQualityAssociations": false,
+      "hasQualityModelsAssociations": false,
+      "id": "3890812",
+      "name": "EQP | CREMALHEIRA (DESMOB.) PARTE 2",
+      "position": 11
+    },
+    {
+      "color": "#B12726",
+      "hasQualityAssociations": false,
+      "hasQualityModelsAssociations": false,
+      "id": "3891365",
+      "name": "ALV | ESCADA SALAS",
+      "position": 30
     }
   ]
 }
