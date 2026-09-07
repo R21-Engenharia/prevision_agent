@@ -1,9 +1,9 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-09-04T13:40:48.531199",
-  "total": 2960,
-  "total_with_jobs": 2449,
+  "collected_at": "2026-09-07T15:11:17.876082",
+  "total": 2938,
+  "total_with_jobs": 2427,
   "activities_list": [
     {
       "id": "9712182",
@@ -36,7 +36,7 @@
       "id": "10848150",
       "wbsCode": "81.130",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.667,
       "jobs": [],
       "_floor_name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
       "_floor_id": "380191"
@@ -85,27 +85,27 @@
       "id": "11733431",
       "wbsCode": "81.112",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "10850543",
           "name": "PREPARAÇÃO DA BASE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850544",
           "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850545",
           "name": "TESTE DE ESTANQUEIDADE",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10850546",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
@@ -495,7 +495,7 @@
       "id": "30765918",
       "wbsCode": "81.89",
       "hasJobs": false,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [],
       "_floor_name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
       "_floor_id": "380191"
@@ -9414,12 +9414,12 @@
       "id": "30555841",
       "wbsCode": "64.43",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11150979",
           "name": "DETECTOR DE FUMAÇA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11150980",
@@ -15005,7 +15005,7 @@
       "id": "35935075",
       "wbsCode": "61.129",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14597820",
@@ -19912,12 +19912,12 @@
         {
           "id": "31160280",
           "name": "EXECUÇÃO SISTEMA",
-          "percentageCompleted": null
+          "percentageCompleted": 100.0
         },
         {
           "id": "31160281",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": null
+          "percentageCompleted": 0.0
         }
       ],
       "_floor_name": "12º PV - TIPO",
@@ -28291,17 +28291,17 @@
       "id": "11714323",
       "wbsCode": "52.124",
       "hasJobs": true,
-      "percentageCompleted": 32.0,
+      "percentageCompleted": 40.0,
       "jobs": [
         {
           "id": "10844731",
           "name": "EXECUÇÃO DA PAGINAÇÃO",
-          "percentageCompleted": 40.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10844732",
           "name": "ASSENTAMENTO",
-          "percentageCompleted": 40.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10844733",
@@ -28660,7 +28660,7 @@
       "id": "21684927",
       "wbsCode": "52.124",
       "hasJobs": true,
-      "percentageCompleted": 50.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10844686",
@@ -28675,7 +28675,7 @@
         {
           "id": "10844688",
           "name": "ASSENT. SAIA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "29496891",
@@ -30221,22 +30221,22 @@
       "id": "12751014",
       "wbsCode": "51.134",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 30.0,
       "jobs": [
         {
           "id": "11014162",
           "name": "ISOLAMENTO E SELADOR",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014163",
           "name": "1ª DEMÃO DE MASSA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014164",
           "name": "2ª DEMÃO DE MASSA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11014165",
@@ -30804,12 +30804,12 @@
       "id": "29908768",
       "wbsCode": "51.163",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10844816",
           "name": "EXECUÇÃO REFRATÁRIO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10844817",
@@ -36191,22 +36191,22 @@
       "id": "30773478",
       "wbsCode": "48.101",
       "hasJobs": true,
-      "percentageCompleted": 25.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "11255877",
           "name": "MANTA ACÚSTICA",
-          "percentageCompleted": 50.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255878",
           "name": "TAQUEAMENTO",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255879",
           "name": "CHUMB. TUBULAÇÕES",
-          "percentageCompleted": 25.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11255880",
@@ -36501,7 +36501,7 @@
       "id": "37004314",
       "wbsCode": "48.92",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "15035507",
@@ -39542,7 +39542,7 @@
       "id": "30111542",
       "wbsCode": "46.93",
       "hasJobs": true,
-      "percentageCompleted": 64.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10933930",
@@ -39552,7 +39552,7 @@
         {
           "id": "10933931",
           "name": "REQUADROS",
-          "percentageCompleted": 20.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10933932",
@@ -41290,12 +41290,12 @@
       "id": "30111543",
       "wbsCode": "45.93",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 24.0,
       "jobs": [
         {
           "id": "10933933",
           "name": "EXECUÇÃO DO REBOCO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 40.0
         },
         {
           "id": "10933934",
@@ -42525,7 +42525,7 @@
       "id": "12751404",
       "wbsCode": "44.91",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 80.0,
       "jobs": [
         {
           "id": "10662894",
@@ -42535,12 +42535,12 @@
         {
           "id": "10662895",
           "name": "CHUMB. INSTALAÇÕES",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10662896",
           "name": "TELAS GALVANIZADAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10662897",
@@ -43183,7 +43183,7 @@
       "id": "30555861",
       "wbsCode": "44.43",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11151058",
@@ -44313,12 +44313,12 @@
       "id": "12751454",
       "wbsCode": "43.144",
       "hasJobs": true,
-      "percentageCompleted": 18.0,
+      "percentageCompleted": 36.0,
       "jobs": [
         {
           "id": "10766843",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 30.0
+          "percentageCompleted": 60.0
         },
         {
           "id": "10766844",
@@ -50696,12 +50696,12 @@
       "id": "11713798",
       "wbsCode": "39.57",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 10.0,
       "jobs": [
         {
           "id": "10663313",
           "name": "PRUMADAS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10663314",
@@ -50736,7 +50736,7 @@
       "id": "11713865",
       "wbsCode": "39.41",
       "hasJobs": true,
-      "percentageCompleted": 10.0,
+      "percentageCompleted": 35.0,
       "jobs": [
         {
           "id": "10726033",
@@ -50746,22 +50746,22 @@
         {
           "id": "10726034",
           "name": "INFRA ELÉTRICA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10726035",
           "name": "INFRA TELECOM",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10726036",
           "name": "INFRA PREVENTIVO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "10726037",
           "name": "CAIXINHAS 4X2 E 4X4",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 50.0
         },
         {
           "id": "12324428",
@@ -51563,7 +51563,7 @@
       "id": "29407782",
       "wbsCode": "39.31",
       "hasJobs": true,
-      "percentageCompleted": 40.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10658499",
@@ -51578,7 +51578,7 @@
         {
           "id": "10658501",
           "name": "ACIMA DA COIFA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10658502",
@@ -51618,12 +51618,12 @@
       "id": "29407874",
       "wbsCode": "39.27",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 60.0,
       "jobs": [
         {
           "id": "10659076",
           "name": "SHAFT",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "10659077",
@@ -55006,7 +55006,7 @@
       "id": "12752272",
       "wbsCode": "37.168",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11284128",
@@ -56092,7 +56092,7 @@
       "id": "24200739",
       "wbsCode": "36.64",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11272339",
@@ -56122,7 +56122,7 @@
       "id": "24212193",
       "wbsCode": "36.70",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11272530",
@@ -56406,7 +56406,7 @@
       "id": "30807059",
       "wbsCode": "36.72",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11272634",
@@ -56702,7 +56702,7 @@
       "id": "30139501",
       "wbsCode": "35.110",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11070014",
@@ -56881,7 +56881,7 @@
       "id": "47895394",
       "wbsCode": "35.143",
       "hasJobs": false,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [],
       "_floor_name": "RESERVATÓRIO",
       "_floor_id": "380233"
@@ -57431,7 +57431,7 @@
       "id": "12745967",
       "wbsCode": "82.02",
       "hasJobs": false,
-      "percentageCompleted": 81.019,
+      "percentageCompleted": 81.481,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -57440,7 +57440,7 @@
       "id": "32473097",
       "wbsCode": "82.169",
       "hasJobs": false,
-      "percentageCompleted": 80.345,
+      "percentageCompleted": 80.825,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -57449,7 +57449,7 @@
       "id": "34369827",
       "wbsCode": "82.174",
       "hasJobs": false,
-      "percentageCompleted": 78.931,
+      "percentageCompleted": 79.445,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -57458,7 +57458,7 @@
       "id": "34371035",
       "wbsCode": "82.175",
       "hasJobs": false,
-      "percentageCompleted": 79.582,
+      "percentageCompleted": 80.08,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "507285"
@@ -57494,7 +57494,7 @@
       "id": "33323221",
       "wbsCode": "83.12",
       "hasJobs": false,
-      "percentageCompleted": 87.531,
+      "percentageCompleted": 88.155,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -57512,7 +57512,7 @@
       "id": "34001635",
       "wbsCode": "83.173",
       "hasJobs": false,
-      "percentageCompleted": 87.99,
+      "percentageCompleted": 89.216,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -57530,7 +57530,7 @@
       "id": "34190953",
       "wbsCode": "83.07",
       "hasJobs": false,
-      "percentageCompleted": 36.137,
+      "percentageCompleted": 37.695,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "507286"
@@ -58739,17 +58739,17 @@
       "id": "29049577",
       "wbsCode": "78.102",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 100.0,
       "jobs": [
         {
           "id": "11069145",
           "name": "EXECUÇÃO CONTRAPISO",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "11069146",
           "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         }
       ],
       "_floor_name": "PÓS GRUA",
@@ -63275,46 +63275,6 @@
       "_floor_id": "1669529"
     },
     {
-      "id": "53490432",
-      "wbsCode": "04.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839001",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839002",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF04 | ESQUERDA",
-      "_floor_id": "1669529"
-    },
-    {
-      "id": "53490474",
-      "wbsCode": "04.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839061",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839062",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF04 | ESQUERDA",
-      "_floor_id": "1669529"
-    },
-    {
       "id": "53490519",
       "wbsCode": "04.143",
       "hasJobs": true,
@@ -63605,46 +63565,6 @@
       "_floor_id": "1669532"
     },
     {
-      "id": "53490429",
-      "wbsCode": "07.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838995",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838996",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF07 | FRONTAL",
-      "_floor_id": "1669532"
-    },
-    {
-      "id": "53490471",
-      "wbsCode": "07.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839055",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839056",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF07 | FRONTAL",
-      "_floor_id": "1669532"
-    },
-    {
       "id": "53490516",
       "wbsCode": "07.143",
       "hasJobs": true,
@@ -63837,46 +63757,6 @@
         },
         {
           "id": "42838917",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF09 | FRONTAL",
-      "_floor_id": "1669534"
-    },
-    {
-      "id": "53490427",
-      "wbsCode": "09.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838991",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838992",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF09 | FRONTAL",
-      "_floor_id": "1669534"
-    },
-    {
-      "id": "53490469",
-      "wbsCode": "09.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839051",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839052",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -64187,46 +64067,6 @@
         },
         {
           "id": "42838908",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF12 | DIREITA",
-      "_floor_id": "1669537"
-    },
-    {
-      "id": "53490424",
-      "wbsCode": "12.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838985",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838986",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF12 | DIREITA",
-      "_floor_id": "1669537"
-    },
-    {
-      "id": "53490466",
-      "wbsCode": "12.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839045",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839046",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -64745,46 +64585,6 @@
       "_floor_id": "1669542"
     },
     {
-      "id": "53490419",
-      "wbsCode": "17.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838975",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838976",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF17 | FUNDOS",
-      "_floor_id": "1669542"
-    },
-    {
-      "id": "53490461",
-      "wbsCode": "17.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839035",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839036",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF17 | FUNDOS",
-      "_floor_id": "1669542"
-    },
-    {
       "id": "53490506",
       "wbsCode": "17.143",
       "hasJobs": true,
@@ -65075,46 +64875,6 @@
       "_floor_id": "1669545"
     },
     {
-      "id": "53490416",
-      "wbsCode": "20.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838969",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838970",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF20 | FUNDOS",
-      "_floor_id": "1669545"
-    },
-    {
-      "id": "53490458",
-      "wbsCode": "20.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839029",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839030",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF20 | FUNDOS",
-      "_floor_id": "1669545"
-    },
-    {
       "id": "53490503",
       "wbsCode": "20.143",
       "hasJobs": true,
@@ -65177,46 +64937,6 @@
         },
         {
           "id": "42838881",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF21 | FUNDOS",
-      "_floor_id": "1669546"
-    },
-    {
-      "id": "53490415",
-      "wbsCode": "21.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838967",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838968",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF21 | FUNDOS",
-      "_floor_id": "1669546"
-    },
-    {
-      "id": "53490457",
-      "wbsCode": "21.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839027",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839028",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -65405,46 +65125,6 @@
       "_floor_id": "1669548"
     },
     {
-      "id": "53490413",
-      "wbsCode": "23.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838963",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838964",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF23 | FUNDOS",
-      "_floor_id": "1669548"
-    },
-    {
-      "id": "53490455",
-      "wbsCode": "23.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839023",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839024",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF23 | FUNDOS",
-      "_floor_id": "1669548"
-    },
-    {
       "id": "53490500",
       "wbsCode": "23.143",
       "hasJobs": true,
@@ -65507,46 +65187,6 @@
         },
         {
           "id": "42838872",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF24 | FUNDOS",
-      "_floor_id": "1669549"
-    },
-    {
-      "id": "53490412",
-      "wbsCode": "24.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838961",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838962",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF24 | FUNDOS",
-      "_floor_id": "1669549"
-    },
-    {
-      "id": "53490454",
-      "wbsCode": "24.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839021",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839022",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -65727,46 +65367,6 @@
         },
         {
           "id": "42838866",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF26 | FUNDOS",
-      "_floor_id": "1669551"
-    },
-    {
-      "id": "53490410",
-      "wbsCode": "26.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838957",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838958",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF26 | FUNDOS",
-      "_floor_id": "1669551"
-    },
-    {
-      "id": "53490452",
-      "wbsCode": "26.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839017",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839018",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
@@ -66057,46 +65657,6 @@
         },
         {
           "id": "42838857",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF29 | FUNDOS",
-      "_floor_id": "1669554"
-    },
-    {
-      "id": "53490407",
-      "wbsCode": "29.122",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42838951",
-          "name": "EXECUÇÃO DO SISTEMA",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42838952",
-          "name": "CONFERÊNCIA FINAL",
-          "percentageCompleted": 0.0
-        }
-      ],
-      "_floor_name": "NF29 | FUNDOS",
-      "_floor_id": "1669554"
-    },
-    {
-      "id": "53490449",
-      "wbsCode": "29.162",
-      "hasJobs": true,
-      "percentageCompleted": 0.0,
-      "jobs": [
-        {
-          "id": "42839011",
-          "name": "ASSENTAMENTO PING.",
-          "percentageCompleted": 0.0
-        },
-        {
-          "id": "42839012",
           "name": "CONFERÊNCIA FINAL",
           "percentageCompleted": 0.0
         }
