@@ -1,7 +1,7 @@
 {
   "project_id": 10223,
   "project_name": "CAPE TOWN RESIDENCE",
-  "collected_at": "2026-09-08T13:19:49.092998",
+  "collected_at": "2026-09-10T13:24:09.171080",
   "floors_total": 83,
   "activities_total": 2938,
   "activities_list": [
@@ -11479,7 +11479,7 @@
       "part": null,
       "percentageCompleted": null,
       "startAt": "2027-04-02 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "updatedAt": "2026-09-09 12:29:37 UTC",
       "wbsCode": "64.191",
       "workDuration": 5.0,
       "_floor_name": "06º PV - TIPO DIF. 01 | LAZER",
@@ -11530,7 +11530,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11552,7 +11552,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11574,7 +11574,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11596,7 +11596,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11618,7 +11618,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11640,7 +11640,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11662,7 +11662,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11684,7 +11684,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11706,7 +11706,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11728,7 +11728,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11750,7 +11750,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11772,7 +11772,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11794,7 +11794,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11816,7 +11816,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11838,7 +11838,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11860,7 +11860,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11882,12 +11882,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 2297.102,
-      "endAt": "2027-06-24 23:59:59 UTC",
+      "endAt": "2027-06-25 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -11896,15 +11896,15 @@
       "id": "11730909",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-18 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-21 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.48",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11926,12 +11926,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 6489.371045090945,
-      "endAt": "2027-06-17 23:59:59 UTC",
+      "endAt": "2027-06-18 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -11940,15 +11940,15 @@
       "id": "11731889",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.135",
       "workDuration": 10.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -11970,12 +11970,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 4970.71269773199,
-      "endAt": "2027-07-08 23:59:59 UTC",
+      "endAt": "2027-07-09 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -11984,20 +11984,20 @@
       "id": "11731935",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-07-02 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-07-05 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.167",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 16533.11233329611,
-      "endAt": "2027-04-29 23:59:59 UTC",
+      "endAt": "2027-04-30 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12006,20 +12006,20 @@
       "id": "11818595",
       "part": null,
       "percentageCompleted": 0.0,
-      "startAt": "2027-04-15 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-04-16 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.127",
       "workDuration": 10.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 18027.0,
-      "endAt": "2027-06-02 23:59:59 UTC",
+      "endAt": "2027-06-03 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12028,15 +12028,15 @@
       "id": "11819134",
       "part": null,
       "percentageCompleted": 0.0,
-      "startAt": "2027-05-19 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-20 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.164",
       "workDuration": 10.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12058,7 +12058,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12080,7 +12080,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12102,7 +12102,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12124,7 +12124,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12146,12 +12146,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 2400.0,
-      "endAt": "2027-07-01 23:59:59 UTC",
+      "endAt": "2027-07-02 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12160,15 +12160,15 @@
       "id": "12752269",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-25 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-28 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.168",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12190,7 +12190,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12212,7 +12212,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12234,7 +12234,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12256,7 +12256,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12278,7 +12278,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12300,7 +12300,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12322,7 +12322,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12344,7 +12344,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12366,7 +12366,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12388,12 +12388,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 4570.523336989752,
-      "endAt": "2027-06-17 23:59:59 UTC",
+      "endAt": "2027-06-18 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12402,20 +12402,20 @@
       "id": "24200712",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-11 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-14 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.64",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 4611.1111148,
-      "endAt": "2027-06-17 23:59:59 UTC",
+      "endAt": "2027-06-18 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12424,15 +12424,15 @@
       "id": "24212166",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-11 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-14 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.70",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12454,7 +12454,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12476,7 +12476,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12498,7 +12498,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12520,7 +12520,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12542,7 +12542,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12564,7 +12564,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12586,7 +12586,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12608,12 +12608,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 398.682,
-      "endAt": "2027-06-03 23:59:59 UTC",
+      "endAt": "2027-06-04 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12622,15 +12622,15 @@
       "id": "29673917",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-28 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-31 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.47",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12652,7 +12652,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12674,7 +12674,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12696,7 +12696,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12718,12 +12718,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 41320.83914288449,
-      "endAt": "2027-04-29 23:59:59 UTC",
+      "endAt": "2027-04-30 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12732,15 +12732,15 @@
       "id": "30098752",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-04-15 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-04-16 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.128",
       "workDuration": 10.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12762,12 +12762,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 933.7776666879365,
-      "endAt": "2027-05-12 23:59:59 UTC",
+      "endAt": "2027-05-13 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12776,15 +12776,15 @@
       "id": "30104328",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-06 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.125",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12806,7 +12806,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12828,7 +12828,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12850,12 +12850,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 2254.7203333120633,
-      "endAt": "2027-05-12 23:59:59 UTC",
+      "endAt": "2027-05-13 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -12864,15 +12864,15 @@
       "id": "30104777",
       "part": null,
       "percentageCompleted": 0.0,
-      "startAt": "2027-05-06 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.124",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12894,7 +12894,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12916,7 +12916,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12938,7 +12938,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12960,7 +12960,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -12982,7 +12982,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13004,7 +13004,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13026,12 +13026,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 175.0,
-      "endAt": "2027-06-17 23:59:59 UTC",
+      "endAt": "2027-06-18 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -13040,20 +13040,20 @@
       "id": "30807032",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-11 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-14 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.72",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 1353.3182438364647,
-      "endAt": "2027-06-24 23:59:59 UTC",
+      "endAt": "2027-06-25 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -13062,15 +13062,15 @@
       "id": "31660845",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-18 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-21 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.71",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13092,7 +13092,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13114,7 +13114,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13136,7 +13136,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13158,7 +13158,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13180,7 +13180,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13202,7 +13202,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13224,7 +13224,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13246,7 +13246,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13268,12 +13268,12 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 2240.044,
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-06-11 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380204",
       "floorNameWithActivityPart": "07º PV - TIPO DIF. 02",
@@ -13282,15 +13282,15 @@
       "id": "36662435",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "63.133",
       "workDuration": 5.0,
       "_floor_name": "07º PV - TIPO DIF. 02",
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13312,7 +13312,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13334,7 +13334,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13356,7 +13356,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13378,7 +13378,7 @@
       "_floor_position": 63,
       "_floor_tag": null,
       "_floor_start_at": "2024-06-14 00:00:00 UTC",
-      "_floor_end_at": "2027-07-08 23:59:59 UTC",
+      "_floor_end_at": "2027-07-09 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13400,7 +13400,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13422,7 +13422,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13444,7 +13444,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13466,7 +13466,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13488,7 +13488,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13510,7 +13510,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13532,7 +13532,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13554,7 +13554,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13576,7 +13576,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13598,7 +13598,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13620,7 +13620,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13642,7 +13642,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13664,7 +13664,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13686,7 +13686,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13708,7 +13708,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13730,7 +13730,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13752,12 +13752,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 32911.216153636335,
-      "endAt": "2027-05-12 23:59:59 UTC",
+      "endAt": "2027-05-13 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13766,20 +13766,20 @@
       "id": "11714381",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-06 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.159",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 1990.842,
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-06-11 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13788,20 +13788,20 @@
       "id": "11714476",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.48",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 5493.089045090945,
-      "endAt": "2027-06-03 23:59:59 UTC",
+      "endAt": "2027-06-04 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13810,20 +13810,20 @@
       "id": "11714547",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-20 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-21 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.135",
       "workDuration": 10.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 7225.869024811143,
-      "endAt": "2027-05-19 23:59:59 UTC",
+      "endAt": "2027-05-20 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13832,20 +13832,20 @@
       "id": "11714579",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-13 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-14 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.61",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 4970.71269773199,
-      "endAt": "2027-06-24 23:59:59 UTC",
+      "endAt": "2027-06-25 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13854,15 +13854,15 @@
       "id": "11714647",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-18 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-21 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.167",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13884,7 +13884,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13906,7 +13906,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13928,12 +13928,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 9440.81,
-      "endAt": "2027-05-05 23:59:59 UTC",
+      "endAt": "2027-05-06 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13942,15 +13942,15 @@
       "id": "12751080",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-04-29 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-04-30 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.46",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -13972,12 +13972,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 1200.0,
-      "endAt": "2027-06-17 23:59:59 UTC",
+      "endAt": "2027-06-18 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -13986,15 +13986,15 @@
       "id": "12751361",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-11 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-14 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.168",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14016,7 +14016,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14038,7 +14038,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14060,7 +14060,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14082,7 +14082,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14104,7 +14104,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14126,7 +14126,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14148,7 +14148,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14170,12 +14170,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 4570.523336989752,
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-06-11 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14184,20 +14184,20 @@
       "id": "24200713",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.64",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 4611.1111148,
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-06-11 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14206,15 +14206,15 @@
       "id": "24212167",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.70",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14236,7 +14236,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14258,7 +14258,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14280,7 +14280,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14302,7 +14302,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14324,7 +14324,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14346,7 +14346,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14368,7 +14368,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14390,12 +14390,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 398.682,
-      "endAt": "2027-05-26 23:59:59 UTC",
+      "endAt": "2027-05-28 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14404,20 +14404,20 @@
       "id": "29673918",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-20 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-21 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.47",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 8468.648,
-      "endAt": "2027-05-05 23:59:59 UTC",
+      "endAt": "2027-05-06 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14426,15 +14426,15 @@
       "id": "29681794",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-04-29 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-04-30 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.45",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14456,7 +14456,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14478,7 +14478,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14500,12 +14500,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 8586.60614288449,
-      "endAt": "2027-04-14 23:59:59 UTC",
+      "endAt": "2027-04-15 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14514,20 +14514,20 @@
       "id": "30098753",
       "part": null,
       "percentageCompleted": 0.0,
-      "startAt": "2027-04-01 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-04-02 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.128",
       "workDuration": 10.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 7046.82,
-      "endAt": "2027-05-12 23:59:59 UTC",
+      "endAt": "2027-05-13 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14536,20 +14536,20 @@
       "id": "30104200",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-06 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.158",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 874.3481666879364,
-      "endAt": "2027-04-28 23:59:59 UTC",
+      "endAt": "2027-04-29 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14558,15 +14558,15 @@
       "id": "30104329",
       "part": null,
       "percentageCompleted": 0.0,
-      "startAt": "2027-04-22 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-04-23 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.125",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14588,7 +14588,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14610,7 +14610,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14632,7 +14632,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14654,7 +14654,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14676,7 +14676,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14698,7 +14698,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14720,7 +14720,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14742,7 +14742,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14764,7 +14764,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14786,7 +14786,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14808,12 +14808,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 175.0,
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-06-11 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14822,20 +14822,20 @@
       "id": "30807033",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.72",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 1353.3182438364647,
-      "endAt": "2027-06-10 23:59:59 UTC",
+      "endAt": "2027-06-11 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -14844,15 +14844,15 @@
       "id": "31660846",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-06-04 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-06-07 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.71",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14874,7 +14874,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14896,7 +14896,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14918,7 +14918,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14940,7 +14940,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14962,7 +14962,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -14984,7 +14984,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -15006,7 +15006,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -15028,7 +15028,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -15050,12 +15050,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 1840.044,
-      "endAt": "2027-06-03 23:59:59 UTC",
+      "endAt": "2027-06-04 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -15064,15 +15064,15 @@
       "id": "36662436",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-28 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-31 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.133",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -15094,12 +15094,12 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
       "budgetCost": 0.0,
-      "endAt": "2027-05-19 23:59:59 UTC",
+      "endAt": "2027-05-20 23:59:59 UTC",
       "expectedPercentageCompleted": 0.0,
       "floorId": "380205",
       "floorNameWithActivityPart": "08º PV - TIPO DIF. 03",
@@ -15108,15 +15108,15 @@
       "id": "37004545",
       "part": null,
       "percentageCompleted": null,
-      "startAt": "2027-05-13 00:00:00 UTC",
-      "updatedAt": "2026-09-03 16:56:07 UTC",
+      "startAt": "2027-05-14 00:00:00 UTC",
+      "updatedAt": "2026-09-09 12:29:22 UTC",
       "wbsCode": "62.180",
       "workDuration": 5.0,
       "_floor_name": "08º PV - TIPO DIF. 03",
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -15138,7 +15138,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -15160,7 +15160,7 @@
       "_floor_position": 62,
       "_floor_tag": null,
       "_floor_start_at": "2024-09-02 00:00:00 UTC",
-      "_floor_end_at": "2027-06-24 23:59:59 UTC",
+      "_floor_end_at": "2027-06-25 23:59:59 UTC",
       "_floor_has_quality": true
     },
     {
@@ -34599,9 +34599,9 @@
       "hasQualityAssociations": true,
       "id": "11714199",
       "part": null,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 40.0,
       "startAt": "2026-07-27 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:16:28 UTC",
+      "updatedAt": "2026-09-09 12:40:06 UTC",
       "wbsCode": "49.130",
       "workDuration": 10.0,
       "_floor_name": "21º PV - TIPO",
@@ -50793,7 +50793,7 @@
       "part": null,
       "percentageCompleted": 100.0,
       "startAt": "2026-09-08 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:36:41 UTC",
+      "updatedAt": "2026-09-09 12:40:06 UTC",
       "wbsCode": "39.78",
       "workDuration": 5.0,
       "_floor_name": "31º PV - TIPO",
@@ -50837,7 +50837,7 @@
       "part": null,
       "percentageCompleted": 100.0,
       "startAt": "2026-09-15 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:36:41 UTC",
+      "updatedAt": "2026-09-09 12:40:06 UTC",
       "wbsCode": "39.79",
       "workDuration": 5.0,
       "_floor_name": "31º PV - TIPO",
@@ -51563,7 +51563,7 @@
       "part": null,
       "percentageCompleted": 100.0,
       "startAt": "2026-09-21 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:36:41 UTC",
+      "updatedAt": "2026-09-09 12:40:06 UTC",
       "wbsCode": "39.26",
       "workDuration": 5.0,
       "_floor_name": "31º PV - TIPO",
@@ -53081,7 +53081,7 @@
       "part": null,
       "percentageCompleted": 100.0,
       "startAt": "2026-10-06 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:36:41 UTC",
+      "updatedAt": "2026-09-09 12:40:06 UTC",
       "wbsCode": "38.79",
       "workDuration": 5.0,
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
@@ -53367,7 +53367,7 @@
       "part": null,
       "percentageCompleted": 100.0,
       "startAt": "2026-09-28 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:36:41 UTC",
+      "updatedAt": "2026-09-09 12:40:06 UTC",
       "wbsCode": "38.26",
       "workDuration": 5.0,
       "_floor_name": "32º PV - TIPO DIF. 04 | LAZER",
@@ -57371,7 +57371,7 @@
       "part": null,
       "percentageCompleted": 80.825,
       "startAt": "2023-04-17 00:00:00 UTC",
-      "updatedAt": "2026-09-04 17:35:43 UTC",
+      "updatedAt": "2026-09-08 13:56:53 UTC",
       "wbsCode": "82.169",
       "workDuration": 1043.0,
       "_floor_name": "MENSAIS",
@@ -64773,7 +64773,7 @@
       "activitiesPage": {
         "totalCount": 85
       },
-      "endAt": "2027-07-08 23:59:59 UTC",
+      "endAt": "2027-07-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "380204",
       "name": "07º PV - TIPO DIF. 02",
@@ -64787,7 +64787,7 @@
       "activitiesPage": {
         "totalCount": 81
       },
-      "endAt": "2027-06-24 23:59:59 UTC",
+      "endAt": "2027-06-25 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "380205",
       "name": "08º PV - TIPO DIF. 03",
