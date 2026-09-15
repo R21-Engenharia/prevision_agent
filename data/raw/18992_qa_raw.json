@@ -6,55 +6,55 @@
       "activitiesPage": {
         "totalCount": 42
       },
-      "endAt": "2027-06-22 23:59:59 UTC",
+      "endAt": "2027-09-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "648037",
       "name": "INFRAESTRUTURA | SERVIÇOS GERAIS",
-      "position": 60,
+      "position": 62,
       "startAt": "2023-04-03 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
-        "totalCount": 73
+        "totalCount": 72
       },
-      "endAt": "2027-06-25 23:59:59 UTC",
+      "endAt": "2027-08-11 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648038",
       "name": "01º PV - TÉRREO COMUM",
-      "position": 49,
+      "position": 50,
       "startAt": "2024-02-22 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
-        "totalCount": 58
+        "totalCount": 57
       },
-      "endAt": "2027-05-04 23:59:59 UTC",
+      "endAt": "2027-08-16 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648041",
       "name": "02º PV - G1",
-      "position": 48,
+      "position": 49,
       "startAt": "2024-06-25 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 50
+      },
+      "endAt": "2027-05-19 23:59:59 UTC",
+      "hasQualityLocalsAssociations": true,
+      "id": "648042",
+      "name": "03º PV - G2",
+      "position": 48,
+      "startAt": "2024-08-27 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
         "totalCount": 51
       },
-      "endAt": "2027-05-10 23:59:59 UTC",
-      "hasQualityLocalsAssociations": true,
-      "id": "648042",
-      "name": "03º PV - G2",
-      "position": 47,
-      "startAt": "2024-08-27 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 52
-      },
-      "endAt": "2027-04-09 23:59:59 UTC",
+      "endAt": "2027-05-12 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648043",
       "name": "04º PV - G3",
@@ -64,9 +64,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 56
+        "totalCount": 55
       },
-      "endAt": "2027-03-19 23:59:59 UTC",
+      "endAt": "2027-06-08 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648044",
       "name": "05º PV - G4",
@@ -76,9 +76,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 105
+        "totalCount": 104
       },
-      "endAt": "2027-08-03 23:59:59 UTC",
+      "endAt": "2027-09-06 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648045",
       "name": "06º PV - LAZER",
@@ -88,9 +88,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 85
+        "totalCount": 84
       },
-      "endAt": "2027-04-14 23:59:59 UTC",
+      "endAt": "2027-06-23 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648046",
       "name": "07º PV - TIPO DIF.",
@@ -100,9 +100,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-05-04 23:59:59 UTC",
+      "endAt": "2027-06-28 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648047",
       "name": "08º PV - TIPO",
@@ -112,9 +112,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-04-27 23:59:59 UTC",
+      "endAt": "2027-07-05 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648048",
       "name": "09º PV - TIPO",
@@ -124,9 +124,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-04-19 23:59:59 UTC",
+      "endAt": "2027-07-12 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648049",
       "name": "10º PV - TIPO",
@@ -136,9 +136,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-04-12 23:59:59 UTC",
+      "endAt": "2027-07-19 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648050",
       "name": "11º PV - TIPO",
@@ -148,9 +148,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
-      "endAt": "2027-04-05 23:59:59 UTC",
+      "endAt": "2027-07-26 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648051",
       "name": "12º PV - TIPO",
@@ -160,9 +160,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-03-29 23:59:59 UTC",
+      "endAt": "2027-08-02 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648052",
       "name": "13º PV - TIPO",
@@ -172,9 +172,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-03-19 23:59:59 UTC",
+      "endAt": "2027-08-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648053",
       "name": "14º PV - TIPO",
@@ -184,9 +184,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-03-31 23:59:59 UTC",
+      "endAt": "2027-08-16 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648054",
       "name": "15º PV - TIPO",
@@ -196,9 +196,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-04-14 23:59:59 UTC",
+      "endAt": "2027-08-23 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648055",
       "name": "16º PV - TIPO",
@@ -208,9 +208,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-04-29 23:59:59 UTC",
+      "endAt": "2027-08-30 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648056",
       "name": "17º PV - TIPO",
@@ -220,9 +220,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 76
+        "totalCount": 75
       },
-      "endAt": "2027-05-13 23:59:59 UTC",
+      "endAt": "2027-09-06 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648057",
       "name": "18º PV - TIPO",
@@ -232,9 +232,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-05-20 23:59:59 UTC",
+      "endAt": "2027-09-14 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648058",
       "name": "19º PV - TIPO",
@@ -244,9 +244,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-05-28 23:59:59 UTC",
+      "endAt": "2027-09-21 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648059",
       "name": "20º PV - TIPO",
@@ -256,9 +256,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-06-04 23:59:59 UTC",
+      "endAt": "2027-09-28 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648060",
       "name": "21º PV - TIPO",
@@ -268,9 +268,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 75
+        "totalCount": 74
       },
-      "endAt": "2027-06-11 23:59:59 UTC",
+      "endAt": "2027-10-05 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648061",
       "name": "22º PV - TIPO",
@@ -280,9 +280,9 @@
     },
     {
       "activitiesPage": {
-        "totalCount": 117
+        "totalCount": 116
       },
-      "endAt": "2027-06-23 23:59:59 UTC",
+      "endAt": "2027-10-13 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648071",
       "name": "23º PV - COBERTURA",
@@ -294,7 +294,7 @@
       "activitiesPage": {
         "totalCount": 46
       },
-      "endAt": "2026-12-01 23:59:59 UTC",
+      "endAt": "2026-12-09 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648072",
       "name": "CMQ1 | PLATIBANDA",
@@ -306,7 +306,7 @@
       "activitiesPage": {
         "totalCount": 39
       },
-      "endAt": "2026-12-11 23:59:59 UTC",
+      "endAt": "2026-12-23 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648073",
       "name": "CMQ2 | BARRILETE",
@@ -318,7 +318,7 @@
       "activitiesPage": {
         "totalCount": 16
       },
-      "endAt": "2027-01-25 23:59:59 UTC",
+      "endAt": "2027-02-01 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648074",
       "name": "RESERVATÓRIO",
@@ -333,7 +333,7 @@
       "endAt": "2027-03-29 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648075",
-      "name": "EMBASAMENTO LATERAL ESQUERDA ( OESTE )",
+      "name": "EMB. O. | EMBASAMENTO OESTE",
       "position": 21,
       "startAt": "2026-06-22 00:00:00 UTC",
       "tag": null
@@ -345,7 +345,7 @@
       "endAt": "2027-05-11 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648076",
-      "name": "EMBASAMENTO FRONTAL | RUA 200 ( SUL )",
+      "name": "EMB. S. | EMBASAMENTO SUL",
       "position": 24,
       "startAt": "2026-01-05 00:00:00 UTC",
       "tag": null
@@ -357,7 +357,7 @@
       "endAt": "2027-04-12 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648081",
-      "name": "EMBASAMENTO FUNDOS | RUA 100 ( NORTE )",
+      "name": "EMB. N. | EMBASAMENTO NORTE",
       "position": 22,
       "startAt": "2026-04-06 00:00:00 UTC",
       "tag": null
@@ -369,7 +369,7 @@
       "endAt": "2027-04-27 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "648082",
-      "name": "EMBASAMENTO LATERAL DIREITA ( LESTE )",
+      "name": "EMB. L. | EMBASAMENTO LESTE",
       "position": 23,
       "startAt": "2026-06-15 00:00:00 UTC",
       "tag": null
@@ -382,7 +382,7 @@
       "hasQualityLocalsAssociations": false,
       "id": "648083",
       "name": "MENSAIS",
-      "position": 61,
+      "position": 64,
       "startAt": "2023-04-11 00:00:00 UTC",
       "tag": null
     },
@@ -394,7 +394,7 @@
       "hasQualityLocalsAssociations": false,
       "id": "648084",
       "name": "EQUIPAMENTOS",
-      "position": 61,
+      "position": 63,
       "startAt": "2024-06-18 00:00:00 UTC",
       "tag": null
     },
@@ -402,11 +402,11 @@
       "activitiesPage": {
         "totalCount": 13
       },
-      "endAt": "2027-03-16 23:59:59 UTC",
+      "endAt": "2027-03-31 23:59:59 UTC",
       "hasQualityLocalsAssociations": true,
       "id": "886616",
       "name": "ESCADARIA",
-      "position": 56,
+      "position": 58,
       "startAt": "2026-03-02 00:00:00 UTC",
       "tag": null
     },
@@ -418,7 +418,7 @@
       "hasQualityLocalsAssociations": false,
       "id": "1054229",
       "name": "PÓS GRUA",
-      "position": 57,
+      "position": 59,
       "startAt": "2026-08-06 00:00:00 UTC",
       "tag": null
     },
@@ -430,7 +430,7 @@
       "hasQualityLocalsAssociations": false,
       "id": "1054230",
       "name": "PÓS - HABITE-SE",
-      "position": 59,
+      "position": 61,
       "startAt": null,
       "tag": null
     },
@@ -442,7 +442,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1092383",
       "name": "01º PV - SALA 4",
-      "position": 52,
+      "position": 54,
       "startAt": "2026-10-05 00:00:00 UTC",
       "tag": null
     },
@@ -454,7 +454,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1092399",
       "name": "01º PV - SALA 5",
-      "position": 53,
+      "position": 55,
       "startAt": "2026-10-05 00:00:00 UTC",
       "tag": null
     },
@@ -466,7 +466,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1092400",
       "name": "01º PV - SALA 6",
-      "position": 54,
+      "position": 56,
       "startAt": "2026-10-05 00:00:00 UTC",
       "tag": null
     },
@@ -478,7 +478,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1092401",
       "name": "01º PV - SALA 7",
-      "position": 55,
+      "position": 57,
       "startAt": "2025-09-10 00:00:00 UTC",
       "tag": null
     },
@@ -490,7 +490,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1221366",
       "name": "01º PV - SALA 1",
-      "position": 50,
+      "position": 51,
       "startAt": "2026-05-04 00:00:00 UTC",
       "tag": null
     },
@@ -502,7 +502,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1221367",
       "name": "01º PV - SALA 2",
-      "position": 51,
+      "position": 52,
       "startAt": "2026-05-04 00:00:00 UTC",
       "tag": null
     },
@@ -514,7 +514,7 @@
       "hasQualityLocalsAssociations": true,
       "id": "1226342",
       "name": "01º PV - SALA 3",
-      "position": 52,
+      "position": 53,
       "startAt": "2026-10-05 00:00:00 UTC",
       "tag": null
     },
@@ -526,7 +526,7 @@
       "hasQualityLocalsAssociations": false,
       "id": "1394178",
       "name": "PÓS CREMALHEIRA",
-      "position": 58,
+      "position": 60,
       "startAt": "2027-05-14 00:00:00 UTC",
       "tag": null
     },
@@ -534,143 +534,23 @@
       "activitiesPage": {
         "totalCount": 2
       },
-      "endAt": "2027-07-21 23:59:59 UTC",
+      "endAt": "2027-03-19 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676619",
       "name": "NF09 - OESTE",
       "position": 9,
-      "startAt": "2027-01-11 00:00:00 UTC",
+      "startAt": "2026-12-10 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
         "totalCount": 4
       },
-      "endAt": "2027-10-15 23:59:59 UTC",
+      "endAt": "2027-04-13 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676620",
       "name": "NF12 - SUL",
       "position": 12,
-      "startAt": "2027-02-22 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2027-11-16 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676621",
-      "name": "NF13 - SUL",
-      "position": 13,
-      "startAt": "2027-03-08 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 2
-      },
-      "endAt": "2027-12-14 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676622",
-      "name": "NF14 - SUL",
-      "position": 14,
-      "startAt": "2027-03-22 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 2
-      },
-      "endAt": "2028-01-11 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676623",
-      "name": "NF15 - SUL",
-      "position": 15,
-      "startAt": "2027-03-22 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 2
-      },
-      "endAt": "2028-02-08 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676624",
-      "name": "NF16 - SUL",
-      "position": 16,
-      "startAt": "2027-03-22 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 2
-      },
-      "endAt": "2028-03-07 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676625",
-      "name": "NF17 - SUL",
-      "position": 17,
-      "startAt": "2027-04-06 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2028-04-04 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676626",
-      "name": "NF18 - SUL",
-      "position": 18,
-      "startAt": "2027-04-20 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2028-05-05 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676627",
-      "name": "NF19 - SUL",
-      "position": 19,
-      "startAt": "2027-05-05 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 5
-      },
-      "endAt": "2027-10-14 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676628",
-      "name": "NF11 - OESTE",
-      "position": 11,
-      "startAt": "2027-02-08 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2028-06-02 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676629",
-      "name": "NF20 - SUL",
-      "position": 20,
-      "startAt": "2027-05-19 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2027-08-18 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676630",
-      "name": "NF10 - OESTE",
-      "position": 10,
       "startAt": "2027-01-25 00:00:00 UTC",
       "tag": null
     },
@@ -678,47 +558,143 @@
       "activitiesPage": {
         "totalCount": 4
       },
-      "endAt": "2027-06-23 23:59:59 UTC",
+      "endAt": "2027-04-29 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
-      "id": "1676631",
-      "name": "NF08 - NORTE",
-      "position": 8,
-      "startAt": "2026-12-17 00:00:00 UTC",
+      "id": "1676621",
+      "name": "NF13 - SUL",
+      "position": 13,
+      "startAt": "2027-01-25 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
         "totalCount": 2
       },
-      "endAt": "2027-05-25 23:59:59 UTC",
+      "endAt": "2027-04-29 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676622",
+      "name": "NF14 - SUL",
+      "position": 14,
+      "startAt": "2027-01-25 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 2
+      },
+      "endAt": "2027-05-14 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676623",
+      "name": "NF15 - SUL",
+      "position": 15,
+      "startAt": "2027-01-25 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 2
+      },
+      "endAt": "2027-05-14 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676624",
+      "name": "NF16 - SUL",
+      "position": 16,
+      "startAt": "2027-01-25 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 2
+      },
+      "endAt": "2027-06-01 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676625",
+      "name": "NF17 - SUL",
+      "position": 17,
+      "startAt": "2027-03-01 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-06-17 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676626",
+      "name": "NF18 - CREMALHEIRA",
+      "position": 18,
+      "startAt": "2027-04-06 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-07-01 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676627",
+      "name": "NF19 - SUL",
+      "position": 19,
+      "startAt": "2027-03-01 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 5
+      },
+      "endAt": "2027-05-04 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676628",
+      "name": "NF11 - OESTE",
+      "position": 11,
+      "startAt": "2026-12-10 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-07-15 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676629",
+      "name": "NF20 - SUL",
+      "position": 20,
+      "startAt": "2027-03-01 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-03-19 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676630",
+      "name": "NF10 - OESTE",
+      "position": 10,
+      "startAt": "2026-12-10 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-03-04 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676631",
+      "name": "NF08 - NORTE",
+      "position": 8,
+      "startAt": "2026-12-10 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 2
+      },
+      "endAt": "2027-03-04 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676632",
       "name": "NF07 - NORTE",
       "position": 7,
-      "startAt": "2026-12-03 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2027-04-27 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676633",
-      "name": "NF06 - NORTE",
-      "position": 6,
-      "startAt": "2026-11-19 00:00:00 UTC",
-      "tag": null
-    },
-    {
-      "activitiesPage": {
-        "totalCount": 4
-      },
-      "endAt": "2027-03-29 23:59:59 UTC",
-      "hasQualityLocalsAssociations": false,
-      "id": "1676634",
-      "name": "NF05 - NORTE",
-      "position": 5,
       "startAt": "2026-11-05 00:00:00 UTC",
       "tag": null
     },
@@ -726,48 +702,72 @@
       "activitiesPage": {
         "totalCount": 4
       },
-      "endAt": "2027-02-26 23:59:59 UTC",
+      "endAt": "2027-02-17 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676633",
+      "name": "NF06 - NORTE",
+      "position": 6,
+      "startAt": "2026-11-05 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-02-17 23:59:59 UTC",
+      "hasQualityLocalsAssociations": false,
+      "id": "1676634",
+      "name": "NF05 - NORTE",
+      "position": 5,
+      "startAt": "2026-09-29 00:00:00 UTC",
+      "tag": null
+    },
+    {
+      "activitiesPage": {
+        "totalCount": 4
+      },
+      "endAt": "2027-02-02 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676635",
       "name": "NF04 - NORTE",
       "position": 4,
-      "startAt": "2026-10-21 00:00:00 UTC",
+      "startAt": "2026-09-29 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
         "totalCount": 5
       },
-      "endAt": "2027-02-25 23:59:59 UTC",
+      "endAt": "2027-03-01 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676636",
       "name": "NF03 - NORTE",
       "position": 3,
-      "startAt": "2026-10-06 00:00:00 UTC",
+      "startAt": "2026-08-24 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
         "totalCount": 4
       },
-      "endAt": "2026-12-23 23:59:59 UTC",
+      "endAt": "2027-01-18 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676637",
       "name": "NF02 - NORTE",
       "position": 2,
-      "startAt": "2026-09-22 00:00:00 UTC",
+      "startAt": "2026-08-24 00:00:00 UTC",
       "tag": null
     },
     {
       "activitiesPage": {
         "totalCount": 4
       },
-      "endAt": "2026-11-25 23:59:59 UTC",
+      "endAt": "2027-01-18 23:59:59 UTC",
       "hasQualityLocalsAssociations": false,
       "id": "1676638",
       "name": "NF01 - LESTE",
       "position": 1,
-      "startAt": "2026-09-08 00:00:00 UTC",
+      "startAt": "2026-08-03 00:00:00 UTC",
       "tag": null
     }
   ],
@@ -38839,7 +38839,7 @@
       "hasQualityAssociations": true,
       "hasQualityModelsAssociations": true,
       "id": "3111239",
-      "name": "ELE | PAREDE TÉCNICA (HALL)",
+      "name": "ELE | INFRA HALL E ANTECÂMARA",
       "position": 51
     },
     {
