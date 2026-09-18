@@ -1,7 +1,7 @@
 {
   "project_id": 18992,
   "project_name": "HOLMES RESIDENCE",
-  "collected_at": "2026-09-17T14:43:28.400723",
+  "collected_at": "2026-09-18T14:06:07.725825",
   "total": 2236,
   "total_with_jobs": 1898,
   "activities_list": [
@@ -543,7 +543,7 @@
       "id": "53712523",
       "wbsCode": "62.142",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 3.71,
       "jobs": [
         {
           "id": "42899240",
@@ -563,7 +563,7 @@
         {
           "id": "42899243",
           "name": "CONTRAMARCOS",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 5.0
         },
         {
           "id": "42899244",
@@ -598,7 +598,7 @@
         {
           "id": "42899250",
           "name": "ILUM. EMERGÊNCIA",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 100.0
         },
         {
           "id": "42899251",
@@ -6274,7 +6274,7 @@
       "id": "30319080",
       "wbsCode": "46.60",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11265189",
@@ -16877,7 +16877,7 @@
       "id": "25138439",
       "wbsCode": "40.177",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10820599",
@@ -29574,7 +29574,7 @@
       "id": "30755303",
       "wbsCode": "33.45",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "11250153",
@@ -42341,7 +42341,7 @@
       "id": "16181934",
       "wbsCode": "23.130",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "10820451",
@@ -42476,7 +42476,7 @@
       "id": "16182751",
       "wbsCode": "64.07",
       "hasJobs": false,
-      "percentageCompleted": 78.501,
+      "percentageCompleted": 79.052,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42485,7 +42485,7 @@
       "id": "32673789",
       "wbsCode": "64.189",
       "hasJobs": false,
-      "percentageCompleted": 81.375,
+      "percentageCompleted": 81.853,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42494,7 +42494,7 @@
       "id": "34433808",
       "wbsCode": "64.195",
       "hasJobs": false,
-      "percentageCompleted": 68.548,
+      "percentageCompleted": 69.355,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42503,7 +42503,7 @@
       "id": "34500718",
       "wbsCode": "64.196",
       "hasJobs": false,
-      "percentageCompleted": 74.806,
+      "percentageCompleted": 75.452,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42512,7 +42512,7 @@
       "id": "34500776",
       "wbsCode": "64.197",
       "hasJobs": false,
-      "percentageCompleted": 73.826,
+      "percentageCompleted": 74.497,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42521,7 +42521,7 @@
       "id": "47070723",
       "wbsCode": "64.241",
       "hasJobs": false,
-      "percentageCompleted": 1.015,
+      "percentageCompleted": 3.553,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42530,7 +42530,7 @@
       "id": "47073198",
       "wbsCode": "64.243",
       "hasJobs": false,
-      "percentageCompleted": 27.239,
+      "percentageCompleted": 29.104,
       "jobs": [],
       "_floor_name": "MENSAIS",
       "_floor_id": "648083"
@@ -42539,7 +42539,7 @@
       "id": "16183048",
       "wbsCode": "63.08",
       "hasJobs": false,
-      "percentageCompleted": 28.571,
+      "percentageCompleted": 30.403,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "648084"
@@ -42602,7 +42602,7 @@
       "id": "43234292",
       "wbsCode": "63.10",
       "hasJobs": false,
-      "percentageCompleted": 88.519,
+      "percentageCompleted": 89.444,
       "jobs": [],
       "_floor_name": "EQUIPAMENTOS",
       "_floor_id": "648084"
@@ -47031,7 +47031,7 @@
       "id": "36195400",
       "wbsCode": "51.142",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14723615",
@@ -47948,7 +47948,7 @@
       "id": "36195399",
       "wbsCode": "52.142",
       "hasJobs": true,
-      "percentageCompleted": null,
+      "percentageCompleted": 0.0,
       "jobs": [
         {
           "id": "14723613",
@@ -50971,12 +50971,12 @@
       "id": "53763720",
       "wbsCode": "04.119",
       "hasJobs": true,
-      "percentageCompleted": 0.0,
+      "percentageCompleted": 19.2,
       "jobs": [
         {
           "id": "42956938",
           "name": "CHAPISCO EXT.",
-          "percentageCompleted": 0.0
+          "percentageCompleted": 80.0
         },
         {
           "id": "42956939",
